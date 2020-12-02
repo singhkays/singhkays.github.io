@@ -1,0 +1,3 @@
+User-agent: *
+Disallow:
+Sitemap: https://singhkays.github.io/sitemap.xml

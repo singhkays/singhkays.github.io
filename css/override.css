@@ -1,0 +1,29 @@
+/* override css styles of the main theme here */
+@media (min-width: 600px) {
+  section {
+    max-width: 900px;
+    margin-left: 100px;
+    margin-right: 100px;
+  }
+}
+
+section.main .content .markdown img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+section.main .content .markdown h1 {
+  font-size: 1.9rem;
+  margin-bottom: 1.3rem;
+}
+
+section.main .content .markdown h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1.1rem;
+}
+
+section.main .content .markdown h3 {
+  font-size: 1.15rem;
+  margin-bottom: 1.1rem;
+}
