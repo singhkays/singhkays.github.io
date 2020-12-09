@@ -1,3 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Artificial Intelligence on KAY SINGH</title><link>https://singhkays.com/tags/artificial-intelligence/</link><description>Recent content in Artificial Intelligence on KAY SINGH</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright © 2017–2020, Kay Singh; all rights reserved.</copyright><lastBuildDate>Thu, 11 Apr 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/tags/artificial-intelligence/index.xml" rel="self" type="application/rss+xml"/><item><title>Detect Rolling Credits with Azure Video Indexer</title><link>https://singhkays.com/blog/detect-rolling-credits-video-indexer/</link><pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate><guid>https://singhkays.com/blog/detect-rolling-credits-video-indexer/</guid><description>Azure Video Indexer is one of my favorite services! It provides some amazing features such as:
-Identify faces and celebrities Extract text and objects (e.g. cat, table, car etc.) Detect scenes and shots Emotion and sentiment detection Audio effects such as clapping, silence &amp;amp; speech The full list of features can be viewed at https://vi.microsoft.com/en-us/
-Get the credits rolling! Recently, Video Indexer announced they’ve added the capability to detect rolling credits in the videos.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Artificial Intelligence on KAY SINGH</title>
+    <link>https://singhkays.com/tags/artificial-intelligence/</link>
+    <description>Recent content in Artificial Intelligence on KAY SINGH</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright © 2017–2020, Kay Singh; all rights reserved.</copyright>
+    <lastBuildDate>Thu, 11 Apr 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/tags/artificial-intelligence/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Detect Rolling Credits with Azure Video Indexer</title>
+      <link>https://singhkays.com/blog/detect-rolling-credits-video-indexer/</link>
+      <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://singhkays.com/blog/detect-rolling-credits-video-indexer/</guid>
+      <description>Azure Video Indexer is one of my favorite services! It provides some amazing features such as:
+ Identify faces and celebrities Extract text and objects (e.g. cat, table, car etc.) Detect scenes and shots Emotion and sentiment detection Audio effects such as clapping, silence &amp;amp; speech  The full list of features can be viewed at https://vi.microsoft.com/en-us/
+Get the credits rolling! Recently, Video Indexer announced they’ve added the capability to detect rolling credits in the videos.</description>
+    </item>
+    
+  </channel>
+</rss>

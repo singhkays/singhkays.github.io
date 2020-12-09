@@ -1,24 +1,453 @@
-<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Blogs - KAY SINGH</title><meta name=description content><meta name=keywords content="/"><meta name=author content="Kay Singh"><link rel=canonical href=https://singhkays.com/blog/><link href=https://singhkays.com/assets/css/stylesheet.min.e318e049243041b64c11946ba00cb35b38f894af479bd0b04a8527e013ba1461.css integrity="sha256-4xjgSSQwQbZMEZRroAyzWzj4lK9Hm9CwSoUn4BO6FGE=" rel="preload stylesheet" as=style><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><meta name=generator content="Hugo 0.79.0"><link rel=alternate type=application/rss+xml href=https://singhkays.com/blog/index.xml><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-108462543-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><meta name=twitter:card content="summary"><meta name=twitter:title content="Blogs"><meta name=twitter:description content="Kay Singh's Blog"><meta property="og:title" content="Blogs"><meta property="og:description" content="Kay Singh's Blog"><meta property="og:type" content="website"><meta property="og:url" content="https://singhkays.com/blog/"><meta property="og:updated_time" content="2020-12-09T00:00:00+00:00"><meta itemprop=name content="Blogs"><meta itemprop=description content="Kay Singh's Blog"><script type=text/javascript>window._mNHandle=window._mNHandle||{};window._mNHandle.queue=window._mNHandle.queue||[];medianet_versionId="3121199";</script><script src="//contextual.media.net/dmedianet.js?cid=8CUX6J71X" async></script><script async src=https://platform.twitter.com/widgets.js></script><script data-ad-client=ca-pub-8046835310934475 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script></head><body class=list><noscript><style type=text/css>.theme-toggle,.top-link{display:none}</style></noscript><header class=header><nav class=nav><div class=logo><a href=https://singhkays.com/ accesskey=h>KAY SINGH</a>
-<span class=logo-switches></span></div><ul class=menu id=menu onscroll=menu_on_scroll()><li><a href=https://singhkays.com/archives/><span>Archives</span></a></li><li><a href=https://singhkays.com/about/><span>About Me</span></a></li><li><a href=https://singhkays.com/contact/><span>Contact</span></a></li><li><a href=https://singhkays.com/index.xml/><span>RSS Feed</span></a></li></ul></nav></header><main class=main><header class=page-header><h1>Blogs</h1></header><article class=post-entry><figure class=entry-cover><img src=https://singhkays.com/media/serverless-av1.png alt></figure><header class=entry-header><h2>Part 2: Building a scalable 'shot-based' serverless AV1 video encoder in Azure</h2></header><section class=entry-content><p>This is a 3-part blog covering how to build a scalable shot-based serverless video encoder in Azure. In Part 1, I explain what AV1 is and where we are in the video encoding space. In part 2, we create a logic app to upload and index the video. In part 3, we’ll need to split the video into its scenes and encode individual scenes. For reference, here are the links to all the parts:...</p></section><footer class=entry-footer>August 1, 2019&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Kay Singh</footer><a class=entry-link aria-label="post link to Part 2: Building a scalable 'shot-based' serverless AV1 video encoder in Azure" href=https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-2/></a></article><article class=post-entry><header class=entry-header><h2>AV1 Ecosystem Update: June 2019</h2></header><section class=entry-content><p>It’s been a pretty busy for me professionally which is why this month’s AV1 ecosystem update is coming in pretty late. It’s been one of the most exciting months for AV1 development and a lot to catch up on! With so much news this month, it is starting to feel like we’re at the cusp of something big! (which we hope AV1 will be )
-Youtube pauses AV1 rollout Currently, YouTube is the biggest streaming platform delivering AV1 video and is responsible for the majority of AV1 video consumption on the internet....</p></section><footer class=entry-footer>July 22, 2019&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Kay Singh</footer><a class=entry-link aria-label="post link to AV1 Ecosystem Update: June 2019" href=https://singhkays.com/blog/av1-ecosystem-update-june-2019/></a></article><article class=post-entry><figure class=entry-cover><img src=https://singhkays.com/media/serverless-av1.png alt></figure><header class=entry-header><h2>Part 1: Building a scalable 'shot-based' serverless AV1 video encoder in Azure</h2></header><section class=entry-content><p>This is a 3-part blog covering how to build a scalable shot-based serverless video encoder in Azure. In Part 1, I explain what AV1 is and where we are in the video encoding space. In part 2, we create a logic app to upload and index the video. In part 3, we’ll need to split the video into its scenes and encode individual scenes. For reference, here are the links to all the parts:...</p></section><footer class=entry-footer>June 20, 2019&nbsp;·&nbsp;8 min&nbsp;·&nbsp;Kay Singh</footer><a class=entry-link aria-label="post link to Part 1: Building a scalable 'shot-based' serverless AV1 video encoder in Azure" href=https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-1/></a></article><article class=post-entry><header class=entry-header><h2>AV1 Ecosystem Update: May 2019</h2></header><section class=entry-content><p>May was another amazing month for the AV1 codec! We saw great progress in the SVT-AV1 encoder, Android update news and some surprising news out of China!
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>Blogs - KAY SINGH</title>
+
+<meta name="description" content="">
+<meta name="keywords" content= />
+<meta name="author" content="Kay Singh">
+<link rel="canonical" href="https://singhkays.com/blog/" />
+
+
+<link href="https://singhkays.com/assets/css/stylesheet.min.e318e049243041b64c11946ba00cb35b38f894af479bd0b04a8527e013ba1461.css" integrity="sha256-4xjgSSQwQbZMEZRroAyzWzj4lK9Hm9CwSoUn4BO6FGE=" rel="preload stylesheet"
+    as="style">
+
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<meta name="generator" content="Hugo 0.79.0" />
+<link rel="alternate" type="application/rss&#43;xml" href="https://singhkays.com/blog/index.xml">
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-108462543-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Blogs"/>
+<meta name="twitter:description" content="Kay Singh&#39;s Blog"/>
+
+<meta property="og:title" content="Blogs" />
+<meta property="og:description" content="Kay Singh&#39;s Blog" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://singhkays.com/blog/" />
+
+
+    
+        <meta property="og:updated_time" content="2020-12-09T00:00:00&#43;00:00"/>
+    
+
+
+
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Blogs">
+<meta itemprop="description" content="Kay Singh&#39;s Blog">
+
+
+<script type="text/javascript">
+  window._mNHandle = window._mNHandle || {};
+  window._mNHandle.queue = window._mNHandle.queue || [];
+  medianet_versionId = "3121199";
+</script>
+<script src="//contextual.media.net/dmedianet.js?cid=8CUX6J71X" async="async"></script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script data-ad-client="ca-pub-8046835310934475" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+</head>
+
+<body class="list">
+<noscript>
+    <style type="text/css">
+        .theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://singhkays.com/" accesskey="h">KAY SINGH</a>
+            <span class="logo-switches">
+                
+            </span>
+        </div>
+        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://singhkays.com/archives/">
+                    <span>
+                        Archives
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="https://singhkays.com/about/">
+                    <span>
+                        About Me
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="https://singhkays.com/contact/">
+                    <span>
+                        Contact
+                    </span>
+                </a>
+            </li>
+            <li>
+                <a href="https://singhkays.com/index.xml/">
+                    <span>
+                        RSS Feed
+                    </span>
+                </a>
+            </li></ul>
+    </nav>
+</header>
+
+    <main class="main"> 
+<header class="page-header">
+  <h1>Blogs</h1>
+</header>
+
+
+
+<article class="post-entry"> 
+<figure class="entry-cover"><img src="https://singhkays.com/media/serverless-av1.png" alt="">
+</figure>
+
+  <header class="entry-header">
+    <h2>
+      Part 2: Building a scalable &#39;shot-based&#39; serverless AV1 video encoder in Azure
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>This is a 3-part blog covering how to build a scalable shot-based serverless video encoder in Azure. In Part 1, I explain what AV1 is and where we are in the video encoding space. In part 2, we create a logic app to upload and index the video. In part 3, we’ll need to split the video into its scenes and encode individual scenes. For reference, here are the links to all the parts:...</p>
+  </section>
+  <footer class="entry-footer">
+
+August 1, 2019&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Kay Singh
+</footer>
+  <a class="entry-link" aria-label="post link to Part 2: Building a scalable &#39;shot-based&#39; serverless AV1 video encoder in Azure" href="https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-2/"></a>
+</article>
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      AV1 Ecosystem Update: June 2019
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>It’s been a pretty busy for me professionally which is why this month’s AV1 ecosystem update is coming in pretty late. It’s been one of the most exciting months for AV1 development and a lot to catch up on! With so much news this month, it is starting to feel like we’re at the cusp of something big! (which we hope AV1 will be )
+Youtube pauses AV1 rollout Currently, YouTube is the biggest streaming platform delivering AV1 video and is responsible for the majority of AV1 video consumption on the internet....</p>
+  </section>
+  <footer class="entry-footer">
+
+July 22, 2019&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Kay Singh
+</footer>
+  <a class="entry-link" aria-label="post link to AV1 Ecosystem Update: June 2019" href="https://singhkays.com/blog/av1-ecosystem-update-june-2019/"></a>
+</article>
+<article class="post-entry"> 
+<figure class="entry-cover"><img src="https://singhkays.com/media/serverless-av1.png" alt="">
+</figure>
+
+  <header class="entry-header">
+    <h2>
+      Part 1: Building a scalable &#39;shot-based&#39; serverless AV1 video encoder in Azure
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>This is a 3-part blog covering how to build a scalable shot-based serverless video encoder in Azure. In Part 1, I explain what AV1 is and where we are in the video encoding space. In part 2, we create a logic app to upload and index the video. In part 3, we’ll need to split the video into its scenes and encode individual scenes. For reference, here are the links to all the parts:...</p>
+  </section>
+  <footer class="entry-footer">
+
+June 20, 2019&nbsp;·&nbsp;8 min&nbsp;·&nbsp;Kay Singh
+</footer>
+  <a class="entry-link" aria-label="post link to Part 1: Building a scalable &#39;shot-based&#39; serverless AV1 video encoder in Azure" href="https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-1/"></a>
+</article>
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      AV1 Ecosystem Update: May 2019
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>May was another amazing month for the AV1 codec! We saw great progress in the SVT-AV1 encoder, Android update news and some surprising news out of China!
 SVT-AV1 is making strides! Let’s start with SVT-AV1 encoder, the current encoder of choice for Netflix, being developed by the folks at Intel. In May, version 0.5.0 was released with the following features:
-8 bit / 10 bit 4:2:0 up to 4K60p resolutions Presets 0-8 New API, FFmpeg, GStreamer plugins Rate control support (VBR, CVBR) Block sizes from 4x4 to 128x128 Non-square blocks Tiles Deblocking / CDEF / Restoration filters Film Grain Warped motion estimation Intra block copy Trellis quantized coefficient optimization Support for 4 and 5 layers prediction structures Chroma search in MD Multi-reference picture support Other notable updates May also saw the most number of commits to the SVT-AV1 Github repo as shown by the graph below....</p></section><footer class=entry-footer>June 10, 2019&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Kay Singh</footer><a class=entry-link aria-label="post link to AV1 Ecosystem Update: May 2019" href=https://singhkays.com/blog/av1-ecosystem-update-may-2019/></a></article><article class=post-entry><figure class=entry-cover><img src=https://singhkays.com/media/av1-logo.png alt></figure><header class=entry-header><h2>AV1 Resource Central: Videos, Tools, Presentations, Comparisons, Research Papers, Encoders, Decoders</h2></header><section class=entry-content><p>Bitstream spec https://aomediacodec.github.io/av1-spec/ Encoder Implementations SVT-AV1 Homepage https://01.org/svt Source repo https://github.com/OpenVisualCloud/SVT-AV1 User-Guide https://github.com/OpenVisualCloud/SVT-AV1/blob/master/Docs/svt-av1_encoder_user_guide.md Roadmap Trello page
-Microsoft Azure whitepaper https://01.org/sites/default/files/documentation/svt_azure_wp.pdf Amazon Web Services (AWS) Whitepaper http://01.org/sites/default/files/documentation/svt_aws_wp.pdf Mailing List http://lists.01.org/mailman/listinfo/svt-av1 aomenc Homepage and Source repo https://aomedia.googlesource.com/aom/ rav1e Homepage, Source repo https://github.com/xiph/rav1e Decoder Implementations dav1d Homepage, Source repo https://code.videolan.org/videolan/dav1d Presentations Mozilla @ NAB 2019 [April 2019 by Nathan Egge]...</p></section><footer class=entry-footer>May 14, 2019&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Kay Singh</footer><a class=entry-link aria-label="post link to AV1 Resource Central: Videos, Tools, Presentations, Comparisons, Research Papers, Encoders, Decoders" href=https://singhkays.com/blog/av1-wiki-resources-tools/></a></article><article class=post-entry><header class=entry-header><h2>AV1 Ecosystem Update: April 2019</h2></header><section class=entry-content><p>It’s been an exciting time following the progress of the royalty free video codec AV1 over the past year and April might just be the most exciting active month in the amount of news we got about AV1! It’s not every day that media industry giants such as Netflix, Google, Mozilla, Microsoft, Apple, Amazon, ARM, Facebook, Nvidia, Intel, Cisco and many others agree on the same technology stack!
-Samsung joins the party The month started with Samsung announcing they were joining the Alliance of Open Media Board at the highest level....</p></section><footer class=entry-footer>May 6, 2019&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Kay Singh</footer><a class=entry-link aria-label="post link to AV1 Ecosystem Update: April 2019" href=https://singhkays.com/blog/av1-ecosystem-update-april-2019/></a></article><article class=post-entry><header class=entry-header><h2>How to identify boot, temp and data disks in Azure Linux VMs</h2></header><section class=entry-content><p>In Azure, every VM has a persistent OS Disk that is used for booting the VM and contains the operating system. In addition to an OS disk, each VM also has a temporary disk that is present on the compute cluster hosting your VM.
-Why is my OS disk not @ /dev/sda? In most cases the OS disk is /dev/sda but in some odd cases it is not. This is not an Azure specific issue but a default Linux behavior....</p></section><footer class=entry-footer>April 30, 2019&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Kay Singh</footer><a class=entry-link aria-label="post link to How to identify boot, temp and data disks in Azure Linux VMs" href=https://singhkays.com/blog/how-to-identify-azure-linux-vm-disks/></a></article><article class=post-entry><figure class=entry-cover><img src=https://singhkays.com/media/aint-nobody-got-time-for-gif.png alt></figure><header class=entry-header><h2>It's time to replace GIFs with AV1 video!</h2></header><section class=entry-content><p>It is 2019 and we need to make a decision about GIFs (no, not that one! We’re never going to be able to decide that one!). GIFs take up a massive amount of space (often multiple megabytes!) and if you’re a web developer, then that’s completely against your ethos! As a web developer, you want to minimize the bits your users need to download so that your website loads fast. That’s why you minify javascript, optimize PNGs, JPEGs and sometimes turn JPEGs to WebPs as well....</p></section><footer class=entry-footer>April 28, 2019&nbsp;·&nbsp;9 min&nbsp;·&nbsp;Kay Singh</footer><a class=entry-link aria-label="post link to It's time to replace GIFs with AV1 video!" href=https://singhkays.com/blog/its-time-replace-gifs-with-av1-video/></a></article><article class=post-entry><header class=entry-header><h2>Detect Rolling Credits with Azure Video Indexer</h2></header><section class=entry-content><p>Azure Video Indexer is one of my favorite services! It provides some amazing features such as:
-Identify faces and celebrities Extract text and objects (e.g. cat, table, car etc.) Detect scenes and shots Emotion and sentiment detection Audio effects such as clapping, silence & speech The full list of features can be viewed at https://vi.microsoft.com/en-us/
-Get the credits rolling! Recently, Video Indexer announced they’ve added the capability to detect rolling credits in the videos....</p></section><footer class=entry-footer>April 11, 2019&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Kay Singh</footer><a class=entry-link aria-label="post link to Detect Rolling Credits with Azure Video Indexer" href=https://singhkays.com/blog/detect-rolling-credits-video-indexer/></a></article><article class=post-entry><header class=entry-header><h2>The "Other Chromes": A Chromium-based browser market analysis</h2></header><section class=entry-content><p>We’re living in a golden age of web browser choice. But before I begin this story, I need to take you back to 2006. You see back in 2006 as a young technologist, my choices of a web browser were limited. It was either Internet Explorer or Mozilla Firefox. But then one day while browsing through PC World magazine, I discovered an alternate option – Opera.
-Opera had many differentiated features such as a customizable streamlined user interface as well as being more memory efficient and faster than Firefox....</p></section><footer class=entry-footer>March 9, 2019&nbsp;·&nbsp;8 min&nbsp;·&nbsp;Kay Singh</footer><a class=entry-link aria-label='post link to The "Other Chromes": A Chromium-based browser market analysis' href=https://singhkays.com/blog/the-other-chromes/></a></article><article class=post-entry><header class=entry-header><h2>Microsoft Ignite 2018: VM Scale Sets + Shared Image Gallery = Infrastructure at scale - BRK3339</h2></header><section class=entry-content><p>When you need to create a lot of instances from a custom VM image, VM Scale Sets and Shared Image Gallery are the services you need to use. In this session we walk through how to combine the power of VM Scale Sets & Shared Image Gallery to build infrastructure at scale.
-medianet_width = "600"; medianet_height = "250"; medianet_crid = "228792741"; medianet_versionId = "3111299"; ...</p></section><footer class=entry-footer>September 27, 2018&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Kay Singh</footer><a class=entry-link aria-label="post link to Microsoft Ignite 2018: VM Scale Sets + Shared Image Gallery = Infrastructure at scale - BRK3339" href=https://singhkays.com/blog/ignite2018-vm-scale-sets-shared-image-gallery-infrastructure/></a></article><article class=post-entry><header class=entry-header><h2>Microsoft Ignite 2018: What's new in Managed Disks - THR2263</h2></header><section class=entry-content><p>Managed Disks make the managedment of disks a breeze in Azure. In this session I talk about the updates we’ve introduced to Managed Disks since Ignite 2017.
-medianet_width = "600"; medianet_height = "250"; medianet_crid = "228792741"; medianet_versionId = "3111299"; ...</p></section><footer class=entry-footer>September 26, 2018&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Kay Singh</footer><a class=entry-link aria-label="post link to Microsoft Ignite 2018: What's new in Managed Disks - THR2263" href=https://singhkays.com/blog/ignite2018-whats-new-managed-disks/></a></article><article class=post-entry><header class=entry-header><h2>Microsoft Ignite 2018: Migrating your IaaS infrastructure from ASM to ARM without downtime - THR2265</h2></header><section class=entry-content><p>Azure Resource Manager stack has been released for almost three years now. In those three years many features have been added that are exclusive to Azure Resource Manager. In this session, I demonstrate the process of migrating your existing infrastructure to Azure Resource Manager without downtime. See a list of all the benefits here: https://azure.microsoft.com/en-us/blog/migrate-iaas-to-azure-resource-manager.
-medianet_width = "600"; medianet_height = "250"; medianet_crid = "228792741"; medianet_versionId = "3111299"; ...</p></section><footer class=entry-footer>September 25, 2018&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Kay Singh</footer><a class=entry-link aria-label="post link to Microsoft Ignite 2018: Migrating your IaaS infrastructure from ASM to ARM without downtime - THR2265" href=https://singhkays.com/blog/ignite2018-migrate-asm-arm-iaas/></a></article><article class=post-entry><header class=entry-header><h2>Microsoft Ignite 2018: Share custom VM images with Shared Image Gallery - THR2264</h2></header><section class=entry-content><p>Sharing custom images within an organization to different subscriptions globally has been a long standing ask from Azure customers. With Shared Image Gallery we’re making this dream a reality! Read more about Shared Image Gallery https://azure.microsoft.com/en-us/blog/shared-image-gallery-now-in-limited-public-preview/
+ 8 bit / 10 bit 4:2:0 up to 4K60p resolutions Presets 0-8 New API, FFmpeg, GStreamer plugins Rate control support (VBR, CVBR) Block sizes from 4x4 to 128x128 Non-square blocks Tiles Deblocking / CDEF / Restoration filters Film Grain Warped motion estimation Intra block copy Trellis quantized coefficient optimization Support for 4 and 5 layers prediction structures Chroma search in MD Multi-reference picture support  Other notable updates   May also saw the most number of commits to the SVT-AV1 Github repo as shown by the graph below....</p>
+  </section>
+  <footer class="entry-footer">
+
+June 10, 2019&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Kay Singh
+</footer>
+  <a class="entry-link" aria-label="post link to AV1 Ecosystem Update: May 2019" href="https://singhkays.com/blog/av1-ecosystem-update-may-2019/"></a>
+</article>
+<article class="post-entry"> 
+<figure class="entry-cover"><img src="https://singhkays.com/media/av1-logo.png" alt="">
+</figure>
+
+  <header class="entry-header">
+    <h2>
+      AV1 Resource Central: Videos, Tools, Presentations, Comparisons, Research Papers, Encoders, Decoders
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>Bitstream spec  https://aomediacodec.github.io/av1-spec/   Encoder Implementations SVT-AV1 Homepage  https://01.org/svt  Source repo  https://github.com/OpenVisualCloud/SVT-AV1  User-Guide  https://github.com/OpenVisualCloud/SVT-AV1/blob/master/Docs/svt-av1_encoder_user_guide.md  Roadmap Trello page
+Microsoft Azure whitepaper  https://01.org/sites/default/files/documentation/svt_azure_wp.pdf  Amazon Web Services (AWS) Whitepaper  http://01.org/sites/default/files/documentation/svt_aws_wp.pdf  Mailing List  http://lists.01.org/mailman/listinfo/svt-av1  aomenc Homepage and Source repo  https://aomedia.googlesource.com/aom/   rav1e Homepage, Source repo  https://github.com/xiph/rav1e   Decoder Implementations dav1d Homepage, Source repo  https://code.videolan.org/videolan/dav1d   Presentations   Mozilla @ NAB 2019 [April 2019 by Nathan Egge]...</p>
+  </section>
+  <footer class="entry-footer">
+
+May 14, 2019&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Kay Singh
+</footer>
+  <a class="entry-link" aria-label="post link to AV1 Resource Central: Videos, Tools, Presentations, Comparisons, Research Papers, Encoders, Decoders" href="https://singhkays.com/blog/av1-wiki-resources-tools/"></a>
+</article>
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      AV1 Ecosystem Update: April 2019
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>It’s been an exciting time following the progress of the royalty free video codec AV1 over the past year and April might just be the most exciting active month in the amount of news we got about AV1! It’s not every day that media industry giants such as Netflix, Google, Mozilla, Microsoft, Apple, Amazon, ARM, Facebook, Nvidia, Intel, Cisco and many others agree on the same technology stack!
+Samsung joins the party The month started with Samsung announcing they were joining the Alliance of Open Media Board at the highest level....</p>
+  </section>
+  <footer class="entry-footer">
+
+May 6, 2019&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Kay Singh
+</footer>
+  <a class="entry-link" aria-label="post link to AV1 Ecosystem Update: April 2019" href="https://singhkays.com/blog/av1-ecosystem-update-april-2019/"></a>
+</article>
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      How to identify boot, temp and data disks in Azure Linux VMs
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>In Azure, every VM has a persistent OS Disk that is used for booting the VM and contains the operating system. In addition to an OS disk, each VM also has a temporary disk that is present on the compute cluster hosting your VM.
+Why is my OS disk not @ /dev/sda? In most cases the OS disk is /dev/sda but in some odd cases it is not. This is not an Azure specific issue but a default Linux behavior....</p>
+  </section>
+  <footer class="entry-footer">
+
+April 30, 2019&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Kay Singh
+</footer>
+  <a class="entry-link" aria-label="post link to How to identify boot, temp and data disks in Azure Linux VMs" href="https://singhkays.com/blog/how-to-identify-azure-linux-vm-disks/"></a>
+</article>
+<article class="post-entry"> 
+<figure class="entry-cover"><img src="https://singhkays.com/media/aint-nobody-got-time-for-gif.png" alt="">
+</figure>
+
+  <header class="entry-header">
+    <h2>
+      It&#39;s time to replace GIFs with AV1 video!
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>It is 2019 and we need to make a decision about GIFs (no, not that one! We’re never going to be able to decide that one!). GIFs take up a massive amount of space (often multiple megabytes!) and if you’re a web developer, then that’s completely against your ethos! As a web developer, you want to minimize the bits your users need to download so that your website loads fast. That’s why you minify javascript, optimize PNGs, JPEGs and sometimes turn JPEGs to WebPs as well....</p>
+  </section>
+  <footer class="entry-footer">
+
+April 28, 2019&nbsp;·&nbsp;9 min&nbsp;·&nbsp;Kay Singh
+</footer>
+  <a class="entry-link" aria-label="post link to It&#39;s time to replace GIFs with AV1 video!" href="https://singhkays.com/blog/its-time-replace-gifs-with-av1-video/"></a>
+</article>
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      Detect Rolling Credits with Azure Video Indexer
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>Azure Video Indexer is one of my favorite services! It provides some amazing features such as:
+ Identify faces and celebrities Extract text and objects (e.g. cat, table, car etc.) Detect scenes and shots Emotion and sentiment detection Audio effects such as clapping, silence &amp; speech  The full list of features can be viewed at https://vi.microsoft.com/en-us/
+Get the credits rolling! Recently, Video Indexer announced they’ve added the capability to detect rolling credits in the videos....</p>
+  </section>
+  <footer class="entry-footer">
+
+April 11, 2019&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Kay Singh
+</footer>
+  <a class="entry-link" aria-label="post link to Detect Rolling Credits with Azure Video Indexer" href="https://singhkays.com/blog/detect-rolling-credits-video-indexer/"></a>
+</article>
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      The &#34;Other Chromes&#34;: A Chromium-based browser market analysis
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>We’re living in a golden age of web browser choice. But before I begin this story, I need to take you back to 2006. You see back in 2006 as a young technologist, my choices of a web browser were limited. It was either Internet Explorer or Mozilla Firefox. But then one day while browsing through PC World magazine, I discovered an alternate option – Opera.
+Opera had many differentiated features such as a customizable streamlined user interface as well as being more memory efficient and faster than Firefox....</p>
+  </section>
+  <footer class="entry-footer">
+
+March 9, 2019&nbsp;·&nbsp;8 min&nbsp;·&nbsp;Kay Singh
+</footer>
+  <a class="entry-link" aria-label="post link to The &#34;Other Chromes&#34;: A Chromium-based browser market analysis" href="https://singhkays.com/blog/the-other-chromes/"></a>
+</article>
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      Microsoft Ignite 2018: VM Scale Sets &#43; Shared Image Gallery = Infrastructure at scale - BRK3339
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>When you need to create a lot of instances from a custom VM image, VM Scale Sets and Shared Image Gallery are the services you need to use. In this session we walk through how to combine the power of VM Scale Sets &amp; Shared Image Gallery to build infrastructure at scale.
+  medianet_width = &#34;600&#34;; medianet_height = &#34;250&#34;; medianet_crid = &#34;228792741&#34;; medianet_versionId = &#34;3111299&#34;;  ...</p>
+  </section>
+  <footer class="entry-footer">
+
+September 27, 2018&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Kay Singh
+</footer>
+  <a class="entry-link" aria-label="post link to Microsoft Ignite 2018: VM Scale Sets &#43; Shared Image Gallery = Infrastructure at scale - BRK3339" href="https://singhkays.com/blog/ignite2018-vm-scale-sets-shared-image-gallery-infrastructure/"></a>
+</article>
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      Microsoft Ignite 2018: What&#39;s new in Managed Disks - THR2263
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>Managed Disks make the managedment of disks a breeze in Azure. In this session I talk about the updates we’ve introduced to Managed Disks since Ignite 2017.
+  medianet_width = &#34;600&#34;; medianet_height = &#34;250&#34;; medianet_crid = &#34;228792741&#34;; medianet_versionId = &#34;3111299&#34;;  ...</p>
+  </section>
+  <footer class="entry-footer">
+
+September 26, 2018&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Kay Singh
+</footer>
+  <a class="entry-link" aria-label="post link to Microsoft Ignite 2018: What&#39;s new in Managed Disks - THR2263" href="https://singhkays.com/blog/ignite2018-whats-new-managed-disks/"></a>
+</article>
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      Microsoft Ignite 2018: Migrating your IaaS infrastructure from ASM to ARM without downtime - THR2265
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>Azure Resource Manager stack has been released for almost three years now. In those three years many features have been added that are exclusive to Azure Resource Manager. In this session, I demonstrate the process of migrating your existing infrastructure to Azure Resource Manager without downtime. See a list of all the benefits here: https://azure.microsoft.com/en-us/blog/migrate-iaas-to-azure-resource-manager.
+  medianet_width = &#34;600&#34;; medianet_height = &#34;250&#34;; medianet_crid = &#34;228792741&#34;; medianet_versionId = &#34;3111299&#34;;  ...</p>
+  </section>
+  <footer class="entry-footer">
+
+September 25, 2018&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Kay Singh
+</footer>
+  <a class="entry-link" aria-label="post link to Microsoft Ignite 2018: Migrating your IaaS infrastructure from ASM to ARM without downtime - THR2265" href="https://singhkays.com/blog/ignite2018-migrate-asm-arm-iaas/"></a>
+</article>
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      Microsoft Ignite 2018: Share custom VM images with Shared Image Gallery - THR2264
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>Sharing custom images within an organization to different subscriptions globally has been a long standing ask from Azure customers. With Shared Image Gallery we’re making this dream a reality! Read more about Shared Image Gallery https://azure.microsoft.com/en-us/blog/shared-image-gallery-now-in-limited-public-preview/
 In this session, I present how customers can get started with Shared Image Gallery.
-medianet_width = "600"; medianet_height = "250"; medianet_crid = "228792741"; medianet_versionId = "3111299"; ...</p></section><footer class=entry-footer>September 24, 2018&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Kay Singh</footer><a class=entry-link aria-label="post link to Microsoft Ignite 2018: Share custom VM images with Shared Image Gallery - THR2264" href=https://singhkays.com/blog/ignite2018-share-vm-images-shared-image-gallery/></a></article><article class=post-entry><header class=entry-header><h2>Testing x265 encoder scaling on a 128 core Azure VM for 4K HDR</h2></header><section class=entry-content><p>Video encoding has always been a fairly compute intensive task. With every new generation of video encoders, more computational power has been required to achieve the compression benefits. HEVC/H.265 is the latest state of the art video compression standard with x265 being the most popular open-source encoder used for encoding into the HEVC/H.265 format. In comparison to AVC/H.264 (the previous state of the art encoding format), HEVC offers about double the data compression ratio at the same level of video quality, or substantially improved video quality at the same bit rate....</p></section><footer class=entry-footer>August 19, 2018&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Kay Singh</footer><a class=entry-link aria-label="post link to Testing x265 encoder scaling on a 128 core Azure VM for 4K HDR" href=https://singhkays.com/blog/x265-128-core-scaling-4k-hevc-hdr-azure-vm/></a></article><footer class=page-footer><nav class=pagination><a class=prev href=https://singhkays.com/blog/>« Prev Page</a>
-<a class=next href=https://singhkays.com/blog/page/3/>Next Page »</a></nav></footer></main><footer class=footer><span>Copyright © 2017–2020, Kay Singh; all rights reserved.</span>
-<span>&#183;</span>
-<span>Powered by <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a></span>
-<span>&#183;</span>
-<span>Theme <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a></span></footer><button class=top-link id=top-link type=button aria-label="go to top" title="Go to Top" accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6"><path d="M12 6H0l6-6z"/></svg></button>
-<script defer src=https://singhkays.com/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w=" onload=hljs.initHighlightingOnLoad();></script><script>window.onload=function(){if(localStorage.getItem("menu-scroll-position")){document.getElementById('menu').scrollLeft=localStorage.getItem("menu-scroll-position");}}
-var mybutton=document.getElementById("top-link");window.onscroll=function(){if(document.body.scrollTop>800||document.documentElement.scrollTop>800){mybutton.style.visibility="visible";mybutton.style.opacity="1";}else{mybutton.style.visibility="hidden";mybutton.style.opacity="0";}};mybutton.onclick=function(){document.body.scrollTop=0;document.documentElement.scrollTop=0;window.location.hash=''}
-function menu_on_scroll(){localStorage.setItem("menu-scroll-position",document.getElementById('menu').scrollLeft);}</script></body></html>
+  medianet_width = &#34;600&#34;; medianet_height = &#34;250&#34;; medianet_crid = &#34;228792741&#34;; medianet_versionId = &#34;3111299&#34;;  ...</p>
+  </section>
+  <footer class="entry-footer">
+
+September 24, 2018&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Kay Singh
+</footer>
+  <a class="entry-link" aria-label="post link to Microsoft Ignite 2018: Share custom VM images with Shared Image Gallery - THR2264" href="https://singhkays.com/blog/ignite2018-share-vm-images-shared-image-gallery/"></a>
+</article>
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      Testing x265 encoder scaling on a 128 core Azure VM for 4K HDR
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>Video encoding has always been a fairly compute intensive task. With every new generation of video encoders, more computational power has been required to achieve the compression benefits. HEVC/H.265 is the latest state of the art video compression standard with x265 being the most popular open-source encoder used for encoding into the HEVC/H.265 format. In comparison to AVC/H.264 (the previous state of the art encoding format), HEVC offers about double the data compression ratio at the same level of video quality, or substantially improved video quality at the same bit rate....</p>
+  </section>
+  <footer class="entry-footer">
+
+August 19, 2018&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Kay Singh
+</footer>
+  <a class="entry-link" aria-label="post link to Testing x265 encoder scaling on a 128 core Azure VM for 4K HDR" href="https://singhkays.com/blog/x265-128-core-scaling-4k-hevc-hdr-azure-vm/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="https://singhkays.com/blog/">« Prev Page</a>
+    <a class="next" href="https://singhkays.com/blog/page/3/">Next Page »</a>
+  </nav>
+</footer>
+
+    </main><footer class="footer">
+    <span>Copyright © 2017–2020, Kay Singh; all rights reserved.</span>
+    <span>&middot;</span>
+    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+    <span>&middot;</span>
+    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+</footer>
+<button class="top-link" id="top-link" type="button" aria-label="go to top" title="Go to Top" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6">
+        <path d="M12 6H0l6-6z" /></svg>
+</button>
+
+
+
+<script defer src="https://singhkays.com/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+    mybutton.onclick = function () {
+        document.body.scrollTop = 0;
+        document.documentElement.scrollTop = 0;
+        window.location.hash = ''
+    }
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+
+</body>
+
+</html>

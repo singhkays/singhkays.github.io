@@ -1,2 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>NAB 2019 on KAY SINGH</title><link>https://singhkays.com/tags/nab-2019/</link><description>Recent content in NAB 2019 on KAY SINGH</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright © 2017–2020, Kay Singh; all rights reserved.</copyright><lastBuildDate>Mon, 06 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/tags/nab-2019/index.xml" rel="self" type="application/rss+xml"/><item><title>AV1 Ecosystem Update: April 2019</title><link>https://singhkays.com/blog/av1-ecosystem-update-april-2019/</link><pubDate>Mon, 06 May 2019 00:00:00 +0000</pubDate><guid>https://singhkays.com/blog/av1-ecosystem-update-april-2019/</guid><description>It&amp;rsquo;s been an exciting time following the progress of the royalty free video codec AV1 over the past year and April might just be the most exciting active month in the amount of news we got about AV1! It&amp;rsquo;s not every day that media industry giants such as Netflix, Google, Mozilla, Microsoft, Apple, Amazon, ARM, Facebook, Nvidia, Intel, Cisco and many others agree on the same technology stack!
-Samsung joins the party The month started with Samsung announcing they were joining the Alliance of Open Media Board at the highest level.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>NAB 2019 on KAY SINGH</title>
+    <link>https://singhkays.com/tags/nab-2019/</link>
+    <description>Recent content in NAB 2019 on KAY SINGH</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright © 2017–2020, Kay Singh; all rights reserved.</copyright>
+    <lastBuildDate>Mon, 06 May 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/tags/nab-2019/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AV1 Ecosystem Update: April 2019</title>
+      <link>https://singhkays.com/blog/av1-ecosystem-update-april-2019/</link>
+      <pubDate>Mon, 06 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://singhkays.com/blog/av1-ecosystem-update-april-2019/</guid>
+      <description>It&amp;rsquo;s been an exciting time following the progress of the royalty free video codec AV1 over the past year and April might just be the most exciting active month in the amount of news we got about AV1! It&amp;rsquo;s not every day that media industry giants such as Netflix, Google, Mozilla, Microsoft, Apple, Amazon, ARM, Facebook, Nvidia, Intel, Cisco and many others agree on the same technology stack!
+Samsung joins the party The month started with Samsung announcing they were joining the Alliance of Open Media Board at the highest level.</description>
+    </item>
+    
+  </channel>
+</rss>

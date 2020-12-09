@@ -1,3 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Amlogic on KAY SINGH</title><link>https://singhkays.com/tags/amlogic/</link><description>Recent content in Amlogic on KAY SINGH</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright © 2017–2020, Kay Singh; all rights reserved.</copyright><lastBuildDate>Sun, 05 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/tags/amlogic/index.xml" rel="self" type="application/rss+xml"/><item><title>AV1 Ecosystem Update: December 2019</title><link>https://singhkays.com/blog/av1-ecosystem-update-december-2019/</link><pubDate>Sun, 05 Jan 2020 00:00:00 +0000</pubDate><guid>https://singhkays.com/blog/av1-ecosystem-update-december-2019/</guid><description>dav1d 0.5.2 &amp;lsquo;Asiatic Cheetah&amp;rsquo; released dav1d ended the year with another performance improvement release. Dubbed the &amp;ldquo;Asiatic Cheetah&amp;rdquo; this release brings the following improvements:
-ARM32 optimizations for loopfilter, ipred_dc|h|v Add section-5 raw OBU demuxer Improve the speed by reducing the L2 cache collisions Fix minor issues, including compilation on some OSes Release notes for dav1d 0.5.2 &amp;lsquo;Asiatic Cheetah&amp;rsquo;
-rav1e v0.2.0: Winter Solstice released Building on the official 0.1.0 release in November, rav1e had a busy December with 3 releases.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Amlogic on KAY SINGH</title>
+    <link>https://singhkays.com/tags/amlogic/</link>
+    <description>Recent content in Amlogic on KAY SINGH</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright © 2017–2020, Kay Singh; all rights reserved.</copyright>
+    <lastBuildDate>Sun, 05 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/tags/amlogic/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AV1 Ecosystem Update: December 2019</title>
+      <link>https://singhkays.com/blog/av1-ecosystem-update-december-2019/</link>
+      <pubDate>Sun, 05 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://singhkays.com/blog/av1-ecosystem-update-december-2019/</guid>
+      <description>dav1d 0.5.2 &amp;lsquo;Asiatic Cheetah&amp;rsquo; released dav1d ended the year with another performance improvement release. Dubbed the &amp;ldquo;Asiatic Cheetah&amp;rdquo; this release brings the following improvements:
+ ARM32 optimizations for loopfilter, ipred_dc|h|v Add section-5 raw OBU demuxer Improve the speed by reducing the L2 cache collisions Fix minor issues, including compilation on some OSes  Release notes for dav1d 0.5.2 &amp;lsquo;Asiatic Cheetah&amp;rsquo;
+rav1e v0.2.0: Winter Solstice released Building on the official 0.1.0 release in November, rav1e had a busy December with 3 releases.</description>
+    </item>
+    
+  </channel>
+</rss>

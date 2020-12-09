@@ -1,3 +1,41 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>VP9 on KAY SINGH</title><link>https://singhkays.com/tags/vp9/</link><description>Recent content in VP9 on KAY SINGH</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright © 2017–2020, Kay Singh; all rights reserved.</copyright><lastBuildDate>Wed, 29 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/tags/vp9/index.xml" rel="self" type="application/rss+xml"/><item><title>AV1 2019: A Year In Review</title><link>https://singhkays.com/blog/av1-2019-year-in-review/</link><pubDate>Wed, 29 Jan 2020 00:00:00 +0000</pubDate><guid>https://singhkays.com/blog/av1-2019-year-in-review/</guid><description>Introduction It&amp;rsquo;s not often you see so many logos of tech giants on one page backing the same technology. In my experience, every enterprise has developed a case of NIH and come up with their standards. No surprise then that there&amp;rsquo;s an XKCD describing this phenomenon!
-But when the AV1 1.0.0 spec was finalized in 2018, with the backing of so many giants, the world knew AV1 would be a serious piece of tech.</description></item><item><title>AV1 Resource Central: Videos, Tools, Presentations, Comparisons, Research Papers, Encoders, Decoders</title><link>https://singhkays.com/blog/av1-wiki-resources-tools/</link><pubDate>Tue, 14 May 2019 00:00:00 +0000</pubDate><guid>https://singhkays.com/blog/av1-wiki-resources-tools/</guid><description>Bitstream spec https://aomediacodec.github.io/av1-spec/ Encoder Implementations SVT-AV1 Homepage https://01.org/svt Source repo https://github.com/OpenVisualCloud/SVT-AV1 User-Guide https://github.com/OpenVisualCloud/SVT-AV1/blob/master/Docs/svt-av1_encoder_user_guide.md Roadmap Trello page
-Microsoft Azure whitepaper https://01.org/sites/default/files/documentation/svt_azure_wp.pdf Amazon Web Services (AWS) Whitepaper http://01.org/sites/default/files/documentation/svt_aws_wp.pdf Mailing List http://lists.01.org/mailman/listinfo/svt-av1 aomenc Homepage and Source repo https://aomedia.googlesource.com/aom/ rav1e Homepage, Source repo https://github.com/xiph/rav1e Decoder Implementations dav1d Homepage, Source repo https://code.videolan.org/videolan/dav1d Presentations Mozilla @ NAB 2019 [April 2019 by Nathan Egge]</description></item><item><title>It's time to replace GIFs with AV1 video!</title><link>https://singhkays.com/blog/its-time-replace-gifs-with-av1-video/</link><pubDate>Sun, 28 Apr 2019 00:00:00 +0000</pubDate><guid>https://singhkays.com/blog/its-time-replace-gifs-with-av1-video/</guid><description>It is 2019 and we need to make a decision about GIFs (no, not that one! We’re never going to be able to decide that one!). GIFs take up a massive amount of space (often multiple megabytes!) and if you’re a web developer, then that’s completely against your ethos! As a web developer, you want to minimize the bits your users need to download so that your website loads fast. That’s why you minify javascript, optimize PNGs, JPEGs and sometimes turn JPEGs to WebPs as well.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>VP9 on KAY SINGH</title>
+    <link>https://singhkays.com/tags/vp9/</link>
+    <description>Recent content in VP9 on KAY SINGH</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright © 2017–2020, Kay Singh; all rights reserved.</copyright>
+    <lastBuildDate>Wed, 29 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/tags/vp9/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AV1 2019: A Year In Review</title>
+      <link>https://singhkays.com/blog/av1-2019-year-in-review/</link>
+      <pubDate>Wed, 29 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://singhkays.com/blog/av1-2019-year-in-review/</guid>
+      <description>Introduction It&amp;rsquo;s not often you see so many logos of tech giants on one page backing the same technology. In my experience, every enterprise has developed a case of NIH and come up with their standards. No surprise then that there&amp;rsquo;s an XKCD describing this phenomenon!
+But when the AV1 1.0.0 spec was finalized in 2018, with the backing of so many giants, the world knew AV1 would be a serious piece of tech.</description>
+    </item>
+    
+    <item>
+      <title>AV1 Resource Central: Videos, Tools, Presentations, Comparisons, Research Papers, Encoders, Decoders</title>
+      <link>https://singhkays.com/blog/av1-wiki-resources-tools/</link>
+      <pubDate>Tue, 14 May 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://singhkays.com/blog/av1-wiki-resources-tools/</guid>
+      <description>Bitstream spec  https://aomediacodec.github.io/av1-spec/   Encoder Implementations SVT-AV1 Homepage  https://01.org/svt  Source repo  https://github.com/OpenVisualCloud/SVT-AV1  User-Guide  https://github.com/OpenVisualCloud/SVT-AV1/blob/master/Docs/svt-av1_encoder_user_guide.md  Roadmap Trello page
+Microsoft Azure whitepaper  https://01.org/sites/default/files/documentation/svt_azure_wp.pdf  Amazon Web Services (AWS) Whitepaper  http://01.org/sites/default/files/documentation/svt_aws_wp.pdf  Mailing List  http://lists.01.org/mailman/listinfo/svt-av1  aomenc Homepage and Source repo  https://aomedia.googlesource.com/aom/   rav1e Homepage, Source repo  https://github.com/xiph/rav1e   Decoder Implementations dav1d Homepage, Source repo  https://code.videolan.org/videolan/dav1d   Presentations   Mozilla @ NAB 2019 [April 2019 by Nathan Egge]</description>
+    </item>
+    
+    <item>
+      <title>It&#39;s time to replace GIFs with AV1 video!</title>
+      <link>https://singhkays.com/blog/its-time-replace-gifs-with-av1-video/</link>
+      <pubDate>Sun, 28 Apr 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://singhkays.com/blog/its-time-replace-gifs-with-av1-video/</guid>
+      <description>It is 2019 and we need to make a decision about GIFs (no, not that one! We’re never going to be able to decide that one!). GIFs take up a massive amount of space (often multiple megabytes!) and if you’re a web developer, then that’s completely against your ethos! As a web developer, you want to minimize the bits your users need to download so that your website loads fast. That’s why you minify javascript, optimize PNGs, JPEGs and sometimes turn JPEGs to WebPs as well.</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,1 +1,21 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>git on KAY SINGH</title><link>https://singhkays.com/tags/git/</link><description>Recent content in git on KAY SINGH</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright © 2017–2020, Kay Singh; all rights reserved.</copyright><lastBuildDate>Sat, 21 Apr 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/tags/git/index.xml" rel="self" type="application/rss+xml"/><item><title>How do I discard unstaged changes in Git?</title><link>https://singhkays.com/blog/git-discard-changes-terminal/</link><pubDate>Sat, 21 Apr 2018 00:00:00 +0000</pubDate><guid>https://singhkays.com/blog/git-discard-changes-terminal/</guid><description>Often when I’m working on this blog, I work over multiple days and end up working on multiple devices. The blog is written in markdown and tracked in a Git repo on Azure Devops. The other day a scenario arose where I was customizing the theme of the blog but not getting anywhere. I decided to have another go at the customization few days later but this time on another device.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>git on KAY SINGH</title>
+    <link>https://singhkays.com/tags/git/</link>
+    <description>Recent content in git on KAY SINGH</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright © 2017–2020, Kay Singh; all rights reserved.</copyright>
+    <lastBuildDate>Sat, 21 Apr 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/tags/git/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How do I discard unstaged changes in Git?</title>
+      <link>https://singhkays.com/blog/git-discard-changes-terminal/</link>
+      <pubDate>Sat, 21 Apr 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://singhkays.com/blog/git-discard-changes-terminal/</guid>
+      <description>Often when I’m working on this blog, I work over multiple days and end up working on multiple devices. The blog is written in markdown and tracked in a Git repo on Azure Devops. The other day a scenario arose where I was customizing the theme of the blog but not getting anywhere. I decided to have another go at the customization few days later but this time on another device.</description>
+    </item>
+    
+  </channel>
+</rss>

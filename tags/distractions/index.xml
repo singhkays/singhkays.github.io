@@ -1,2 +1,22 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Distractions on KAY SINGH</title><link>https://singhkays.com/tags/distractions/</link><description>Recent content in Distractions on KAY SINGH</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright © 2017–2020, Kay Singh; all rights reserved.</copyright><lastBuildDate>Thu, 02 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/tags/distractions/index.xml" rel="self" type="application/rss+xml"/><item><title>How to Customize LinkedIn Android App Notifications</title><link>https://singhkays.com/blog/customize-linkedin-android-app-notifications/</link><pubDate>Thu, 02 Jan 2020 00:00:00 +0000</pubDate><guid>https://singhkays.com/blog/customize-linkedin-android-app-notifications/</guid><description>I recently discovered the importance of being in control of the notifications on your smartphone. When my recent LinkedIn post went viral, I received many comments and connection requests, which led to a constant buzzing of notifications from the LinkedIn app on my phone. This is never fun when you’re trying to concentrate 😊
-Pre-Requisites Install the LinkedIn Android app . A fairly recent version of Android. This guide is based on Android 9 behavior.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Distractions on KAY SINGH</title>
+    <link>https://singhkays.com/tags/distractions/</link>
+    <description>Recent content in Distractions on KAY SINGH</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright © 2017–2020, Kay Singh; all rights reserved.</copyright>
+    <lastBuildDate>Thu, 02 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/tags/distractions/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>How to Customize LinkedIn Android App Notifications</title>
+      <link>https://singhkays.com/blog/customize-linkedin-android-app-notifications/</link>
+      <pubDate>Thu, 02 Jan 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://singhkays.com/blog/customize-linkedin-android-app-notifications/</guid>
+      <description>I recently discovered the importance of being in control of the notifications on your smartphone. When my recent LinkedIn post went viral, I received many comments and connection requests, which led to a constant buzzing of notifications from the LinkedIn app on my phone. This is never fun when you’re trying to concentrate 😊
+Pre-Requisites  Install the LinkedIn Android app . A fairly recent version of Android. This guide is based on Android 9 behavior.</description>
+    </item>
+    
+  </channel>
+</rss>

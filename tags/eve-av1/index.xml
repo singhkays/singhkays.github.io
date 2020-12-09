@@ -1,5 +1,43 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>EVE AV1 on KAY SINGH</title><link>https://singhkays.com/tags/eve-av1/</link><description>Recent content in EVE AV1 on KAY SINGH</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright © 2017–2020, Kay Singh; all rights reserved.</copyright><lastBuildDate>Tue, 03 Sep 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/tags/eve-av1/index.xml" rel="self" type="application/rss+xml"/><item><title>AV1 Ecosystem Update: August 2019</title><link>https://singhkays.com/blog/av1-ecosystem-update-august-2019/</link><pubDate>Tue, 03 Sep 2019 00:00:00 +0000</pubDate><guid>https://singhkays.com/blog/av1-ecosystem-update-august-2019/</guid><description>AVIF in Spectrum lib While browsing for AV1/AVIF updates, I noticed this commit to Facebook&amp;rsquo;s open source Spectrum library that adds support for AVIF format.
-https://github.com/facebookincubator/spectrum/commit/89b87bee831d3c7aabd0ad327fb118ce699df55d Spectrum is an image transcoding library for iOS and Android that is meant to be integrated into apps for image operations. Hopefully this means that we&amp;rsquo;ll see apps supporting AVIF format soon!
-FFmpeg 4.2 release FFmpeg 4.2 codenamed &amp;ldquo;Ada&amp;rdquo; was released on August 5th, 2019.</description></item><item><title>AV1 Ecosystem Update: July 2019</title><link>https://singhkays.com/blog/av1-ecosystem-update-july-2019/</link><pubDate>Tue, 13 Aug 2019 00:00:00 +0000</pubDate><guid>https://singhkays.com/blog/av1-ecosystem-update-july-2019/</guid><description>If May and June were F1 race cars in terms of speed of AV1 development, then July would probably be a Honda Civic. After numerous exciting announcements in the previous month, July felt like everyone&amp;rsquo;s on vacation, which is probably true because summer months tend to be slow as the school&amp;rsquo;s out. So, this update will be a short one as I&amp;rsquo;m out on vacation as well :)
-Mile High Video 2019 Nathan Egge of Mozilla and Brion Vibber of Wikimedia presented a session recapping AV1&amp;rsquo;s progress in the last year.</description></item><item><title>AV1 Ecosystem Update: June 2019</title><link>https://singhkays.com/blog/av1-ecosystem-update-june-2019/</link><pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate><guid>https://singhkays.com/blog/av1-ecosystem-update-june-2019/</guid><description>It&amp;rsquo;s been a pretty busy for me professionally which is why this month&amp;rsquo;s AV1 ecosystem update is coming in pretty late. It&amp;rsquo;s been one of the most exciting months for AV1 development and a lot to catch up on! With so much news this month, it is starting to feel like we&amp;rsquo;re at the cusp of something big! (which we hope AV1 will be )
-Youtube pauses AV1 rollout Currently, YouTube is the biggest streaming platform delivering AV1 video and is responsible for the majority of AV1 video consumption on the internet.</description></item></channel></rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>EVE AV1 on KAY SINGH</title>
+    <link>https://singhkays.com/tags/eve-av1/</link>
+    <description>Recent content in EVE AV1 on KAY SINGH</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright © 2017–2020, Kay Singh; all rights reserved.</copyright>
+    <lastBuildDate>Tue, 03 Sep 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/tags/eve-av1/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AV1 Ecosystem Update: August 2019</title>
+      <link>https://singhkays.com/blog/av1-ecosystem-update-august-2019/</link>
+      <pubDate>Tue, 03 Sep 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://singhkays.com/blog/av1-ecosystem-update-august-2019/</guid>
+      <description>AVIF in Spectrum lib While browsing for AV1/AVIF updates, I noticed this commit to Facebook&amp;rsquo;s open source Spectrum library that adds support for AVIF format.
+ https://github.com/facebookincubator/spectrum/commit/89b87bee831d3c7aabd0ad327fb118ce699df55d  Spectrum is an image transcoding library for iOS and Android that is meant to be integrated into apps for image operations. Hopefully this means that we&amp;rsquo;ll see apps supporting AVIF format soon!
+FFmpeg 4.2 release FFmpeg 4.2 codenamed &amp;ldquo;Ada&amp;rdquo; was released on August 5th, 2019.</description>
+    </item>
+    
+    <item>
+      <title>AV1 Ecosystem Update: July 2019</title>
+      <link>https://singhkays.com/blog/av1-ecosystem-update-july-2019/</link>
+      <pubDate>Tue, 13 Aug 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://singhkays.com/blog/av1-ecosystem-update-july-2019/</guid>
+      <description>If May and June were F1 race cars in terms of speed of AV1 development, then July would probably be a Honda Civic. After numerous exciting announcements in the previous month, July felt like everyone&amp;rsquo;s on vacation, which is probably true because summer months tend to be slow as the school&amp;rsquo;s out. So, this update will be a short one as I&amp;rsquo;m out on vacation as well :)
+Mile High Video 2019 Nathan Egge of Mozilla and Brion Vibber of Wikimedia presented a session recapping AV1&amp;rsquo;s progress in the last year.</description>
+    </item>
+    
+    <item>
+      <title>AV1 Ecosystem Update: June 2019</title>
+      <link>https://singhkays.com/blog/av1-ecosystem-update-june-2019/</link>
+      <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://singhkays.com/blog/av1-ecosystem-update-june-2019/</guid>
+      <description>It&amp;rsquo;s been a pretty busy for me professionally which is why this month&amp;rsquo;s AV1 ecosystem update is coming in pretty late. It&amp;rsquo;s been one of the most exciting months for AV1 development and a lot to catch up on! With so much news this month, it is starting to feel like we&amp;rsquo;re at the cusp of something big! (which we hope AV1 will be )
+Youtube pauses AV1 rollout Currently, YouTube is the biggest streaming platform delivering AV1 video and is responsible for the majority of AV1 video consumption on the internet.</description>
+    </item>
+    
+  </channel>
+</rss>

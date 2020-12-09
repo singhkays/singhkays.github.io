@@ -1,3 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>BBC on KAY SINGH</title><link>https://singhkays.com/tags/bbc/</link><description>Recent content in BBC on KAY SINGH</description><generator>Hugo -- gohugo.io</generator><language>en</language><copyright>Copyright © 2017–2020, Kay Singh; all rights reserved.</copyright><lastBuildDate>Mon, 10 Jun 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/tags/bbc/index.xml" rel="self" type="application/rss+xml"/><item><title>AV1 Ecosystem Update: May 2019</title><link>https://singhkays.com/blog/av1-ecosystem-update-may-2019/</link><pubDate>Mon, 10 Jun 2019 00:00:00 +0000</pubDate><guid>https://singhkays.com/blog/av1-ecosystem-update-may-2019/</guid><description>May was another amazing month for the AV1 codec! We saw great progress in the SVT-AV1 encoder, Android update news and some surprising news out of China!
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>BBC on KAY SINGH</title>
+    <link>https://singhkays.com/tags/bbc/</link>
+    <description>Recent content in BBC on KAY SINGH</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright © 2017–2020, Kay Singh; all rights reserved.</copyright>
+    <lastBuildDate>Mon, 10 Jun 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/tags/bbc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AV1 Ecosystem Update: May 2019</title>
+      <link>https://singhkays.com/blog/av1-ecosystem-update-may-2019/</link>
+      <pubDate>Mon, 10 Jun 2019 00:00:00 +0000</pubDate>
+      
+      <guid>https://singhkays.com/blog/av1-ecosystem-update-may-2019/</guid>
+      <description>May was another amazing month for the AV1 codec! We saw great progress in the SVT-AV1 encoder, Android update news and some surprising news out of China!
 SVT-AV1 is making strides! Let&amp;rsquo;s start with SVT-AV1 encoder, the current encoder of choice for Netflix, being developed by the folks at Intel. In May, version 0.5.0 was released with the following features:
-8 bit / 10 bit 4:2:0 up to 4K60p resolutions Presets 0-8 New API, FFmpeg, GStreamer plugins Rate control support (VBR, CVBR) Block sizes from 4x4 to 128x128 Non-square blocks Tiles Deblocking / CDEF / Restoration filters Film Grain Warped motion estimation Intra block copy Trellis quantized coefficient optimization Support for 4 and 5 layers prediction structures Chroma search in MD Multi-reference picture support Other notable updates May also saw the most number of commits to the SVT-AV1 Github repo as shown by the graph below.</description></item></channel></rss>
+ 8 bit / 10 bit 4:2:0 up to 4K60p resolutions Presets 0-8 New API, FFmpeg, GStreamer plugins Rate control support (VBR, CVBR) Block sizes from 4x4 to 128x128 Non-square blocks Tiles Deblocking / CDEF / Restoration filters Film Grain Warped motion estimation Intra block copy Trellis quantized coefficient optimization Support for 4 and 5 layers prediction structures Chroma search in MD Multi-reference picture support  Other notable updates   May also saw the most number of commits to the SVT-AV1 Github repo as shown by the graph below.</description>
+    </item>
+    
+  </channel>
+</rss>
