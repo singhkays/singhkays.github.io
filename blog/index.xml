@@ -5,8 +5,7 @@
     <link>https://singhkays.com/blog/</link>
     <description>Recent content in Blogs on KAY SINGH</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>Copyright © 2017–2020, Kay Singh; all rights reserved.</copyright>
+    <copyright>Copyright © 2017–2021, Kay Singh; all rights reserved.</copyright>
     <lastBuildDate>Tue, 15 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to get 4K 60 FPS working on an external monitor with Macbooks</title>
@@ -220,8 +219,8 @@ SVT-AV1 is making strides! Let&amp;rsquo;s start with SVT-AV1 encoder, the curre
       <pubDate>Tue, 14 May 2019 00:00:00 +0000</pubDate>
       
       <guid>https://singhkays.com/blog/av1-wiki-resources-tools/</guid>
-      <description>Bitstream spec  https://aomediacodec.github.io/av1-spec/   Encoder Implementations SVT-AV1 Homepage  https://01.org/svt  Source repo  https://github.com/OpenVisualCloud/SVT-AV1  User-Guide  https://github.com/OpenVisualCloud/SVT-AV1/blob/master/Docs/svt-av1_encoder_user_guide.md  Roadmap Trello page
-Microsoft Azure whitepaper  https://01.org/sites/default/files/documentation/svt_azure_wp.pdf  Amazon Web Services (AWS) Whitepaper  http://01.org/sites/default/files/documentation/svt_aws_wp.pdf  Mailing List  http://lists.01.org/mailman/listinfo/svt-av1  aomenc Homepage and Source repo  https://aomedia.googlesource.com/aom/   rav1e Homepage, Source repo  https://github.com/xiph/rav1e   Decoder Implementations dav1d Homepage, Source repo  https://code.videolan.org/videolan/dav1d   Presentations   Mozilla @ NAB 2019 [April 2019 by Nathan Egge]</description>
+      <description>Bitstream spec  https://aomediacodec.github.io/av1-spec/  Encoder Implementations SVT-AV1 Homepage  https://01.org/svt  Source repo  https://github.com/OpenVisualCloud/SVT-AV1  User-Guide  https://github.com/OpenVisualCloud/SVT-AV1/blob/master/Docs/svt-av1_encoder_user_guide.md  Roadmap Trello page
+Microsoft Azure whitepaper  https://01.org/sites/default/files/documentation/svt_azure_wp.pdf  Amazon Web Services (AWS) Whitepaper  http://01.org/sites/default/files/documentation/svt_aws_wp.pdf  Mailing List  http://lists.01.org/mailman/listinfo/svt-av1  aomenc Homepage and Source repo  https://aomedia.googlesource.com/aom/  rav1e Homepage, Source repo  https://github.com/xiph/rav1e  Decoder Implementations dav1d Homepage, Source repo  https://code.videolan.org/videolan/dav1d  Presentations   Mozilla @ NAB 2019 [April 2019 by Nathan Egge]</description>
     </item>
     
     <item>
@@ -281,7 +280,7 @@ Opera had many differentiated features such as a customizable streamlined user i
       
       <guid>https://singhkays.com/blog/ignite2018-vm-scale-sets-shared-image-gallery-infrastructure/</guid>
       <description>When you need to create a lot of instances from a custom VM image, VM Scale Sets and Shared Image Gallery are the services you need to use. In this session we walk through how to combine the power of VM Scale Sets &amp;amp; Shared Image Gallery to build infrastructure at scale.
-  medianet_width = &#34;600&#34;; medianet_height = &#34;250&#34;; medianet_crid = &#34;228792741&#34;; medianet_versionId = &#34;3111299&#34;;  </description>
+  </description>
     </item>
     
     <item>
@@ -291,7 +290,7 @@ Opera had many differentiated features such as a customizable streamlined user i
       
       <guid>https://singhkays.com/blog/ignite2018-whats-new-managed-disks/</guid>
       <description>Managed Disks make the managedment of disks a breeze in Azure. In this session I talk about the updates we&amp;rsquo;ve introduced to Managed Disks since Ignite 2017.
-  medianet_width = &#34;600&#34;; medianet_height = &#34;250&#34;; medianet_crid = &#34;228792741&#34;; medianet_versionId = &#34;3111299&#34;;  </description>
+  </description>
     </item>
     
     <item>
@@ -301,7 +300,7 @@ Opera had many differentiated features such as a customizable streamlined user i
       
       <guid>https://singhkays.com/blog/ignite2018-migrate-asm-arm-iaas/</guid>
       <description>Azure Resource Manager stack has been released for almost three years now. In those three years many features have been added that are exclusive to Azure Resource Manager. In this session, I demonstrate the process of migrating your existing infrastructure to Azure Resource Manager without downtime. See a list of all the benefits here: https://azure.microsoft.com/en-us/blog/migrate-iaas-to-azure-resource-manager.
-  medianet_width = &#34;600&#34;; medianet_height = &#34;250&#34;; medianet_crid = &#34;228792741&#34;; medianet_versionId = &#34;3111299&#34;;  </description>
+  </description>
     </item>
     
     <item>
@@ -312,7 +311,7 @@ Opera had many differentiated features such as a customizable streamlined user i
       <guid>https://singhkays.com/blog/ignite2018-share-vm-images-shared-image-gallery/</guid>
       <description>Sharing custom images within an organization to different subscriptions globally has been a long standing ask from Azure customers. With Shared Image Gallery we&amp;rsquo;re making this dream a reality! Read more about Shared Image Gallery https://azure.microsoft.com/en-us/blog/shared-image-gallery-now-in-limited-public-preview/
 In this session, I present how customers can get started with Shared Image Gallery.
-  medianet_width = &#34;600&#34;; medianet_height = &#34;250&#34;; medianet_crid = &#34;228792741&#34;; medianet_versionId = &#34;3111299&#34;;  </description>
+  </description>
     </item>
     
     <item>
@@ -348,7 +347,7 @@ In this session, I present how customers can get started with Shared Image Galle
       <pubDate>Mon, 13 Nov 2017 16:59:56 -0800</pubDate>
       
       <guid>https://singhkays.com/blog/understanding-azure-b-series/</guid>
-      <description>Azure recently introduced its first burstable VM size - the B-series. This VM type is meant to compete directly with AWS&#39; T2 instances. In the below few words (or more 😄 ) I try to explain what this means and why you should care. If you still have questions after reading, hit me up on Twitter or leave a comment below.
+      <description>Azure recently introduced its first burstable VM size - the B-series. This VM type is meant to compete directly with AWS&#39; T2 instances. In the below few words (or more :smile: ) I try to explain what this means and why you should care. If you still have questions after reading, hit me up on Twitter or leave a comment below.
 So why do I need a burstable size anyway? If you have applications that remain idle for a long time and burst occasionally, then the B-series might be the perfect fit for you.</description>
     </item>
     

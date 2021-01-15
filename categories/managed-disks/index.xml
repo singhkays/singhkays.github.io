@@ -5,8 +5,7 @@
     <link>https://singhkays.com/categories/managed-disks/</link>
     <description>Recent content in Managed Disks on KAY SINGH</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>Copyright © 2017–2020, Kay Singh; all rights reserved.</copyright>
+    <copyright>Copyright © 2017–2021, Kay Singh; all rights reserved.</copyright>
     <lastBuildDate>Tue, 30 Apr 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/categories/managed-disks/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to identify boot, temp and data disks in Azure Linux VMs</title>
@@ -25,7 +24,7 @@ Why is my OS disk not @ /dev/sda? In most cases the OS disk is /dev/sda but in s
       
       <guid>https://singhkays.com/blog/ignite2018-whats-new-managed-disks/</guid>
       <description>Managed Disks make the managedment of disks a breeze in Azure. In this session I talk about the updates we&amp;rsquo;ve introduced to Managed Disks since Ignite 2017.
-  medianet_width = &#34;600&#34;; medianet_height = &#34;250&#34;; medianet_crid = &#34;228792741&#34;; medianet_versionId = &#34;3111299&#34;;  </description>
+  </description>
     </item>
     
   </channel>

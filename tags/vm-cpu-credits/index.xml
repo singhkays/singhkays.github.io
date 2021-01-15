@@ -5,8 +5,7 @@
     <link>https://singhkays.com/tags/vm-cpu-credits/</link>
     <description>Recent content in VM CPU Credits on KAY SINGH</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>Copyright © 2017–2020, Kay Singh; all rights reserved.</copyright>
+    <copyright>Copyright © 2017–2021, Kay Singh; all rights reserved.</copyright>
     <lastBuildDate>Mon, 13 Nov 2017 16:59:56 -0800</lastBuildDate><atom:link href="https://singhkays.com/tags/vm-cpu-credits/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Understanding the Azure B Series and CPU credits</title>
@@ -14,7 +13,7 @@
       <pubDate>Mon, 13 Nov 2017 16:59:56 -0800</pubDate>
       
       <guid>https://singhkays.com/blog/understanding-azure-b-series/</guid>
-      <description>Azure recently introduced its first burstable VM size - the B-series. This VM type is meant to compete directly with AWS&#39; T2 instances. In the below few words (or more 😄 ) I try to explain what this means and why you should care. If you still have questions after reading, hit me up on Twitter or leave a comment below.
+      <description>Azure recently introduced its first burstable VM size - the B-series. This VM type is meant to compete directly with AWS&#39; T2 instances. In the below few words (or more :smile: ) I try to explain what this means and why you should care. If you still have questions after reading, hit me up on Twitter or leave a comment below.
 So why do I need a burstable size anyway? If you have applications that remain idle for a long time and burst occasionally, then the B-series might be the perfect fit for you.</description>
     </item>
     

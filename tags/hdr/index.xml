@@ -5,8 +5,7 @@
     <link>https://singhkays.com/tags/hdr/</link>
     <description>Recent content in HDR on KAY SINGH</description>
     <generator>Hugo -- gohugo.io</generator>
-    <language>en</language>
-    <copyright>Copyright © 2017–2020, Kay Singh; all rights reserved.</copyright>
+    <copyright>Copyright © 2017–2021, Kay Singh; all rights reserved.</copyright>
     <lastBuildDate>Sun, 19 Aug 2018 13:52:28 -0700</lastBuildDate><atom:link href="https://singhkays.com/tags/hdr/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Testing x265 encoder scaling on a 128 core Azure VM for 4K HDR</title>
