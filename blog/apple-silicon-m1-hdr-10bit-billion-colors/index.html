@@ -83,7 +83,7 @@ if (!doNotTrack) {
 <meta itemprop="description" content="When most people hear Apple in a sentence, their next thought is likely the color. Does Apple Silicon M1 output &ldquo;billion colors&rdquo;?">
 <meta itemprop="datePublished" content="2021-01-24T00:00:00+00:00" />
 <meta itemprop="dateModified" content="2021-01-24T00:00:00+00:00" />
-<meta itemprop="wordCount" content="1048">
+<meta itemprop="wordCount" content="1164">
 <meta itemprop="image" content="https://singhkays.com/media/apple-m1-silicon-billions-of-colors.jpg">
 
 
@@ -172,7 +172,7 @@ if (!doNotTrack) {
     </div>
     <div class="post-meta">
 
-January 24, 2021&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Kay Singh
+January 24, 2021&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Kay Singh
 
     </div>
   </header> 
@@ -268,7 +268,7 @@ January 24, 2021&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Kay Singh
         
             alt="Apple MacBook Pro specifications showing support for outputting &#34;Billions of colors&#34;"/> </a><figcaption>
             <p>Specs for the Intel MacBook Pro show that it can output &ldquo;Billions of Colors&rdquo;
-                    <a href="https://support.apple.com/kb/SP794?locale=en_US">[Apple Technical Specifications]</a></p>
+                    <a href="https://support.apple.com/kb/SP794?locale=en_US">[Source: Apple Technical Specifications]</a></p>
         </figcaption>
 </figure>
 
@@ -302,9 +302,46 @@ January 24, 2021&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Kay Singh
             
 
         
-            alt="Apple MacBook Pro specifications showing support for outputting &#34;Billions of colors&#34;"/> </a><figcaption>
+            alt="Apple MacBook Pro specifications with no support for outputting &#34;Billions of colors&#34;"/> </a><figcaption>
             <p>No mention of &ldquo;Billions of Colors&rdquo; for M1 MacBook
-                    <a href="https://support.apple.com/kb/SP824?locale=en_US">[Apple Technical Specifications]</a></p>
+                    <a href="https://support.apple.com/kb/SP824?locale=en_US">[Source: Apple Technical Specifications]</a></p>
+        </figcaption>
+</figure>
+
+<p><strong>EDIT: 1/25/21</strong> - Adding specs for Mac Mini as that&rsquo;s what was tested. The MacBook spec comparison was for apples-to-apples similar device class purposes.</p>
+
+
+
+
+
+
+
+
+<figure><a href="media/apple-mac-mini-m1-specs-no-billion-colors.png" target="_blank">
+    <img
+        
+            sizes="(min-width: 35em) 1200px, 100vw"
+              
+            srcset='
+            
+                   https://singhkays.com/blog/apple-silicon-m1-hdr-10bit-billion-colors/media/apple-mac-mini-m1-specs-no-billion-colors_hub71ad38c795181026054e1d86db438a4_342818_480x0_resize_lanczos_2.png 480w,
+            
+                   https://singhkays.com/blog/apple-silicon-m1-hdr-10bit-billion-colors/media/apple-mac-mini-m1-specs-no-billion-colors_hub71ad38c795181026054e1d86db438a4_342818_800x0_resize_lanczos_2.png 800w,
+            
+                   https://singhkays.com/blog/apple-silicon-m1-hdr-10bit-billion-colors/media/apple-mac-mini-m1-specs-no-billion-colors_hub71ad38c795181026054e1d86db438a4_342818_1200x0_resize_lanczos_2.png 1200w,
+            
+                   https://singhkays.com/blog/apple-silicon-m1-hdr-10bit-billion-colors/media/apple-mac-mini-m1-specs-no-billion-colors_hub71ad38c795181026054e1d86db438a4_342818_1500x0_resize_lanczos_2.png 1500w,
+            '
+
+            
+            
+            src="https://singhkays.com/blog/apple-silicon-m1-hdr-10bit-billion-colors/media/apple-mac-mini-m1-specs-no-billion-colors_hub71ad38c795181026054e1d86db438a4_342818_800x0_resize_lanczos_2.png"
+            
+
+        
+            alt="Apple Mac Mini M1 without any support for billions of colors"/> </a><figcaption>
+            <p>No mention of &ldquo;Billions of Colors&rdquo; for M1 Mac Mini
+                    <a href="https://support.apple.com/kb/SP823?locale=en_US">[Source: Apple Technical Specifications]</a></p>
         </figcaption>
 </figure>
 
@@ -561,7 +598,7 @@ January 24, 2021&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Kay Singh
 <h1 id="test-2-connect-to-a-10-bit-monitor">Test 2: Connect to a 10-bit Monitor<a hidden class="anchor" aria-hidden="true" href="#test-2-connect-to-a-10-bit-monitor">#</a></h1>
 <p>At this point, it&rsquo;s clear that the Mac Mini can output an HDR10 signal when connected to an HDR capable display. Next, I explored if it can output a 10-bit signal / Billions of colors to a non-HDR 10-bit display. This was done by connecting to the Philips Brilliance P272P7VU monitor.</p>
 <h3 id="10-bit-psd-test">10-bit PSD test<a hidden class="anchor" aria-hidden="true" href="#10-bit-psd-test">#</a></h3>
-<p>The first test was done by displaying a 10-bit PSD file in &ldquo;Preview&rdquo;, which supports 10-bit files. If the Mac Mini outputs a 10-bit signal, then the gradients in the file would be smooth. I also opened the same file in another image viewer called &ldquo;Pixea&rdquo; and observed banding. While I can&rsquo;t confirm if Pixea supports 10-bit images, it sure looks like it as the same file has observable differences between two different image viewers.</p>
+<p>The first test was done by displaying a 10-bit PSD file in &ldquo;Preview&rdquo;, which supports 10-bit files. <strong>If the M1 outputs a 10-bit signal, then the gradients in the file would be smooth.</strong> Opening the file in &ldquo;Preview&rdquo; confirmed the 10-bit output as the test pattern was completely smooth. I also opened the same file in another image viewer called &ldquo;Pixea&rdquo; and observed banding which most likely is because &ldquo;Pixea&rdquo; doesn&rsquo;t support 10-bit files. In the image below, the same file is open in &ldquo;Preview&rdquo; on the left and &ldquo;Pixea&rdquo; on the right.</p>
 <p>NOTE: <em>You might not observe the difference between the two images below as during the upload and publishing this image might get converted to 8-bit. On my machine the left image is completely smooth while the right displays banding.</em></p>
 
 
@@ -597,8 +634,45 @@ January 24, 2021&nbsp;·&nbsp;5 min&nbsp;·&nbsp;Kay Singh
 </figure>
 
 <p><a href="https://imagescience.com.au/knowledge/10-bit-output-support">Download the 10-bit PSD file from here</a></p>
+<h3 id="spears-munsil-quantization-test-1">Spears Munsil quantization test<a hidden class="anchor" aria-hidden="true" href="#spears-munsil-quantization-test-1">#</a></h3>
+<p>I also ran the &ldquo;Spears Munsil&rdquo; quntaization pattern on this monitor and observed the 10-bit pattern had less banding. I ran the test with the latest version of VLC Player - 3.12.1 that is a native Apple Silicon binary.</p>
+
+
+
+
+
+
+
+
+<figure><a href="media/spears-munsil-quantaziation-test-monitor.png" target="_blank">
+    <img
+        
+            sizes="(min-width: 35em) 1200px, 100vw"
+              
+            srcset='
+            
+                   https://singhkays.com/blog/apple-silicon-m1-hdr-10bit-billion-colors/media/spears-munsil-quantaziation-test-monitor_huddcc9d57251e34ed89aea80b66069025_277365_480x0_resize_lanczos_2.png 480w,
+            
+                   https://singhkays.com/blog/apple-silicon-m1-hdr-10bit-billion-colors/media/spears-munsil-quantaziation-test-monitor_huddcc9d57251e34ed89aea80b66069025_277365_800x0_resize_lanczos_2.png 800w,
+            
+                   https://singhkays.com/blog/apple-silicon-m1-hdr-10bit-billion-colors/media/spears-munsil-quantaziation-test-monitor_huddcc9d57251e34ed89aea80b66069025_277365_1200x0_resize_lanczos_2.png 1200w,
+            
+                   https://singhkays.com/blog/apple-silicon-m1-hdr-10bit-billion-colors/media/spears-munsil-quantaziation-test-monitor_huddcc9d57251e34ed89aea80b66069025_277365_1500x0_resize_lanczos_2.png 1500w,
+            '
+
+            
+            
+            src="https://singhkays.com/blog/apple-silicon-m1-hdr-10bit-billion-colors/media/spears-munsil-quantaziation-test-monitor_huddcc9d57251e34ed89aea80b66069025_277365_800x0_resize_lanczos_2.png"
+            
+
+        
+            alt="Spears Munsil Quantization Test shows 10-bit pattern has less banding"/> </a><figcaption>
+            <p>Spears Munsil Quantization Test shows 10-bit pattern has less banding</p>
+        </figcaption>
+</figure>
+
 <h3 id="switchresx-test">SwitchResX test<a hidden class="anchor" aria-hidden="true" href="#switchresx-test">#</a></h3>
-<p>Using SwitchResX, I confirmed that the display was set to &ldquo;Billions of colors&rdquo; mode.</p>
+<p>Using SwitchResX, I confirmed that the display was set to &ldquo;Billions of colors&rdquo; mode i.e. outputting a 10-bit signal.</p>
 
 
 
