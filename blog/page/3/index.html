@@ -1,16 +1,351 @@
-<!doctype html><html lang=en dir=auto><head><meta charset=utf-8><meta http-equiv=x-ua-compatible content="IE=edge"><meta name=viewport content="width=device-width,initial-scale=1,shrink-to-fit=no"><title>Blogs - KAY SINGH</title><meta name=description content><meta name=keywords content="/"><meta name=author content="Kay Singh"><link rel=canonical href=https://singhkays.com/blog/><link href=https://singhkays.com/assets/css/stylesheet.min.f7eafea2d338934723d34b25e85ca2adf9687a98f3e3b7ade053b29d5af63e12.css integrity="sha256-9+r+otM4k0cj00sl6Fyirfloepjz47et4FOynVr2PhI=" rel="preload stylesheet" as=style><link rel=apple-touch-icon sizes=180x180 href=/apple-touch-icon.png><link rel=icon type=image/png sizes=32x32 href=/favicon-32x32.png><link rel=icon type=image/png sizes=16x16 href=/favicon-16x16.png><link rel=manifest href=/site.webmanifest><meta name=generator content="Hugo 0.80.0"><link rel=alternate type=application/rss+xml href=https://singhkays.com/blog/index.xml><script type=application/javascript>var doNotTrack=false;if(!doNotTrack){window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;ga('create','UA-108462543-1','auto');ga('send','pageview');}</script><script async src=https://www.google-analytics.com/analytics.js></script><meta name=twitter:card content="summary"><meta name=twitter:title content="Blogs"><meta name=twitter:description content="Kay Singh's Blog"><meta property="og:title" content="Blogs"><meta property="og:description" content="Kay Singh's Blog"><meta property="og:type" content="website"><meta property="og:url" content="https://singhkays.com/blog/"><meta property="og:updated_time" content="2021-01-24T00:00:00+00:00"><meta property="og:site_name" content="Kay's Blog"><meta itemprop=name content="Blogs"><meta itemprop=description content="Kay Singh's Blog"><script type=text/javascript>window._mNHandle=window._mNHandle||{};window._mNHandle.queue=window._mNHandle.queue||[];medianet_versionId="3121199";</script><script src="//contextual.media.net/dmedianet.js?cid=8CUX6J71X" async></script><script async src=https://platform.twitter.com/widgets.js></script><script data-ad-client=ca-pub-8046835310934475 async src=https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js></script><script async src="https://www.googletagmanager.com/gtag/js?id=G-JDVREY790Z"></script><script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments);}
-gtag('js',new Date());gtag('config','G-JDVREY790Z');</script></head><body class=list id=top><noscript><style type=text/css>.theme-toggle,.top-link{display:none}</style></noscript><header class=header><nav class=nav><div class=logo><a href=https://singhkays.com/ accesskey=h title="Kay Singh (Alt + H)"><img src=/android-chrome-192x192.png alt=logo aria-label=logo height=35>Kay Singh</a>
-<span class=logo-switches></span></div><ul class=menu id=menu onscroll=menu_on_scroll()><li><a href=https://singhkays.com/search/ title="Search (Alt + /)" accesskey=/><span>Search</span></a></li><li><a href=https://singhkays.com/archives/ title=Archives><span>Archives</span></a></li><li><a href=https://singhkays.com/about/ title=About><span>About</span></a></li><li><a href=https://singhkays.com/contact/ title=Contact><span>Contact</span></a></li><li><a href=https://singhkays.com/index.xml title="RSS Feed"><span>RSS Feed</span></a></li></ul></nav></header><main class=main><header class=page-header><h1>Blogs</h1></header><article class=post-entry><header class=entry-header><h2>Microsoft Ignite 2018: Migrating your IaaS infrastructure from ASM to ARM without downtime - THR2265</h2></header><section class=entry-content><p>Azure Resource Manager stack has been released for almost three years now. In those three years many features have been added that are exclusive to Azure Resource Manager. In this session, I demonstrate the process of migrating your existing infrastructure to Azure Resource Manager without downtime. See a list of all the benefits here: https://azure.microsoft.com/en-us/blog/migrate-iaas-to-azure-resource-manager.
-...</p></section><footer class=entry-footer>September 25, 2018&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Kay Singh</footer><a class=entry-link aria-label="post link to Microsoft Ignite 2018: Migrating your IaaS infrastructure from ASM to ARM without downtime - THR2265" href=https://singhkays.com/blog/ignite2018-migrate-asm-arm-iaas/></a></article><article class=post-entry><header class=entry-header><h2>Microsoft Ignite 2018: Share custom VM images with Shared Image Gallery - THR2264</h2></header><section class=entry-content><p>Sharing custom images within an organization to different subscriptions globally has been a long standing ask from Azure customers. With Shared Image Gallery we’re making this dream a reality! Read more about Shared Image Gallery https://azure.microsoft.com/en-us/blog/shared-image-gallery-now-in-limited-public-preview/
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+<title>Blogs - KAY SINGH</title>
+
+<meta name="description" content="">
+<meta name="keywords" content= />
+<meta name="author" content="Kay Singh">
+<link rel="canonical" href="https://singhkays.com/blog/" />
+
+
+<link href="https://singhkays.com/assets/css/stylesheet.min.f7eafea2d338934723d34b25e85ca2adf9687a98f3e3b7ade053b29d5af63e12.css" integrity="sha256-9&#43;r&#43;otM4k0cj00sl6Fyirfloepjz47et4FOynVr2PhI=" rel="preload stylesheet"
+    as="style">
+
+
+
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<meta name="generator" content="Hugo 0.80.0" />
+<link rel="alternate" type="application/rss&#43;xml" href="https://singhkays.com/blog/index.xml">
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-108462543-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+
+<meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="Blogs"/>
+<meta name="twitter:description" content="Kay Singh&#39;s Blog"/>
+
+<meta property="og:title" content="Blogs" />
+<meta property="og:description" content="Kay Singh&#39;s Blog" />
+<meta property="og:type" content="website" />
+<meta property="og:url" content="https://singhkays.com/blog/" />
+
+
+    
+        <meta property="og:updated_time" content="2021-01-24T00:00:00&#43;00:00"/>
+    
+
+
+
+
+    <meta property="og:site_name" content="Kay&#39;s Blog" />
+
+
+
+
+
+
+
+
+
+<meta itemprop="name" content="Blogs">
+<meta itemprop="description" content="Kay Singh&#39;s Blog">
+
+
+<script type="text/javascript">
+  window._mNHandle = window._mNHandle || {};
+  window._mNHandle.queue = window._mNHandle.queue || [];
+  medianet_versionId = "3121199";
+</script>
+<script src="//contextual.media.net/dmedianet.js?cid=8CUX6J71X" async="async"></script>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+<script data-ad-client="ca-pub-8046835310934475" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JDVREY790Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JDVREY790Z');
+</script>
+</head>
+
+<body class="list" id="top">
+<noscript>
+    <style type="text/css">
+        .theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://singhkays.com/" accesskey="h" title="Kay Singh (Alt + H)">
+                <img src="/android-chrome-192x192.png" alt="logo" aria-label="logo"
+                    height="35">Kay Singh</a>
+            <span class="logo-switches">
+                
+            </span>
+        </div>
+        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://singhkays.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://singhkays.com/archives/" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://singhkays.com/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://singhkays.com/contact/" title="Contact">
+                    <span>Contact</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://singhkays.com/index.xml" title="RSS Feed">
+                    <span>RSS Feed</span>
+                </a>
+            </li></ul>
+    </nav>
+</header>
+
+    <main class="main"> 
+<header class="page-header">
+  <h1>Blogs</h1>
+</header>
+
+
+
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      Microsoft Ignite 2018: Migrating your IaaS infrastructure from ASM to ARM without downtime - THR2265
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>Azure Resource Manager stack has been released for almost three years now. In those three years many features have been added that are exclusive to Azure Resource Manager. In this session, I demonstrate the process of migrating your existing infrastructure to Azure Resource Manager without downtime. See a list of all the benefits here: https://azure.microsoft.com/en-us/blog/migrate-iaas-to-azure-resource-manager.
+  ...</p>
+  </section>
+  <footer class="entry-footer">
+
+September 25, 2018&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Kay Singh
+</footer>
+  <a class="entry-link" aria-label="post link to Microsoft Ignite 2018: Migrating your IaaS infrastructure from ASM to ARM without downtime - THR2265" href="https://singhkays.com/blog/ignite2018-migrate-asm-arm-iaas/"></a>
+</article>
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      Microsoft Ignite 2018: Share custom VM images with Shared Image Gallery - THR2264
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>Sharing custom images within an organization to different subscriptions globally has been a long standing ask from Azure customers. With Shared Image Gallery we’re making this dream a reality! Read more about Shared Image Gallery https://azure.microsoft.com/en-us/blog/shared-image-gallery-now-in-limited-public-preview/
 In this session, I present how customers can get started with Shared Image Gallery.
-...</p></section><footer class=entry-footer>September 24, 2018&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Kay Singh</footer><a class=entry-link aria-label="post link to Microsoft Ignite 2018: Share custom VM images with Shared Image Gallery - THR2264" href=https://singhkays.com/blog/ignite2018-share-vm-images-shared-image-gallery/></a></article><article class=post-entry><header class=entry-header><h2>Testing x265 encoder scaling on a 128 core Azure VM for 4K HDR</h2></header><section class=entry-content><p>Video encoding has always been a fairly compute intensive task. With every new generation of video encoders, more computational power has been required to achieve the compression benefits. HEVC/H.265 is the latest state of the art video compression standard with x265 being the most popular open-source encoder used for encoding into the HEVC/H.265 format. In comparison to AVC/H.264 (the previous state of the art encoding format), HEVC offers about double the data compression ratio at the same level of video quality, or substantially improved video quality at the same bit rate....</p></section><footer class=entry-footer>August 19, 2018&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Kay Singh</footer><a class=entry-link aria-label="post link to Testing x265 encoder scaling on a 128 core Azure VM for 4K HDR" href=https://singhkays.com/blog/x265-128-core-scaling-4k-hevc-hdr-azure-vm/></a></article><article class=post-entry><header class=entry-header><h2>How do I discard unstaged changes in Git?</h2></header><section class=entry-content><p>Often when I’m working on this blog, I work over multiple days and end up working on multiple devices. The blog is written in markdown and tracked in a Git repo on Azure Devops. The other day a scenario arose where I was customizing the theme of the blog but not getting anywhere. I decided to have another go at the customization few days later but this time on another device....</p></section><footer class=entry-footer>April 21, 2018&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Kay Singh</footer><a class=entry-link aria-label="post link to How do I discard unstaged changes in Git?" href=https://singhkays.com/blog/git-discard-changes-terminal/></a></article><article class=post-entry><header class=entry-header><h2>Vertical Scale Runbooks Updated with the latest Azure VM Sizes</h2></header><section class=entry-content><p>In the world of cloud, horizontal scaling is well understood these days. It is easy to use applications like Kubernetes to automate the scale out your containerized applications based on workload demand. For applications running on VMs, we have cloud native services like VM Scale Sets that make scaling in and out a breeze. However, for an on-prem application going through a lift & shift to the cloud, vertical scaling of the VM is still the king....</p></section><footer class=entry-footer>December 10, 2017&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Kay Singh</footer><a class=entry-link aria-label="post link to Vertical Scale Runbooks Updated with the latest Azure VM Sizes" href=https://singhkays.com/blog/vertical-scale-runbooks-update/></a></article><article class=post-entry><header class=entry-header><h2>Understanding the Azure B Series and CPU credits</h2></header><section class=entry-content><p>Azure recently introduced its first burstable VM size - the B-series. This VM type is meant to compete directly with AWS' T2 instances. In the below few words (or more :smile: ) I try to explain what this means and why you should care. If you still have questions after reading, hit me up on Twitter or leave a comment below.
-So why do I need a burstable size anyway? If you have applications that remain idle for a long time and burst occasionally, then the B-series might be the perfect fit for you....</p></section><footer class=entry-footer>November 13, 2017&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Kay Singh</footer><a class=entry-link aria-label="post link to Understanding the Azure B Series and CPU credits" href=https://singhkays.com/blog/understanding-azure-b-series/></a></article><article class=post-entry><header class=entry-header><h2>Integrating Azure Automation Runbook Output with Logic Apps</h2></header><section class=entry-content><p>Problem One of the challenges I have come across the last few days while working with Azure Automation & Logic Apps is how to integrate the output of the Automation Runbook in the Logic Apps workflow. Here’s the scenario, I have been trying to solve - Given an AzureRM resource Id, I want to parse out the name of the subscription, resource group & name of the resource.
-Here’s an example AzureRM resource Id for reference...</p></section><footer class=entry-footer>October 29, 2017&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Kay Singh</footer><a class=entry-link aria-label="post link to Integrating Azure Automation Runbook Output with Logic Apps" href=https://singhkays.com/blog/azure-automation-runbook-output-logic-apps/></a></article><article class=post-entry><header class=entry-header><h2>Azure Cloud Shell + Solarized Dark = ❤️</h2></header><section class=entry-content><p>I’m a big fan of typography! Clean and beautiful typography can make the experience of coding or reading an article so much better. It’s no wonder if you search for “best programming font”, there’s no shortage of font comparison articles. However, one of the things that is universally agreed upon is how terrible Courier/Courier New is.
-Azure Cloud Shell is a great product that takes away the complexity of figuring out the installation methods and authentication (esp....</p></section><footer class=entry-footer>October 23, 2017&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Kay Singh</footer><a class=entry-link aria-label="post link to Azure Cloud Shell + Solarized Dark = ❤️" href=https://singhkays.com/blog/azure-cloud-shell-solarized-dark/></a></article><footer class=page-footer><nav class=pagination><a class=prev href=https://singhkays.com/blog/page/2/>« Prev Page</a></nav></footer></main><footer class=footer><span>Copyright © 2017–2021, Kay Singh; all rights reserved.</span>
-<span>&#183;</span>
-<span>Powered by <a href=https://gohugo.io/ rel="noopener noreferrer" target=_blank>Hugo</a></span>
-<span>&#183;</span>
-<span>Theme <a href=https://git.io/hugopapermod rel=noopener target=_blank>PaperMod</a></span></footer><a href=#top aria-label="go to top" title="Go to Top (Alt + G)"><button class=top-link id=top-link type=button accesskey=g><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentcolor"><path d="M12 6H0l6-6z"/></svg></button></a>
-<script defer src=/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w=" onload=hljs.initHighlightingOnLoad();></script><script>window.onload=function(){if(localStorage.getItem("menu-scroll-position")){document.getElementById('menu').scrollLeft=localStorage.getItem("menu-scroll-position");}}
-document.querySelectorAll('a[href^="#"]').forEach(anchor=>{anchor.addEventListener("click",function(e){e.preventDefault();var id=this.getAttribute("href").substr(1);if(!window.matchMedia('(prefers-reduced-motion: reduce)').matches){document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({behavior:"smooth"});}else{document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();}
-if(id==="top"){history.replaceState(null,null," ");}else{history.replaceState(null,null,`#${id}`);}});});var mybutton=document.getElementById("top-link");window.onscroll=function(){if(document.body.scrollTop>800||document.documentElement.scrollTop>800){mybutton.style.visibility="visible";mybutton.style.opacity="1";}else{mybutton.style.visibility="hidden";mybutton.style.opacity="0";}};function menu_on_scroll(){localStorage.setItem("menu-scroll-position",document.getElementById('menu').scrollLeft);}</script></body></html>
+  ...</p>
+  </section>
+  <footer class="entry-footer">
+
+September 24, 2018&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Kay Singh
+</footer>
+  <a class="entry-link" aria-label="post link to Microsoft Ignite 2018: Share custom VM images with Shared Image Gallery - THR2264" href="https://singhkays.com/blog/ignite2018-share-vm-images-shared-image-gallery/"></a>
+</article>
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      Testing x265 encoder scaling on a 128 core Azure VM for 4K HDR
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>Video encoding has always been a fairly compute intensive task. With every new generation of video encoders, more computational power has been required to achieve the compression benefits. HEVC/H.265 is the latest state of the art video compression standard with x265 being the most popular open-source encoder used for encoding into the HEVC/H.265 format. In comparison to AVC/H.264 (the previous state of the art encoding format), HEVC offers about double the data compression ratio at the same level of video quality, or substantially improved video quality at the same bit rate....</p>
+  </section>
+  <footer class="entry-footer">
+
+August 19, 2018&nbsp;·&nbsp;6 min&nbsp;·&nbsp;Kay Singh
+</footer>
+  <a class="entry-link" aria-label="post link to Testing x265 encoder scaling on a 128 core Azure VM for 4K HDR" href="https://singhkays.com/blog/x265-128-core-scaling-4k-hevc-hdr-azure-vm/"></a>
+</article>
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      How do I discard unstaged changes in Git?
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>Often when I’m working on this blog, I work over multiple days and end up working on multiple devices. The blog is written in markdown and tracked in a Git repo on Azure Devops. The other day a scenario arose where I was customizing the theme of the blog but not getting anywhere. I decided to have another go at the customization few days later but this time on another device....</p>
+  </section>
+  <footer class="entry-footer">
+
+April 21, 2018&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Kay Singh
+</footer>
+  <a class="entry-link" aria-label="post link to How do I discard unstaged changes in Git?" href="https://singhkays.com/blog/git-discard-changes-terminal/"></a>
+</article>
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      Vertical Scale Runbooks Updated with the latest Azure VM Sizes
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>In the world of cloud, horizontal scaling is well understood these days. It is easy to use applications like Kubernetes to automate the scale out your containerized applications based on workload demand. For applications running on VMs, we have cloud native services like VM Scale Sets that make scaling in and out a breeze. However, for an on-prem application going through a lift &amp; shift to the cloud, vertical scaling of the VM is still the king....</p>
+  </section>
+  <footer class="entry-footer">
+
+December 10, 2017&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Kay Singh
+</footer>
+  <a class="entry-link" aria-label="post link to Vertical Scale Runbooks Updated with the latest Azure VM Sizes" href="https://singhkays.com/blog/vertical-scale-runbooks-update/"></a>
+</article>
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      Understanding the Azure B Series and CPU credits
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>Azure recently introduced its first burstable VM size - the B-series. This VM type is meant to compete directly with AWS&#39; T2 instances. In the below few words (or more :smile: ) I try to explain what this means and why you should care. If you still have questions after reading, hit me up on Twitter or leave a comment below.
+So why do I need a burstable size anyway? If you have applications that remain idle for a long time and burst occasionally, then the B-series might be the perfect fit for you....</p>
+  </section>
+  <footer class="entry-footer">
+
+November 13, 2017&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Kay Singh
+</footer>
+  <a class="entry-link" aria-label="post link to Understanding the Azure B Series and CPU credits" href="https://singhkays.com/blog/understanding-azure-b-series/"></a>
+</article>
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      Integrating Azure Automation Runbook Output with Logic Apps
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>Problem One of the challenges I have come across the last few days while working with Azure Automation &amp; Logic Apps is how to integrate the output of the Automation Runbook in the Logic Apps workflow. Here’s the scenario, I have been trying to solve - Given an AzureRM resource Id, I want to parse out the name of the subscription, resource group &amp; name of the resource.
+Here’s an example AzureRM resource Id for reference...</p>
+  </section>
+  <footer class="entry-footer">
+
+October 29, 2017&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Kay Singh
+</footer>
+  <a class="entry-link" aria-label="post link to Integrating Azure Automation Runbook Output with Logic Apps" href="https://singhkays.com/blog/azure-automation-runbook-output-logic-apps/"></a>
+</article>
+<article class="post-entry"> 
+
+  <header class="entry-header">
+    <h2>
+      Azure Cloud Shell &#43; Solarized Dark = ❤️ 
+    </h2>
+  </header>
+  <section class="entry-content">
+    <p>I’m a big fan of typography! Clean and beautiful typography can make the experience of coding or reading an article so much better. It’s no wonder if you search for “best programming font”, there’s no shortage of font comparison articles. However, one of the things that is universally agreed upon is how terrible Courier/Courier New is.
+Azure Cloud Shell is a great product that takes away the complexity of figuring out the installation methods and authentication (esp....</p>
+  </section>
+  <footer class="entry-footer">
+
+October 23, 2017&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Kay Singh
+</footer>
+  <a class="entry-link" aria-label="post link to Azure Cloud Shell &#43; Solarized Dark = ❤️ " href="https://singhkays.com/blog/azure-cloud-shell-solarized-dark/"></a>
+</article>
+<footer class="page-footer">
+  <nav class="pagination">
+    <a class="prev" href="https://singhkays.com/blog/page/2/">« Prev Page</a>
+  </nav>
+</footer>
+
+    </main><footer class="footer">
+    <span>Copyright © 2017–2021, Kay Singh; all rights reserved.</span>
+    <span>&middot;</span>
+    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+    <span>&middot;</span>
+    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+
+
+<script defer src="/assets/js/highlight.min.27cd435cc9ed6abb4b496581b151804f79f366c412620272bb94e2f5f598ebcc.js" integrity="sha256-J81DXMntartLSWWBsVGAT3nzZsQSYgJyu5Ti9fWY68w="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.replaceState(null, null, `#${id}`);
+            }
+        });
+    });
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+</script>
+
+</body>
+
+</html>
