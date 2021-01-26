@@ -14,7 +14,7 @@ Why is my OS disk not @ /dev/sda? In most cases the OS disk is /dev/sda but in s
 <link rel="canonical" href="https://singhkays.com/blog/how-to-identify-azure-linux-vm-disks/" />
 
 
-<link href="https://singhkays.com/assets/css/stylesheet.min.f7eafea2d338934723d34b25e85ca2adf9687a98f3e3b7ade053b29d5af63e12.css" integrity="sha256-9&#43;r&#43;otM4k0cj00sl6Fyirfloepjz47et4FOynVr2PhI=" rel="preload stylesheet"
+<link href="https://singhkays.com/assets/css/stylesheet.min.4ba331f09417ec06fb4745f7de5cbe09067cc11eddc4e0f4d3f2ba989e5ffa15.css" integrity="sha256-S6Mx8JQX7Ab7R0X33ly&#43;CQZ8wR7dxOD00/K6mJ5f&#43;hU=" rel="preload stylesheet"
     as="style">
 
 
@@ -92,7 +92,7 @@ Why is my OS disk not @ /dev/sda? In most cases the OS disk is /dev/sda but in s
 
 
 
-<meta itemprop="keywords" content="Infrastructure,Azure,Managed Disks,IaaS,Virtual Machines,Cloud," />
+<meta itemprop="keywords" content="Infrastructure,Azure,Managed Disks,IaaS,Virtual Machines,Cloud,Managed Disks," />
 
 
 <script type="text/javascript">
@@ -180,6 +180,11 @@ April 30, 2019&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Kay Singh
 
     </div>
   </header> 
+<figure class="entry-cover">
+        <img srcset="https://singhkays.com/blog/how-to-identify-azure-linux-vm-disks/media/azure-linux-vm-disks_hu6757c85f2843e3f1b93fc8fd66969cef_109859_360x0_resize_lanczos_2.png 360w ,https://singhkays.com/blog/how-to-identify-azure-linux-vm-disks/media/azure-linux-vm-disks_hu6757c85f2843e3f1b93fc8fd66969cef_109859_480x0_resize_lanczos_2.png 480w ,https://singhkays.com/blog/how-to-identify-azure-linux-vm-disks/media/azure-linux-vm-disks_hu6757c85f2843e3f1b93fc8fd66969cef_109859_720x0_resize_lanczos_2.png 720w ,https://singhkays.com/blog/how-to-identify-azure-linux-vm-disks/media/azure-linux-vm-disks.png 974w"
+            sizes="(min-width: 768px) 720px, 100vw" src="https://singhkays.com/blog/how-to-identify-azure-linux-vm-disks/media/azure-linux-vm-disks.png" alt="" />
+        
+</figure>
 
 
   
@@ -271,10 +276,10 @@ lrwxrwxrwx <span style="color:#ae81ff">1</span> root root <span style="color:#ae
     <ul class="post-tags">
       <li><a href="https://singhkays.com/tags/infrastructure/">Infrastructure</a></li>
       <li><a href="https://singhkays.com/tags/azure/">Azure</a></li>
-      <li><a href="https://singhkays.com/tags/managed-disks/">Managed Disks</a></li>
       <li><a href="https://singhkays.com/tags/iaas/">IaaS</a></li>
       <li><a href="https://singhkays.com/tags/virtual-machines/">Virtual Machines</a></li>
       <li><a href="https://singhkays.com/tags/cloud/">Cloud</a></li>
+      <li><a href="https://singhkays.com/tags/managed-disks/">Managed Disks</a></li>
     </ul>
 
 
@@ -284,7 +289,7 @@ lrwxrwxrwx <span style="color:#ae81ff">1</span> root root <span style="color:#ae
 
 <div class="share-buttons">
     <a target="_blank" rel="noopener noreferrer" aria-label="share How to identify boot, temp and data disks in Azure Linux VMs on twitter"
-        href="https://twitter.com/intent/tweet/?text=How%20to%20identify%20boot%2c%20temp%20and%20data%20disks%20in%20Azure%20Linux%20VMs&amp;url=https%3a%2f%2fsinghkays.com%2fblog%2fhow-to-identify-azure-linux-vm-disks%2f&amp;hashtags=Infrastructure%2cAzure%2cManagedDisks%2cIaaS%2cVirtualMachines%2cCloud">
+        href="https://twitter.com/intent/tweet/?text=How%20to%20identify%20boot%2c%20temp%20and%20data%20disks%20in%20Azure%20Linux%20VMs&amp;url=https%3a%2f%2fsinghkays.com%2fblog%2fhow-to-identify-azure-linux-vm-disks%2f&amp;hashtags=Infrastructure%2cAzure%2cManagedDisks%2cIaaS%2cVirtualMachines%2cCloud%2cManagedDisks">
         <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
             <path
                 d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
@@ -370,7 +375,7 @@ lrwxrwxrwx <span style="color:#ae81ff">1</span> root root <span style="color:#ae
             if (id === "top") {
                 history.replaceState(null, null, " ");
             } else {
-                history.replaceState(null, null, `#${id}`);
+                history.pushState(null, null, `#${id}`);
             }
         });
     });

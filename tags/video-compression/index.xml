@@ -6,17 +6,7 @@
     <description>Recent content in Video Compression on KAY SINGH</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2017–2021, Kay Singh; all rights reserved.</copyright>
-    <lastBuildDate>Thu, 20 Feb 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/tags/video-compression/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>AV1 Ecosystem Update: January 2020</title>
-      <link>https://singhkays.com/blog/av1-ecosystem-update-january-2020/</link>
-      <pubDate>Thu, 20 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://singhkays.com/blog/av1-ecosystem-update-january-2020/</guid>
-      <description>January is usually a big month for tech because the Consumer Electronics Shows kicks off every year in Las Vegas. This year was no different as various manufacturers brought their latest products to showcase.
-Samsung and LG 2020 TVs to support AV1 decoding We have been waiting all of 2019 to see consumer devices that can decode AV1 and CES did not disappoint! Both Samsung and LG announced their upcoming 2020 TVs will be capable of full hardware decode of 8K AV1 videos from sources such as YouTube.</description>
-    </item>
-    
+    <lastBuildDate>Wed, 29 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/tags/video-compression/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AV1 2019: A Year In Review</title>
       <link>https://singhkays.com/blog/av1-2019-year-in-review/</link>
@@ -25,119 +15,6 @@ Samsung and LG 2020 TVs to support AV1 decoding We have been waiting all of 2019
       <guid>https://singhkays.com/blog/av1-2019-year-in-review/</guid>
       <description>Introduction It&amp;rsquo;s not often you see so many logos of tech giants on one page backing the same technology. In my experience, every enterprise has developed a case of NIH and come up with their standards. No surprise then that there&amp;rsquo;s an XKCD describing this phenomenon!
 But when the AV1 1.0.0 spec was finalized in 2018, with the backing of so many giants, the world knew AV1 would be a serious piece of tech.</description>
-    </item>
-    
-    <item>
-      <title>AV1 Ecosystem Update: December 2019</title>
-      <link>https://singhkays.com/blog/av1-ecosystem-update-december-2019/</link>
-      <pubDate>Sun, 05 Jan 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://singhkays.com/blog/av1-ecosystem-update-december-2019/</guid>
-      <description>dav1d 0.5.2 &amp;lsquo;Asiatic Cheetah&amp;rsquo; released dav1d ended the year with another performance improvement release. Dubbed the &amp;ldquo;Asiatic Cheetah&amp;rdquo; this release brings the following improvements:
- ARM32 optimizations for loopfilter, ipred_dc|h|v Add section-5 raw OBU demuxer Improve the speed by reducing the L2 cache collisions Fix minor issues, including compilation on some OSes  Release notes for dav1d 0.5.2 &amp;lsquo;Asiatic Cheetah&amp;rsquo;
-rav1e v0.2.0: Winter Solstice released Building on the official 0.1.0 release in November, rav1e had a busy December with 3 releases.</description>
-    </item>
-    
-    <item>
-      <title>AV1 Ecosystem Update: November 2019</title>
-      <link>https://singhkays.com/blog/av1-ecosystem-update-november-2019/</link>
-      <pubDate>Tue, 17 Dec 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://singhkays.com/blog/av1-ecosystem-update-november-2019/</guid>
-      <description>The Tale of Two next-gen SOCs - Snapdragon 865 and MediaTek Dimensity 1000 Last month, we saw the release of SOCs expected to power next-gen flagship smartphones. Since the AV1 standard as formalized, the community has been waiting to see when SOC manufacturers add hardware support for AV1 decoding. It looks like we&#39;ll be waiting a lot longer for such a chip from Qualcomm. In what might come as a shock, MediaTek announced the first SOC to feature such support with their new Dimensity 1000 chip.</description>
-    </item>
-    
-    <item>
-      <title>AV1 Ecosystem Update: October 2019</title>
-      <link>https://singhkays.com/blog/av1-ecosystem-update-october-2019/</link>
-      <pubDate>Thu, 14 Nov 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://singhkays.com/blog/av1-ecosystem-update-october-2019/</guid>
-      <description>Let&amp;rsquo;s start this month&amp;rsquo;s roundup with a faster decoder!
-dav1d 0.5.0 &amp;amp; 0.5.1 release In October, dav1d saw two new releases with some fantastic speed improvements. Here is a summary:
- Large improvements in speed on SSSE3 CPU (up to 40% speedup) Speed improvements on AVX-2 (for 4-7%) Speed improvements on ARM64 (up to 10%) and ARM32. 0.5.1 is a minor release which brings improvements in speed for SSE2 CPUs (up to 50% speedup), and ARMv7 CPUs (up to 41% speedup).</description>
-    </item>
-    
-    <item>
-      <title>AV1 Ecosystem Update: September 2019</title>
-      <link>https://singhkays.com/blog/av1-ecosystem-update-september-2019/</link>
-      <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://singhkays.com/blog/av1-ecosystem-update-september-2019/</guid>
-      <description>Let&amp;rsquo;s start this month&amp;rsquo;s roundup with the release of two of our favorite encoders - rav1e and SVT-AV1! rav1e rav1e finally has a new weekly pre-release with the following updates:
-Improvements
- More API documentation Better error reporting Nicer error messages in the cli application Explicit validation of the encoder configuration The input Frame type can be expressed Added cargo-fuzz support and documented its usage Better rate-control support Two-pass rate-control support Additional speedups over all the speed levels on x86_64  Changes</description>
-    </item>
-    
-    <item>
-      <title>Now Available: Weekly build of libaom AV1 &#43; FFmpeg docker image</title>
-      <link>https://singhkays.com/blog/docker-image-av1-ffmpeg-libaom/</link>
-      <pubDate>Sat, 21 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://singhkays.com/blog/docker-image-av1-ffmpeg-libaom/</guid>
-      <description>Motivation While trying to try out the latest features for the libaom AV1 encoder, I&amp;rsquo;ve been trying to figure out how to get a hold of the latest binary. As of writing of this blog, I haven&amp;rsquo;t come across any source on the web that publishes a binary of libaom AV1 encoder. Often while trying to get a hold of the latest changes in libaom, you have to build the source yourself which takes time.</description>
-    </item>
-    
-    <item>
-      <title>AV1 Ecosystem Update: August 2019</title>
-      <link>https://singhkays.com/blog/av1-ecosystem-update-august-2019/</link>
-      <pubDate>Tue, 03 Sep 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://singhkays.com/blog/av1-ecosystem-update-august-2019/</guid>
-      <description>AVIF in Spectrum lib While browsing for AV1/AVIF updates, I noticed this commit to Facebook&amp;rsquo;s open source Spectrum library that adds support for AVIF format.
- https://github.com/facebookincubator/spectrum/commit/89b87bee831d3c7aabd0ad327fb118ce699df55d  Spectrum is an image transcoding library for iOS and Android that is meant to be integrated into apps for image operations. Hopefully this means that we&amp;rsquo;ll see apps supporting AVIF format soon!
-FFmpeg 4.2 release FFmpeg 4.2 codenamed &amp;ldquo;Ada&amp;rdquo; was released on August 5th, 2019.</description>
-    </item>
-    
-    <item>
-      <title>AV1 Ecosystem Update: July 2019</title>
-      <link>https://singhkays.com/blog/av1-ecosystem-update-july-2019/</link>
-      <pubDate>Tue, 13 Aug 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://singhkays.com/blog/av1-ecosystem-update-july-2019/</guid>
-      <description>If May and June were F1 race cars in terms of speed of AV1 development, then July would probably be a Honda Civic. After numerous exciting announcements in the previous month, July felt like everyone&amp;rsquo;s on vacation, which is probably true because summer months tend to be slow as the school&amp;rsquo;s out. So, this update will be a short one as I&amp;rsquo;m out on vacation as well :)
-Mile High Video 2019 Nathan Egge of Mozilla and Brion Vibber of Wikimedia presented a session recapping AV1&amp;rsquo;s progress in the last year.</description>
-    </item>
-    
-    <item>
-      <title>AV1 Ecosystem Update: June 2019</title>
-      <link>https://singhkays.com/blog/av1-ecosystem-update-june-2019/</link>
-      <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://singhkays.com/blog/av1-ecosystem-update-june-2019/</guid>
-      <description>It&amp;rsquo;s been a pretty busy for me professionally which is why this month&amp;rsquo;s AV1 ecosystem update is coming in pretty late. It&amp;rsquo;s been one of the most exciting months for AV1 development and a lot to catch up on! With so much news this month, it is starting to feel like we&amp;rsquo;re at the cusp of something big! (which we hope AV1 will be )
-Youtube pauses AV1 rollout Currently, YouTube is the biggest streaming platform delivering AV1 video and is responsible for the majority of AV1 video consumption on the internet.</description>
-    </item>
-    
-    <item>
-      <title>AV1 Ecosystem Update: May 2019</title>
-      <link>https://singhkays.com/blog/av1-ecosystem-update-may-2019/</link>
-      <pubDate>Mon, 10 Jun 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://singhkays.com/blog/av1-ecosystem-update-may-2019/</guid>
-      <description>May was another amazing month for the AV1 codec! We saw great progress in the SVT-AV1 encoder, Android update news and some surprising news out of China!
-SVT-AV1 is making strides! Let&amp;rsquo;s start with SVT-AV1 encoder, the current encoder of choice for Netflix, being developed by the folks at Intel. In May, version 0.5.0 was released with the following features:
- 8 bit / 10 bit 4:2:0 up to 4K60p resolutions Presets 0-8 New API, FFmpeg, GStreamer plugins Rate control support (VBR, CVBR) Block sizes from 4x4 to 128x128 Non-square blocks Tiles Deblocking / CDEF / Restoration filters Film Grain Warped motion estimation Intra block copy Trellis quantized coefficient optimization Support for 4 and 5 layers prediction structures Chroma search in MD Multi-reference picture support  Other notable updates   May also saw the most number of commits to the SVT-AV1 Github repo as shown by the graph below.</description>
-    </item>
-    
-    <item>
-      <title>AV1 Resource Central: Videos, Tools, Presentations, Comparisons, Research Papers, Encoders, Decoders</title>
-      <link>https://singhkays.com/blog/av1-wiki-resources-tools/</link>
-      <pubDate>Tue, 14 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://singhkays.com/blog/av1-wiki-resources-tools/</guid>
-      <description>Bitstream spec  https://aomediacodec.github.io/av1-spec/  Encoder Implementations SVT-AV1 Homepage  https://01.org/svt  Source repo  https://github.com/OpenVisualCloud/SVT-AV1  User-Guide  https://github.com/OpenVisualCloud/SVT-AV1/blob/master/Docs/svt-av1_encoder_user_guide.md  Roadmap Trello page
-Microsoft Azure whitepaper  https://01.org/sites/default/files/documentation/svt_azure_wp.pdf  Amazon Web Services (AWS) Whitepaper  http://01.org/sites/default/files/documentation/svt_aws_wp.pdf  Mailing List  http://lists.01.org/mailman/listinfo/svt-av1  aomenc Homepage and Source repo  https://aomedia.googlesource.com/aom/  rav1e Homepage, Source repo  https://github.com/xiph/rav1e  Decoder Implementations dav1d Homepage, Source repo  https://code.videolan.org/videolan/dav1d  Presentations   Mozilla @ NAB 2019 [April 2019 by Nathan Egge]</description>
-    </item>
-    
-    <item>
-      <title>AV1 Ecosystem Update: April 2019</title>
-      <link>https://singhkays.com/blog/av1-ecosystem-update-april-2019/</link>
-      <pubDate>Mon, 06 May 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://singhkays.com/blog/av1-ecosystem-update-april-2019/</guid>
-      <description>It&amp;rsquo;s been an exciting time following the progress of the royalty free video codec AV1 over the past year and April might just be the most exciting active month in the amount of news we got about AV1! It&amp;rsquo;s not every day that media industry giants such as Netflix, Google, Mozilla, Microsoft, Apple, Amazon, ARM, Facebook, Nvidia, Intel, Cisco and many others agree on the same technology stack!
-Samsung joins the party The month started with Samsung announcing they were joining the Alliance of Open Media Board at the highest level.</description>
     </item>
     
     <item>

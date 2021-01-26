@@ -13,7 +13,7 @@
 <link rel="canonical" href="https://singhkays.com/tags/docker/" />
 
 
-<link href="https://singhkays.com/assets/css/stylesheet.min.f7eafea2d338934723d34b25e85ca2adf9687a98f3e3b7ade053b29d5af63e12.css" integrity="sha256-9&#43;r&#43;otM4k0cj00sl6Fyirfloepjz47et4FOynVr2PhI=" rel="preload stylesheet"
+<link href="https://singhkays.com/assets/css/stylesheet.min.4ba331f09417ec06fb4745f7de5cbe09067cc11eddc4e0f4d3f2ba989e5ffa15.css" integrity="sha256-S6Mx8JQX7Ab7R0X33ly&#43;CQZ8wR7dxOD00/K6mJ5f&#43;hU=" rel="preload stylesheet"
     as="style">
 
 
@@ -147,7 +147,9 @@ if (!doNotTrack) {
 
 
 <article class="post-entry tag-entry"> 
-<figure class="entry-cover"><img src="https://singhkays.com/media/av1-ecosystem-update-september-2019-broadcom-docker-paint-ffmpeg.png" alt="">
+<figure class="entry-cover">
+        <img srcset="https://singhkays.com/blog/av1-ecosystem-update-september-2019/media/_hu568c6d56a9fb4bc545183f749d449f88_197827_9b4b6b375a80edf7bef48c273bfa12b0.png 360w ,https://singhkays.com/blog/av1-ecosystem-update-september-2019/media/_hu568c6d56a9fb4bc545183f749d449f88_197827_7174c8151df3fdbc3186cec713530092.png 480w ,https://singhkays.com/blog/av1-ecosystem-update-september-2019/media/_hu568c6d56a9fb4bc545183f749d449f88_197827_825255fc59cb98abdea12f19d85cfba3.png 720w ,https://singhkays.com/blog/av1-ecosystem-update-september-2019/media/_hu568c6d56a9fb4bc545183f749d449f88_197827_97452c32cdd179c5b48804a448bda531.png 1080w ,https://singhkays.com/blog/av1-ecosystem-update-september-2019/media/_hu568c6d56a9fb4bc545183f749d449f88_197827_48d5eae89e416411ea0b1cb4050e8598.png 1500w ,https://singhkays.com/blog/av1-ecosystem-update-september-2019/media/av1-ecosystem-update-september-2019-broadcom-docker-paint-ffmpeg.png 1877w"
+            sizes="(min-width: 768px) 720px, 100vw" src="https://singhkays.com/blog/av1-ecosystem-update-september-2019/media/av1-ecosystem-update-september-2019-broadcom-docker-paint-ffmpeg.png" alt="" />
 </figure>
 
   <header class="entry-header">
@@ -167,6 +169,10 @@ October 4, 2019&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Kay Singh
   <a class="entry-link" aria-label="post link to AV1 Ecosystem Update: September 2019" href="https://singhkays.com/blog/av1-ecosystem-update-september-2019/"></a>
 </article>
 <article class="post-entry tag-entry"> 
+<figure class="entry-cover">
+        <img srcset="https://singhkays.com/blog/docker-image-av1-ffmpeg-libaom/media/docker-ffmpeg-av1-libaom_hu9237d8ab5c42a94dd263a8223b462254_167040_360x0_resize_lanczos_2.png 360w ,https://singhkays.com/blog/docker-image-av1-ffmpeg-libaom/media/docker-ffmpeg-av1-libaom_hu9237d8ab5c42a94dd263a8223b462254_167040_480x0_resize_lanczos_2.png 480w ,https://singhkays.com/blog/docker-image-av1-ffmpeg-libaom/media/docker-ffmpeg-av1-libaom_hu9237d8ab5c42a94dd263a8223b462254_167040_720x0_resize_lanczos_2.png 720w ,https://singhkays.com/blog/docker-image-av1-ffmpeg-libaom/media/docker-ffmpeg-av1-libaom_hu9237d8ab5c42a94dd263a8223b462254_167040_1080x0_resize_lanczos_2.png 1080w ,https://singhkays.com/blog/docker-image-av1-ffmpeg-libaom/media/docker-ffmpeg-av1-libaom_hu9237d8ab5c42a94dd263a8223b462254_167040_1500x0_resize_lanczos_2.png 1500w ,https://singhkays.com/blog/docker-image-av1-ffmpeg-libaom/media/docker-ffmpeg-av1-libaom.png 1568w"
+            sizes="(min-width: 768px) 720px, 100vw" src="https://singhkays.com/blog/docker-image-av1-ffmpeg-libaom/media/docker-ffmpeg-av1-libaom.png" alt="" />
+</figure>
 
   <header class="entry-header">
     <h2>
@@ -220,7 +226,7 @@ September 21, 2019&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Kay Singh
             if (id === "top") {
                 history.replaceState(null, null, " ");
             } else {
-                history.replaceState(null, null, `#${id}`);
+                history.pushState(null, null, `#${id}`);
             }
         });
     });

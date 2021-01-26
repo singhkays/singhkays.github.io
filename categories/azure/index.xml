@@ -97,6 +97,15 @@ In this session, I present how customers can get started with Shared Image Galle
     </item>
     
     <item>
+      <title>Testing x265 encoder scaling on a 128 core Azure VM for 4K HDR</title>
+      <link>https://singhkays.com/blog/x265-128-core-scaling-4k-hevc-hdr-azure-vm/</link>
+      <pubDate>Sun, 19 Aug 2018 13:52:28 -0700</pubDate>
+      
+      <guid>https://singhkays.com/blog/x265-128-core-scaling-4k-hevc-hdr-azure-vm/</guid>
+      <description>Video encoding has always been a fairly compute intensive task. With every new generation of video encoders, more computational power has been required to achieve the compression benefits. HEVC/H.265 is the latest state of the art video compression standard with x265 being the most popular open-source encoder used for encoding into the HEVC/H.265 format. In comparison to AVC/H.264 (the previous state of the art encoding format), HEVC offers about double the data compression ratio at the same level of video quality, or substantially improved video quality at the same bit rate.</description>
+    </item>
+    
+    <item>
       <title>Vertical Scale Runbooks Updated with the latest Azure VM Sizes</title>
       <link>https://singhkays.com/blog/vertical-scale-runbooks-update/</link>
       <pubDate>Sun, 10 Dec 2017 14:43:18 -0800</pubDate>

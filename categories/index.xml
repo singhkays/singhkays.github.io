@@ -107,29 +107,11 @@
     </item>
     
     <item>
-      <title>Serverless</title>
-      <link>https://singhkays.com/categories/serverless/</link>
+      <title>Cloud</title>
+      <link>https://singhkays.com/categories/cloud/</link>
       <pubDate>Thu, 26 Sep 2019 00:00:00 +0000</pubDate>
       
-      <guid>https://singhkays.com/categories/serverless/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Managed Disks</title>
-      <link>https://singhkays.com/categories/managed-disks/</link>
-      <pubDate>Tue, 30 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://singhkays.com/categories/managed-disks/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Virtual Machines</title>
-      <link>https://singhkays.com/categories/virtual-machines/</link>
-      <pubDate>Tue, 30 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://singhkays.com/categories/virtual-machines/</guid>
+      <guid>https://singhkays.com/categories/cloud/</guid>
       <description></description>
     </item>
     
@@ -139,15 +121,6 @@
       <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
       
       <guid>https://singhkays.com/categories/artificial-intelligence/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Video Indexer</title>
-      <link>https://singhkays.com/categories/video-indexer/</link>
-      <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
-      
-      <guid>https://singhkays.com/categories/video-indexer/</guid>
       <description></description>
     </item>
     
@@ -170,74 +143,20 @@
     </item>
     
     <item>
-      <title>Shared Image Gallery</title>
-      <link>https://singhkays.com/categories/shared-image-gallery/</link>
-      <pubDate>Thu, 27 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://singhkays.com/categories/shared-image-gallery/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>VM Scale Sets</title>
-      <link>https://singhkays.com/categories/vm-scale-sets/</link>
-      <pubDate>Thu, 27 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://singhkays.com/categories/vm-scale-sets/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Migration</title>
-      <link>https://singhkays.com/categories/migration/</link>
-      <pubDate>Tue, 25 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://singhkays.com/categories/migration/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Custom Images</title>
-      <link>https://singhkays.com/categories/custom-images/</link>
-      <pubDate>Mon, 24 Sep 2018 00:00:00 +0000</pubDate>
-      
-      <guid>https://singhkays.com/categories/custom-images/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>git</title>
-      <link>https://singhkays.com/categories/git/</link>
+      <title>developer</title>
+      <link>https://singhkays.com/categories/developer/</link>
       <pubDate>Sat, 21 Apr 2018 00:00:00 +0000</pubDate>
       
-      <guid>https://singhkays.com/categories/git/</guid>
+      <guid>https://singhkays.com/categories/developer/</guid>
       <description></description>
     </item>
     
     <item>
-      <title>Azure Automation</title>
-      <link>https://singhkays.com/categories/azure-automation/</link>
-      <pubDate>Sun, 29 Oct 2017 10:28:40 -0700</pubDate>
+      <title>Virtual Machines</title>
+      <link>https://singhkays.com/categories/virtual-machines/</link>
+      <pubDate>Sun, 10 Dec 2017 14:43:18 -0800</pubDate>
       
-      <guid>https://singhkays.com/categories/azure-automation/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Logic Apps</title>
-      <link>https://singhkays.com/categories/logic-apps/</link>
-      <pubDate>Sun, 29 Oct 2017 10:28:40 -0700</pubDate>
-      
-      <guid>https://singhkays.com/categories/logic-apps/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>Cloud Shell</title>
-      <link>https://singhkays.com/categories/cloud-shell/</link>
-      <pubDate>Mon, 23 Oct 2017 23:22:52 -0700</pubDate>
-      
-      <guid>https://singhkays.com/categories/cloud-shell/</guid>
+      <guid>https://singhkays.com/categories/virtual-machines/</guid>
       <description></description>
     </item>
     
