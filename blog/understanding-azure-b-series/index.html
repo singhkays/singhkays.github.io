@@ -14,7 +14,7 @@ So why do I need a burstable size anyway? If you have applications that remain i
 <link rel="canonical" href="https://singhkays.com/blog/understanding-azure-b-series/" />
 
 
-<link href="https://singhkays.com/assets/css/stylesheet.min.fd17e9f906185218ff3443805371764c13e07d7732fe8b30d46f1e56fcb529fa.css" integrity="sha256-/Rfp&#43;QYYUhj/NEOAU3F2TBPgfXcy/osw1G8eVvy1Kfo=" rel="preload stylesheet"
+<link href="https://singhkays.com/assets/css/stylesheet.min.81244588da925d88a38a41e3efe7c9df582948f90fb394d9a2228c8825b6fa1f.css" integrity="sha256-gSRFiNqSXYijikHj7&#43;fJ31gpSPkPs5TZoiKMiCW2&#43;h8=" rel="preload stylesheet"
     as="style">
 
 
@@ -64,7 +64,7 @@ So why do I need a burstable size anyway? If you have applications that remain i
         <meta property="article:published_time" content="2017-11-13T16:59:56-08:00"/>
     
     
-        <meta property="article:modified_time" content="2017-11-13T16:59:56-08:00"/>
+        <meta property="article:modified_time" content="2021-01-26T00:18:12-08:00"/>
     
 
 
@@ -85,7 +85,7 @@ So why do I need a burstable size anyway? If you have applications that remain i
 <meta itemprop="name" content="Understanding the Azure B Series and CPU credits">
 <meta itemprop="description" content="Azure recently introduced its first burstable VM size - the B-series. This VM type is meant to compete directly with AWS&#39; T2 instances. In the below few words (or more :smile: ) I try to explain what this means and why you should care. If you still have questions after reading, hit me up on Twitter or leave a comment below.
 So why do I need a burstable size anyway? If you have applications that remain idle for a long time and burst occasionally, then the B-series might be the perfect fit for you."><meta itemprop="datePublished" content="2017-11-13T16:59:56-08:00" />
-<meta itemprop="dateModified" content="2017-11-13T16:59:56-08:00" />
+<meta itemprop="dateModified" content="2021-01-26T00:18:12-08:00" />
 <meta itemprop="wordCount" content="1431"><meta itemprop="image" content="https://singhkays.com/media/azure-b-series-cpu-percentage.png">
 <meta itemprop="keywords" content="Infrastructure,Azure,IaaS,Virtual Machines,Cloud,Azure B Series,Burstable VMs,VM CPU Credits," />
 
@@ -95,7 +95,7 @@ So why do I need a burstable size anyway? If you have applications that remain i
   medianet_versionId = "3121199";
 </script>
 <script src="//contextual.media.net/dmedianet.js?cid=8CUX6J71X" async="async"></script>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 <script data-ad-client="ca-pub-8046835310934475" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 
@@ -114,7 +114,7 @@ So why do I need a burstable size anyway? If you have applications that remain i
 <body class="" id="top">
 <noscript>
     <style type="text/css">
-        .theme-toggle,
+        #theme-toggle,
         .top-link {
             display: none;
         }
@@ -129,9 +129,10 @@ So why do I need a burstable size anyway? If you have applications that remain i
                     height="35">Kay Singh</a>
             <span class="logo-switches">
                 
+                
             </span>
         </div>
-        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+        <ul id="menu" onscroll="menu_on_scroll()">
             <li>
                 <a href="https://singhkays.com/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
@@ -278,7 +279,8 @@ November 13, 2017&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Kay Singh
 <p>Every VM size in the B-series starts off with a fixed number of credits. The formula for determining this is:</p>
 <pre><code class="language-l" data-lang="l">Starting Credits = 30 x # of Cores
 </code></pre><p>Here&rsquo;s a visual look at the starting credits across all the B-series sizes 1 minute after starting:
-<img src="media/azure-b-series-starting-credits.png" alt="Azure B-Series starting credits"></p>
+<img loading="lazy" src="media/azure-b-series-starting-credits.png" alt="Azure B-Series starting credits"  />
+</p>
 <h1 id="how-do-you-build-credits">How do you build credits?<a hidden class="anchor" aria-hidden="true" href="#how-do-you-build-credits">#</a></h1>
 <h3 id="base-cpu-perf-of-vm">Base CPU perf of VM<a hidden class="anchor" aria-hidden="true" href="#base-cpu-perf-of-vm">#</a></h3>
 <p><code>Base CPU perf of VM</code> is the threshold of CPU usage above or below which the credit balance changes. This value is shared amongst the # of vCPUs on the VM. For example, the <code>Standard_B8ms</code> VM size has <code>Base CPU perf</code> of <code>135%</code>. This is shared amongst the 8 vCPUs that make up this VM size. The formulas to determine how the <code>Base CPU perf</code> affects the credit balance are:</p>
@@ -334,7 +336,8 @@ Current CPU usage == Base CPU perf of VM = No change in credit balance
 <p><strong>NOTE</strong> If you stop deallocate the VM, then the credits built up are lost.</p>
 </blockquote>
 <p>Here&rsquo;s a look at the different VM sizes building up the credits. In this example, the VMs are left idle after creation and banked credits increases for 24 hours until it reaches the credit limit.
-<img src="media/azure-b-series-max-credits.png" alt="Azure B-Series maximum credits"></p>
+<img loading="lazy" src="media/azure-b-series-max-credits.png" alt="Azure B-Series maximum credits"  />
+</p>
 <h1 id="lets-use-these-credits">Let&rsquo;s use these credits!<a hidden class="anchor" aria-hidden="true" href="#lets-use-these-credits">#</a></h1>
 <p>When you have credits in the bank, your VM can burst beyond the &ldquo;Base CPU Perf&rdquo; allowed for that VM size. The amount of credits spent can be determined by the same formula we used to determine how many credits are banked per minute i.e.</p>
 <pre><code class="language-l" data-lang="l">(Base CPU perf of VM - CPU Usage) / 100 = Credits bank or use per minute
@@ -348,7 +351,8 @@ Current CPU usage == Base CPU perf of VM = No change in credit balance
 </code></pre><!-- raw HTML omitted -->
 <h3 id="experimenting-with-credits">Experimenting with credits<a hidden class="anchor" aria-hidden="true" href="#experimenting-with-credits">#</a></h3>
 <p>Let&rsquo;s take a look at the credit usage of different VM sizes in the B-series corresponding to the CPU load and throttling. In the experiment below, 100% CPU usage was generated for more than 24 hours with <a href="https://amanusk.github.io/s-tui/">s-tui</a> which is a terminal UI for the Ubuntu <a href="http://manpages.ubuntu.com/manpages/xenial/en/man1/stress.1.html">stress tool</a>.</p>
-<p><img src="media/s-tui_usage.png" alt="s-tui tool"></p>
+<p><img loading="lazy" src="media/s-tui_usage.png" alt="s-tui tool"  />
+</p>
 <p>As you look at the graphs below, note these key things:</p>
 <ul>
 <li>The upper graph is for the credits spent</li>
@@ -357,15 +361,19 @@ Current CPU usage == Base CPU perf of VM = No change in credit balance
 <li>The <code>Standard_B8ms</code> is the second size to exhaust its credit savings. This is because of the delta between the <code>Maximum CPU usage (i.e. 800%)</code> and the <code>Base CPU Perf (i.e. 135%)</code></li>
 <li>Surprisingly, the <code>Standard_B2ms</code> is the size that can burst to max usage the longest i.e. for nearly 12 hours</li>
 </ul>
-<p><img src="media/azure-b-series-load-credit-usage.png" alt="Azure B Series credit usage">
-<img src="media/azure-b-series-load-cpu-percentage.png" alt="Azure B Series load cpu percentage"></p>
+<p><img loading="lazy" src="media/azure-b-series-load-credit-usage.png" alt="Azure B Series credit usage"  />
+
+<img loading="lazy" src="media/azure-b-series-load-cpu-percentage.png" alt="Azure B Series load cpu percentage"  />
+</p>
 <blockquote>
 <p><strong>NOTE</strong> In the CPU load graph above, the usage for multi-core VM sizes is divided equally amongst all the cores and represented on a scale of 0 to 100%.</p>
 </blockquote>
 <h1 id="recap">Recap<a hidden class="anchor" aria-hidden="true" href="#recap">#</a></h1>
 <p>Let&rsquo;s zoom out the time scale and review the VM usage and CPU load for all the B-series sizes over the course of two days.
-<img src="media/azure-b-series-credits-build-up.png" alt="Azure B Series credit usage full">
-<img src="media/azure-b-series-cpu-percentage.png" alt="Azure B Series load cpu percentage full"></p>
+<img loading="lazy" src="media/azure-b-series-credits-build-up.png" alt="Azure B Series credit usage full"  />
+
+<img loading="lazy" src="media/azure-b-series-cpu-percentage.png" alt="Azure B Series load cpu percentage full"  />
+</p>
 <h3 id="formulas">Formulas<a hidden class="anchor" aria-hidden="true" href="#formulas">#</a></h3>
 <p>Let&rsquo;s also recap the various formulas we used in this discussion</p>
 <pre><code class="language-l" data-lang="l">Starting Credits = 30 x # of Cores

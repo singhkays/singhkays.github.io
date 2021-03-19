@@ -13,7 +13,7 @@
 <link rel="canonical" href="https://singhkays.com/blog/x265-128-core-scaling-4k-hevc-hdr-azure-vm/" />
 
 
-<link href="https://singhkays.com/assets/css/stylesheet.min.fd17e9f906185218ff3443805371764c13e07d7732fe8b30d46f1e56fcb529fa.css" integrity="sha256-/Rfp&#43;QYYUhj/NEOAU3F2TBPgfXcy/osw1G8eVvy1Kfo=" rel="preload stylesheet"
+<link href="https://singhkays.com/assets/css/stylesheet.min.81244588da925d88a38a41e3efe7c9df582948f90fb394d9a2228c8825b6fa1f.css" integrity="sha256-gSRFiNqSXYijikHj7&#43;fJ31gpSPkPs5TZoiKMiCW2&#43;h8=" rel="preload stylesheet"
     as="style">
 
 
@@ -61,7 +61,7 @@ if (!doNotTrack) {
         <meta property="article:published_time" content="2018-08-19T13:52:28-07:00"/>
     
     
-        <meta property="article:modified_time" content="2018-08-19T13:52:28-07:00"/>
+        <meta property="article:modified_time" content="2021-01-26T00:18:12-08:00"/>
     
 
 
@@ -81,7 +81,7 @@ if (!doNotTrack) {
 
 <meta itemprop="name" content="Testing x265 encoder scaling on a 128 core Azure VM for 4K HDR">
 <meta itemprop="description" content="Video encoding has always been a fairly compute intensive task. With every new generation of video encoders, more computational power has been required to achieve the compression benefits. HEVC/H.265 is the latest state of the art video compression standard with x265 being the most popular open-source encoder used for encoding into the HEVC/H.265 format. In comparison to AVC/H.264 (the previous state of the art encoding format), HEVC offers about double the data compression ratio at the same level of video quality, or substantially improved video quality at the same bit rate."><meta itemprop="datePublished" content="2018-08-19T13:52:28-07:00" />
-<meta itemprop="dateModified" content="2018-08-19T13:52:28-07:00" />
+<meta itemprop="dateModified" content="2021-01-26T00:18:12-08:00" />
 <meta itemprop="wordCount" content="1102"><meta itemprop="image" content="https://singhkays.com/media/average-cpu-2-3-4-encodes.png">
 <meta itemprop="keywords" content="Codecs,Video Encoding,x265,HEVC,H.265,HDR,4K,UHD,Video Compression," />
 
@@ -91,7 +91,7 @@ if (!doNotTrack) {
   medianet_versionId = "3121199";
 </script>
 <script src="//contextual.media.net/dmedianet.js?cid=8CUX6J71X" async="async"></script>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 <script data-ad-client="ca-pub-8046835310934475" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 
@@ -110,7 +110,7 @@ if (!doNotTrack) {
 <body class="" id="top">
 <noscript>
     <style type="text/css">
-        .theme-toggle,
+        #theme-toggle,
         .top-link {
             display: none;
         }
@@ -125,9 +125,10 @@ if (!doNotTrack) {
                     height="35">Kay Singh</a>
             <span class="logo-switches">
                 
+                
             </span>
         </div>
-        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+        <ul id="menu" onscroll="menu_on_scroll()">
             <li>
                 <a href="https://singhkays.com/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
@@ -315,21 +316,29 @@ Mastering display luminance              : min: 0.0200 cd/m2, max: <span style="
 <!-- raw HTML omitted -->
 <!-- raw HTML omitted -->
 <h2 id="results">Results<a hidden class="anchor" aria-hidden="true" href="#results">#</a></h2>
-<p><img src="media/time-to-complete-vs-cores.png" alt="128 core scaling x265 HEVC HDR 4K Time to complete vs cores"></p>
-<p><img src="media/fps-vs-cores.png" alt="128 core scaling x265 HEVC HDR 4K FPS vs Cores"></p>
+<p><img loading="lazy" src="media/time-to-complete-vs-cores.png" alt="128 core scaling x265 HEVC HDR 4K Time to complete vs cores"  />
+</p>
+<p><img loading="lazy" src="media/fps-vs-cores.png" alt="128 core scaling x265 HEVC HDR 4K FPS vs Cores"  />
+</p>
 <p>Looking at the results above, we see that the time taken to complete the encode decreases nearly linearly until 32 cores. The same is true for the frames encoded per second (FPS). With more than 32 cores, the increase in performance does not scale linearly with the increase in number of cores.</p>
 <p>I also looked at the average CPU usage for all the encodes in Azure Portal. Looking at the chart below, you can see that the CPU is close to being 100% utilized with 8 and 16 cores. With 32 cores, the average CPU usage is slightly less than 100%. With 64 and 128 cores, we see a significant decrease in average CPU usage. With 128 cores, the average CPU usage is barely close to 30%! Quite clearly, there is room for improvement when encoding with 64 &amp; 128 cores.</p>
-<p><img src="media/vm-average-cpu.png" alt="128 core scaling x265 HEVC HDR 4K FPS vs Cores"></p>
+<p><img loading="lazy" src="media/vm-average-cpu.png" alt="128 core scaling x265 HEVC HDR 4K FPS vs Cores"  />
+</p>
 <p>Here is how the CPU usage looks using <code>htop</code> with 1 encode on 128 cores</p>
-<p><img src="media/htop-128-cores-1-encode.png" alt="128 core htop 1 encode x265"></p>
+<p><img loading="lazy" src="media/htop-128-cores-1-encode.png" alt="128 core htop 1 encode x265"  />
+</p>
 <h3 id="improving-cpu-usage">Improving CPU usage<a hidden class="anchor" aria-hidden="true" href="#improving-cpu-usage">#</a></h3>
 <p>With 128 cores, there is clearly room for improvement for the x265 encoder. Until we get these improvements, I wanted to see how to fully utilize all 128 cores. For achieving this, I ran the same encode multiple times. Here are the results:</p>
-<p><img src="media/time-to-complete-vs-concurrent-encodes.png" alt="Time to Complete vs # of concurrent encodes"></p>
-<p><img src="media/FPS-vs-concurrent-encodes.png" alt="FPS vs # of concurrent encodes"></p>
+<p><img loading="lazy" src="media/time-to-complete-vs-concurrent-encodes.png" alt="Time to Complete vs # of concurrent encodes"  />
+</p>
+<p><img loading="lazy" src="media/FPS-vs-concurrent-encodes.png" alt="FPS vs # of concurrent encodes"  />
+</p>
 <p>With 4 concurrent encodes, we&rsquo;re getting close to saturating all the 128 cores on this VM.</p>
-<p><img src="media/average-cpu-2-3-4-encodes.png" alt="Average CPU usage for concurrent encodes 4k HDR"></p>
+<p><img loading="lazy" src="media/average-cpu-2-3-4-encodes.png" alt="Average CPU usage for concurrent encodes 4k HDR"  />
+</p>
 <p>And here&rsquo;s the <code>htop</code> view of the CPU usage while running 4 concurrent encodes.</p>
-<p><img src="media/htop-4-encodes.png" alt="128 core htop 4 encodes x265 4k HDR"></p>
+<p><img loading="lazy" src="media/htop-4-encodes.png" alt="128 core htop 4 encodes x265 4k HDR"  />
+</p>
 <h2 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h2>
 <p>Hopefully, this gives you an idea into current limitations of the x265 encoder and how to best utilize all the available cores. If you have any questions, feel free to reach out to me by leaving a comment below or at one of the below locations:</p>
 <ul>

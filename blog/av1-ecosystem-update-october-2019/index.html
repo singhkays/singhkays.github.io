@@ -15,7 +15,7 @@ dav1d 0.5.0 &amp; 0.5.1 release In October, dav1d saw two new releases with some
 <link rel="canonical" href="https://singhkays.com/blog/av1-ecosystem-update-october-2019/" />
 
 
-<link href="https://singhkays.com/assets/css/stylesheet.min.fd17e9f906185218ff3443805371764c13e07d7732fe8b30d46f1e56fcb529fa.css" integrity="sha256-/Rfp&#43;QYYUhj/NEOAU3F2TBPgfXcy/osw1G8eVvy1Kfo=" rel="preload stylesheet"
+<link href="https://singhkays.com/assets/css/stylesheet.min.81244588da925d88a38a41e3efe7c9df582948f90fb394d9a2228c8825b6fa1f.css" integrity="sha256-gSRFiNqSXYijikHj7&#43;fJ31gpSPkPs5TZoiKMiCW2&#43;h8=" rel="preload stylesheet"
     as="style">
 
 
@@ -67,7 +67,7 @@ dav1d 0.5.0 &amp; 0.5.1 release In October, dav1d saw two new releases with some
         <meta property="article:published_time" content="2019-11-14T00:00:00&#43;00:00"/>
     
     
-        <meta property="article:modified_time" content="2019-11-14T00:00:00&#43;00:00"/>
+        <meta property="article:modified_time" content="2021-01-26T00:18:12-08:00"/>
     
 
 
@@ -89,7 +89,7 @@ dav1d 0.5.0 &amp; 0.5.1 release In October, dav1d saw two new releases with some
 <meta itemprop="description" content="Let&rsquo;s start this month&rsquo;s roundup with a faster decoder!
 dav1d 0.5.0 &amp; 0.5.1 release In October, dav1d saw two new releases with some fantastic speed improvements. Here is a summary:
  Large improvements in speed on SSSE3 CPU (up to 40% speedup) Speed improvements on AVX-2 (for 4-7%) Speed improvements on ARM64 (up to 10%) and ARM32. 0.5.1 is a minor release which brings improvements in speed for SSE2 CPUs (up to 50% speedup), and ARMv7 CPUs (up to 41% speedup)."><meta itemprop="datePublished" content="2019-11-14T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-11-14T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-01-26T00:18:12-08:00" />
 <meta itemprop="wordCount" content="546"><meta itemprop="image" content="https://singhkays.com/media/av1-ecosystem-update-october-2019.png">
 <meta itemprop="keywords" content="AV1,Codecs,Socionext,Google,gav1,dav1d,libaom,rav1e," />
 
@@ -99,7 +99,7 @@ dav1d 0.5.0 &amp; 0.5.1 release In October, dav1d saw two new releases with some
   medianet_versionId = "3121199";
 </script>
 <script src="//contextual.media.net/dmedianet.js?cid=8CUX6J71X" async="async"></script>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 <script data-ad-client="ca-pub-8046835310934475" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 
@@ -118,7 +118,7 @@ dav1d 0.5.0 &amp; 0.5.1 release In October, dav1d saw two new releases with some
 <body class="" id="top">
 <noscript>
     <style type="text/css">
-        .theme-toggle,
+        #theme-toggle,
         .top-link {
             display: none;
         }
@@ -133,9 +133,10 @@ dav1d 0.5.0 &amp; 0.5.1 release In October, dav1d saw two new releases with some
                     height="35">Kay Singh</a>
             <span class="logo-switches">
                 
+                
             </span>
         </div>
-        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+        <ul id="menu" onscroll="menu_on_scroll()">
             <li>
                 <a href="https://singhkays.com/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
@@ -228,9 +229,11 @@ November 14, 2019&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Kay Singh
 <h1 id="socionext-breaks-new-ground-in-real-time-av1-encoding-with-aws">Socionext Breaks New Ground in Real-Time AV1 Encoding with AWS<a hidden class="anchor" aria-hidden="true" href="#socionext-breaks-new-ground-in-real-time-av1-encoding-with-aws">#</a></h1>
 <p>Japanese system-on-chip technology provider Socionext showcased a solution that enables cloud-based AV1 real-time encoding, ensuring a consistent high-quality video stream while significantly reducing processing time and delivery costs.</p>
 <p>Here&rsquo;s how it works: Capture content with a <a href="https://jvc.com/pro">JVC &ldquo;CONNECTED CAM&rdquo;</a> camera that incorporates an encoder and supports the Zixi protocol. The JVC camera is the only professional camera compatible with the Zixi protocol, a mechanism that uses Forward Error Correction (FEC) and Automatic Repeat Request (ARQ) packet loss recovery. The signal output from the JVC camera is sent to MediaConnect for cloud ingress. The signal is then input to an EC2 F1 instance, encoded to next-generation compression codec AV1 in real-time, and transmitted via CloudFront to the intended audience.</p>
-<p><img src="https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2019/10/31/Screen-Shot-2019-10-31-at-1.38.57-PM.png" alt="Socionext AWS AV1 architecture"></p>
+<p><img loading="lazy" src="https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2019/10/31/Screen-Shot-2019-10-31-at-1.38.57-PM.png" alt="Socionext AWS AV1 architecture"  />
+</p>
 <p>Socionext showcased tremendous quality difference while reducing the bitrate requirements by 60% (4 Mbps vs 1.6 Mbps)</p>
-<p><img src="https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2019/10/31/H264vsAV1.jpg" alt="Socionext AV1 vs x264 comparison"></p>
+<p><img loading="lazy" src="https://d2908q01vomqb2.cloudfront.net/fb644351560d8296fe6da332236b1f8d61b2828a/2019/10/31/H264vsAV1.jpg" alt="Socionext AV1 vs x264 comparison"  />
+</p>
 <p><strong>More details at:</strong></p>
 <ul>
 <li><a href="https://aws.amazon.com/blogs/media/socionext-breaks-new-ground-in-real-time-av1-encoding-with-aws/">https://aws.amazon.com/blogs/media/socionext-breaks-new-ground-in-real-time-av1-encoding-with-aws/</a></li>

@@ -13,7 +13,7 @@
 <link rel="canonical" href="https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-2/" />
 
 
-<link href="https://singhkays.com/assets/css/stylesheet.min.fd17e9f906185218ff3443805371764c13e07d7732fe8b30d46f1e56fcb529fa.css" integrity="sha256-/Rfp&#43;QYYUhj/NEOAU3F2TBPgfXcy/osw1G8eVvy1Kfo=" rel="preload stylesheet"
+<link href="https://singhkays.com/assets/css/stylesheet.min.81244588da925d88a38a41e3efe7c9df582948f90fb394d9a2228c8825b6fa1f.css" integrity="sha256-gSRFiNqSXYijikHj7&#43;fJ31gpSPkPs5TZoiKMiCW2&#43;h8=" rel="preload stylesheet"
     as="style">
 
 
@@ -61,7 +61,7 @@ if (!doNotTrack) {
         <meta property="article:published_time" content="2019-08-01T00:00:00&#43;00:00"/>
     
     
-        <meta property="article:modified_time" content="2019-08-01T00:00:00&#43;00:00"/>
+        <meta property="article:modified_time" content="2021-01-26T00:18:12-08:00"/>
     
 
 
@@ -81,7 +81,7 @@ if (!doNotTrack) {
 
 <meta itemprop="name" content="Part 2: Building a scalable &#39;shot-based&#39; serverless AV1 video encoder in Azure">
 <meta itemprop="description" content="This is a 3-part blog covering how to build a scalable shot-based serverless video encoder in Azure. In Part 1, I explain what AV1 is and where we are in the video encoding space. In part 2, we create a logic app to upload and index the video. In part 3, we&rsquo;ll need to split the video into its scenes and encode individual scenes. For reference, here are the links to all the parts:"><meta itemprop="datePublished" content="2019-08-01T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-08-01T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-01-26T00:18:12-08:00" />
 <meta itemprop="wordCount" content="1421"><meta itemprop="image" content="https://singhkays.com/media/serverless-av1.png">
 <meta itemprop="keywords" content="Azure,Azure Functions,Azure Logic Apps,Azure Video Indexer,Azure File Share,Azure Storage,Serverless,AV1,H.265,H.264,x264,Video Codec,Video Encoding," />
 
@@ -91,7 +91,7 @@ if (!doNotTrack) {
   medianet_versionId = "3121199";
 </script>
 <script src="//contextual.media.net/dmedianet.js?cid=8CUX6J71X" async="async"></script>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 <script data-ad-client="ca-pub-8046835310934475" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 
@@ -110,7 +110,7 @@ if (!doNotTrack) {
 <body class="" id="top">
 <noscript>
     <style type="text/css">
-        .theme-toggle,
+        #theme-toggle,
         .top-link {
             display: none;
         }
@@ -125,9 +125,10 @@ if (!doNotTrack) {
                     height="35">Kay Singh</a>
             <span class="logo-switches">
                 
+                
             </span>
         </div>
-        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+        <ul id="menu" onscroll="menu_on_scroll()">
             <li>
                 <a href="https://singhkays.com/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
@@ -192,7 +193,8 @@ August 1, 2019&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Kay Singh
 </ol>
 <h2 id="the-solution">The solution<a hidden class="anchor" aria-hidden="true" href="#the-solution">#</a></h2>
 <p>To implement this solution, we need an algorithm that splits the input video into shots. Fortunately for us, <a href="https://vi.microsoft.com/en-us/">Microsoft Video Indexer</a> supports this scenario. Before getting started we&rsquo;ll setup Video Indexer in our subscription. For the rest of the steps, here&rsquo;s a quick overview of what&rsquo;s going to happen:</p>
-<p><img src="media/architecture.png" alt="&ldquo;shot-based&rdquo; serverless distributed AV1 video encoder in Azure"></p>
+<p><img loading="lazy" src="media/architecture.png" alt="&amp;ldquo;shot-based&amp;rdquo; serverless distributed AV1 video encoder in Azure"  />
+</p>
 <ol>
 <li>User uploads an MP4 video file to Azure Blob Storage</li>
 <li>Because of the Azure Event Grid integration with Azure Blob Storage, a file upload event triggers a notification</li>
@@ -223,15 +225,18 @@ August 1, 2019&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Kay Singh
 </li>
 <li>
 <p>Once logged in, click &ldquo;Create new account&rdquo;</p>
-<p><img src="media/0-vi-account.png" alt="Azure Video indexer create account"></p>
+<p><img loading="lazy" src="media/0-vi-account.png" alt="Azure Video indexer create account"  />
+</p>
 </li>
 <li>
 <p>Once you&rsquo;ve logged into your Azure subscription, fill in the details for the Video Indexer instance you&rsquo;d like to create.</p>
-<p><img src="media/0-vi-connect-azure.png" alt="Connect Azure Video Indexer to Azure subscription"></p>
+<p><img loading="lazy" src="media/0-vi-connect-azure.png" alt="Connect Azure Video Indexer to Azure subscription"  />
+</p>
 </li>
 <li>
 <p>It can take a few minutes for the Video Indexer to connect to your subscription. Once that is done, copy the account id of your new account</p>
-<p><img src="media/0-vi-account-id.png" alt="Azure Video Indexer account id"></p>
+<p><img loading="lazy" src="media/0-vi-account-id.png" alt="Azure Video Indexer account id"  />
+</p>
 </li>
 <li>
 <p>Now login with your Azure subscription at <a href="https://api-portal.videoindexer.ai/developer">https://api-portal.videoindexer.ai/developer</a> and copy the Primary or Secondary key</p>
@@ -255,23 +260,28 @@ August 1, 2019&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Kay Singh
 <strong>b.</strong>  <strong>output</strong> &ndash; we&rsquo;ll store the full encoded video here that the user can download<!-- raw HTML omitted -->
 <strong>c.</strong>  <strong>shots</strong> &ndash; we&rsquo;ll store the individual encoded shots video files here<!-- raw HTML omitted -->
 <strong>d.</strong>  <strong>source</strong> &ndash; we&rsquo;ll store the user uploaded video file here for access by the container instances<!-- raw HTML omitted --></p>
-<p><img src="media/storage-account-event-grid-subscription-1.8.png" alt="A screenshot of a cell phone Description automatically generated"></p>
+<p><img loading="lazy" src="media/storage-account-event-grid-subscription-1.8.png" alt="A screenshot of a cell phone Description automatically generated"  />
+</p>
 </li>
 <li>
 <p>Once the storage account is created, click the <strong>&ldquo;Events&rdquo;</strong> section of the storage account. In the <strong>&ldquo;Events&rdquo;</strong> section, use the <strong>&ldquo;When a new blob is uploaded&rdquo;</strong> quick start logic app to get started.<!-- raw HTML omitted --><br>
-<img src="media/storage-account-event-grid-subscription.png" alt="A screenshot of a cell phone Description automatically generated"></p>
+<img loading="lazy" src="media/storage-account-event-grid-subscription.png" alt="A screenshot of a cell phone Description automatically generated"  />
+</p>
 </li>
 <li>
 <p>Next screen shows the Azure Blob Storage and Azure Event Grid connections <!-- raw HTML omitted -->
-<img src="media/storage-account-event-grid-subscription-1.5.png" alt="A screenshot of a cell phone Description automatically generated"></p>
+<img loading="lazy" src="media/storage-account-event-grid-subscription-1.5.png" alt="A screenshot of a cell phone Description automatically generated"  />
+</p>
 </li>
 <li>
 <p>First create the connection for the storage account you just created
-<img src="media/storage-account-event-grid-subscription-1.6.png" alt="A screenshot of a cell phone Description automatically generated"></p>
+<img loading="lazy" src="media/storage-account-event-grid-subscription-1.6.png" alt="A screenshot of a cell phone Description automatically generated"  />
+</p>
 </li>
 <li>
 <p>Next, sign into Azure Event Grid with your current Azure subscription. Once you&rsquo;ve done these steps, you should see the following screen showing green status!</p>
-<p><img src="media/storage-account-event-grid-subscription-1.7.png" alt="A screenshot of a cell phone Description automatically generated"></p>
+<p><img loading="lazy" src="media/storage-account-event-grid-subscription-1.7.png" alt="A screenshot of a cell phone Description automatically generated"  />
+</p>
 </li>
 <li>
 <p>Hit continue and you should now land on the Logic Apps designer</p>
@@ -290,7 +300,8 @@ g.  Delete all steps except <strong>&ldquo;Compose&rdquo;</strong></p>
 <ol start="11">
 <li>
 <p>Your Logic App at this point should look like below</p>
-<p><img src="media/storage-account-event-grid-subscription-2.png" alt="A screenshot of a social media post Description automatically generated"></p>
+<p><img loading="lazy" src="media/storage-account-event-grid-subscription-2.png" alt="A screenshot of a social media post Description automatically generated"  />
+</p>
 </li>
 <li>
 <p>Save the logic app with whatever name you choose. In this solution, I named it as <strong>&ldquo;video-indexer-logic-app&rdquo;</strong></p>
@@ -302,32 +313,39 @@ g.  Delete all steps except <strong>&ldquo;Compose&rdquo;</strong></p>
 <p>After the <strong>&ldquo;Compose&rdquo;</strong> action, add a <strong>&ldquo;Create SAS URI by path&rdquo;</strong> action</p>
 <p><strong>a.</strong> For the <strong>&ldquo;Blob path&rdquo;</strong>, choose the <strong>&ldquo;Outputs&rdquo;</strong> from the previous Compose action. You will have to click <strong>&ldquo;See more&rdquo;</strong> to see the output from the Compose action.<!-- raw HTML omitted -->
 <strong>b.</strong> Make sure you&rsquo;re connected to the same Azure Blob Storage connection we defined earlier <em>(storage-la-conn in this case)</em></p>
-<p><img src="media/2-create-sas-uri.png" alt="A screenshot of a social media post Description automatically generated"></p>
+<p><img loading="lazy" src="media/2-create-sas-uri.png" alt="A screenshot of a social media post Description automatically generated"  />
+</p>
 </li>
 <li>
 <p>Now add a <strong>&ldquo;Get Account Access Token&rdquo;</strong> action for Video Indexer (V2) connector.</p>
-<p><img src="media/3-vi-get-account-access-token.png" alt="A screenshot of a cell phone Description automatically generated"></p>
+<p><img loading="lazy" src="media/3-vi-get-account-access-token.png" alt="A screenshot of a cell phone Description automatically generated"  />
+</p>
 <p><strong>a.</strong> The first time you do this, you will need to enter the <strong>Video Indexer API Key</strong> we copied earlier and enter a name for this Logic App-Video Indexer connection<!-- raw HTML omitted -->
-<img src="media/4-vi-create-connection.png" alt="A screenshot of a cell phone Description automatically generated"><!-- raw HTML omitted -->
+<img loading="lazy" src="media/4-vi-create-connection.png" alt="A screenshot of a cell phone Description automatically generated"  />
+<!-- raw HTML omitted -->
 <strong>b.</strong> Once the connection is created, select the <strong>location</strong> you deployed your Video Indexer instance to earlier.<!-- raw HTML omitted -->
 <strong>c.</strong> Select the <strong>account Id</strong> we saved earlier<!-- raw HTML omitted -->
 <strong>d.</strong> Select <strong>&ldquo;Yes&rdquo;</strong> for <strong>&ldquo;Allow Edit&rdquo;</strong><!-- raw HTML omitted --></p>
-<p><img src="media/5-vi-get-account-access-token-details.png" alt="A screenshot of a cell phone Description automatically generated"></p>
+<p><img loading="lazy" src="media/5-vi-get-account-access-token-details.png" alt="A screenshot of a cell phone Description automatically generated"  />
+</p>
 </li>
 <li>
 <p>Now add a <strong>&ldquo;Upload video and index&rdquo;</strong> step and fill in the following details as shows in the image.
-<img src="media/6-vi-upload-video-index.png" alt="A screenshot of a social media post Description automatically generated"></p>
+<img loading="lazy" src="media/6-vi-upload-video-index.png" alt="A screenshot of a social media post Description automatically generated"  />
+</p>
 </li>
 </ol>
 <p>For the Video Name field you can choose any name or make it dynamic using the expression tab to enter split(triggerBody()?[&lsquo;subject&rsquo;], &lsquo;/')?[6]. This splits the input video Uri to just the file name that was uploaded
-<img src="media/6.1-vi-upload-video-index.png" alt="A screenshot of a social media post Description automatically generated"></p>
+<img loading="lazy" src="media/6.1-vi-upload-video-index.png" alt="A screenshot of a social media post Description automatically generated"  />
+</p>
 <h6 id="copy-user-video-to-source-azure-file-share">Copy user video to &ldquo;source&rdquo; Azure File share<a hidden class="anchor" aria-hidden="true" href="#copy-user-video-to-source-azure-file-share">#</a></h6>
 <ol>
 <li>
 <p>Now we need to copy the source video file to the <strong>&ldquo;source&rdquo;</strong> Azure File share so that our encoding containers instances can access it. For that, add a <strong>&ldquo;Create container group&rdquo;</strong> action and configure it like shown below.</p>
 <p>We&rsquo;re using a small wget container that will download the video from the SAS Uri we generated earlier and then copy it to <strong>&ldquo;source&rdquo;</strong> Azure File Share. Note that we&rsquo;re using a minimal docker image, therefore we&rsquo;ll need to use &ldquo;&ndash;no-check-certificate&rdquo; with wget to download from HTTPS SAS Uri of Azure Blob Storage.</p>
 <p>Note that I&rsquo;m creating this container in a new resource group <strong>&ldquo;encoding-containers-rg&rdquo;</strong> to keep a dedicated resource group for creating container instances.</p>
-<p><img src="media/7-create-container-group.png" alt="A screenshot of a cell phone Description automatically generated"></p>
+<p><img loading="lazy" src="media/7-create-container-group.png" alt="A screenshot of a cell phone Description automatically generated"  />
+</p>
 <p>For the containers field, you can use the following JSON to configure easily</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
     {
@@ -361,21 +379,25 @@ g.  Delete all steps except <strong>&ldquo;Compose&rdquo;</strong></p>
 </li>
 <li>
 <p>Next, add an <strong>&ldquo;Until&rdquo;</strong> action to check for the completion of the previous container instance. Before filling in the details of the <strong>&ldquo;Until&rdquo;</strong> action, add a <strong>&ldquo;Delay&rdquo;</strong> and <strong>&ldquo;Get properties of a container group&rdquo;</strong> action like below.</p>
-<p><img src="media/8.1-until.png" alt="A screenshot of a computer Description automatically generated"></p>
+<p><img loading="lazy" src="media/8.1-until.png" alt="A screenshot of a computer Description automatically generated"  />
+</p>
 <p>Once this is done, now you can fill in the details of the <strong>&ldquo;Until&rdquo;</strong> action like below. NOTE: there are a few different state variables that show up. Choose the one I highlighted in the image below. Also in the advanced mode make sure the value is following to make sure you&rsquo;ve selected the correct variable</p>
 <p><code>@equals(body('Get_properties_of_a_container_group')?['properties']?['instanceView']?['state'], 'Succeeded')</code></p>
-<p><img src="media/8.2-until.png" alt="A screenshot of a computer Description automatically generated"></p>
+<p><img loading="lazy" src="media/8.2-until.png" alt="A screenshot of a computer Description automatically generated"  />
+</p>
 <!-- raw HTML omitted -->
 </li>
 <li>
 <p>Now for some cleanup! Let&rsquo;s add a <strong>&ldquo;Delete container group&rdquo;</strong> action</p>
-<p><img src="media/9-delete-container.png" alt="A screenshot of a cell phone Description automatically generated"></p>
+<p><img loading="lazy" src="media/9-delete-container.png" alt="A screenshot of a cell phone Description automatically generated"  />
+</p>
 </li>
 </ol>
 <h2 id="first-logic-app-created">First logic app created!<a hidden class="anchor" aria-hidden="true" href="#first-logic-app-created">#</a></h2>
 <p>At the end of above steps, your first logic app <strong>&ldquo;video-indexer-logic-app&rdquo;</strong> should look like below. I chose to leave the <strong>&ldquo;If false&rdquo;</strong> condition empty. You can setup an email notification for example if you choose to do so.</p>
 <!-- raw HTML omitted -->
-<p><img src="media/10-logic-app-1-complete.png" alt="A screenshot of a cell phone Description automatically generated"></p>
+<p><img loading="lazy" src="media/10-logic-app-1-complete.png" alt="A screenshot of a cell phone Description automatically generated"  />
+</p>
 <h2 id="end-of-part-2">End of Part 2<a hidden class="anchor" aria-hidden="true" href="#end-of-part-2">#</a></h2>
 <p>This is the end of Part 2. In Part 3, we&rsquo;ll actually encode the shots and combine the shots into 1 video file.</p>
 <ul>

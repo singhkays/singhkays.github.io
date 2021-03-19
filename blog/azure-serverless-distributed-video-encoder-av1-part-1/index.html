@@ -13,7 +13,7 @@
 <link rel="canonical" href="https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-1/" />
 
 
-<link href="https://singhkays.com/assets/css/stylesheet.min.fd17e9f906185218ff3443805371764c13e07d7732fe8b30d46f1e56fcb529fa.css" integrity="sha256-/Rfp&#43;QYYUhj/NEOAU3F2TBPgfXcy/osw1G8eVvy1Kfo=" rel="preload stylesheet"
+<link href="https://singhkays.com/assets/css/stylesheet.min.81244588da925d88a38a41e3efe7c9df582948f90fb394d9a2228c8825b6fa1f.css" integrity="sha256-gSRFiNqSXYijikHj7&#43;fJ31gpSPkPs5TZoiKMiCW2&#43;h8=" rel="preload stylesheet"
     as="style">
 
 
@@ -61,7 +61,7 @@ if (!doNotTrack) {
         <meta property="article:published_time" content="2019-06-20T00:00:00&#43;00:00"/>
     
     
-        <meta property="article:modified_time" content="2019-06-20T00:00:00&#43;00:00"/>
+        <meta property="article:modified_time" content="2021-01-26T00:18:12-08:00"/>
     
 
 
@@ -81,7 +81,7 @@ if (!doNotTrack) {
 
 <meta itemprop="name" content="Part 1: Building a scalable &#39;shot-based&#39; serverless AV1 video encoder in Azure">
 <meta itemprop="description" content="This is a 3-part blog covering how to build a scalable shot-based serverless video encoder in Azure. In Part 1, I explain what AV1 is and where we are in the video encoding space. In part 2, we create a logic app to upload and index the video. In part 3, we&rsquo;ll need to split the video into its scenes and encode individual scenes. For reference, here are the links to all the parts:"><meta itemprop="datePublished" content="2019-06-20T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-06-20T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-01-26T00:18:12-08:00" />
 <meta itemprop="wordCount" content="1567"><meta itemprop="image" content="https://singhkays.com/media/serverless-av1.png">
 <meta itemprop="keywords" content="Azure,Azure Functions,Azure Logic Apps,Azure Video Indexer,Azure File Share,Azure Storage,Serverless,AV1,H.265,H.264,x264,Video Codec,Video Encoding," />
 
@@ -91,7 +91,7 @@ if (!doNotTrack) {
   medianet_versionId = "3121199";
 </script>
 <script src="//contextual.media.net/dmedianet.js?cid=8CUX6J71X" async="async"></script>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 <script data-ad-client="ca-pub-8046835310934475" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 
@@ -110,7 +110,7 @@ if (!doNotTrack) {
 <body class="" id="top">
 <noscript>
     <style type="text/css">
-        .theme-toggle,
+        #theme-toggle,
         .top-link {
             display: none;
         }
@@ -125,9 +125,10 @@ if (!doNotTrack) {
                     height="35">Kay Singh</a>
             <span class="logo-switches">
                 
+                
             </span>
         </div>
-        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+        <ul id="menu" onscroll="menu_on_scroll()">
             <li>
                 <a href="https://singhkays.com/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
@@ -198,7 +199,8 @@ June 20, 2019&nbsp;·&nbsp;8 min&nbsp;·&nbsp;Kay Singh
 <!-- raw HTML omitted -->
 <h2 id="a-problem-is-just-an-opportunity">A problem is just an opportunity!<a hidden class="anchor" aria-hidden="true" href="#a-problem-is-just-an-opportunity">#</a></h2>
 <p>In 2015, a bunch of internet, content creator and browser companies realized this problem and formed the Alliance for Open Media (AOMedia) which features some of the biggest names including Amazon, Apple, ARM, Cisco, Facebook, Google, IBM, Intel, Microsoft, Netflix and NVIDIA. The first order of business for AOMedia consortium is to deliver a state-of-the-art codec that is also royalty free. AV1, released in 2018 fulfills that vision and promises to deliver 30% better compression than H.265! Youtube has already started testing videos with AV1 through its <a href="https://www.youtube.com/testtube">TestTube page</a>. Netflix has also shown support for AV1 by calling it <a href="http://www.csimagazine.com/csi/Netflix-AV1-is-our-primary-next-gen-codec.php">&ldquo;our primary next-gen codec&rdquo;</a>.</p>
-<p><img src="media/codec-generations.png" alt="av1 h265 h264 vp9 video codec generations"></p>
+<p><img loading="lazy" src="media/codec-generations.png" alt="av1 h265 h264 vp9 video codec generations"  />
+</p>
 <div class='align-center'>
   <em>Video codecs generations diagram by Tsahi Levent-Levi (<a href="https://webrtcglossary.com/av1/">source</a>)</em>
 </div>
@@ -212,7 +214,8 @@ AV1 is based largely on Google&rsquo;s VP9 codec and incorporates tools and tech
 <p><em>Strap in! This is going to be a long one!</em></p>
 <h6 id="tldr">TL;DR<a hidden class="anchor" aria-hidden="true" href="#tldr">#</a></h6>
 <p>To implement this solution, we need an algorithm that splits the input video into shots. Fortunately for us, <a href="https://vi.microsoft.com/en-us/">Microsoft Video Indexer</a> supports this scenario. Before getting started we&rsquo;ll setup Video Indexer in our subscription. For the rest of the steps, here&rsquo;s a quick overview of what&rsquo;s going to happen:</p>
-<p><img src="media/architecture.png" alt="&ldquo;shot-based&rdquo; serverless distributed AV1 video encoder in Azure"></p>
+<p><img loading="lazy" src="media/architecture.png" alt="&amp;ldquo;shot-based&amp;rdquo; serverless distributed AV1 video encoder in Azure"  />
+</p>
 <ol>
 <li>User uploads an MP4 video file to Azure Blob Storage</li>
 <li>Because of the Azure Event Grid integration with Azure Blob Storage, a file upload event triggers a notification</li>
@@ -307,10 +310,12 @@ AV1 is based largely on Google&rsquo;s VP9 codec and incorporates tools and tech
 </tr>
 </tbody>
 </table>
-<p><img src="media/percentile-speedup-chart.png" alt="Speed up of encoding vs percentile"></p>
+<p><img loading="lazy" src="media/percentile-speedup-chart.png" alt="Speed up of encoding vs percentile"  />
+</p>
 <h4 id="scatter-plot-of-time-distribution">Scatter Plot of time distribution<a hidden class="anchor" aria-hidden="true" href="#scatter-plot-of-time-distribution">#</a></h4>
 <p>Here is a scatter plot distribution of shot # vs the time taken to encode.</p>
-<p><img src="media/scatter-plot-shot-vs-time.png" alt="scalable distributed av1 serverless encoder azure scatter plot shot # vs time taken"></p>
+<p><img loading="lazy" src="media/scatter-plot-shot-vs-time.png" alt="scalable distributed av1 serverless encoder azure scatter plot shot # vs time taken"  />
+</p>
 <p><strong>NOTE:</strong> Because of the 50X parallelisation factor, majority shots #s &lt; 50, spent around 10 minutes in queue waiting to begin encoding. The time here represents the total of time spent in queue + encoding time. If we increased the parallelisation factor and reduced the time spent in queue, then the distribution of time taken for shot #s &lt; 50 would resemble those with shot # &gt; 50.</p>
 <p>To view the details and timecodes of the shots, view this JSON file</p>
 <ul>

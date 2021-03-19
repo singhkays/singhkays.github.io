@@ -13,7 +13,7 @@
 <link rel="canonical" href="https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/" />
 
 
-<link href="https://singhkays.com/assets/css/stylesheet.min.fd17e9f906185218ff3443805371764c13e07d7732fe8b30d46f1e56fcb529fa.css" integrity="sha256-/Rfp&#43;QYYUhj/NEOAU3F2TBPgfXcy/osw1G8eVvy1Kfo=" rel="preload stylesheet"
+<link href="https://singhkays.com/assets/css/stylesheet.min.81244588da925d88a38a41e3efe7c9df582948f90fb394d9a2228c8825b6fa1f.css" integrity="sha256-gSRFiNqSXYijikHj7&#43;fJ31gpSPkPs5TZoiKMiCW2&#43;h8=" rel="preload stylesheet"
     as="style">
 
 
@@ -61,7 +61,7 @@ if (!doNotTrack) {
         <meta property="article:published_time" content="2019-09-26T00:00:00&#43;00:00"/>
     
     
-        <meta property="article:modified_time" content="2019-09-26T00:00:00&#43;00:00"/>
+        <meta property="article:modified_time" content="2021-01-26T00:18:12-08:00"/>
     
 
 
@@ -81,7 +81,7 @@ if (!doNotTrack) {
 
 <meta itemprop="name" content="Part 3: Building a scalable &#39;shot-based&#39; serverless AV1 video encoder in Azure">
 <meta itemprop="description" content="This is a 3-part blog covering how to build a scalable shot-based serverless video encoder in Azure. In Part 1, I explain what AV1 is and where we are in the video encoding space. In part 2, we create a logic app to upload and index the video. In part 3, we&rsquo;ll need to split the video into its scenes and encode individual scenes. For reference, here are the links to all the parts:"><meta itemprop="datePublished" content="2019-09-26T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-09-26T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-01-26T00:18:12-08:00" />
 <meta itemprop="wordCount" content="1286"><meta itemprop="image" content="https://singhkays.com/media/serverless-av1.png">
 <meta itemprop="keywords" content="Azure,Azure Functions,Azure Logic Apps,Azure Video Indexer,Azure File Share,Azure Storage,Serverless,AV1,H.265,H.264,x264,Video Codec,Video Encoding," />
 
@@ -91,7 +91,7 @@ if (!doNotTrack) {
   medianet_versionId = "3121199";
 </script>
 <script src="//contextual.media.net/dmedianet.js?cid=8CUX6J71X" async="async"></script>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 <script data-ad-client="ca-pub-8046835310934475" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 
@@ -110,7 +110,7 @@ if (!doNotTrack) {
 <body class="" id="top">
 <noscript>
     <style type="text/css">
-        .theme-toggle,
+        #theme-toggle,
         .top-link {
             display: none;
         }
@@ -125,9 +125,10 @@ if (!doNotTrack) {
                     height="35">Kay Singh</a>
             <span class="logo-switches">
                 
+                
             </span>
         </div>
-        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+        <ul id="menu" onscroll="menu_on_scroll()">
             <li>
                 <a href="https://singhkays.com/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
@@ -198,15 +199,18 @@ September 26, 2019&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Kay Singh
 </li>
 <li>
 <p>Add an action &ldquo;When a HTTP request is received&rdquo; and fill in the details as shown below.</p>
-<p><img src="media/1-azure-av1-encoder-logic-app-2-insights-http-action.png" alt="azure-av1-encoder-logic-app-2-insights-http-action"></p>
+<p><img loading="lazy" src="media/1-azure-av1-encoder-logic-app-2-insights-http-action.png" alt="azure-av1-encoder-logic-app-2-insights-http-action"  />
+</p>
 </li>
 <li>
 <p>Next, we&rsquo;ll need to get the video indexer account access token so we can get the video index. Add a &ldquo;Get Account Access Token&rdquo; step like shown below</p>
-<p><img src="media/2-azure-av1-encoder-video-indexer-get-account-access-token.png" alt="azure-av1-encoder-video-indexer-get-account-access-token"></p>
+<p><img loading="lazy" src="media/2-azure-av1-encoder-video-indexer-get-account-access-token.png" alt="azure-av1-encoder-video-indexer-get-account-access-token"  />
+</p>
 </li>
 <li>
 <p>Now that we have an access token, we can get the video index. Add a &ldquo;Get Video Index&rdquo; step and configure like shown below.</p>
-<p><img src="media/3-azure-av1-encoder-video-indexer-get-video-index.png" alt="azure-av1-encoder-video-indexer-get-video-index"></p>
+<p><img loading="lazy" src="media/3-azure-av1-encoder-video-indexer-get-video-index.png" alt="azure-av1-encoder-video-indexer-get-video-index"  />
+</p>
 <p>a. The tricky part is the video id field as that is available as &ldquo;dynamic content&rdquo; as of this writing. After a bit of trial and error and looking at the output of the &ldquo;When a HTTP request is received&rdquo; step, I saw the video id was a field that was returned in the output JSON. Here&rsquo;s an example output of the HTTP request step</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#f92672">&#34;headers&#34;</span>: {
@@ -226,13 +230,15 @@ September 26, 2019&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Kay Singh
 <ol start="5">
 <li>
 <p>Next, let&rsquo;s save the retrieved video index to our &ldquo;insights&rdquo; file share. To do this add a &ldquo;Create File&rdquo; Azure File Storage action. First time you add this action, you&rsquo;ll need to create a connection like shown below. Key thing to keep in mind is to use the same storage account we created in Part 2 i.e. &ldquo;serverlessncodermedia&rdquo;.</p>
-<p><img src="media/4-azure-av1-encoder-file-share-connection.png" alt="azure-av1-encoder-file-share-connection"></p>
+<p><img loading="lazy" src="media/4-azure-av1-encoder-file-share-connection.png" alt="azure-av1-encoder-file-share-connection"  />
+</p>
 <p>While configuring the &ldquo;Create file&rdquo; action, use the following dynamic expressions:</p>
 <ul>
 <li>File name - <code>concat(body('Get_Video_Index')?['name'], '-insights','.json')</code></li>
 <li>File content - <code>body('Get_Video_Index')?['videos'][0]['insights']['shots']</code></li>
 </ul>
-<p><img src="media/5-azure-av1-encoder-file-share-create-file.png" alt="azure-av1-encoder-file-share-create-file"></p>
+<p><img loading="lazy" src="media/5-azure-av1-encoder-file-share-create-file.png" alt="azure-av1-encoder-file-share-create-file"  />
+</p>
 </li>
 <li>
 <p>Now, create a function app in Azure Portal. You can view <a href="https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function">this tutorial</a> to get started. I named mine &ldquo;serverless-encoder-functions&rdquo;. Within this function app, create two functions named &ldquo;parse-shots&rdquo; and &ldquo;ffpmeg-concat&rdquo; like shown below. The source code (<code>__init__.py</code> file ) for these functions can be found at the link below</p>
@@ -240,19 +246,24 @@ September 26, 2019&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Kay Singh
 <li><a href="https://github.com/singhkays/av1-serverless-shot-based-transcoder-azure/tree/master/functions">https://github.com/singhkays/av1-serverless-shot-based-transcoder-azure/tree/master/functions</a></li>
 </ul>
 <p><!-- raw HTML omitted -->
-<img src="media/6-azure-av1-encoder-function-app-ffmpeg-parse.png" alt="azure-av1-encoder-function-app-ffmpeg-parse"></p>
+<img loading="lazy" src="media/6-azure-av1-encoder-function-app-ffmpeg-parse.png" alt="azure-av1-encoder-function-app-ffmpeg-parse"  />
+</p>
 </li>
 <li>
 <p>Back to our &ldquo;encoding-logic-app&rdquo;, add an Azure Functions step and select your function app (mine is &ldquo;serverless-encoder-functions&rdquo;) and then the &ldquo;parse-shots&rdquo; function as shown below.</p>
-<p><img src="media/7-azure-av1-encoder-function-parse-shots.png" alt="azure-av1-encoder-function-parse-shots"></p>
+<p><img loading="lazy" src="media/7-azure-av1-encoder-function-parse-shots.png" alt="azure-av1-encoder-function-parse-shots"  />
+</p>
 <p>To configure the &ldquo;parse-shots&rdquo; function, use the following dynamic expression for &ldquo;Request Body&rdquo; parameter to get the actual shots from the returned video index - <code>body('Get_Video_Index')?['videos'][0]['insights']['shots']</code></p>
-<p><img src="media/8-azure-av1-encoder-function-parse-shots.png" alt="azure-av1-encoder-function-parse-shots"></p>
+<p><img loading="lazy" src="media/8-azure-av1-encoder-function-parse-shots.png" alt="azure-av1-encoder-function-parse-shots"  />
+</p>
 <p>Then, add the needed headers for our function to work correctly like shown below.</p>
-<p><img src="media/9-azure-av1-encoder-function-parse-shots.png" alt="azure-av1-encoder-function-parse-shots"></p>
+<p><img loading="lazy" src="media/9-azure-av1-encoder-function-parse-shots.png" alt="azure-av1-encoder-function-parse-shots"  />
+</p>
 </li>
 <li>
 <p>Add a for-each loop to create the container instances that will encode the individual shots. Start by consuming the output of the previous azure function step like shown below.</p>
-<p><img src="media/10-azure-av1-encoder-for-each-create-container-instance-group.png" alt="azure-av1-encoder-for-each-create-container-instance-group"></p>
+<p><img loading="lazy" src="media/10-azure-av1-encoder-for-each-create-container-instance-group.png" alt="azure-av1-encoder-for-each-create-container-instance-group"  />
+</p>
 <p>Add an action &ldquo;Crete Container Group&rdquo; and configure it like shown below. Some parameters to note are:</p>
 <ul>
 <li>Container Group Name &ndash; Use dynamic expression <code>items('For_each')?['name']</code></li>
@@ -260,16 +271,19 @@ September 26, 2019&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Kay Singh
 <li>OS Type &ndash; Use Linux as the docker image we&rsquo;re using is Linux based</li>
 <li>Volumes mounted &ndash; We&rsquo;ll mount the &ldquo;source&rdquo; and &ldquo;shots&rdquo; file share. &ldquo;source&rdquo; will be used to read the user uploaded video. &ldquo;shots&rdquo; will be used to place the encoded shot video file.
 <!-- raw HTML omitted --> <br>
-<img src="media/11-azure-av1-encoder-for-each-create-container-instance-group.png" alt="azure-av1-encoder-for-each-create-container-instance-group"></li>
+<img loading="lazy" src="media/11-azure-av1-encoder-for-each-create-container-instance-group.png" alt="azure-av1-encoder-for-each-create-container-instance-group"  />
+</li>
 </ul>
 </li>
 <li>
 <p>Now, in the for-each loop we added in previous step, we&rsquo;ll add an &ldquo;Until&rdquo; loop. This loop will need to run until the provisioningState for the previously created container group is &ldquo;succeeded&rdquo;. To this &ldquo;Until&rdquo; action we&rsquo;ll add a delay of 1 minute so we limit the number of API calls we make. Then to actually query the provisioningState, we&rsquo;ll add a &ldquo;Get properties of a container group&rdquo; action and use the provisioningState dynamic content of this action as the check statement in the &ldquo;Until&rdquo; loop.</p>
-<p><img src="media/12-azure-av1-encoder-for-each-until-delay-get-container-group.png" alt="azure-av1-encoder-for-each-until-delay-get-container-group"></p>
+<p><img loading="lazy" src="media/12-azure-av1-encoder-for-each-until-delay-get-container-group.png" alt="azure-av1-encoder-for-each-until-delay-get-container-group"  />
+</p>
 </li>
 <li>
 <p>Now to terminate the for-each loop, we need to determine if all the container instances have succeeded successfully. This requires us to check if the state of the container group is &ldquo;succeeded&rdquo;. For this, we&rsquo;ll create another &ldquo;until&rdquo; action which is mostly similar to the one we added in the previous step. There is a key difference, which is that the &ldquo;until&rdquo; loop will check for the state of the container group and not the provisioningState.</p>
-<p><img src="media/13-azure-av1-encoder-for-each-until-2-delay-get-container-group.png" alt="azure-av1-encoder-for-each-until-2-delay-get-container-group"></p>
+<p><img loading="lazy" src="media/13-azure-av1-encoder-for-each-until-2-delay-get-container-group.png" alt="azure-av1-encoder-for-each-until-2-delay-get-container-group"  />
+</p>
 </li>
 </ol>
 <!-- raw HTML omitted -->
@@ -280,17 +294,21 @@ September 26, 2019&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Kay Singh
 <li>For the &ldquo;Container Group Name&rdquo;, use the following expression value - <code>items('For_each')?['name']</code></li>
 </ul>
 <p><!-- raw HTML omitted -->
-<img src="media/14-azure-av1-encoder-delete-container-group.png" alt="azure-av1-encoder-delete-container-group"></p>
+<img loading="lazy" src="media/14-azure-av1-encoder-delete-container-group.png" alt="azure-av1-encoder-delete-container-group"  />
+</p>
 </li>
 <li>
 <p>At the end of the above set of steps, you&rsquo;re &ldquo;for-each&rdquo; action should look like below.</p>
-<p><img src="media/15-azure-av1-encoder-for-each-settings.png" alt="azure-av1-encoder-for-each-settings"></p>
+<p><img loading="lazy" src="media/15-azure-av1-encoder-for-each-settings.png" alt="azure-av1-encoder-for-each-settings"  />
+</p>
 <p>To make sure, we don&rsquo;t run into Azure Container Instances quota limits, I set concurrency control on the for-each loop to the max allowed of 50 which means at any given time only 50 shots will be encoded concurrently. The concurrency settings can be accessed from the &ldquo;settings&rdquo; menu as shown above. Unfortunately, there doesn&rsquo;t seem to be a way to set a higher limit without turning off concurrency control completely. If you have a high enough Azure Container Instances quota limits, then you don&rsquo;t need to worry about this.</p>
-<p><img src="media/16-azure-av1-encoder-for-each-concurrency-settings.png" alt="azure-av1-encoder-for-each-concurrency-settings"></p>
+<p><img loading="lazy" src="media/16-azure-av1-encoder-for-each-concurrency-settings.png" alt="azure-av1-encoder-for-each-concurrency-settings"  />
+</p>
 </li>
 <li>
 <p>Now it&rsquo;s time to join the individual encoded shot files into the output video. For this we created the &ldquo;ffmpeg-concat&rdquo; function before. Let&rsquo;s add an action to invoke this function and pass in the appropriate header parameters as shown below.</p>
-<p><img src="media/17-azure-av1-encoder-function-ffmpeg-concat.png" alt="azure-av1-encoder-function-ffmpeg-concat"></p>
+<p><img loading="lazy" src="media/17-azure-av1-encoder-function-ffmpeg-concat.png" alt="azure-av1-encoder-function-ffmpeg-concat"  />
+</p>
 <p>For the &ldquo;Request Body&rdquo; parameter, use the expression value - <code>body('Get_Video_Index')?['videos'][0]['insights']['shots']</code></p>
 </li>
 <li>
@@ -300,7 +318,8 @@ September 26, 2019&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Kay Singh
 <li>File content &ndash; Use &ldquo;body&rdquo; dynamic content of the previous &ldquo;ffmpeg-concat&rdquo; action</li>
 </ul>
 <p><!-- raw HTML omitted -->
-<img src="media/18-azure-av1-encoder-create-file-ffmpeg-concat.png" alt="azure-av1-encoder-create-file-ffmpeg-concat"></p>
+<img loading="lazy" src="media/18-azure-av1-encoder-create-file-ffmpeg-concat.png" alt="azure-av1-encoder-create-file-ffmpeg-concat"  />
+</p>
 </li>
 <li>
 <p>It&rsquo;s time to put the individual encoded shots together into a singular video file. To do this we&rsquo;ll create a container instance like shown below and pass in the requisite commands.</p>
@@ -381,15 +400,18 @@ September 26, 2019&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Kay Singh
     }
 ]
 </code></pre></div><p>In the Logic App, this looks like below</p>
-<p><img src="media/19-azure-av1-encoder-create-aci-container-group-2.png" alt="azure-av1-encoder-create-aci-container-group-2"></p>
+<p><img loading="lazy" src="media/19-azure-av1-encoder-create-aci-container-group-2.png" alt="azure-av1-encoder-create-aci-container-group-2"  />
+</p>
 </li>
 </ol>
 <!-- raw HTML omitted -->
 <ol start="16">
 <li>
 <p>Create another until loop and configure it like below. We&rsquo;ll use this to wait until the merging of the files is done so that we can take another action like sending an email as well as deleting the container group.</p>
-<p><img src="media/20-azure-av1-encoder-wait-container-group-instance.png" alt="azure-av1-encoder-wait-container-group-instance">
-<img src="media/21-azure-av1-encoder-wait-container-group-instance.png" alt="azure-av1-encoder-wait-container-group-instance"></p>
+<p><img loading="lazy" src="media/20-azure-av1-encoder-wait-container-group-instance.png" alt="azure-av1-encoder-wait-container-group-instance"  />
+
+<img loading="lazy" src="media/21-azure-av1-encoder-wait-container-group-instance.png" alt="azure-av1-encoder-wait-container-group-instance"  />
+</p>
 </li>
 </ol>
 <h2 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h2>

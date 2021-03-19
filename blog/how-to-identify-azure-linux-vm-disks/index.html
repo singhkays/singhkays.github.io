@@ -14,7 +14,7 @@ Why is my OS disk not @ /dev/sda? In most cases the OS disk is /dev/sda but in s
 <link rel="canonical" href="https://singhkays.com/blog/how-to-identify-azure-linux-vm-disks/" />
 
 
-<link href="https://singhkays.com/assets/css/stylesheet.min.fd17e9f906185218ff3443805371764c13e07d7732fe8b30d46f1e56fcb529fa.css" integrity="sha256-/Rfp&#43;QYYUhj/NEOAU3F2TBPgfXcy/osw1G8eVvy1Kfo=" rel="preload stylesheet"
+<link href="https://singhkays.com/assets/css/stylesheet.min.81244588da925d88a38a41e3efe7c9df582948f90fb394d9a2228c8825b6fa1f.css" integrity="sha256-gSRFiNqSXYijikHj7&#43;fJ31gpSPkPs5TZoiKMiCW2&#43;h8=" rel="preload stylesheet"
     as="style">
 
 
@@ -64,7 +64,7 @@ Why is my OS disk not @ /dev/sda? In most cases the OS disk is /dev/sda but in s
         <meta property="article:published_time" content="2019-04-30T00:00:00&#43;00:00"/>
     
     
-        <meta property="article:modified_time" content="2019-04-30T00:00:00&#43;00:00"/>
+        <meta property="article:modified_time" content="2021-01-26T00:18:12-08:00"/>
     
 
 
@@ -85,7 +85,7 @@ Why is my OS disk not @ /dev/sda? In most cases the OS disk is /dev/sda but in s
 <meta itemprop="name" content="How to identify boot, temp and data disks in Azure Linux VMs">
 <meta itemprop="description" content="In Azure, every VM has a persistent OS Disk that is used for booting the VM and contains the operating system. In addition to an OS disk, each VM also has a temporary disk that is present on the compute cluster hosting your VM.
 Why is my OS disk not @ /dev/sda? In most cases the OS disk is /dev/sda but in some odd cases it is not. This is not an Azure specific issue but a default Linux behavior."><meta itemprop="datePublished" content="2019-04-30T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2019-04-30T00:00:00&#43;00:00" />
+<meta itemprop="dateModified" content="2021-01-26T00:18:12-08:00" />
 <meta itemprop="wordCount" content="547"><meta itemprop="image" content="https://singhkays.com/media/azure-linux-vm-disks.png">
 <meta itemprop="keywords" content="Infrastructure,Azure,Managed Disks,IaaS,Virtual Machines,Cloud,Managed Disks," />
 
@@ -95,7 +95,7 @@ Why is my OS disk not @ /dev/sda? In most cases the OS disk is /dev/sda but in s
   medianet_versionId = "3121199";
 </script>
 <script src="//contextual.media.net/dmedianet.js?cid=8CUX6J71X" async="async"></script>
-<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
 <script data-ad-client="ca-pub-8046835310934475" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 
 
@@ -114,7 +114,7 @@ Why is my OS disk not @ /dev/sda? In most cases the OS disk is /dev/sda but in s
 <body class="" id="top">
 <noscript>
     <style type="text/css">
-        .theme-toggle,
+        #theme-toggle,
         .top-link {
             display: none;
         }
@@ -129,9 +129,10 @@ Why is my OS disk not @ /dev/sda? In most cases the OS disk is /dev/sda but in s
                     height="35">Kay Singh</a>
             <span class="logo-switches">
                 
+                
             </span>
         </div>
-        <ul class="menu" id="menu" onscroll="menu_on_scroll()">
+        <ul id="menu" onscroll="menu_on_scroll()">
             <li>
                 <a href="https://singhkays.com/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
@@ -243,7 +244,8 @@ drwxr-xr-x <span style="color:#ae81ff">2</span> root root <span style="color:#ae
 <li><strong><code>lun9-part2</code></strong> &ndash; Data Disk 2 mounted at LUN 9</li>
 </ul>
 <p>In Azure, the VM disks properties page looks like below</p>
-<p><img src="media/azure-linux-vm-disks.png" alt="Azure VM disks property page"></p>
+<p><img loading="lazy" src="media/azure-linux-vm-disks.png" alt="Azure VM disks property page"  />
+</p>
 <h2 id="a-disk-by-any-other-name">A disk by any other name<a hidden class="anchor" aria-hidden="true" href="#a-disk-by-any-other-name">#</a></h2>
 <p>Now, we need to find how to refer to these disks in our scripts and applications. For that, we&rsquo;ll run the following command</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">kay@uuidvm:~$ sudo blkid -s UUID
