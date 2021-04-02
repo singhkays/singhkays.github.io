@@ -4,90 +4,26 @@
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Understanding the Azure B Series and CPU credits | KAY SINGH</title>
 
-<title>Understanding the Azure B Series and CPU credits - KAY SINGH</title>
-
+<meta name="keywords" content="Infrastructure, Azure, IaaS, Virtual Machines, Cloud, Azure B Series, Burstable VMs, VM CPU Credits" />
 <meta name="description" content="Azure recently introduced its first burstable VM size - the B-series. This VM type is meant to compete directly with AWS&#39; T2 instances. In the below few words (or more :smile: ) I try to explain what this means and why you should care. If you still have questions after reading, hit me up on Twitter or leave a comment below.
 So why do I need a burstable size anyway? If you have applications that remain idle for a long time and burst occasionally, then the B-series might be the perfect fit for you.">
-<meta name="keywords" content= />
 <meta name="author" content="Kay Singh">
 <link rel="canonical" href="https://singhkays.com/blog/understanding-azure-b-series/" />
-
-
-<link href="https://singhkays.com/assets/css/stylesheet.min.81244588da925d88a38a41e3efe7c9df582948f90fb394d9a2228c8825b6fa1f.css" integrity="sha256-gSRFiNqSXYijikHj7&#43;fJ31gpSPkPs5TZoiKMiCW2&#43;h8=" rel="preload stylesheet"
+<link href="/assets/css/stylesheet.min.f563762088a56a22c5d0a100c62dc8771563d596b4afd14bd13c5979747f13b8.css" integrity="sha256-9WN2IIilaiLF0KEAxi3IdxVj1Za0r9FL0TxZeXR/E7g=" rel="preload stylesheet"
     as="style">
 
+<link rel="icon" href="https://singhkays.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://singhkays.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://singhkays.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://singhkays.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://singhkays.com/android-chrome-512x512.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.82.0" />
 
-
-
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-
-<meta name="generator" content="Hugo 0.81.0" />
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-108462543-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-<meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:image" content="https://singhkays.com/blog/understanding-azure-b-series/./media/azure-b-series-cpu-percentage.png"/>
-<meta name="twitter:title" content="Understanding the Azure B Series and CPU credits"/>
-<meta name="twitter:description" content="Azure recently introduced its first burstable VM size - the B-series. This VM type is meant to compete directly with AWS&#39; T2 instances. In the below few words (or more :smile: ) I try to explain what this means and why you should care. If you still have questions after reading, hit me up on Twitter or leave a comment below.
-So why do I need a burstable size anyway? If you have applications that remain idle for a long time and burst occasionally, then the B-series might be the perfect fit for you."/>
-
-<meta property="og:title" content="Understanding the Azure B Series and CPU credits" />
-<meta property="og:description" content="Azure recently introduced its first burstable VM size - the B-series. This VM type is meant to compete directly with AWS&#39; T2 instances. In the below few words (or more :smile: ) I try to explain what this means and why you should care. If you still have questions after reading, hit me up on Twitter or leave a comment below.
-So why do I need a burstable size anyway? If you have applications that remain idle for a long time and burst occasionally, then the B-series might be the perfect fit for you." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://singhkays.com/blog/understanding-azure-b-series/" />
-
-    
-        
-        
-        
-            <meta name="og:image" content="https://singhkays.com/blog/understanding-azure-b-series/./media/azure-b-series-cpu-percentage.png"/>
-        
-    
-
-
-    
-        <meta property="article:published_time" content="2017-11-13T16:59:56-08:00"/>
-    
-    
-        <meta property="article:modified_time" content="2021-01-26T00:18:12-08:00"/>
-    
-
-
-
-
-    <meta property="og:site_name" content="Kay&#39;s Blog" />
-
-
-
-
-
-
-
-    
-
-
-
-<meta itemprop="name" content="Understanding the Azure B Series and CPU credits">
-<meta itemprop="description" content="Azure recently introduced its first burstable VM size - the B-series. This VM type is meant to compete directly with AWS&#39; T2 instances. In the below few words (or more :smile: ) I try to explain what this means and why you should care. If you still have questions after reading, hit me up on Twitter or leave a comment below.
-So why do I need a burstable size anyway? If you have applications that remain idle for a long time and burst occasionally, then the B-series might be the perfect fit for you."><meta itemprop="datePublished" content="2017-11-13T16:59:56-08:00" />
-<meta itemprop="dateModified" content="2021-01-26T00:18:12-08:00" />
-<meta itemprop="wordCount" content="1431"><meta itemprop="image" content="https://singhkays.com/media/azure-b-series-cpu-percentage.png">
-<meta itemprop="keywords" content="Infrastructure,Azure,IaaS,Virtual Machines,Cloud,Azure B Series,Burstable VMs,VM CPU Credits," />
 
 <script type="text/javascript">
   window._mNHandle = window._mNHandle || {};
@@ -109,6 +45,91 @@ So why do I need a burstable size anyway? If you have applications that remain i
 </script>
 
 
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-108462543-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<meta property="og:title" content="Understanding the Azure B Series and CPU credits" />
+<meta property="og:description" content="Azure recently introduced its first burstable VM size - the B-series. This VM type is meant to compete directly with AWS&#39; T2 instances. In the below few words (or more :smile: ) I try to explain what this means and why you should care. If you still have questions after reading, hit me up on Twitter or leave a comment below.
+So why do I need a burstable size anyway? If you have applications that remain idle for a long time and burst occasionally, then the B-series might be the perfect fit for you." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://singhkays.com/blog/understanding-azure-b-series/" />
+<meta property="og:image" content="https://singhkays.com/media/azure-b-series-cpu-percentage.png" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2017-11-13T16:59:56-08:00" />
+<meta property="article:modified_time" content="2021-01-26T00:18:12-08:00" /><meta property="og:site_name" content="Kay&#39;s Blog" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://singhkays.com/media/azure-b-series-cpu-percentage.png" />
+<meta name="twitter:title" content="Understanding the Azure B Series and CPU credits"/>
+<meta name="twitter:description" content="Azure recently introduced its first burstable VM size - the B-series. This VM type is meant to compete directly with AWS&#39; T2 instances. In the below few words (or more :smile: ) I try to explain what this means and why you should care. If you still have questions after reading, hit me up on Twitter or leave a comment below.
+So why do I need a burstable size anyway? If you have applications that remain idle for a long time and burst occasionally, then the B-series might be the perfect fit for you."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Blogs",
+      "item": "https://singhkays.com/blog/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Understanding the Azure B Series and CPU credits",
+      "item": "https://singhkays.com/blog/understanding-azure-b-series/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Understanding the Azure B Series and CPU credits",
+  "name": "Understanding the Azure B Series and CPU credits",
+  "description": "Azure recently introduced its first burstable VM size - the B-series. This VM type is meant to compete directly with AWS' T2 instances. In the below few words (or more :smile: ) I try to explain what this means and why you should care. If you still have questions after reading, hit me up on Twitter or leave a comment below.\nSo why do I need a burstable size anyway? If you have applications that remain idle for a long time and burst occasionally, then the B-series might be the perfect fit for you.",
+  "keywords": [
+    "Infrastructure", "Azure", "IaaS", "Virtual Machines", "Cloud", "Azure B Series", "Burstable VMs", "VM CPU Credits"
+  ],
+  "articleBody": "Azure recently introduced its first burstable VM size - the B-series. This VM type is meant to compete directly with AWS' T2 instances. In the below few words (or more :smile: ) I try to explain what this means and why you should care. If you still have questions after reading, hit me up on Twitter or leave a comment below.\nSo why do I need a burstable size anyway? If you have applications that remain idle for a long time and burst occasionally, then the B-series might be the perfect fit for you. To understand why, we first need to understand how the pricing for a VM works in the cloud. When you deploy a VM in the cloud, you’re paying the same regardless of the % of CPU used. Therefore, anytime your VM is not using 100% CPU, you are leaving computing cycles on the table that you are paying for. Typically, users will solve this problem by deploying a VM size with smaller number of cores and lesser RAM. However, sometimes the application demands more computing power. This is a classic vertical scalability problem. As the physics of semiconductors limits the number of cores, CPU clock speeds and RAM you can add to a single node, users have solved this problem by developing applications that can scale horizontally to more nodes.\nBut, if you have an application that is small enough for a single node and only needs to use 100% of the CPU for a small time, burstable sizes will provide you the most cost-effective way to run it.\nAlright, tell me about this B-series Now, that we’ve covered why burstable sizes make sense for some applications, let’s understand the benefits. The most obvious benefit is going to be the cost. Let’s imagine you have an application that is currently running on the Standard_A2_v2 VM size. This gives you 2 cores/4 GiB RAM to play with. The cost to run this VM size is $0.076 per hour or $54.72 per month. Now consider the new Standard_B2s size that offers the same number of cores \u0026 RAM but only costs $0.047 per hour or $33.84 per month. That amounts to 38% savings!\nHere is the list of all the sizes in the B-series:\n   Size vCPU’s Memory: GiB Max CPU Perf of VM Base CPU Perf of VM Starting Credits Credits Banked / Hour Max Banked Credits     Standard_B1s 1 1 100% 10% 30 6 144   Standard_B1ms 1 2 100% 20% 30 12 288   Standard_B2s 2 4 200% 40% 60 24 576   Standard_B2ms 2 8 200% 60% 60 36 864   Standard_B4ms 4 16 400% 90% 120 54 1,296   Standard_B8ms 8 32 800% 135% 240 81 1,944    What are these credits? If you’ve deployed a VM before, most of the specs should be familiar to you. But the B-series introduces a credit bank that determines how long you can use 100% of the CPU. The simplest way to understand this is that when VM is idle it builds up a credit balance. The VM can then use this credit balance to burst up to 100% CPU when the workload needs it. The combination of concepts in the last 4 columns in the above table, determine how long your VM can burst to 100% CPU usage.\nStarting Credits Every VM size in the B-series starts off with a fixed number of credits. The formula for determining this is:\nStarting Credits = 30 x # of Cores Here’s a visual look at the starting credits across all the B-series sizes 1 minute after starting: How do you build credits? Base CPU perf of VM Base CPU perf of VM is the threshold of CPU usage above or below which the credit balance changes. This value is shared amongst the # of vCPUs on the VM. For example, the Standard_B8ms VM size has Base CPU perf of 135%. This is shared amongst the 8 vCPUs that make up this VM size. The formulas to determine how the Base CPU perf affects the credit balance are:\nCurrent CPU usage Base CPU perf of VM = Decrease credit balance Current CPU usage == Base CPU perf of VM = No change in credit balance Credits Banked / Hour To determine this value, we need to look at the number of credits you can bank or use per minute for each of the sizes which is determined by the following formula\n(Base CPU perf of VM - CPU Usage) / 100 = Credits bank or use per minute Assuming ~0% CPU usage, this formula gives us the following table for max credits banked per minute:\n   Size Max credits banked per minute     Standard_B1s 0.1   Standard_B1ms 0.2   Standard_B2s 0.4   Standard_B2ms 0.6   Standard_B4ms 0.9   Standard_B8ms 1.35    Let’s put the above knowledge to test on a typical use case.\nExample Assume you have deployed a Standard_B8ms VM and have a single-threaded application that has 1 core pegged at 100%. The cumulative CPU usage of the VM is 100%. Now using the above formula, we can calculate the amount of CPU credits your VM is banking per minute:\n(135 - 100) / 100 = 0.35 credits banked per minute, or 0.35 x 60 minutes = 21 credits banked per hour Max Banked Credits This value represents the maximum number of credits you can build up for use later.\n NOTE If you stop deallocate the VM, then the credits built up are lost.\n Here’s a look at the different VM sizes building up the credits. In this example, the VMs are left idle after creation and banked credits increases for 24 hours until it reaches the credit limit. Let’s use these credits! When you have credits in the bank, your VM can burst beyond the “Base CPU Perf” allowed for that VM size. The amount of credits spent can be determined by the same formula we used to determine how many credits are banked per minute i.e.\n(Base CPU perf of VM - CPU Usage) / 100 = Credits bank or use per minute Let’s take another example to determine the rate at which credits are spent.\nExample spend In this example assume the Standard_B8ms VM you deployed previously is using all of the 8 cores. The cumulative usage of the VM is 800%.\nUsing the above formula, we get:\n(135 - 800) / 100 = -6.65 credits banked per minute, or 6.65 credits spent per minute, or 6.65 x 60 minutes = 399 credits spent per hour Experimenting with credits Let’s take a look at the credit usage of different VM sizes in the B-series corresponding to the CPU load and throttling. In the experiment below, 100% CPU usage was generated for more than 24 hours with s-tui which is a terminal UI for the Ubuntu stress tool.\nAs you look at the graphs below, note these key things:\n The upper graph is for the credits spent The lower graph is the CPU usage in the same time period. Note as soon as the credit bank is exhausted the CPU usage of the VM is throttled to the Base CPU Perf As expected Standard_B1s is the first size to spend its credit savings since it has the smallest max credit limit The Standard_B8ms is the second size to exhaust its credit savings. This is because of the delta between the Maximum CPU usage (i.e. 800%) and the Base CPU Perf (i.e. 135%) Surprisingly, the Standard_B2ms is the size that can burst to max usage the longest i.e. for nearly 12 hours   NOTE In the CPU load graph above, the usage for multi-core VM sizes is divided equally amongst all the cores and represented on a scale of 0 to 100%.\n Recap Let’s zoom out the time scale and review the VM usage and CPU load for all the B-series sizes over the course of two days. Formulas Let’s also recap the various formulas we used in this discussion\nStarting Credits = 30 x # of Cores Current CPU usage Base CPU perf of VM = Decrease credit balance Current CPU usage == Base CPU perf of VM = No change in credit balance (Base CPU perf of VM - CPU Usage) / 100 = Credits bank or use per minute More information  B-series burstable virtual machine sizes documentation Azure VM sizes overview Azure VM pricing  Reach out if you have any questions! Feel free to follow me on\n Twitter - @singhkays LinkedIn - https://www.linkedin.com/in/singhkays/  ",
+  "wordCount" : "1431",
+  "inLanguage": "en",
+  "image":"https://singhkays.com/media/azure-b-series-cpu-percentage.png","datePublished": "2017-11-13T16:59:56-08:00",
+  "dateModified": "2021-01-26T00:18:12-08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Kay Singh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://singhkays.com/blog/understanding-azure-b-series/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "KAY SINGH",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://singhkays.com/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+
+
 </head>
 
 <body class="" id="top">
@@ -120,6 +141,7 @@ So why do I need a burstable size anyway? If you have applications that remain i
         }
 
     </style>
+
 </noscript>
 <header class="header">
     <nav class="nav">
@@ -165,28 +187,22 @@ So why do I need a burstable size anyway? If you have applications that remain i
 
 <article class="post-single">
   <header class="post-header">
+
     <h1 class="post-title">
       Understanding the Azure B Series and CPU credits
     </h1>
-    <div class="post-description">
-      
-    </div>
     <div class="post-meta">
 
 November 13, 2017&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Kay Singh
 
-    </div>
+
+</div>
   </header> 
 <figure class="entry-cover">
-        <img srcset="https://singhkays.com/blog/understanding-azure-b-series/media/azure-b-series-cpu-percentage_hu2dc483c21c585dbbf6de2d3fdfebdba2_121717_360x0_resize_lanczos_2.png 360w ,https://singhkays.com/blog/understanding-azure-b-series/media/azure-b-series-cpu-percentage_hu2dc483c21c585dbbf6de2d3fdfebdba2_121717_480x0_resize_lanczos_2.png 480w ,https://singhkays.com/blog/understanding-azure-b-series/media/azure-b-series-cpu-percentage_hu2dc483c21c585dbbf6de2d3fdfebdba2_121717_720x0_resize_lanczos_2.png 720w ,https://singhkays.com/blog/understanding-azure-b-series/media/azure-b-series-cpu-percentage_hu2dc483c21c585dbbf6de2d3fdfebdba2_121717_1080x0_resize_lanczos_2.png 1080w ,https://singhkays.com/blog/understanding-azure-b-series/media/azure-b-series-cpu-percentage.png 1097w"
+        <img loading="lazy" srcset="https://singhkays.com/blog/understanding-azure-b-series/media/azure-b-series-cpu-percentage_hu2dc483c21c585dbbf6de2d3fdfebdba2_121717_360x0_resize_lanczos_2.png 360w ,https://singhkays.com/blog/understanding-azure-b-series/media/azure-b-series-cpu-percentage_hu2dc483c21c585dbbf6de2d3fdfebdba2_121717_480x0_resize_lanczos_2.png 480w ,https://singhkays.com/blog/understanding-azure-b-series/media/azure-b-series-cpu-percentage_hu2dc483c21c585dbbf6de2d3fdfebdba2_121717_720x0_resize_lanczos_2.png 720w ,https://singhkays.com/blog/understanding-azure-b-series/media/azure-b-series-cpu-percentage_hu2dc483c21c585dbbf6de2d3fdfebdba2_121717_1080x0_resize_lanczos_2.png 1080w ,https://singhkays.com/blog/understanding-azure-b-series/media/azure-b-series-cpu-percentage.png 1097w"
             sizes="(min-width: 768px) 720px, 100vw" src="https://singhkays.com/blog/understanding-azure-b-series/media/azure-b-series-cpu-percentage.png" alt="" />
         
 </figure>
-
-
-  
-  <h3 style="text-align:center"> Subscribe to get updates in your inbox! I'm also on Twitter @<a style="text-decoration: underline;" href="https://twitter.com/singhkays" target="_blank">singhkays</a></h3>
-  <script async data-uid="75bd47613f" src="https://winning-builder-7776.ck.page/75bd47613f/index.js"></script>
 
   <div class="post-content">
 <p>Azure <a href="https://azure.microsoft.com/en-us/blog/introducing-b-series-our-new-burstable-vm-size/">recently introduced</a> its first burstable VM size - the B-series. This VM type is meant to compete directly with AWS' T2 instances. In the below few words (or more :smile: ) I try to explain what this means and why you should care. If you still have questions after reading, hit me up on Twitter or leave a comment below.</p>
@@ -500,6 +516,11 @@ Current CPU usage == Base CPU perf of VM = No change in credit balance
             document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
         }
     }
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener("click", function (e) {
             e.preventDefault();
@@ -518,6 +539,9 @@ Current CPU usage == Base CPU perf of VM = No change in credit balance
             }
         });
     });
+
+</script>
+<script>
     var mybutton = document.getElementById("top-link");
     window.onscroll = function () {
         if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
@@ -528,10 +552,6 @@ Current CPU usage == Base CPU perf of VM = No change in credit balance
             mybutton.style.opacity = "0";
         }
     };
-
-    function menu_on_scroll() {
-        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
-    }
 
 </script>
 

@@ -4,94 +4,27 @@
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Detect Rolling Credits with Azure Video Indexer | KAY SINGH</title>
 
-<title>Detect Rolling Credits with Azure Video Indexer - KAY SINGH</title>
-
+<meta name="keywords" content="AI, Azure, Video Indexer, Artificial Intelligence" />
 <meta name="description" content="Azure Video Indexer is one of my favorite services! It provides some amazing features such as:
  Identify faces and celebrities Extract text and objects (e.g. cat, table, car etc.) Detect scenes and shots Emotion and sentiment detection Audio effects such as clapping, silence &amp; speech  The full list of features can be viewed at https://vi.microsoft.com/en-us/
 Get the credits rolling! Recently, Video Indexer announced they’ve added the capability to detect rolling credits in the videos.">
-<meta name="keywords" content= />
 <meta name="author" content="Kay Singh">
 <link rel="canonical" href="https://singhkays.com/blog/detect-rolling-credits-video-indexer/" />
-
-
-<link href="https://singhkays.com/assets/css/stylesheet.min.81244588da925d88a38a41e3efe7c9df582948f90fb394d9a2228c8825b6fa1f.css" integrity="sha256-gSRFiNqSXYijikHj7&#43;fJ31gpSPkPs5TZoiKMiCW2&#43;h8=" rel="preload stylesheet"
+<link href="/assets/css/stylesheet.min.f563762088a56a22c5d0a100c62dc8771563d596b4afd14bd13c5979747f13b8.css" integrity="sha256-9WN2IIilaiLF0KEAxi3IdxVj1Za0r9FL0TxZeXR/E7g=" rel="preload stylesheet"
     as="style">
 
+<link rel="icon" href="https://singhkays.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://singhkays.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://singhkays.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://singhkays.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://singhkays.com/android-chrome-512x512.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.82.0" />
 
-
-
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-
-<meta name="generator" content="Hugo 0.81.0" />
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-108462543-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-<meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:image" content="https://singhkays.com/blog/detect-rolling-credits-video-indexer/./media/netflix-autoplay.jpg"/>
-<meta name="twitter:title" content="Detect Rolling Credits with Azure Video Indexer"/>
-<meta name="twitter:description" content="Azure Video Indexer is one of my favorite services! It provides some amazing features such as:
- Identify faces and celebrities Extract text and objects (e.g. cat, table, car etc.) Detect scenes and shots Emotion and sentiment detection Audio effects such as clapping, silence &amp; speech  The full list of features can be viewed at https://vi.microsoft.com/en-us/
-Get the credits rolling! Recently, Video Indexer announced they’ve added the capability to detect rolling credits in the videos."/>
-
-<meta property="og:title" content="Detect Rolling Credits with Azure Video Indexer" />
-<meta property="og:description" content="Azure Video Indexer is one of my favorite services! It provides some amazing features such as:
- Identify faces and celebrities Extract text and objects (e.g. cat, table, car etc.) Detect scenes and shots Emotion and sentiment detection Audio effects such as clapping, silence &amp; speech  The full list of features can be viewed at https://vi.microsoft.com/en-us/
-Get the credits rolling! Recently, Video Indexer announced they’ve added the capability to detect rolling credits in the videos." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://singhkays.com/blog/detect-rolling-credits-video-indexer/" />
-
-    
-        
-        
-        
-            <meta name="og:image" content="https://singhkays.com/blog/detect-rolling-credits-video-indexer/./media/netflix-autoplay.jpg"/>
-        
-    
-
-
-    
-        <meta property="article:published_time" content="2019-04-11T00:00:00&#43;00:00"/>
-    
-    
-        <meta property="article:modified_time" content="2021-01-26T00:18:12-08:00"/>
-    
-
-
-
-
-    <meta property="og:site_name" content="Kay&#39;s Blog" />
-
-
-
-
-
-
-
-    
-
-
-
-<meta itemprop="name" content="Detect Rolling Credits with Azure Video Indexer">
-<meta itemprop="description" content="Azure Video Indexer is one of my favorite services! It provides some amazing features such as:
- Identify faces and celebrities Extract text and objects (e.g. cat, table, car etc.) Detect scenes and shots Emotion and sentiment detection Audio effects such as clapping, silence &amp; speech  The full list of features can be viewed at https://vi.microsoft.com/en-us/
-Get the credits rolling! Recently, Video Indexer announced they’ve added the capability to detect rolling credits in the videos."><meta itemprop="datePublished" content="2019-04-11T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-01-26T00:18:12-08:00" />
-<meta itemprop="wordCount" content="353"><meta itemprop="image" content="https://singhkays.com/media/netflix-autoplay.jpg">
-<meta itemprop="keywords" content="AI,Azure,Video Indexer,Artificial Intelligence," />
 
 <script type="text/javascript">
   window._mNHandle = window._mNHandle || {};
@@ -113,6 +46,93 @@ Get the credits rolling! Recently, Video Indexer announced they’ve added the c
 </script>
 
 
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-108462543-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<meta property="og:title" content="Detect Rolling Credits with Azure Video Indexer" />
+<meta property="og:description" content="Azure Video Indexer is one of my favorite services! It provides some amazing features such as:
+ Identify faces and celebrities Extract text and objects (e.g. cat, table, car etc.) Detect scenes and shots Emotion and sentiment detection Audio effects such as clapping, silence &amp; speech  The full list of features can be viewed at https://vi.microsoft.com/en-us/
+Get the credits rolling! Recently, Video Indexer announced they’ve added the capability to detect rolling credits in the videos." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://singhkays.com/blog/detect-rolling-credits-video-indexer/" />
+<meta property="og:image" content="https://singhkays.com/media/netflix-autoplay.jpg" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2019-04-11T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-01-26T00:18:12-08:00" /><meta property="og:site_name" content="Kay&#39;s Blog" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://singhkays.com/media/netflix-autoplay.jpg" />
+<meta name="twitter:title" content="Detect Rolling Credits with Azure Video Indexer"/>
+<meta name="twitter:description" content="Azure Video Indexer is one of my favorite services! It provides some amazing features such as:
+ Identify faces and celebrities Extract text and objects (e.g. cat, table, car etc.) Detect scenes and shots Emotion and sentiment detection Audio effects such as clapping, silence &amp; speech  The full list of features can be viewed at https://vi.microsoft.com/en-us/
+Get the credits rolling! Recently, Video Indexer announced they’ve added the capability to detect rolling credits in the videos."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Blogs",
+      "item": "https://singhkays.com/blog/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Detect Rolling Credits with Azure Video Indexer",
+      "item": "https://singhkays.com/blog/detect-rolling-credits-video-indexer/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Detect Rolling Credits with Azure Video Indexer",
+  "name": "Detect Rolling Credits with Azure Video Indexer",
+  "description": "Azure Video Indexer is one of my favorite services! It provides some amazing features such as:\n Identify faces and celebrities Extract text and objects (e.g. cat, table, car etc.) Detect scenes and shots Emotion and sentiment detection Audio effects such as clapping, silence \u0026amp; speech  The full list of features can be viewed at https://vi.microsoft.com/en-us/\nGet the credits rolling! Recently, Video Indexer announced they’ve added the capability to detect rolling credits in the videos.",
+  "keywords": [
+    "AI", "Azure", "Video Indexer", "Artificial Intelligence"
+  ],
+  "articleBody": "Azure Video Indexer is one of my favorite services! It provides some amazing features such as:\n Identify faces and celebrities Extract text and objects (e.g. cat, table, car etc.) Detect scenes and shots Emotion and sentiment detection Audio effects such as clapping, silence \u0026 speech  The full list of features can be viewed at https://vi.microsoft.com/en-us/\nGet the credits rolling! Recently, Video Indexer announced they’ve added the capability to detect rolling credits in the videos. One of the key scenarios enabled by this feature is the ability for video owners to identify a natural point in the video where they can recommend the next episode or show aka Netflix autoplay experience as shown below:\nTesting the rolling credits! To test this out, I uploaded an open source video by the Blender foundation – Tears of Steel to Video Indexer. Once the video has completed indexing, I downloaded the insights JSON from the video details page like shown below:\nRolling credits JSON object can be accessed in the two places\n The labels object currently with id = \"-1\". The full path is jsonObj[\"summarizedInsights\"][\"labels\"][4][\"id\"] The “framePatterns” object with id = \"0\". The full path is jsonObj[\"videos\"][0][\"insights\"][\"framePatterns\"][0][\"id\"]  The Rolling Credits object for the Tears of Steel has the following time values according to Video Indexer\n{ \"id\": -1, \"name\": \"RollingCredits\", \"appearances\": [ { \"startTime\": \"0:10:31\", \"endTime\": \"0:11:50\", \"startSeconds\": 631, \"endSeconds\": 710 } ] } The results When looking through the actual video, I noticed that there are a non-traditional set of credits that start at 9 min 49 second. This is surprising as Video Indexer thinks the credits should begin at 10 min 31 second mark.\nWhen we look at the 10 min 31 second mark, I see the traditional “Rolling Credits” that move up slowly, start as expected. At first I was surprised but then I realized Video Indexer isn’t taking into account the different ending credit design. Maybe that’ll come in the future but this should be good enough to achieve our Netflix auto-play scenario! :) Reach out if you have any questions! Feel free to follow me on\n Twitter - @singhkays LinkedIn - https://www.linkedin.com/in/singhkays/  ",
+  "wordCount" : "353",
+  "inLanguage": "en",
+  "image":"https://singhkays.com/media/netflix-autoplay.jpg","datePublished": "2019-04-11T00:00:00Z",
+  "dateModified": "2021-01-26T00:18:12-08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Kay Singh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://singhkays.com/blog/detect-rolling-credits-video-indexer/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "KAY SINGH",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://singhkays.com/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+
+
 </head>
 
 <body class="" id="top">
@@ -124,6 +144,7 @@ Get the credits rolling! Recently, Video Indexer announced they’ve added the c
         }
 
     </style>
+
 </noscript>
 <header class="header">
     <nav class="nav">
@@ -169,28 +190,22 @@ Get the credits rolling! Recently, Video Indexer announced they’ve added the c
 
 <article class="post-single">
   <header class="post-header">
+
     <h1 class="post-title">
       Detect Rolling Credits with Azure Video Indexer
     </h1>
-    <div class="post-description">
-      
-    </div>
     <div class="post-meta">
 
 April 11, 2019&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Kay Singh
 
-    </div>
+
+</div>
   </header> 
 <figure class="entry-cover">
-        <img srcset="https://singhkays.com/blog/detect-rolling-credits-video-indexer/media/netflix-autoplay_hueaa785bd2845a0d79005d25602d4fa09_96151_360x0_resize_q75_lanczos.jpg 360w ,https://singhkays.com/blog/detect-rolling-credits-video-indexer/media/netflix-autoplay_hueaa785bd2845a0d79005d25602d4fa09_96151_480x0_resize_q75_lanczos.jpg 480w ,https://singhkays.com/blog/detect-rolling-credits-video-indexer/media/netflix-autoplay_hueaa785bd2845a0d79005d25602d4fa09_96151_720x0_resize_q75_lanczos.jpg 720w ,https://singhkays.com/blog/detect-rolling-credits-video-indexer/media/netflix-autoplay_hueaa785bd2845a0d79005d25602d4fa09_96151_1080x0_resize_q75_lanczos.jpg 1080w ,https://singhkays.com/blog/detect-rolling-credits-video-indexer/media/netflix-autoplay.jpg 1142w"
+        <img loading="lazy" srcset="https://singhkays.com/blog/detect-rolling-credits-video-indexer/media/netflix-autoplay_hueaa785bd2845a0d79005d25602d4fa09_96151_360x0_resize_q75_lanczos.jpg 360w ,https://singhkays.com/blog/detect-rolling-credits-video-indexer/media/netflix-autoplay_hueaa785bd2845a0d79005d25602d4fa09_96151_480x0_resize_q75_lanczos.jpg 480w ,https://singhkays.com/blog/detect-rolling-credits-video-indexer/media/netflix-autoplay_hueaa785bd2845a0d79005d25602d4fa09_96151_720x0_resize_q75_lanczos.jpg 720w ,https://singhkays.com/blog/detect-rolling-credits-video-indexer/media/netflix-autoplay_hueaa785bd2845a0d79005d25602d4fa09_96151_1080x0_resize_q75_lanczos.jpg 1080w ,https://singhkays.com/blog/detect-rolling-credits-video-indexer/media/netflix-autoplay.jpg 1142w"
             sizes="(min-width: 768px) 720px, 100vw" src="https://singhkays.com/blog/detect-rolling-credits-video-indexer/media/netflix-autoplay.jpg" alt="" />
         
 </figure>
-
-
-  
-  <h3 style="text-align:center"> Subscribe to get updates in your inbox! I'm also on Twitter @<a style="text-decoration: underline;" href="https://twitter.com/singhkays" target="_blank">singhkays</a></h3>
-  <script async data-uid="75bd47613f" src="https://winning-builder-7776.ck.page/75bd47613f/index.js"></script>
 
   <div class="post-content">
 <p>Azure Video Indexer is one of my favorite services! It provides
@@ -362,6 +377,11 @@ When we look at the 10 min 31 second mark, I see the traditional “Rolling Cred
             document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
         }
     }
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener("click", function (e) {
             e.preventDefault();
@@ -380,6 +400,9 @@ When we look at the 10 min 31 second mark, I see the traditional “Rolling Cred
             }
         });
     });
+
+</script>
+<script>
     var mybutton = document.getElementById("top-link");
     window.onscroll = function () {
         if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
@@ -390,10 +413,6 @@ When we look at the 10 min 31 second mark, I see the traditional “Rolling Cred
             mybutton.style.opacity = "0";
         }
     };
-
-    function menu_on_scroll() {
-        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
-    }
 
 </script>
 

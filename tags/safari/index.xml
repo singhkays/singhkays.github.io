@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Safari on KAY SINGH</title>
+    <link>https://singhkays.com/tags/safari/</link>
+    <description>Recent content in Safari on KAY SINGH</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <copyright>Copyright © 2017–2021, Kay Singh; all rights reserved.</copyright>
+    <lastBuildDate>Fri, 02 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/tags/safari/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Apple Silicon M1 Power Consumption Deep Dive Part 1: Safari vs Chrome</title>
+      <link>https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/</link>
+      <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/</guid>
+      <description>Apple M1 is an amazingly efficient piece of silicon. How much power do you think it consumes while streaming from YouTube or Netflix? Read on to find out.</description>
+    </item>
+    
+  </channel>
+</rss>

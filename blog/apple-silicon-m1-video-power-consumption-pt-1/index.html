@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Apple Silicon M1 Power Consumption Deep Dive Part 1: Safari vs Chrome | KAY SINGH</title>
+
+<meta name="keywords" content="Apple Silicon, M1, Apple, YouTube, Video Decoding, Power Consumption, VLC, Netflix, Safari, Chrome, VP9, HEVC, H.265" />
+<meta name="description" content="Apple M1 is an amazingly efficient piece of silicon. How much power do you think it consumes while streaming from YouTube or Netflix? Read on to find out.">
+<meta name="author" content="Kay Singh">
+<link rel="canonical" href="https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/" />
+<link href="/assets/css/stylesheet.min.f563762088a56a22c5d0a100c62dc8771563d596b4afd14bd13c5979747f13b8.css" integrity="sha256-9WN2IIilaiLF0KEAxi3IdxVj1Za0r9FL0TxZeXR/E7g=" rel="preload stylesheet"
+    as="style">
+
+<link rel="icon" href="https://singhkays.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://singhkays.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://singhkays.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://singhkays.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://singhkays.com/android-chrome-512x512.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.82.0" />
+
+
+<script type="text/javascript">
+  window._mNHandle = window._mNHandle || {};
+  window._mNHandle.queue = window._mNHandle.queue || [];
+  medianet_versionId = "3121199";
+</script>
+<script src="//contextual.media.net/dmedianet.js?cid=8CUX6J71X" async="async"></script>
+
+<script data-ad-client="ca-pub-8046835310934475" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JDVREY790Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JDVREY790Z');
+</script>
+
+
+    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-108462543-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<meta property="og:title" content="Apple Silicon M1 Power Consumption Deep Dive Part 1: Safari vs Chrome" />
+<meta property="og:description" content="Apple M1 is an amazingly efficient piece of silicon. How much power do you think it consumes while streaming from YouTube or Netflix? Read on to find out." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/" />
+<meta property="og:image" content="https://singhkays.com/media/apple-m1-video-playback-consumption-cover.png" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2021-04-02T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-04-02T00:00:00&#43;00:00" /><meta property="og:site_name" content="Kay&#39;s Blog" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://singhkays.com/media/apple-m1-video-playback-consumption-cover.png" />
+<meta name="twitter:title" content="Apple Silicon M1 Power Consumption Deep Dive Part 1: Safari vs Chrome"/>
+<meta name="twitter:description" content="Apple M1 is an amazingly efficient piece of silicon. How much power do you think it consumes while streaming from YouTube or Netflix? Read on to find out."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Blogs",
+      "item": "https://singhkays.com/blog/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Apple Silicon M1 Power Consumption Deep Dive Part 1: Safari vs Chrome",
+      "item": "https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Apple Silicon M1 Power Consumption Deep Dive Part 1: Safari vs Chrome",
+  "name": "Apple Silicon M1 Power Consumption Deep Dive Part 1: Safari vs Chrome",
+  "description": "Apple M1 is an amazingly efficient piece of silicon. How much power do you think it consumes while streaming from YouTube or Netflix? Read on to find out.",
+  "keywords": [
+    "Apple Silicon", "M1", "Apple", "YouTube", "Video Decoding", "Power Consumption", "VLC", "Netflix", "Safari", "Chrome", "VP9", "HEVC", "H.265"
+  ],
+  "articleBody": "One of the themes of my previous Apple Silicon M1 article - Apple Silicon M1: Black. Magic. Fuckery. - was the stupendous battery life offered by the new M1-based MacBooks. While unveiling the M1 chip, Apple touted the new M1-based MacBook Air and MacBook Pro’s energy efficiency with up to 18 hours and 20 hours of movie playback, 6 and 10 hours more than previous models.\n  Apple M1 MacBook Pro and MacBook Air battery video playback numbers [Source: Apple]\n    Apple M1 MacBook Air battery improvement [Source: Apple M1 unveiling event]\n    Apple M1 MacBook Pro battery improvement [Source: Apple M1 unveiling event]\n  These battery life advances are massive and typically once-in-a-generation improvements. These are made possible because of Apple’s focus on low-power design and decoding video using specialized hardware engines rather than relying on the general-purpose CPU. Decoding video using a chip built for the sole purpose of decoding video can dramatically affect power consumption, as you will see later in this blog.\n  Apple M1 block diagram. Highlighted components are dedicated to low-power video playback [Source: Apple M1 unveiling event]\n  This blog is Part 1 of a multi-part series of investigations into the actual power these M1 chips consume in some of the most common scenarios. This Part 1 focuses on one of the most critical Pandemic activities - streaming a video from YouTube or Netflix. The lower the power consumption, the longer your battery will last (if you’re not connected to the charger).\nTesting Methodology Software \u0026 Hardware  MacOS 11.2.2 running in safe mode to limit the effect of background processes and other applications on power consumption Safari 14.0.3 Chrome 89 (Apple Silicon version) VLC 3.0.12.1 (Apple Silicon version) Mac Mini M1 16GB RAM, 256GB SSD (I didn’t have a MacBook so this test represents the power of the M1 components, not the overall system power) Peripherels attached: Apple Magic Keyboard and Magic Trackpad (Bluetooth)  Power Consumption Measurement Power Consumption was measured using Apple’s powermetrics utility. powermetrics is a Mac-only command-line utility that provides many high-quality power-related measurements. It is most useful for getting CPU, GPU and wakeup measurements in a precise and easily scriptable fashion (unlike Activity Monitor and top)\nBelow is a sample log from powermetrics output after running the following command:\nsudo powermetrics -i 1000 --samplers cpu_power,gpu_power -a --hide-cpu-duty-cycle --show-usage-summary --show-extra-power-info -u ~/powerlogs.txt *** Sampled system activity (Thu Feb 11 00:10:50 2021 -0800) (1004.97ms elapsed) *** **** Processor usage **** E-Cluster Power: 14 mW E-Cluster HW active frequency: 1031 MHz E-Cluster HW active residency: 11.15% (600 MHz: 2.8% 972 MHz: 88% 1332 MHz: 2.5% 1704 MHz: 3.0% 2064 MHz: 3.5%) E-Cluster idle residency: 88.85% P-Cluster Power: 16 mW P-Cluster HW active frequency: 712 MHz P-Cluster HW active residency: 2.34% (600 MHz: 90% 828 MHz: .42% 1056 MHz: 1.4% 1284 MHz: 3.0% 1500 MHz: .49% 1728 MHz: .79% 1956 MHz: 1.2% 2184 MHz: .59% 2388 MHz: 1.0% 2592 MHz: 0% 2772 MHz: .40% 2988 MHz: .20% 3096 MHz: 0% 3144 MHz: .20% 3204 MHz: .36%) P-Cluster idle residency: 97.66% ANE Power: 0 mW DRAM Power: 14 mW Clusters Total Power: 30 mW GPU Power: 14 mW Package Power: 99 mW **** GPU usage **** GPU active frequency: 709 MHz GPU active residency: 1.51% (396 MHz: .05% 528 MHz: 0% 720 MHz: 1.5% 924 MHz: 0% 1128 MHz: 0% 1278 MHz: 0%) GPU requested frequency: (396 MHz: 0% 528 MHz: 0% 720 MHz: 1.5% 924 MHz: 0% 1128 MHz: 0% 1278 MHz: 0%) GPU idle residency: 98.49% GPU Power: 14 mW I wrote a custom Python script to parse out these logs and plot the graphs below. For our purpose, I extracted the following fields:\n   Extracted Field Description Represented as     E-Cluster Power Total power consumption of the 4 high-efficiency cores Efficiency Cluster   P-Cluster Power Total power consumption of the 4 high-performance cores Performance Cluster   DRAM Power Power consumption of the embedded RAM DRAM   GPU Power Power consumption of the M1 GPU GPU   Package Power Total power consumption of the M1 chip including the CPU, GPU, DRAM and other components like Thunderbolt and SSD controller, media decoding engines, ISP, Secure Enclave etc. Other    For an overview of the M1 architecture, see Apple’s official product page and the press release.\nTest 1: YouTube streaming I tested the following video - “Japan in 8K” - while streaming from YouTube in Safari, Chrome browsers and VLC players.\n   I included the VLC player in this test to compare against the local playback. VLC currently cannot use the hardware VP9 decoder. Therefore the video is played using the software-based decoder. I also tested Chrome in software-decode mode by forcing the hardware VP9 decoder off using the Chrome flag at chrome://flags/#videotoolbox-vp9-decoding.\nThis gave us the following test matrix:\n   Player Codec Resolution Represented as     VLC (Software) VP9 4K VLC-SW   Chrome (Software) VP9 4K Chrome-SW   Chrome (Hardware) VP9 4K Chrome-HW   Safari (Hardware) VP9 4K Safari-HW    To compare against idle state, there was an idle period of 60 seconds before and after playing the video in both scenarios.\n INFO: The charts are interactive. Here’s what you can do:\n Hover over the charts to view the data points. Select and zoom over a specific time period in the line-charts to take a closer look. Single click on a legend item to remove it from the chart. Double-click to isolate it. Double click anywhere on the chart to zoom out   Power Consumption Right off the bat, you can see the difference between the power consumption between hardware decoding and software decoding. Surprisingly, Chrome’s power consumption is higher than Safari’s while both are decoding hardware decoding of VP9 codec. Looking at the average and total power consumption, I made the following observations:\n Power Consumption for Chrome hardware decoding = 2x Safari hardware decoding 🤨 Power Consumption for Chrome software decoding is more efficient than VLC software decoding 🧐    Plotly.d3.json(\"./json/plotly-power-total-browser.json\", function(err, fig) { Plotly.react('.\\/json\\/plotly-power-total-browser.json', fig.data, fig.layout, config = {\"responsive\": true, \"displaylogo\": false, \"modeBarButtonsToRemove\": [\"toggleSpikelines\", \"hoverClosestCartesian\", \"hoverCompareCartesian\", \"select2d\", \"lasso2d\"]}); });    Plotly.d3.json(\"./json/plotly-power-average-browser.json\", function(err, fig) { Plotly.react('.\\/json\\/plotly-power-average-browser.json', fig.data, fig.layout, config = {\"responsive\": true, \"displaylogo\": false, \"modeBarButtonsToRemove\": [\"toggleSpikelines\", \"hoverClosestCartesian\", \"hoverCompareCartesian\", \"select2d\", \"lasso2d\"]}); });    Plotly.d3.json(\"./json/plotly-power-average-total-browser.json\", function(err, fig) { Plotly.react('.\\/json\\/plotly-power-average-total-browser.json', fig.data, fig.layout, config = {\"responsive\": true, \"displaylogo\": false, \"modeBarButtonsToRemove\": [\"toggleSpikelines\", \"hoverClosestCartesian\", \"hoverCompareCartesian\", \"select2d\", \"lasso2d\"]}); });    Plotly.d3.json(\"./json/plotly-power-package-browser.json\", function(err, fig) { Plotly.react('.\\/json\\/plotly-power-package-browser.json', fig.data, fig.layout, config = {\"responsive\": true, \"displaylogo\": false, \"modeBarButtonsToRemove\": [\"toggleSpikelines\", \"hoverClosestCartesian\", \"hoverCompareCartesian\", \"select2d\", \"lasso2d\"]}); });  CPU \u0026 GPU Usage Looking at the CPU and GPU usage leads to some interesting observations:\n The GPU usage on Safari hardware decoding is nearly 0%. Chrome software decoding uses more of the efficiency cluster than VLC software decoding but less of the performance cluster. The performance cluster usage jumps between 0% and ~50% in the browsers compared whereas it constantly hovers around 50% in software decoding scenarios. (Select and Zoom in on the graphs to take a closer look.)    Plotly.d3.json(\"./json/plotly-usage-browser.json\", function(err, fig) { Plotly.react('.\\/json\\/plotly-usage-browser.json', fig.data, fig.layout, config = {\"responsive\": true, \"displaylogo\": false, \"modeBarButtonsToRemove\": [\"toggleSpikelines\", \"hoverClosestCartesian\", \"hoverCompareCartesian\", \"select2d\", \"lasso2d\"]}); });    Plotly.d3.json(\"./json/plotly-usage-average-browser.json\", function(err, fig) { Plotly.react('.\\/json\\/plotly-usage-average-browser.json', fig.data, fig.layout, config = {\"responsive\": true, \"displaylogo\": false, \"modeBarButtonsToRemove\": [\"toggleSpikelines\", \"hoverClosestCartesian\", \"hoverCompareCartesian\", \"select2d\", \"lasso2d\"]}); });  CPU \u0026 GPU Frequency Looking at the CPU and GPU usage, I made the following observations:\n In Safari hardware decoding, the GPU frequency is 0 Hz for a sustained period of time. Does this mean the M1 chip can turn the GPU off? This is quite possible because if you look at the Average Power Consumption chart for the same test (Safari hardware decoding), the GPU’s average power consumption was 2mw! Let me type that again. Over 4-5 minutes where the Apple M1 chip played a 4K video in Safari browser, the GPU consumed only 2 milliwatts! The average frequencies are almost neck and neck for hardware decoding modes (except GPU) and higher in software decoding modes. With VLC, the GPU is consistently around 715 MHz, even in the idle phase (i.e. video not playing).    Plotly.d3.json(\"./json/plotly-frequency-browser.json\", function(err, fig) { Plotly.react('.\\/json\\/plotly-frequency-browser.json', fig.data, fig.layout, config = {\"responsive\": true, \"displaylogo\": false, \"modeBarButtonsToRemove\": [\"toggleSpikelines\", \"hoverClosestCartesian\", \"hoverCompareCartesian\", \"select2d\", \"lasso2d\"]}); });    Plotly.d3.json(\"./json/plotly-frequency-average-browser.json\", function(err, fig) { Plotly.react('.\\/json\\/plotly-frequency-average-browser.json', fig.data, fig.layout, config = {\"responsive\": true, \"displaylogo\": false, \"modeBarButtonsToRemove\": [\"toggleSpikelines\", \"hoverClosestCartesian\", \"hoverCompareCartesian\", \"select2d\", \"lasso2d\"]}); });  Test 2: Netflix streaming For this test, I streamed Queen’s Gambit from Netflix in both Safari and Chrome browsers. Just like the last test to compare against the idle state, there was an idle period of 60 seconds before and after playing the video in both scenarios. The footage in this test was played for 60 seconds.\nThe are two interesting parts to Netflix streaming between these browsers:\n Safari can stream in 1080p and 4K, while Chrome is limited to 720p due to hardware-based DRM limitations. Netflix states that to stream in Ultra HD, one needs a device with an Apple T2 Security chip.    Netflix requirements for streaming in Ultra HD on Mac [Source: Netflix]\n  Safari streamed this title in H.265/HEVC codec while Chrome streams in VP9.    Netflix Queen’s Gambit streaming on Safari [Source: Netflix]\n    Netflix Queen’s Gambit streaming on Chrome [Source: Netflix]\n   INFO: The charts are interactive. Here’s what you can do:\n Hover over the charts to view the data points. Select and zoom over a specific time period in the line-charts to take a closer look. Single click on a legend item to remove it from the chart. Double-click to isolate it. Double click anywhere on the chart to zoom out   Power Consumption Overall, both browsers end up being similar in the average and total power consumption numbers.\n  Plotly.d3.json(\"./json/plotly-power-average-total-netflix.json\", function(err, fig) { Plotly.react('.\\/json\\/plotly-power-average-total-netflix.json', fig.data, fig.layout, config = {\"responsive\": true, \"displaylogo\": false, \"modeBarButtonsToRemove\": [\"toggleSpikelines\", \"hoverClosestCartesian\", \"hoverCompareCartesian\", \"select2d\", \"lasso2d\"]}); });     Plotly.d3.json(\"./json/plotly-power-package-netflix.json\", function(err, fig) { Plotly.react('.\\/json\\/plotly-power-package-netflix.json', fig.data, fig.layout, config = {\"responsive\": true, \"displaylogo\": false, \"modeBarButtonsToRemove\": [\"toggleSpikelines\", \"hoverClosestCartesian\", \"hoverCompareCartesian\", \"select2d\", \"lasso2d\"]}); });  However, once you dig down into individual components, we notice some interesting details.\n On the M1, the DRAM usage in Safari is really high! It’s more than both the CPU clusters. It’s most likely because Safari is streaming 1080p vs. Chrome’s 720p stream. The “Other” component is consuming ~2x the power in Safari vs. Chrome. This is most likely due to the T2 chip being leveraged because of hardware DRM implementation. Just like the YouTube test, Chrome seems to be leveraging quite a bit of GPU. It’s the component that consumes the most power.    Plotly.d3.json(\"./json/plotly-power-total-netflix.json\", function(err, fig) { Plotly.react('.\\/json\\/plotly-power-total-netflix.json', fig.data, fig.layout, config = {\"responsive\": true, \"displaylogo\": false, \"modeBarButtonsToRemove\": [\"toggleSpikelines\", \"hoverClosestCartesian\", \"hoverCompareCartesian\", \"select2d\", \"lasso2d\"]}); });    Plotly.d3.json(\"./json/plotly-power-average-netflix.json\", function(err, fig) { Plotly.react('.\\/json\\/plotly-power-average-netflix.json', fig.data, fig.layout, config = {\"responsive\": true, \"displaylogo\": false, \"modeBarButtonsToRemove\": [\"toggleSpikelines\", \"hoverClosestCartesian\", \"hoverCompareCartesian\", \"select2d\", \"lasso2d\"]}); });  CPU \u0026 GPU Usage No surprises looking at the usage charts than what we already gleaned from the power consumption charts i.e. GPU usage in Chrome is much higher.\n  Plotly.d3.json(\"./json/plotly-usage-netflix.json\", function(err, fig) { Plotly.react('.\\/json\\/plotly-usage-netflix.json', fig.data, fig.layout, config = {\"responsive\": true, \"displaylogo\": false, \"modeBarButtonsToRemove\": [\"toggleSpikelines\", \"hoverClosestCartesian\", \"hoverCompareCartesian\", \"select2d\", \"lasso2d\"]}); });    Plotly.d3.json(\"./json/plotly-usage-average-netflix.json\", function(err, fig) { Plotly.react('.\\/json\\/plotly-usage-average-netflix.json', fig.data, fig.layout, config = {\"responsive\": true, \"displaylogo\": false, \"modeBarButtonsToRemove\": [\"toggleSpikelines\", \"hoverClosestCartesian\", \"hoverCompareCartesian\", \"select2d\", \"lasso2d\"]}); });  CPU \u0026 GPU Frequency Some interesting things are going on with the GPU on the frequency charts.\n In Safari, the GPU is clocking up and down (zoom in on the details), while in Chrome, the GPU is constantly running around 710 MHz. The performance cluster runs around 600 Mhz most of the time but has periodic jumps to almost 3.2 GHz (max frequency for the cluster as confirmed by Anandtech).    Plotly.d3.json(\"./json/plotly-frequency-netflix.json\", function(err, fig) { Plotly.react('.\\/json\\/plotly-frequency-netflix.json', fig.data, fig.layout, config = {\"responsive\": true, \"displaylogo\": false, \"modeBarButtonsToRemove\": [\"toggleSpikelines\", \"hoverClosestCartesian\", \"hoverCompareCartesian\", \"select2d\", \"lasso2d\"]}); });    Plotly.d3.json(\"./json/plotly-frequency-average-netflix.json\", function(err, fig) { Plotly.react('.\\/json\\/plotly-frequency-average-netflix.json', fig.data, fig.layout, config = {\"responsive\": true, \"displaylogo\": false, \"modeBarButtonsToRemove\": [\"toggleSpikelines\", \"hoverClosestCartesian\", \"hoverCompareCartesian\", \"select2d\", \"lasso2d\"]}); });  Conclusion Hopefully, that was an insightful look into the M1 power characteristics! Stay tuned for Part 2, where I’ll dig into similar details but this time with local playback.\nAlso, I hear Big Sur 11.3 will finally allow Safari to play VP9 files. If it changes any of the numbers here in any meaningful way, I’ll update this blog.\nStay tuned for the updates by subscribing to the RSS Feed or the Mailing List\nBuy If you’re planning on buying an Apple M1 product, you can support this blog by using my affiliate links below:\nMacBook Air M1 (2020)\n Apple MacBook Air with Apple M1 Chip (13-inch, 8GB RAM, 256GB SSD Storage) - Space Gray Apple MacBook Air with Apple M1 Chip (13-inch, 8GB RAM, 512GB SSD Storage) - Space Gray Apple MacBook Air with Apple M1 Chip (13-inch, 16GB RAM, 1TB SSD Storage) - Space Gray  MacBook Pro M1 (2020)\n Apple MacBook Air with Apple M1 Chip (13-inch, 8GB RAM, 256GB SSD Storage) - Space Gray Apple MacBook Pro with Apple M1 Chip (13-inch, 8GB RAM, 512GB SSD Storage) - Silver Apple MacBook Pro with Apple M1 Chip (13-inch, 16GB RAM, 256GB SSD Storage) - Space Gray   Contact Reach out if you have any questions! Feel free to follow me on\n Twitter - @singhkays LinkedIn - https://www.linkedin.com/in/singhkays/  ",
+  "wordCount" : "2132",
+  "inLanguage": "en",
+  "image":"https://singhkays.com/media/apple-m1-video-playback-consumption-cover.png","datePublished": "2021-04-02T00:00:00Z",
+  "dateModified": "2021-04-02T00:00:00Z",
+  "author":{
+    "@type": "Person",
+    "name": "Kay Singh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "KAY SINGH",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://singhkays.com/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+
+
+</head>
+
+<body class="" id="top">
+<noscript>
+    <style type="text/css">
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+
+</noscript>
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://singhkays.com/" accesskey="h" title="Kay Singh (Alt + H)">
+                <img src="/android-chrome-192x192.png" alt="logo" aria-label="logo"
+                    height="35">Kay Singh</a>
+            <span class="logo-switches">
+                
+                
+            </span>
+        </div>
+        <ul id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://singhkays.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://singhkays.com/archives/" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://singhkays.com/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://singhkays.com/contact/" title="Contact">
+                    <span>Contact</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://singhkays.com/index.xml" title="RSS Feed">
+                    <span>RSS Feed</span>
+                </a>
+            </li></ul>
+    </nav>
+</header>
+
+    <main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+
+    <h1 class="post-title">
+      Apple Silicon M1 Power Consumption Deep Dive Part 1: Safari vs Chrome
+    </h1>
+    <div class="post-meta">
+
+April 2, 2021&nbsp;·&nbsp;11 min&nbsp;·&nbsp;Kay Singh
+
+
+</div>
+  </header> 
+<figure class="entry-cover">
+        <img loading="lazy" srcset="https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/apple-m1-video-playback-consumption-cover_huaa074cb9a911a7655518fa53bee5b4ad_1129156_360x0_resize_lanczos_2.png 360w ,https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/apple-m1-video-playback-consumption-cover_huaa074cb9a911a7655518fa53bee5b4ad_1129156_480x0_resize_lanczos_2.png 480w ,https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/apple-m1-video-playback-consumption-cover_huaa074cb9a911a7655518fa53bee5b4ad_1129156_720x0_resize_lanczos_2.png 720w ,https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/apple-m1-video-playback-consumption-cover_huaa074cb9a911a7655518fa53bee5b4ad_1129156_1080x0_resize_lanczos_2.png 1080w ,https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/apple-m1-video-playback-consumption-cover_huaa074cb9a911a7655518fa53bee5b4ad_1129156_1500x0_resize_lanczos_2.png 1500w ,https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/apple-m1-video-playback-consumption-cover.png 2398w"
+            sizes="(min-width: 768px) 720px, 100vw" src="https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/apple-m1-video-playback-consumption-cover.png" alt="" />
+        
+</figure>
+
+  <div class="toc">
+    <details  open>
+      <summary accesskey="c" title="(Alt + C)">
+        <div class="details">Table of Contents</div>
+      </summary>
+      <div class="inner"><ul><li>
+        <a href="#testing-methodology" aria-label="Testing Methodology">Testing Methodology</a><ul>
+            <li>
+        <a href="#software--hardware" aria-label="Software &amp;amp; Hardware">Software &amp; Hardware</a></li><li>
+        <a href="#power-consumption-measurement" aria-label="Power Consumption Measurement">Power Consumption Measurement</a></li></ul>
+    </li><li>
+        <a href="#test-1-youtube-streaming" aria-label="Test 1: YouTube streaming">Test 1: YouTube streaming</a><ul>
+            <li>
+        <a href="#power-consumption" aria-label="Power Consumption">Power Consumption</a></li><li>
+        <a href="#cpu--gpu-usage" aria-label="CPU &amp;amp; GPU Usage">CPU &amp; GPU Usage</a></li><li>
+        <a href="#cpu--gpu-frequency" aria-label="CPU &amp;amp; GPU Frequency">CPU &amp; GPU Frequency</a></li></ul>
+    </li><li>
+        <a href="#test-2-netflix-streaming" aria-label="Test 2: Netflix streaming">Test 2: Netflix streaming</a><ul>
+            <li>
+        <a href="#power-consumption-1" aria-label="Power Consumption">Power Consumption</a></li><li>
+        <a href="#cpu--gpu-usage-1" aria-label="CPU &amp;amp; GPU Usage">CPU &amp; GPU Usage</a></li><li>
+        <a href="#cpu--gpu-frequency-1" aria-label="CPU &amp;amp; GPU Frequency">CPU &amp; GPU Frequency</a></li></ul>
+    </li><li>
+        <a href="#conclusion" aria-label="Conclusion">Conclusion</a></li><li>
+        <a href="#buy" aria-label="Buy">Buy</a></li><li>
+        <a href="#contact" aria-label="Contact">Contact</a></li></ul>
+      </div>
+    </details>
+  </div>
+  <div class="post-content">
+<p>One of the themes of my previous Apple Silicon M1 article - <a href="https://singhkays.com/blog/apple-silicon-m1-black-magic/">Apple Silicon M1: Black. Magic. Fuckery.</a> - was the stupendous battery life offered by the new M1-based MacBooks. While unveiling the M1 chip, Apple touted the new M1-based MacBook Air and MacBook Pro&rsquo;s energy efficiency with up to 18 hours and 20 hours of movie playback, 6 and 10 hours more than previous models.</p>
+
+
+
+
+
+
+
+
+<figure>
+    <img
+        
+            sizes="(min-width: 35em) 1200px, 100vw"
+              
+            srcset='
+            
+                   https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/apple-macbook-battery-numbers_hu35d42e5089c6352c5ee3e75b0619a57f_189197_480x0_resize_lanczos_2.png 480w,
+            
+                   https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/apple-macbook-battery-numbers_hu35d42e5089c6352c5ee3e75b0619a57f_189197_800x0_resize_lanczos_2.png 800w,
+            
+                   https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/apple-macbook-battery-numbers_hu35d42e5089c6352c5ee3e75b0619a57f_189197_1200x0_resize_lanczos_2.png 1200w,
+            
+                   
+            '
+
+            
+            
+            src="https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/apple-macbook-battery-numbers_hu35d42e5089c6352c5ee3e75b0619a57f_189197_800x0_resize_lanczos_2.png"
+            
+
+        
+            alt="Apple M1 MacBook Pro and MacBook Air battery video playback numbers"/> <figcaption>
+            <p>Apple M1 MacBook Pro and MacBook Air battery video playback numbers
+                    <a href="https://www.apple.com/mac/m1/">[Source: Apple]</a></p>
+        </figcaption>
+</figure>
+
+
+
+
+
+
+
+
+
+<figure>
+    <img
+        
+            sizes="(min-width: 35em) 1200px, 100vw"
+              
+            srcset='
+            
+                   https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/apple-m1-macbook-air-battery-improvement_hu012ea3defb1fdf063669e136ed2ab3be_1374709_480x0_resize_lanczos_2.png 480w,
+            
+                   https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/apple-m1-macbook-air-battery-improvement_hu012ea3defb1fdf063669e136ed2ab3be_1374709_800x0_resize_lanczos_2.png 800w,
+            
+                   https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/apple-m1-macbook-air-battery-improvement_hu012ea3defb1fdf063669e136ed2ab3be_1374709_1200x0_resize_lanczos_2.png 1200w,
+            
+                   
+            '
+
+            
+            
+            src="https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/apple-m1-macbook-air-battery-improvement_hu012ea3defb1fdf063669e136ed2ab3be_1374709_800x0_resize_lanczos_2.png"
+            
+
+        
+            alt="Apple M1 MacBook Air battery improvement"/> <figcaption>
+            <p>Apple M1 MacBook Air battery improvement
+                    <a href="https://www.apple.com/apple-events/november-2020">[Source: Apple M1 unveiling event]</a></p>
+        </figcaption>
+</figure>
+
+
+
+
+
+
+
+
+
+<figure>
+    <img
+        
+            sizes="(min-width: 35em) 1200px, 100vw"
+              
+            srcset='
+            
+                   https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/apple-m1-macbook-pro-battery-improvement_hu2b7820d341a3464c8b16482383b7888c_755288_480x0_resize_lanczos_2.png 480w,
+            
+                   https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/apple-m1-macbook-pro-battery-improvement_hu2b7820d341a3464c8b16482383b7888c_755288_800x0_resize_lanczos_2.png 800w,
+            
+                   https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/apple-m1-macbook-pro-battery-improvement_hu2b7820d341a3464c8b16482383b7888c_755288_1200x0_resize_lanczos_2.png 1200w,
+            
+                   
+            '
+
+            
+            
+            src="https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/apple-m1-macbook-pro-battery-improvement_hu2b7820d341a3464c8b16482383b7888c_755288_800x0_resize_lanczos_2.png"
+            
+
+        
+            alt="Apple M1 MacBook Pro battery improvement"/> <figcaption>
+            <p>Apple M1 MacBook Pro battery improvement
+                    <a href="https://www.apple.com/apple-events/november-2020">[Source: Apple M1 unveiling event]</a></p>
+        </figcaption>
+</figure>
+
+<p>These battery life advances are massive and typically once-in-a-generation improvements. These are made possible because of Apple&rsquo;s focus on low-power design and decoding video using specialized hardware engines rather than relying on the general-purpose CPU. Decoding video using a chip built for the sole purpose of decoding video can dramatically affect power consumption, as you will see later in this blog.</p>
+
+
+
+
+
+
+
+
+<figure>
+    <img
+        
+            sizes="(min-width: 35em) 1200px, 100vw"
+              
+            srcset='
+            
+                   https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/apple-m1-block-diagram_hue7f63aa4d6ba03e9dc1ecbf179fdfb58_504000_480x0_resize_q75_lanczos.jpg 480w,
+            
+                   https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/apple-m1-block-diagram_hue7f63aa4d6ba03e9dc1ecbf179fdfb58_504000_800x0_resize_q75_lanczos.jpg 800w,
+            
+                   https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/apple-m1-block-diagram_hue7f63aa4d6ba03e9dc1ecbf179fdfb58_504000_1200x0_resize_q75_lanczos.jpg 1200w,
+            
+                   
+            '
+
+            
+            
+            src="https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/apple-m1-block-diagram_hue7f63aa4d6ba03e9dc1ecbf179fdfb58_504000_800x0_resize_q75_lanczos.jpg"
+            
+
+        
+            alt="Apple M1 MacBook Pro battery improvement"/> <figcaption>
+            <p>Apple M1 block diagram. Highlighted components are dedicated to low-power video playback
+                    <a href="https://www.apple.com/apple-events/november-2020">[Source: Apple M1 unveiling event]</a></p>
+        </figcaption>
+</figure>
+
+<p>This blog is Part 1 of a multi-part series of investigations into the actual power these M1 chips consume in some of the most common scenarios. This Part 1 focuses on one of the most critical Pandemic activities - streaming a video from YouTube or Netflix. The lower the power consumption, the longer your battery will last (<em>if you&rsquo;re not connected to the charger</em>).</p>
+<h1 id="testing-methodology">Testing Methodology<a hidden class="anchor" aria-hidden="true" href="#testing-methodology">#</a></h1>
+<h2 id="software--hardware">Software &amp; Hardware<a hidden class="anchor" aria-hidden="true" href="#software--hardware">#</a></h2>
+<ul>
+<li>MacOS 11.2.2 running in safe mode to limit the effect of background processes and other applications on power consumption</li>
+<li>Safari 14.0.3</li>
+<li>Chrome 89 (Apple Silicon version)</li>
+<li>VLC 3.0.12.1 (Apple Silicon version)</li>
+<li>Mac Mini M1 16GB RAM, 256GB SSD (<em>I didn&rsquo;t have a MacBook so this test represents the power of the M1 components, not the overall system power</em>)</li>
+<li>Peripherels attached: Apple Magic Keyboard and Magic Trackpad (Bluetooth)</li>
+</ul>
+<h2 id="power-consumption-measurement">Power Consumption Measurement<a hidden class="anchor" aria-hidden="true" href="#power-consumption-measurement">#</a></h2>
+<p>Power Consumption was measured using <a href="https://developer.apple.com/library/archive/documentation/Performance/Conceptual/power_efficiency_guidelines_osx/PrioritizeWorkAtTheTaskLevel.html#//apple_ref/doc/uid/TP40013929-CH35-SW10">Apple&rsquo;s powermetrics utility</a>. <code>powermetrics</code> is a Mac-only command-line utility that provides many high-quality power-related measurements. It is most useful for getting CPU, GPU and wakeup measurements in a precise and easily scriptable fashion (unlike <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Performance/Activity_Monitor_and_top">Activity Monitor and top</a>)</p>
+<p>Below is a sample log from <code>powermetrics</code> output after running the following command:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo powermetrics -i <span style="color:#ae81ff">1000</span> --samplers cpu_power,gpu_power -a --hide-cpu-duty-cycle --show-usage-summary --show-extra-power-info -u ~/powerlogs.txt
+</code></pre></div><pre><code>*** Sampled system activity (Thu Feb 11 00:10:50 2021 -0800) (1004.97ms elapsed) ***
+
+**** Processor usage ****
+
+E-Cluster Power: 14 mW
+E-Cluster HW active frequency: 1031 MHz
+E-Cluster HW active residency:  11.15% (600 MHz: 2.8% 972 MHz:  88% 1332 MHz: 2.5% 1704 MHz: 3.0% 2064 MHz: 3.5%)
+E-Cluster idle residency:  88.85%
+
+P-Cluster Power: 16 mW
+P-Cluster HW active frequency: 712 MHz
+P-Cluster HW active residency:   2.34% (600 MHz:  90% 828 MHz: .42% 1056 MHz: 1.4% 1284 MHz: 3.0% 1500 MHz: .49% 1728 MHz: .79% 1956 MHz: 1.2% 2184 MHz: .59% 2388 MHz: 1.0% 2592 MHz:   0% 2772 MHz: .40% 2988 MHz: .20% 3096 MHz:   0% 3144 MHz: .20% 3204 MHz: .36%)
+P-Cluster idle residency:  97.66%
+
+ANE Power: 0 mW
+DRAM Power: 14 mW
+Clusters Total Power: 30 mW
+GPU Power: 14 mW
+Package Power: 99 mW
+
+**** GPU usage ****
+
+GPU active frequency: 709 MHz
+GPU active residency:   1.51% (396 MHz: .05% 528 MHz:   0% 720 MHz: 1.5% 924 MHz:   0% 1128 MHz:   0% 1278 MHz:   0%)
+GPU requested frequency: (396 MHz:   0% 528 MHz:   0% 720 MHz: 1.5% 924 MHz:   0% 1128 MHz:   0% 1278 MHz:   0%)
+GPU idle residency:  98.49%
+GPU Power: 14 mW
+</code></pre><p>I wrote a custom Python script to parse out these logs and plot the graphs below. For our purpose, I extracted the following fields:</p>
+<table>
+<thead>
+<tr>
+<th>Extracted Field</th>
+<th>Description</th>
+<th>Represented as</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E-Cluster Power</td>
+<td>Total power consumption of the 4 high-efficiency cores</td>
+<td>Efficiency Cluster</td>
+</tr>
+<tr>
+<td>P-Cluster Power</td>
+<td>Total power consumption of the 4 high-performance cores</td>
+<td>Performance Cluster</td>
+</tr>
+<tr>
+<td>DRAM Power</td>
+<td>Power consumption of the embedded RAM</td>
+<td>DRAM</td>
+</tr>
+<tr>
+<td>GPU Power</td>
+<td>Power consumption of the M1 GPU</td>
+<td>GPU</td>
+</tr>
+<tr>
+<td>Package Power</td>
+<td>Total power consumption of the M1 chip including the CPU, GPU, DRAM and other components like Thunderbolt and SSD controller, media decoding engines, ISP, Secure Enclave etc.</td>
+<td>Other</td>
+</tr>
+</tbody>
+</table>
+<p>For an overview of the M1 architecture, see <a href="https://www.apple.com/mac/m1/">Apple&rsquo;s official product page</a> and the <a href="https://www.apple.com/newsroom/2020/11/apple-unleashes-m1/">press release</a>.</p>
+<h1 id="test-1-youtube-streaming">Test 1: YouTube streaming<a hidden class="anchor" aria-hidden="true" href="#test-1-youtube-streaming">#</a></h1>
+<p>I tested the following video - &ldquo;Japan in 8K&rdquo; - while streaming from YouTube in Safari, Chrome browsers and VLC players.</p>
+<p>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/m1jY2VLCRmY" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>I included the VLC player in this test to compare against the local playback. VLC currently cannot use the hardware VP9 decoder. Therefore the video is played using the software-based decoder. I also tested Chrome in software-decode mode by forcing the hardware VP9 decoder off using the Chrome flag at <a href="chrome://flags/#videotoolbox-vp9-decoding">chrome://flags/#videotoolbox-vp9-decoding</a>.</p>
+<p>This gave us the following test matrix:</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Player</th>
+<th style="text-align:center">Codec</th>
+<th style="text-align:center">Resolution</th>
+<th style="text-align:center">Represented as</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">VLC (Software)</td>
+<td style="text-align:center">VP9</td>
+<td style="text-align:center">4K</td>
+<td style="text-align:center">VLC-SW</td>
+</tr>
+<tr>
+<td style="text-align:center">Chrome (Software)</td>
+<td style="text-align:center">VP9</td>
+<td style="text-align:center">4K</td>
+<td style="text-align:center">Chrome-SW</td>
+</tr>
+<tr>
+<td style="text-align:center">Chrome (Hardware)</td>
+<td style="text-align:center">VP9</td>
+<td style="text-align:center">4K</td>
+<td style="text-align:center">Chrome-HW</td>
+</tr>
+<tr>
+<td style="text-align:center">Safari (Hardware)</td>
+<td style="text-align:center">VP9</td>
+<td style="text-align:center">4K</td>
+<td style="text-align:center">Safari-HW</td>
+</tr>
+</tbody>
+</table>
+<p>To compare against idle state, there was an idle period of 60 seconds before and after playing the video in both scenarios.</p>
+<blockquote>
+<p><strong>INFO: The charts are interactive. Here&rsquo;s what you can do:</strong></p>
+<ol>
+<li>Hover over the charts to view the data points.</li>
+<li>Select and zoom over a specific time period in the line-charts to take a closer look.</li>
+<li>Single click on a legend item to remove it from the chart. Double-click to isolate it.</li>
+<li>Double click anywhere on the chart to zoom out</li>
+</ol>
+</blockquote>
+<h2 id="power-consumption">Power Consumption<a hidden class="anchor" aria-hidden="true" href="#power-consumption">#</a></h2>
+<p>Right off the bat, you can see the difference between the power consumption between hardware decoding and software decoding. Surprisingly, Chrome&rsquo;s power consumption is higher than Safari&rsquo;s while both are decoding hardware decoding of VP9 codec.
+Looking at the average and total power consumption, I made the following observations:</p>
+<ol>
+<li>Power Consumption for Chrome hardware decoding = 2x Safari hardware decoding 🤨</li>
+<li>Power Consumption for Chrome software decoding is more efficient than VLC software decoding 🧐</li>
+</ol>
+
+
+<div id="./json/plotly-power-total-browser.json" class="plotly" style="height:900px"></div>
+<script>
+Plotly.d3.json("./json/plotly-power-total-browser.json", function(err, fig) {
+    Plotly.react('.\/json\/plotly-power-total-browser.json', fig.data, fig.layout, config = {"responsive": true, "displaylogo": false, "modeBarButtonsToRemove": ["toggleSpikelines", "hoverClosestCartesian",  "hoverCompareCartesian", "select2d", "lasso2d"]});
+});
+</script>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+
+
+<div id="./json/plotly-power-average-browser.json" class="plotly" style="height:400px"></div>
+<script>
+Plotly.d3.json("./json/plotly-power-average-browser.json", function(err, fig) {
+    Plotly.react('.\/json\/plotly-power-average-browser.json', fig.data, fig.layout, config = {"responsive": true, "displaylogo": false, "modeBarButtonsToRemove": ["toggleSpikelines", "hoverClosestCartesian",  "hoverCompareCartesian", "select2d", "lasso2d"]});
+});
+</script>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+
+
+<div id="./json/plotly-power-average-total-browser.json" class="plotly" style="height:250px"></div>
+<script>
+Plotly.d3.json("./json/plotly-power-average-total-browser.json", function(err, fig) {
+    Plotly.react('.\/json\/plotly-power-average-total-browser.json', fig.data, fig.layout, config = {"responsive": true, "displaylogo": false, "modeBarButtonsToRemove": ["toggleSpikelines", "hoverClosestCartesian",  "hoverCompareCartesian", "select2d", "lasso2d"]});
+});
+</script>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+
+
+<div id="./json/plotly-power-package-browser.json" class="plotly" style="height:350px"></div>
+<script>
+Plotly.d3.json("./json/plotly-power-package-browser.json", function(err, fig) {
+    Plotly.react('.\/json\/plotly-power-package-browser.json', fig.data, fig.layout, config = {"responsive": true, "displaylogo": false, "modeBarButtonsToRemove": ["toggleSpikelines", "hoverClosestCartesian",  "hoverCompareCartesian", "select2d", "lasso2d"]});
+});
+</script>
+<h2 id="cpu--gpu-usage">CPU &amp; GPU Usage<a hidden class="anchor" aria-hidden="true" href="#cpu--gpu-usage">#</a></h2>
+<p>Looking at the CPU and GPU usage leads to some interesting observations:</p>
+<ol>
+<li>The GPU usage on Safari hardware decoding is nearly 0%.</li>
+<li>Chrome software decoding uses more of the efficiency cluster than VLC software decoding but less of the performance cluster.</li>
+<li>The performance cluster usage jumps between 0% and ~50% in the browsers compared whereas it constantly hovers around 50% in software decoding scenarios. (<em>Select and Zoom in on the graphs to take a closer look.</em>)</li>
+</ol>
+
+
+<div id="./json/plotly-usage-browser.json" class="plotly" style="height:350px"></div>
+<script>
+Plotly.d3.json("./json/plotly-usage-browser.json", function(err, fig) {
+    Plotly.react('.\/json\/plotly-usage-browser.json', fig.data, fig.layout, config = {"responsive": true, "displaylogo": false, "modeBarButtonsToRemove": ["toggleSpikelines", "hoverClosestCartesian",  "hoverCompareCartesian", "select2d", "lasso2d"]});
+});
+</script>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+
+
+<div id="./json/plotly-usage-average-browser.json" class="plotly" style="height:350px"></div>
+<script>
+Plotly.d3.json("./json/plotly-usage-average-browser.json", function(err, fig) {
+    Plotly.react('.\/json\/plotly-usage-average-browser.json', fig.data, fig.layout, config = {"responsive": true, "displaylogo": false, "modeBarButtonsToRemove": ["toggleSpikelines", "hoverClosestCartesian",  "hoverCompareCartesian", "select2d", "lasso2d"]});
+});
+</script>
+<h2 id="cpu--gpu-frequency">CPU &amp; GPU Frequency<a hidden class="anchor" aria-hidden="true" href="#cpu--gpu-frequency">#</a></h2>
+<p>Looking at the CPU and GPU usage, I made the following observations:</p>
+<ol>
+<li>In Safari hardware decoding, the GPU frequency is 0 Hz for a sustained period of time. Does this mean the M1 chip can turn the GPU off? This is quite possible because if you look at the Average Power Consumption chart for the same test (Safari hardware decoding), the GPU&rsquo;s average power consumption was 2mw! Let me type that again. Over 4-5 minutes where the Apple M1 chip played a 4K video in Safari browser, the GPU consumed only 2 milliwatts!</li>
+<li>The average frequencies are almost neck and neck for hardware decoding modes (<em>except GPU</em>) and higher in software decoding modes.</li>
+<li>With VLC, the GPU is consistently around 715 MHz, even in the idle phase (<em>i.e. video not playing</em>).</li>
+</ol>
+
+
+<div id="./json/plotly-frequency-browser.json" class="plotly" style="height:350px"></div>
+<script>
+Plotly.d3.json("./json/plotly-frequency-browser.json", function(err, fig) {
+    Plotly.react('.\/json\/plotly-frequency-browser.json', fig.data, fig.layout, config = {"responsive": true, "displaylogo": false, "modeBarButtonsToRemove": ["toggleSpikelines", "hoverClosestCartesian",  "hoverCompareCartesian", "select2d", "lasso2d"]});
+});
+</script>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+
+
+<div id="./json/plotly-frequency-average-browser.json" class="plotly" style="height:350px"></div>
+<script>
+Plotly.d3.json("./json/plotly-frequency-average-browser.json", function(err, fig) {
+    Plotly.react('.\/json\/plotly-frequency-average-browser.json', fig.data, fig.layout, config = {"responsive": true, "displaylogo": false, "modeBarButtonsToRemove": ["toggleSpikelines", "hoverClosestCartesian",  "hoverCompareCartesian", "select2d", "lasso2d"]});
+});
+</script>
+<h1 id="test-2-netflix-streaming">Test 2: Netflix streaming<a hidden class="anchor" aria-hidden="true" href="#test-2-netflix-streaming">#</a></h1>
+<p>For this test, I streamed Queen&rsquo;s Gambit from Netflix in both Safari and Chrome browsers. Just like the last test to compare against the idle state, there was an idle period of 60 seconds before and after playing the video in both scenarios. The footage in this test was played for 60 seconds.</p>
+<p>The are two interesting parts to Netflix streaming between these browsers:</p>
+<ol>
+<li>Safari can stream in 1080p and 4K, while Chrome is limited to 720p due to hardware-based DRM limitations. Netflix states that to stream in Ultra HD, one needs a device with an <a href="https://support.apple.com/en-us/HT208862">Apple T2 Security chip</a>.</li>
+</ol>
+
+
+
+
+
+
+
+
+<figure>
+    <img
+        
+            sizes="(min-width: 35em) 1200px, 100vw"
+              
+            srcset='
+            
+                   https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/netflix-stream-ultrahd-mac_hu7831224f9276e9c5320288e5c80d4b50_246069_480x0_resize_lanczos_2.png 480w,
+            
+                   https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/netflix-stream-ultrahd-mac_hu7831224f9276e9c5320288e5c80d4b50_246069_800x0_resize_lanczos_2.png 800w,
+            
+                   https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/netflix-stream-ultrahd-mac_hu7831224f9276e9c5320288e5c80d4b50_246069_1200x0_resize_lanczos_2.png 1200w,
+            
+                   https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/netflix-stream-ultrahd-mac_hu7831224f9276e9c5320288e5c80d4b50_246069_1500x0_resize_lanczos_2.png 1500w,
+            '
+
+            
+            
+            src="https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/netflix-stream-ultrahd-mac_hu7831224f9276e9c5320288e5c80d4b50_246069_800x0_resize_lanczos_2.png"
+            
+
+        
+            alt="Netflix requirements for streaming in Ultra HD on Mac"/> <figcaption>
+            <p>Netflix requirements for streaming in Ultra HD on Mac
+                    <a href="https://help.netflix.com/en/node/55764">[Source: Netflix]</a></p>
+        </figcaption>
+</figure>
+
+<ol start="2">
+<li>Safari streamed this title in H.265/HEVC codec while Chrome streams in VP9.</li>
+</ol>
+
+
+
+
+
+
+
+
+<figure>
+    <img
+        
+            sizes="(min-width: 35em) 1200px, 100vw"
+              
+            srcset='
+            
+                   https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/netflix-safari-queens-gambit_hu5d129bb3c96650b6ef1ac116173b955b_182095_480x0_resize_lanczos_2.png 480w,
+            
+                   https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/netflix-safari-queens-gambit_hu5d129bb3c96650b6ef1ac116173b955b_182095_800x0_resize_lanczos_2.png 800w,
+            
+                   https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/netflix-safari-queens-gambit_hu5d129bb3c96650b6ef1ac116173b955b_182095_1200x0_resize_lanczos_2.png 1200w,
+            
+                   
+            '
+
+            
+            
+            src="https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/netflix-safari-queens-gambit_hu5d129bb3c96650b6ef1ac116173b955b_182095_800x0_resize_lanczos_2.png"
+            
+
+        
+            alt="Netflix Queen&#39;s Gambit streaming on Safari"/> <figcaption>
+            <p>Netflix Queen&rsquo;s Gambit streaming on Safari
+                    <a href="https://www.netflix.com/title/80234304">[Source: Netflix]</a></p>
+        </figcaption>
+</figure>
+
+
+
+
+
+
+
+
+
+<figure>
+    <img
+        
+            sizes="(min-width: 35em) 1200px, 100vw"
+              
+            srcset='
+            
+                   https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/netflix-chrome-queens-gambit_hub1f9784ad3464fe93b5e79c8d4c3233e_1074534_480x0_resize_lanczos_2.png 480w,
+            
+                   https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/netflix-chrome-queens-gambit_hub1f9784ad3464fe93b5e79c8d4c3233e_1074534_800x0_resize_lanczos_2.png 800w,
+            
+                   https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/netflix-chrome-queens-gambit_hub1f9784ad3464fe93b5e79c8d4c3233e_1074534_1200x0_resize_lanczos_2.png 1200w,
+            
+                   https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/netflix-chrome-queens-gambit_hub1f9784ad3464fe93b5e79c8d4c3233e_1074534_1500x0_resize_lanczos_2.png 1500w,
+            '
+
+            
+            
+            src="https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/netflix-chrome-queens-gambit_hub1f9784ad3464fe93b5e79c8d4c3233e_1074534_800x0_resize_lanczos_2.png"
+            
+
+        
+            alt="Netflix Queen&#39;s Gambit streaming on Chrome"/> <figcaption>
+            <p>Netflix Queen&rsquo;s Gambit streaming on Chrome
+                    <a href="https://www.netflix.com/title/80234304">[Source: Netflix]</a></p>
+        </figcaption>
+</figure>
+
+<blockquote>
+<p><strong>INFO: The charts are interactive. Here&rsquo;s what you can do:</strong></p>
+<ol>
+<li>Hover over the charts to view the data points.</li>
+<li>Select and zoom over a specific time period in the line-charts to take a closer look.</li>
+<li>Single click on a legend item to remove it from the chart. Double-click to isolate it.</li>
+<li>Double click anywhere on the chart to zoom out</li>
+</ol>
+</blockquote>
+<h2 id="power-consumption-1">Power Consumption<a hidden class="anchor" aria-hidden="true" href="#power-consumption-1">#</a></h2>
+<p>Overall, both browsers end up being similar in the average and total power consumption numbers.</p>
+
+
+<div id="./json/plotly-power-average-total-netflix.json" class="plotly" style="height:200px"></div>
+<script>
+Plotly.d3.json("./json/plotly-power-average-total-netflix.json", function(err, fig) {
+    Plotly.react('.\/json\/plotly-power-average-total-netflix.json', fig.data, fig.layout, config = {"responsive": true, "displaylogo": false, "modeBarButtonsToRemove": ["toggleSpikelines", "hoverClosestCartesian",  "hoverCompareCartesian", "select2d", "lasso2d"]});
+});
+</script>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>
+
+<div id="./json/plotly-power-package-netflix.json" class="plotly" style="height:350px"></div>
+<script>
+Plotly.d3.json("./json/plotly-power-package-netflix.json", function(err, fig) {
+    Plotly.react('.\/json\/plotly-power-package-netflix.json', fig.data, fig.layout, config = {"responsive": true, "displaylogo": false, "modeBarButtonsToRemove": ["toggleSpikelines", "hoverClosestCartesian",  "hoverCompareCartesian", "select2d", "lasso2d"]});
+});
+</script>
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>However, once you dig down into individual components, we notice some interesting details.</p>
+<ol>
+<li>On the M1, the DRAM usage in Safari is really high! It&rsquo;s more than both the CPU clusters. It&rsquo;s most likely because Safari is streaming 1080p vs. Chrome&rsquo;s 720p stream.</li>
+<li>The &ldquo;Other&rdquo; component is consuming ~2x the power in Safari vs. Chrome. This is most likely due to the T2 chip being leveraged because of hardware DRM implementation.</li>
+<li>Just like the YouTube test, Chrome seems to be leveraging quite a bit of GPU. It&rsquo;s the component that consumes the most power.</li>
+</ol>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+
+
+<div id="./json/plotly-power-total-netflix.json" class="plotly" style="height:500px"></div>
+<script>
+Plotly.d3.json("./json/plotly-power-total-netflix.json", function(err, fig) {
+    Plotly.react('.\/json\/plotly-power-total-netflix.json', fig.data, fig.layout, config = {"responsive": true, "displaylogo": false, "modeBarButtonsToRemove": ["toggleSpikelines", "hoverClosestCartesian",  "hoverCompareCartesian", "select2d", "lasso2d"]});
+});
+</script>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+
+
+<div id="./json/plotly-power-average-netflix.json" class="plotly" style="height:400px"></div>
+<script>
+Plotly.d3.json("./json/plotly-power-average-netflix.json", function(err, fig) {
+    Plotly.react('.\/json\/plotly-power-average-netflix.json', fig.data, fig.layout, config = {"responsive": true, "displaylogo": false, "modeBarButtonsToRemove": ["toggleSpikelines", "hoverClosestCartesian",  "hoverCompareCartesian", "select2d", "lasso2d"]});
+});
+</script>
+<h2 id="cpu--gpu-usage-1">CPU &amp; GPU Usage<a hidden class="anchor" aria-hidden="true" href="#cpu--gpu-usage-1">#</a></h2>
+<p>No surprises looking at the usage charts than what we already gleaned from the power consumption charts i.e. GPU usage in Chrome is much higher.</p>
+
+
+<div id="./json/plotly-usage-netflix.json" class="plotly" style="height:350px"></div>
+<script>
+Plotly.d3.json("./json/plotly-usage-netflix.json", function(err, fig) {
+    Plotly.react('.\/json\/plotly-usage-netflix.json', fig.data, fig.layout, config = {"responsive": true, "displaylogo": false, "modeBarButtonsToRemove": ["toggleSpikelines", "hoverClosestCartesian",  "hoverCompareCartesian", "select2d", "lasso2d"]});
+});
+</script>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+
+
+<div id="./json/plotly-usage-average-netflix.json" class="plotly" style="height:350px"></div>
+<script>
+Plotly.d3.json("./json/plotly-usage-average-netflix.json", function(err, fig) {
+    Plotly.react('.\/json\/plotly-usage-average-netflix.json', fig.data, fig.layout, config = {"responsive": true, "displaylogo": false, "modeBarButtonsToRemove": ["toggleSpikelines", "hoverClosestCartesian",  "hoverCompareCartesian", "select2d", "lasso2d"]});
+});
+</script>
+<h2 id="cpu--gpu-frequency-1">CPU &amp; GPU Frequency<a hidden class="anchor" aria-hidden="true" href="#cpu--gpu-frequency-1">#</a></h2>
+<p>Some interesting things are going on with the GPU on the frequency charts.</p>
+<ol>
+<li>In Safari, the GPU is clocking up and down (zoom in on the details), while in Chrome, the GPU is constantly running around 710 MHz.</li>
+<li>The performance cluster runs around 600 Mhz most of the time but has periodic jumps to almost 3.2 GHz (<em><a href="https://www.anandtech.com/show/16252/mac-mini-apple-m1-tested?utm_source=singhkays.com">max frequency for the cluster as confirmed by Anandtech</a></em>).</li>
+</ol>
+
+
+<div id="./json/plotly-frequency-netflix.json" class="plotly" style="height:350px"></div>
+<script>
+Plotly.d3.json("./json/plotly-frequency-netflix.json", function(err, fig) {
+    Plotly.react('.\/json\/plotly-frequency-netflix.json', fig.data, fig.layout, config = {"responsive": true, "displaylogo": false, "modeBarButtonsToRemove": ["toggleSpikelines", "hoverClosestCartesian",  "hoverCompareCartesian", "select2d", "lasso2d"]});
+});
+</script>
+<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+
+
+<div id="./json/plotly-frequency-average-netflix.json" class="plotly" style="height:350px"></div>
+<script>
+Plotly.d3.json("./json/plotly-frequency-average-netflix.json", function(err, fig) {
+    Plotly.react('.\/json\/plotly-frequency-average-netflix.json', fig.data, fig.layout, config = {"responsive": true, "displaylogo": false, "modeBarButtonsToRemove": ["toggleSpikelines", "hoverClosestCartesian",  "hoverCompareCartesian", "select2d", "lasso2d"]});
+});
+</script>
+<h1 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h1>
+<p>Hopefully, that was an insightful look into the M1 power characteristics! Stay tuned for Part 2, where I&rsquo;ll dig into similar details but this time with local playback.</p>
+<p>Also, I hear <a href="https://9to5mac.com/2021/02/18/apple-adds-webm-video-playback-support-to-safari-with-macos-big-sur-11-3?utm_source=singhkays.com">Big Sur 11.3 will finally allow Safari to play VP9 files</a>. If it changes any of the numbers here in any meaningful way, I&rsquo;ll update this blog.</p>
+<p>Stay tuned for the updates by subscribing to the <a href="https://singhkays.com/index.xml">RSS Feed</a> or the <a href="https://singhkays.ck.page/75bd47613f">Mailing List</a></p>
+<h1 id="buy">Buy<a hidden class="anchor" aria-hidden="true" href="#buy">#</a></h1>
+<p>If you&rsquo;re planning on buying an Apple M1 product, you can support this blog by using my affiliate links below:</p>
+<p><strong>MacBook Air M1 (2020)</strong></p>
+<ul>
+<li><a href="https://amzn.to/38VTYKW">Apple MacBook Air with Apple M1 Chip (13-inch, 8GB RAM, 256GB SSD Storage) - Space Gray</a></li>
+<li><a href="https://amzn.to/3lsz4Zc">Apple MacBook Air with Apple M1 Chip (13-inch, 8GB RAM, 512GB SSD Storage) - Space Gray</a></li>
+<li><a href="https://amzn.to/3cIEXgO">Apple MacBook Air with Apple M1 Chip (13-inch, 16GB RAM, 1TB SSD Storage) - Space Gray</a></li>
+</ul>
+<p><strong>MacBook Pro M1 (2020)</strong></p>
+<ul>
+<li><a href="https://amzn.to/38YG6zE">Apple MacBook Air with Apple M1 Chip (13-inch, 8GB RAM, 256GB SSD Storage) - Space Gray</a></li>
+<li><a href="https://amzn.to/3seBwVT">Apple MacBook Pro with Apple M1 Chip (13-inch, 8GB RAM, 512GB SSD Storage) - Silver</a></li>
+<li><a href="https://amzn.to/3vziOdo">Apple MacBook Pro with Apple M1 Chip (13-inch, 16GB RAM, 256GB SSD Storage) - Space Gray </a></li>
+</ul>
+<h1 id="contact">Contact<a hidden class="anchor" aria-hidden="true" href="#contact">#</a></h1>
+<p>Reach out if you have any questions! Feel free to follow me on</p>
+<ul>
+<li>Twitter - <a href="https://twitter.com/singhkays">@singhkays</a></li>
+<li>LinkedIn - <a href="https://www.linkedin.com/in/singhkays/">https://www.linkedin.com/in/singhkays/</a></li>
+</ul>
+
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://singhkays.com/tags/apple-silicon/">Apple Silicon</a></li>
+      <li><a href="https://singhkays.com/tags/m1/">M1</a></li>
+      <li><a href="https://singhkays.com/tags/apple/">Apple</a></li>
+      <li><a href="https://singhkays.com/tags/youtube/">YouTube</a></li>
+      <li><a href="https://singhkays.com/tags/video-decoding/">Video Decoding</a></li>
+      <li><a href="https://singhkays.com/tags/power-consumption/">Power Consumption</a></li>
+      <li><a href="https://singhkays.com/tags/vlc/">VLC</a></li>
+      <li><a href="https://singhkays.com/tags/netflix/">Netflix</a></li>
+      <li><a href="https://singhkays.com/tags/safari/">Safari</a></li>
+      <li><a href="https://singhkays.com/tags/chrome/">Chrome</a></li>
+      <li><a href="https://singhkays.com/tags/vp9/">VP9</a></li>
+      <li><a href="https://singhkays.com/tags/hevc/">HEVC</a></li>
+      <li><a href="https://singhkays.com/tags/h.265/">H.265</a></li>
+    </ul>
+    <nav class="paginav">
+      <a class="next" href="https://singhkays.com/blog/philips-brilliance-27-4k-uhd-p272p7vu/">
+        <span class="title">Next Page »</span>
+        <br>
+        <span>Philips Brilliance 4K UHD 27&#34; Monitor Review</span>
+      </a>
+    </nav>
+
+
+
+
+
+
+<div class="share-buttons">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Apple Silicon M1 Power Consumption Deep Dive Part 1: Safari vs Chrome on twitter"
+        href="https://twitter.com/intent/tweet/?text=Apple%20Silicon%20M1%20Power%20Consumption%20Deep%20Dive%20Part%201%3a%20Safari%20vs%20Chrome&amp;url=https%3a%2f%2fsinghkays.com%2fblog%2fapple-silicon-m1-video-power-consumption-pt-1%2f&amp;hashtags=AppleSilicon%2cM1%2cApple%2cYouTube%2cVideoDecoding%2cPowerConsumption%2cVLC%2cNetflix%2cSafari%2cChrome%2cVP9%2cHEVC%2cH.265">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Apple Silicon M1 Power Consumption Deep Dive Part 1: Safari vs Chrome on linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsinghkays.com%2fblog%2fapple-silicon-m1-video-power-consumption-pt-1%2f&amp;title=Apple%20Silicon%20M1%20Power%20Consumption%20Deep%20Dive%20Part%201%3a%20Safari%20vs%20Chrome&amp;summary=Apple%20Silicon%20M1%20Power%20Consumption%20Deep%20Dive%20Part%201%3a%20Safari%20vs%20Chrome&amp;source=https%3a%2f%2fsinghkays.com%2fblog%2fapple-silicon-m1-video-power-consumption-pt-1%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Apple Silicon M1 Power Consumption Deep Dive Part 1: Safari vs Chrome on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fsinghkays.com%2fblog%2fapple-silicon-m1-video-power-consumption-pt-1%2f&title=Apple%20Silicon%20M1%20Power%20Consumption%20Deep%20Dive%20Part%201%3a%20Safari%20vs%20Chrome">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Apple Silicon M1 Power Consumption Deep Dive Part 1: Safari vs Chrome on facebook"
+        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fsinghkays.com%2fblog%2fapple-silicon-m1-video-power-consumption-pt-1%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Apple Silicon M1 Power Consumption Deep Dive Part 1: Safari vs Chrome on whatsapp"
+        href="https://api.whatsapp.com/send?text=Apple%20Silicon%20M1%20Power%20Consumption%20Deep%20Dive%20Part%201%3a%20Safari%20vs%20Chrome%20-%20https%3a%2f%2fsinghkays.com%2fblog%2fapple-silicon-m1-video-power-consumption-pt-1%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Apple Silicon M1 Power Consumption Deep Dive Part 1: Safari vs Chrome on telegram"
+        href="https://telegram.me/share/url?text=Apple%20Silicon%20M1%20Power%20Consumption%20Deep%20Dive%20Part%201%3a%20Safari%20vs%20Chrome&amp;url=https%3a%2f%2fsinghkays.com%2fblog%2fapple-silicon-m1-video-power-consumption-pt-1%2f">
+        <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28">
+            <path
+                d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+        </svg>
+    </a>
+</div>
+
+  </footer>
+
+
+</article>
+    </main><footer class="footer">
+    <span>Copyright © 2017–2021, Kay Singh; all rights reserved.</span>
+    <span>&middot;</span>
+    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+    <span>&middot;</span>
+    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+
+
+
+<script defer src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+
+</body>
+
+</html>

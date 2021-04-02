@@ -4,86 +4,25 @@
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>How do I discard unstaged changes in Git? | KAY SINGH</title>
 
-<title>How do I discard unstaged changes in Git? - KAY SINGH</title>
-
+<meta name="keywords" content="git, commandline, terminal, version control, visual studio code" />
 <meta name="description" content="Often when I’m working on this blog, I work over multiple days and end up working on multiple devices. The blog is written in markdown and tracked in a Git repo on Azure Devops. The other day a scenario arose where I was customizing the theme of the blog but not getting anywhere. I decided to have another go at the customization few days later but this time on another device.">
-<meta name="keywords" content= />
 <meta name="author" content="Kay Singh">
 <link rel="canonical" href="https://singhkays.com/blog/git-discard-changes-terminal/" />
-
-
-<link href="https://singhkays.com/assets/css/stylesheet.min.81244588da925d88a38a41e3efe7c9df582948f90fb394d9a2228c8825b6fa1f.css" integrity="sha256-gSRFiNqSXYijikHj7&#43;fJ31gpSPkPs5TZoiKMiCW2&#43;h8=" rel="preload stylesheet"
+<link href="/assets/css/stylesheet.min.f563762088a56a22c5d0a100c62dc8771563d596b4afd14bd13c5979747f13b8.css" integrity="sha256-9WN2IIilaiLF0KEAxi3IdxVj1Za0r9FL0TxZeXR/E7g=" rel="preload stylesheet"
     as="style">
 
+<link rel="icon" href="https://singhkays.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://singhkays.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://singhkays.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://singhkays.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://singhkays.com/android-chrome-512x512.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.82.0" />
 
-
-
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-
-<meta name="generator" content="Hugo 0.81.0" />
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-108462543-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-<meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:image" content="https://singhkays.com/blog/git-discard-changes-terminal/./media/vscode-discard.png"/>
-<meta name="twitter:title" content="How do I discard unstaged changes in Git?"/>
-<meta name="twitter:description" content="Often when I’m working on this blog, I work over multiple days and end up working on multiple devices. The blog is written in markdown and tracked in a Git repo on Azure Devops. The other day a scenario arose where I was customizing the theme of the blog but not getting anywhere. I decided to have another go at the customization few days later but this time on another device."/>
-
-<meta property="og:title" content="How do I discard unstaged changes in Git?" />
-<meta property="og:description" content="Often when I’m working on this blog, I work over multiple days and end up working on multiple devices. The blog is written in markdown and tracked in a Git repo on Azure Devops. The other day a scenario arose where I was customizing the theme of the blog but not getting anywhere. I decided to have another go at the customization few days later but this time on another device." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://singhkays.com/blog/git-discard-changes-terminal/" />
-
-    
-        
-        
-        
-            <meta name="og:image" content="https://singhkays.com/blog/git-discard-changes-terminal/./media/vscode-discard.png"/>
-        
-    
-
-
-    
-        <meta property="article:published_time" content="2018-04-21T00:00:00&#43;00:00"/>
-    
-    
-        <meta property="article:modified_time" content="2021-01-26T00:18:12-08:00"/>
-    
-
-
-
-
-    <meta property="og:site_name" content="Kay&#39;s Blog" />
-
-
-
-
-
-
-
-    
-
-
-
-<meta itemprop="name" content="How do I discard unstaged changes in Git?">
-<meta itemprop="description" content="Often when I’m working on this blog, I work over multiple days and end up working on multiple devices. The blog is written in markdown and tracked in a Git repo on Azure Devops. The other day a scenario arose where I was customizing the theme of the blog but not getting anywhere. I decided to have another go at the customization few days later but this time on another device."><meta itemprop="datePublished" content="2018-04-21T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-01-26T00:18:12-08:00" />
-<meta itemprop="wordCount" content="298"><meta itemprop="image" content="https://singhkays.com/media/vscode-discard.png">
-<meta itemprop="keywords" content="git,commandline,terminal,version control,visual studio code," />
 
 <script type="text/javascript">
   window._mNHandle = window._mNHandle || {};
@@ -105,6 +44,89 @@ if (!doNotTrack) {
 </script>
 
 
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-108462543-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<meta property="og:title" content="How do I discard unstaged changes in Git?" />
+<meta property="og:description" content="Often when I’m working on this blog, I work over multiple days and end up working on multiple devices. The blog is written in markdown and tracked in a Git repo on Azure Devops. The other day a scenario arose where I was customizing the theme of the blog but not getting anywhere. I decided to have another go at the customization few days later but this time on another device." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://singhkays.com/blog/git-discard-changes-terminal/" />
+<meta property="og:image" content="https://singhkays.com/media/vscode-discard.png" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2018-04-21T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-01-26T00:18:12-08:00" /><meta property="og:site_name" content="Kay&#39;s Blog" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://singhkays.com/media/vscode-discard.png" />
+<meta name="twitter:title" content="How do I discard unstaged changes in Git?"/>
+<meta name="twitter:description" content="Often when I’m working on this blog, I work over multiple days and end up working on multiple devices. The blog is written in markdown and tracked in a Git repo on Azure Devops. The other day a scenario arose where I was customizing the theme of the blog but not getting anywhere. I decided to have another go at the customization few days later but this time on another device."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Blogs",
+      "item": "https://singhkays.com/blog/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "How do I discard unstaged changes in Git?",
+      "item": "https://singhkays.com/blog/git-discard-changes-terminal/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "How do I discard unstaged changes in Git?",
+  "name": "How do I discard unstaged changes in Git?",
+  "description": "Often when I’m working on this blog, I work over multiple days and end up working on multiple devices. The blog is written in markdown and tracked in a Git repo on Azure Devops. The other day a scenario arose where I was customizing the theme of the blog but not getting anywhere. I decided to have another go at the customization few days later but this time on another device.",
+  "keywords": [
+    "git", "commandline", "terminal", "version control", "visual studio code"
+  ],
+  "articleBody": "Often when I’m working on this blog, I work over multiple days and end up working on multiple devices. The blog is written in markdown and tracked in a Git repo on Azure Devops. The other day a scenario arose where I was customizing the theme of the blog but not getting anywhere. I decided to have another go at the customization few days later but this time on another device. Luckily, I was able to make progress and achieve the style I was looking for.\nHouston, we have a problem At this point, I had a problem that developers will often face but it was new to me. I had work-in-progress changes on device 1 as well as completed changes on device 2 that I had already pushed to remote. I knew I would be working on device 1 the next day and would not be able to pull in remote changes without causing merge conflicts.\nThe easy way I use Visual Studio Code for editing the markdown. VS Code places a whole set of git operations just a click away. Discard is one of them as shown in the image below\nLet’s make it harder However, I have been trying to learn more and more git commands I can use in the terminal. What better way to learn than actually doing it right? As one often does in times of need – I took to my favorite search engine to find an answer. I quickly arrived on this Stack Overflow post with the command below:\ngit stash save --keep-index --include-untracked I ran the above command and it seems to have worked out! Another win for Stack Overflow!\nReach out if you have any questions! Feel free to follow me on\n Twitter - @singhkays LinkedIn - https://www.linkedin.com/in/singhkays/  ",
+  "wordCount" : "298",
+  "inLanguage": "en",
+  "image":"https://singhkays.com/media/vscode-discard.png","datePublished": "2018-04-21T00:00:00Z",
+  "dateModified": "2021-01-26T00:18:12-08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Kay Singh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://singhkays.com/blog/git-discard-changes-terminal/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "KAY SINGH",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://singhkays.com/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+
+
 </head>
 
 <body class="" id="top">
@@ -116,6 +138,7 @@ if (!doNotTrack) {
         }
 
     </style>
+
 </noscript>
 <header class="header">
     <nav class="nav">
@@ -161,28 +184,22 @@ if (!doNotTrack) {
 
 <article class="post-single">
   <header class="post-header">
+
     <h1 class="post-title">
       How do I discard unstaged changes in Git?
     </h1>
-    <div class="post-description">
-      
-    </div>
     <div class="post-meta">
 
 April 21, 2018&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Kay Singh
 
-    </div>
+
+</div>
   </header> 
 <figure class="entry-cover">
-        <img srcset="https://singhkays.com/blog/git-discard-changes-terminal/media/vscode-discard_hu1bddef436560d1684b078334173e460b_365793_360x0_resize_lanczos_2.png 360w ,https://singhkays.com/blog/git-discard-changes-terminal/media/vscode-discard_hu1bddef436560d1684b078334173e460b_365793_480x0_resize_lanczos_2.png 480w ,https://singhkays.com/blog/git-discard-changes-terminal/media/vscode-discard_hu1bddef436560d1684b078334173e460b_365793_720x0_resize_lanczos_2.png 720w ,https://singhkays.com/blog/git-discard-changes-terminal/media/vscode-discard.png 879w"
+        <img loading="lazy" srcset="https://singhkays.com/blog/git-discard-changes-terminal/media/vscode-discard_hu1bddef436560d1684b078334173e460b_365793_360x0_resize_lanczos_2.png 360w ,https://singhkays.com/blog/git-discard-changes-terminal/media/vscode-discard_hu1bddef436560d1684b078334173e460b_365793_480x0_resize_lanczos_2.png 480w ,https://singhkays.com/blog/git-discard-changes-terminal/media/vscode-discard_hu1bddef436560d1684b078334173e460b_365793_720x0_resize_lanczos_2.png 720w ,https://singhkays.com/blog/git-discard-changes-terminal/media/vscode-discard.png 879w"
             sizes="(min-width: 768px) 720px, 100vw" src="https://singhkays.com/blog/git-discard-changes-terminal/media/vscode-discard.png" alt="" />
         
 </figure>
-
-
-  
-  <h3 style="text-align:center"> Subscribe to get updates in your inbox! I'm also on Twitter @<a style="text-decoration: underline;" href="https://twitter.com/singhkays" target="_blank">singhkays</a></h3>
-  <script async data-uid="75bd47613f" src="https://winning-builder-7776.ck.page/75bd47613f/index.js"></script>
 
   <div class="post-content">
 <p>Often when I’m working on this blog, I work over multiple days and end up working on multiple devices. The blog is written in markdown and tracked in a Git repo on <a href="https://azure.microsoft.com/en-us/services/devops/">Azure Devops</a>. The other day a scenario arose where I was customizing the theme of the blog but not getting anywhere. I decided to have another go at the customization few days later but this time on another device. Luckily, I was able to make progress and achieve the style I was looking for.</p>
@@ -307,6 +324,11 @@ Reach out if you have any questions! Feel free to follow me on</p>
             document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
         }
     }
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener("click", function (e) {
             e.preventDefault();
@@ -325,6 +347,9 @@ Reach out if you have any questions! Feel free to follow me on</p>
             }
         });
     });
+
+</script>
+<script>
     var mybutton = document.getElementById("top-link");
     window.onscroll = function () {
         if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
@@ -335,10 +360,6 @@ Reach out if you have any questions! Feel free to follow me on</p>
             mybutton.style.opacity = "0";
         }
     };
-
-    function menu_on_scroll() {
-        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
-    }
 
 </script>
 

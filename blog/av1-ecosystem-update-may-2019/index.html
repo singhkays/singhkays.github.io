@@ -4,94 +4,27 @@
 <head><meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>AV1 Ecosystem Update: May 2019 | KAY SINGH</title>
 
-<title>AV1 Ecosystem Update: May 2019 - KAY SINGH</title>
-
+<meta name="keywords" content="AV1, Intel, Mozilla, Firefox, dav1d, SVT-AV1, Codecs, Android, Google, Visionular, VVC, Amphion, libaom, rav1e" />
 <meta name="description" content="May was another amazing month for the AV1 codec! We saw great progress in the SVT-AV1 encoder, Android update news and some surprising news out of China!
 SVT-AV1 is making strides! Let&rsquo;s start with SVT-AV1 encoder, the current encoder of choice for Netflix, being developed by the folks at Intel. In May, version 0.5.0 was released with the following features:
  8 bit / 10 bit 4:2:0 up to 4K60p resolutions Presets 0-8 New API, FFmpeg, GStreamer plugins Rate control support (VBR, CVBR) Block sizes from 4x4 to 128x128 Non-square blocks Tiles Deblocking / CDEF / Restoration filters Film Grain Warped motion estimation Intra block copy Trellis quantized coefficient optimization Support for 4 and 5 layers prediction structures Chroma search in MD Multi-reference picture support  Other notable updates   May also saw the most number of commits to the SVT-AV1 Github repo as shown by the graph below.">
-<meta name="keywords" content= />
 <meta name="author" content="Kay Singh">
 <link rel="canonical" href="https://singhkays.com/blog/av1-ecosystem-update-may-2019/" />
-
-
-<link href="https://singhkays.com/assets/css/stylesheet.min.81244588da925d88a38a41e3efe7c9df582948f90fb394d9a2228c8825b6fa1f.css" integrity="sha256-gSRFiNqSXYijikHj7&#43;fJ31gpSPkPs5TZoiKMiCW2&#43;h8=" rel="preload stylesheet"
+<link href="/assets/css/stylesheet.min.f563762088a56a22c5d0a100c62dc8771563d596b4afd14bd13c5979747f13b8.css" integrity="sha256-9WN2IIilaiLF0KEAxi3IdxVj1Za0r9FL0TxZeXR/E7g=" rel="preload stylesheet"
     as="style">
 
+<link rel="icon" href="https://singhkays.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://singhkays.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://singhkays.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://singhkays.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://singhkays.com/android-chrome-512x512.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.82.0" />
 
-
-
-<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-<link rel="manifest" href="/site.webmanifest">
-
-<meta name="generator" content="Hugo 0.81.0" />
-
-<script type="application/javascript">
-var doNotTrack = false;
-if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-	ga('create', 'UA-108462543-1', 'auto');
-	
-	ga('send', 'pageview');
-}
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-
-
-<meta name="twitter:card" content="summary_large_image"/>
-    <meta name="twitter:image" content="https://singhkays.com/blog/av1-ecosystem-update-may-2019/./media/svt-av1-commits-may-2019.png"/>
-<meta name="twitter:title" content="AV1 Ecosystem Update: May 2019"/>
-<meta name="twitter:description" content="May was another amazing month for the AV1 codec! We saw great progress in the SVT-AV1 encoder, Android update news and some surprising news out of China!
-SVT-AV1 is making strides! Let&rsquo;s start with SVT-AV1 encoder, the current encoder of choice for Netflix, being developed by the folks at Intel. In May, version 0.5.0 was released with the following features:
- 8 bit / 10 bit 4:2:0 up to 4K60p resolutions Presets 0-8 New API, FFmpeg, GStreamer plugins Rate control support (VBR, CVBR) Block sizes from 4x4 to 128x128 Non-square blocks Tiles Deblocking / CDEF / Restoration filters Film Grain Warped motion estimation Intra block copy Trellis quantized coefficient optimization Support for 4 and 5 layers prediction structures Chroma search in MD Multi-reference picture support  Other notable updates   May also saw the most number of commits to the SVT-AV1 Github repo as shown by the graph below."/>
-
-<meta property="og:title" content="AV1 Ecosystem Update: May 2019" />
-<meta property="og:description" content="May was another amazing month for the AV1 codec! We saw great progress in the SVT-AV1 encoder, Android update news and some surprising news out of China!
-SVT-AV1 is making strides! Let&rsquo;s start with SVT-AV1 encoder, the current encoder of choice for Netflix, being developed by the folks at Intel. In May, version 0.5.0 was released with the following features:
- 8 bit / 10 bit 4:2:0 up to 4K60p resolutions Presets 0-8 New API, FFmpeg, GStreamer plugins Rate control support (VBR, CVBR) Block sizes from 4x4 to 128x128 Non-square blocks Tiles Deblocking / CDEF / Restoration filters Film Grain Warped motion estimation Intra block copy Trellis quantized coefficient optimization Support for 4 and 5 layers prediction structures Chroma search in MD Multi-reference picture support  Other notable updates   May also saw the most number of commits to the SVT-AV1 Github repo as shown by the graph below." />
-<meta property="og:type" content="article" />
-<meta property="og:url" content="https://singhkays.com/blog/av1-ecosystem-update-may-2019/" />
-
-    
-        
-        
-        
-            <meta name="og:image" content="https://singhkays.com/blog/av1-ecosystem-update-may-2019/./media/svt-av1-commits-may-2019.png"/>
-        
-    
-
-
-    
-        <meta property="article:published_time" content="2019-06-10T00:00:00&#43;00:00"/>
-    
-    
-        <meta property="article:modified_time" content="2021-01-26T00:18:12-08:00"/>
-    
-
-
-
-
-    <meta property="og:site_name" content="Kay&#39;s Blog" />
-
-
-
-
-
-
-
-    
-
-
-
-<meta itemprop="name" content="AV1 Ecosystem Update: May 2019">
-<meta itemprop="description" content="May was another amazing month for the AV1 codec! We saw great progress in the SVT-AV1 encoder, Android update news and some surprising news out of China!
-SVT-AV1 is making strides! Let&rsquo;s start with SVT-AV1 encoder, the current encoder of choice for Netflix, being developed by the folks at Intel. In May, version 0.5.0 was released with the following features:
- 8 bit / 10 bit 4:2:0 up to 4K60p resolutions Presets 0-8 New API, FFmpeg, GStreamer plugins Rate control support (VBR, CVBR) Block sizes from 4x4 to 128x128 Non-square blocks Tiles Deblocking / CDEF / Restoration filters Film Grain Warped motion estimation Intra block copy Trellis quantized coefficient optimization Support for 4 and 5 layers prediction structures Chroma search in MD Multi-reference picture support  Other notable updates   May also saw the most number of commits to the SVT-AV1 Github repo as shown by the graph below."><meta itemprop="datePublished" content="2019-06-10T00:00:00&#43;00:00" />
-<meta itemprop="dateModified" content="2021-01-26T00:18:12-08:00" />
-<meta itemprop="wordCount" content="644"><meta itemprop="image" content="https://singhkays.com/media/svt-av1-commits-may-2019.png">
-<meta itemprop="keywords" content="AV1,Intel,Mozilla,Firefox,dav1d,SVT-AV1,Codecs,Android,Google,Visionular,VVC,Amphion,libaom,rav1e," />
 
 <script type="text/javascript">
   window._mNHandle = window._mNHandle || {};
@@ -113,6 +46,93 @@ SVT-AV1 is making strides! Let&rsquo;s start with SVT-AV1 encoder, the current e
 </script>
 
 
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'UA-108462543-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+<meta property="og:title" content="AV1 Ecosystem Update: May 2019" />
+<meta property="og:description" content="May was another amazing month for the AV1 codec! We saw great progress in the SVT-AV1 encoder, Android update news and some surprising news out of China!
+SVT-AV1 is making strides! Let&rsquo;s start with SVT-AV1 encoder, the current encoder of choice for Netflix, being developed by the folks at Intel. In May, version 0.5.0 was released with the following features:
+ 8 bit / 10 bit 4:2:0 up to 4K60p resolutions Presets 0-8 New API, FFmpeg, GStreamer plugins Rate control support (VBR, CVBR) Block sizes from 4x4 to 128x128 Non-square blocks Tiles Deblocking / CDEF / Restoration filters Film Grain Warped motion estimation Intra block copy Trellis quantized coefficient optimization Support for 4 and 5 layers prediction structures Chroma search in MD Multi-reference picture support  Other notable updates   May also saw the most number of commits to the SVT-AV1 Github repo as shown by the graph below." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://singhkays.com/blog/av1-ecosystem-update-may-2019/" />
+<meta property="og:image" content="https://singhkays.com/media/svt-av1-commits-may-2019.png" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2019-06-10T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-01-26T00:18:12-08:00" /><meta property="og:site_name" content="Kay&#39;s Blog" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://singhkays.com/media/svt-av1-commits-may-2019.png" />
+<meta name="twitter:title" content="AV1 Ecosystem Update: May 2019"/>
+<meta name="twitter:description" content="May was another amazing month for the AV1 codec! We saw great progress in the SVT-AV1 encoder, Android update news and some surprising news out of China!
+SVT-AV1 is making strides! Let&rsquo;s start with SVT-AV1 encoder, the current encoder of choice for Netflix, being developed by the folks at Intel. In May, version 0.5.0 was released with the following features:
+ 8 bit / 10 bit 4:2:0 up to 4K60p resolutions Presets 0-8 New API, FFmpeg, GStreamer plugins Rate control support (VBR, CVBR) Block sizes from 4x4 to 128x128 Non-square blocks Tiles Deblocking / CDEF / Restoration filters Film Grain Warped motion estimation Intra block copy Trellis quantized coefficient optimization Support for 4 and 5 layers prediction structures Chroma search in MD Multi-reference picture support  Other notable updates   May also saw the most number of commits to the SVT-AV1 Github repo as shown by the graph below."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Blogs",
+      "item": "https://singhkays.com/blog/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "AV1 Ecosystem Update: May 2019",
+      "item": "https://singhkays.com/blog/av1-ecosystem-update-may-2019/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "AV1 Ecosystem Update: May 2019",
+  "name": "AV1 Ecosystem Update: May 2019",
+  "description": "May was another amazing month for the AV1 codec! We saw great progress in the SVT-AV1 encoder, Android update news and some surprising news out of China!\nSVT-AV1 is making strides! Let\u0026rsquo;s start with SVT-AV1 encoder, the current encoder of choice for Netflix, being developed by the folks at Intel. In May, version 0.5.0 was released with the following features:\n 8 bit / 10 bit 4:2:0 up to 4K60p resolutions Presets 0-8 New API, FFmpeg, GStreamer plugins Rate control support (VBR, CVBR) Block sizes from 4x4 to 128x128 Non-square blocks Tiles Deblocking / CDEF / Restoration filters Film Grain Warped motion estimation Intra block copy Trellis quantized coefficient optimization Support for 4 and 5 layers prediction structures Chroma search in MD Multi-reference picture support  Other notable updates   May also saw the most number of commits to the SVT-AV1 Github repo as shown by the graph below.",
+  "keywords": [
+    "AV1", "Intel", "Mozilla", "Firefox", "dav1d", "SVT-AV1", "Codecs", "Android", "Google", "Visionular", "VVC", "Amphion", "libaom", "rav1e"
+  ],
+  "articleBody": "May was another amazing month for the AV1 codec! We saw great progress in the SVT-AV1 encoder, Android update news and some surprising news out of China!\nSVT-AV1 is making strides! Let’s start with SVT-AV1 encoder, the current encoder of choice for Netflix, being developed by the folks at Intel. In May, version 0.5.0 was released with the following features:\n 8 bit / 10 bit 4:2:0 up to 4K60p resolutions Presets 0-8 New API, FFmpeg, GStreamer plugins Rate control support (VBR, CVBR) Block sizes from 4x4 to 128x128 Non-square blocks Tiles Deblocking / CDEF / Restoration filters Film Grain Warped motion estimation Intra block copy Trellis quantized coefficient optimization Support for 4 and 5 layers prediction structures Chroma search in MD Multi-reference picture support  Other notable updates   May also saw the most number of commits to the SVT-AV1 Github repo as shown by the graph below. There were also 40 PRs merged in the month of May.   With so many new features, it was no suprise to see Phoronix report the performance boosts during their testing.   A reddit user Balance-, noted that SVt-AV1 now offered higher quality than x264, x265 \u0026 VP9 for the first time.\n  There was another PR merged that reduced the memory consumption by 35-70% across all presets!\n   https://github.com/OpenVisualCloud/SVT-AV1/releases/tag/v0.5.0 https://www.phoronix.com/scan.php?page=news_item\u0026px=SVT-AV1-Ending-May-Faster https://www.reddit.com/r/AV1/comments/bt7l7a/svtav1_now_offers_higher_quality_than_x264_x265/ https://github.com/OpenVisualCloud/SVT-AV1/pull/2420  Android Q gets AV1 support May was also the month when the annual Google I/O conference was held. Onc of the announcements out of Google I/O was that the newest version of Android, codenamed Q, will support AV1 by default. This will surely be another step towards increasing the AV1 adoption.\n https://android-developers.googleblog.com/2019/03/introducing-android-q-beta.html  Firefox 67 release makes AV1 decoding default on all desktop platforms With the release of Firefox 67, AV1 decoding is now enabled by default on all desktop platforms (Windows, OSX and Linux) for both 32-bit and 64-bit systems. Firefox 67 is also the first time the AV1 decoder has switched to dav1d by default. Sponsored by the Alliance for Open Media, dav1d is a joint effort between the French non-profit VideoLAN and the greater FFmpeg open source audio/video community. In the April ecosystem update, I talked about the dav1d 0.3.0 release and the performance improvements it brought with it, so it’s very exciting to see Firefox use dav1d by default!\n https://hacks.mozilla.org/2019/05/firefox-brings-you-smooth-video-playback-with-the-worlds-fastest-av1-decoder/  Visionular Aurora AV1 codec claims it’s faster and better than x265 Another piece of interesting news was the Visionular Aurora AV1 codec that I first read about in this summary of LiveVideoStackCon Shanghai 2019. In this presentation it is claimed that Aurora AV1 beats libaom encoder by ~33% and x265 by ~42% on VMAF model.\nFrom Visionular website, Auorara claims to improve encoding speed by 32.2% against x265 veryslow which is very surprising and the first time I’m hearing about an AV1 encoder being better in quality and faster than x265. It’ll be interesting to see if we find out more info and are able to test this encoder in the coming months.\nBBC compares AV1 \u0026 VVC Joint Video Experts Team (JVET) is currently working on the successor to the H.265/HEVC codec which is called Versatile Video Coding (VVC). VVC is currently in development and is to be finalised in 2020. In this test BBC, VVC performed 27% better than the HEVC for HD sequences and 35% for UHD sequences. Also, in this test AV1 was shown to perform similar to HEVC. Without any encoding parameters and details on testing methodology, I would call this test flawed as AV1 has consistently shown to perform better than HEVC.\nAmphion Semiconductor Hardware decoder Amphion Semoconductor announced the availalability of its 4K/UHD capable hardware decoder for AV1. I beleive this might be the first hardware SoC designed to decode AV1.\n https://www.amphionsemi.com/news/ https://www.businesswire.com/news/home/20170306005675/en/AMPHION-releases-2-extended-performance-variants-highly  Previous updates  AV1 Ecosystem Update: April 2019  Reach out if you have any questions! Feel free to follow me on\n Twitter - @singhkays LinkedIn - https://www.linkedin.com/in/singhkays/  ",
+  "wordCount" : "644",
+  "inLanguage": "en",
+  "image":"https://singhkays.com/media/svt-av1-commits-may-2019.png","datePublished": "2019-06-10T00:00:00Z",
+  "dateModified": "2021-01-26T00:18:12-08:00",
+  "author":{
+    "@type": "Person",
+    "name": "Kay Singh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://singhkays.com/blog/av1-ecosystem-update-may-2019/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "KAY SINGH",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://singhkays.com/favicon.ico"
+    }
+  }
+}
+</script>
+
+
+
+
+
 </head>
 
 <body class="" id="top">
@@ -124,6 +144,7 @@ SVT-AV1 is making strides! Let&rsquo;s start with SVT-AV1 encoder, the current e
         }
 
     </style>
+
 </noscript>
 <header class="header">
     <nav class="nav">
@@ -169,28 +190,22 @@ SVT-AV1 is making strides! Let&rsquo;s start with SVT-AV1 encoder, the current e
 
 <article class="post-single">
   <header class="post-header">
+
     <h1 class="post-title">
       AV1 Ecosystem Update: May 2019
     </h1>
-    <div class="post-description">
-      
-    </div>
     <div class="post-meta">
 
 June 10, 2019&nbsp;·&nbsp;4 min&nbsp;·&nbsp;Kay Singh
 
-    </div>
+
+</div>
   </header> 
 <figure class="entry-cover">
-        <img srcset="https://singhkays.com/blog/av1-ecosystem-update-may-2019/media/svt-av1-commits-may-2019_hud0a449b48f5c0b9cabce8f7bbdf40cbb_20580_360x0_resize_lanczos_2.png 360w ,https://singhkays.com/blog/av1-ecosystem-update-may-2019/media/svt-av1-commits-may-2019_hud0a449b48f5c0b9cabce8f7bbdf40cbb_20580_480x0_resize_lanczos_2.png 480w ,https://singhkays.com/blog/av1-ecosystem-update-may-2019/media/svt-av1-commits-may-2019_hud0a449b48f5c0b9cabce8f7bbdf40cbb_20580_720x0_resize_lanczos_2.png 720w ,https://singhkays.com/blog/av1-ecosystem-update-may-2019/media/svt-av1-commits-may-2019_hud0a449b48f5c0b9cabce8f7bbdf40cbb_20580_1080x0_resize_lanczos_2.png 1080w ,https://singhkays.com/blog/av1-ecosystem-update-may-2019/media/svt-av1-commits-may-2019_hud0a449b48f5c0b9cabce8f7bbdf40cbb_20580_1500x0_resize_lanczos_2.png 1500w ,https://singhkays.com/blog/av1-ecosystem-update-may-2019/media/svt-av1-commits-may-2019.png 1551w"
+        <img loading="lazy" srcset="https://singhkays.com/blog/av1-ecosystem-update-may-2019/media/svt-av1-commits-may-2019_hud0a449b48f5c0b9cabce8f7bbdf40cbb_20580_360x0_resize_lanczos_2.png 360w ,https://singhkays.com/blog/av1-ecosystem-update-may-2019/media/svt-av1-commits-may-2019_hud0a449b48f5c0b9cabce8f7bbdf40cbb_20580_480x0_resize_lanczos_2.png 480w ,https://singhkays.com/blog/av1-ecosystem-update-may-2019/media/svt-av1-commits-may-2019_hud0a449b48f5c0b9cabce8f7bbdf40cbb_20580_720x0_resize_lanczos_2.png 720w ,https://singhkays.com/blog/av1-ecosystem-update-may-2019/media/svt-av1-commits-may-2019_hud0a449b48f5c0b9cabce8f7bbdf40cbb_20580_1080x0_resize_lanczos_2.png 1080w ,https://singhkays.com/blog/av1-ecosystem-update-may-2019/media/svt-av1-commits-may-2019_hud0a449b48f5c0b9cabce8f7bbdf40cbb_20580_1500x0_resize_lanczos_2.png 1500w ,https://singhkays.com/blog/av1-ecosystem-update-may-2019/media/svt-av1-commits-may-2019.png 1551w"
             sizes="(min-width: 768px) 720px, 100vw" src="https://singhkays.com/blog/av1-ecosystem-update-may-2019/media/svt-av1-commits-may-2019.png" alt="" />
         
 </figure>
-
-
-  
-  <h3 style="text-align:center"> Subscribe to get updates in your inbox! I'm also on Twitter @<a style="text-decoration: underline;" href="https://twitter.com/singhkays" target="_blank">singhkays</a></h3>
-  <script async data-uid="75bd47613f" src="https://winning-builder-7776.ck.page/75bd47613f/index.js"></script>
 
   <div class="post-content">
 <p>May was another amazing month for the AV1 codec! We saw great progress in the SVT-AV1 encoder, Android update news and some  surprising news out of China!</p>
@@ -392,6 +407,11 @@ Reach out if you have any questions! Feel free to follow me on</p>
             document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
         }
     }
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         anchor.addEventListener("click", function (e) {
             e.preventDefault();
@@ -410,6 +430,9 @@ Reach out if you have any questions! Feel free to follow me on</p>
             }
         });
     });
+
+</script>
+<script>
     var mybutton = document.getElementById("top-link");
     window.onscroll = function () {
         if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
@@ -420,10 +443,6 @@ Reach out if you have any questions! Feel free to follow me on</p>
             mybutton.style.opacity = "0";
         }
     };
-
-    function menu_on_scroll() {
-        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
-    }
 
 </script>
 
