@@ -61,7 +61,7 @@ if (!doNotTrack) {
 <meta property="og:url" content="https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/" />
 <meta property="og:image" content="https://singhkays.com/media/apple-m1-video-playback-consumption-cover.png" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2021-04-02T00:00:00&#43;00:00" />
-<meta property="article:modified_time" content="2021-04-02T00:46:26-07:00" /><meta property="og:site_name" content="Kay&#39;s Blog" />
+<meta property="article:modified_time" content="2021-04-02T09:54:14-07:00" /><meta property="og:site_name" content="Kay&#39;s Blog" />
 
 <meta name="twitter:card" content="summary_large_image" />
 <meta name="twitter:image" content="https://singhkays.com/media/apple-m1-video-playback-consumption-cover.png" />
@@ -103,7 +103,7 @@ if (!doNotTrack) {
   "wordCount" : "2132",
   "inLanguage": "en",
   "image":"https://singhkays.com/media/apple-m1-video-playback-consumption-cover.png","datePublished": "2021-04-02T00:00:00Z",
-  "dateModified": "2021-04-02T00:46:26-07:00",
+  "dateModified": "2021-04-02T09:54:14-07:00",
   "author":{
     "@type": "Person",
     "name": "Kay Singh"
@@ -396,7 +396,7 @@ if (!doNotTrack) {
 <p>Power Consumption was measured using <a href="https://developer.apple.com/library/archive/documentation/Performance/Conceptual/power_efficiency_guidelines_osx/PrioritizeWorkAtTheTaskLevel.html#//apple_ref/doc/uid/TP40013929-CH35-SW10">Apple&rsquo;s powermetrics utility</a>. <code>powermetrics</code> is a Mac-only command-line utility that provides many high-quality power-related measurements. It is most useful for getting CPU, GPU and wakeup measurements in a precise and easily scriptable fashion (unlike <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Performance/Activity_Monitor_and_top">Activity Monitor and top</a>)</p>
 <p>Below is a sample log from <code>powermetrics</code> output after running the following command:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo powermetrics -i <span style="color:#ae81ff">1000</span> --samplers cpu_power,gpu_power -a --hide-cpu-duty-cycle --show-usage-summary --show-extra-power-info -u ~/powerlogs.txt
-</code></pre></div><pre><code>*** Sampled system activity (Thu Feb 11 00:10:50 2021 -0800) (1004.97ms elapsed) ***
+</code></pre></div><pre><code>*** Sampled system activity (Thu Feb 11 00:10:50 2021 -0800) (1004.97ms elapsed) *** 
 
 **** Processor usage ****
 
