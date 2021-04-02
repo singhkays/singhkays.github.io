@@ -6,16 +6,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="robots" content="index, follow">
 <title>AV1 Ecosystem Update: October 2019 | KAY SINGH</title>
-
 <meta name="keywords" content="AV1, Codecs, Socionext, Google, gav1, dav1d, libaom, rav1e" />
 <meta name="description" content="Let&rsquo;s start this month&rsquo;s roundup with a faster decoder!
 dav1d 0.5.0 &amp; 0.5.1 release In October, dav1d saw two new releases with some fantastic speed improvements. Here is a summary:
  Large improvements in speed on SSSE3 CPU (up to 40% speedup) Speed improvements on AVX-2 (for 4-7%) Speed improvements on ARM64 (up to 10%) and ARM32. 0.5.1 is a minor release which brings improvements in speed for SSE2 CPUs (up to 50% speedup), and ARMv7 CPUs (up to 41% speedup).">
 <meta name="author" content="Kay Singh">
 <link rel="canonical" href="https://singhkays.com/blog/av1-ecosystem-update-october-2019/" />
-<link href="/assets/css/stylesheet.min.f563762088a56a22c5d0a100c62dc8771563d596b4afd14bd13c5979747f13b8.css" integrity="sha256-9WN2IIilaiLF0KEAxi3IdxVj1Za0r9FL0TxZeXR/E7g=" rel="preload stylesheet"
-    as="style">
-
+<link href="/assets/css/stylesheet.min.f563762088a56a22c5d0a100c62dc8771563d596b4afd14bd13c5979747f13b8.css" integrity="sha256-9WN2IIilaiLF0KEAxi3IdxVj1Za0r9FL0TxZeXR/E7g=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://singhkays.com/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://singhkays.com/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://singhkays.com/favicon-32x32.png">
@@ -50,14 +47,15 @@ dav1d 0.5.0 &amp; 0.5.1 release In October, dav1d saw two new releases with some
 <script type="application/javascript">
 var doNotTrack = false;
 if (!doNotTrack) {
-	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
 	ga('create', 'UA-108462543-1', 'auto');
 	
 	ga('send', 'pageview');
 }
-</script>
-<script async src='https://www.google-analytics.com/analytics.js'></script>
-<meta property="og:title" content="AV1 Ecosystem Update: October 2019" />
+</script><meta property="og:title" content="AV1 Ecosystem Update: October 2019" />
 <meta property="og:description" content="Let&rsquo;s start this month&rsquo;s roundup with a faster decoder!
 dav1d 0.5.0 &amp; 0.5.1 release In October, dav1d saw two new releases with some fantastic speed improvements. Here is a summary:
  Large improvements in speed on SSSE3 CPU (up to 40% speedup) Speed improvements on AVX-2 (for 4-7%) Speed improvements on ARM64 (up to 10%) and ARM32. 0.5.1 is a minor release which brings improvements in speed for SSE2 CPUs (up to 50% speedup), and ARMv7 CPUs (up to 41% speedup)." />
@@ -128,11 +126,6 @@ dav1d 0.5.0 &amp; 0.5.1 release In October, dav1d saw two new releases with some
   }
 }
 </script>
-
-
-
-
-
 </head>
 
 <body class="" id="top">
@@ -144,8 +137,8 @@ dav1d 0.5.0 &amp; 0.5.1 release In October, dav1d saw two new releases with some
         }
 
     </style>
-
 </noscript>
+
 <header class="header">
     <nav class="nav">
         <div class="logo">
@@ -153,8 +146,6 @@ dav1d 0.5.0 &amp; 0.5.1 release In October, dav1d saw two new releases with some
                 <img src="/android-chrome-192x192.png" alt="logo" aria-label="logo"
                     height="35">Kay Singh</a>
             <span class="logo-switches">
-                
-                
             </span>
         </div>
         <ul id="menu" onscroll="menu_on_scroll()">
@@ -182,23 +173,19 @@ dav1d 0.5.0 &amp; 0.5.1 release In October, dav1d saw two new releases with some
                 <a href="https://singhkays.com/index.xml" title="RSS Feed">
                     <span>RSS Feed</span>
                 </a>
-            </li></ul>
+            </li>
+        </ul>
     </nav>
 </header>
-
-    <main class="main">
+<main class="main">
 
 <article class="post-single">
   <header class="post-header">
-
+    
     <h1 class="post-title">
       AV1 Ecosystem Update: October 2019
     </h1>
-    <div class="post-meta">
-
-November 14, 2019&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Kay Singh
-
-
+    <div class="post-meta">November 14, 2019&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Kay Singh
 </div>
   </header> 
 <figure class="entry-cover">
@@ -206,9 +193,7 @@ November 14, 2019&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Kay Singh
             sizes="(min-width: 768px) 720px, 100vw" src="https://singhkays.com/blog/av1-ecosystem-update-october-2019/media/av1-ecosystem-update-october-2019.png" alt="" />
         
 </figure>
-
-  <div class="post-content">
-<p>Let&rsquo;s start this month&rsquo;s roundup with a faster decoder!</p>
+  <div class="post-content"><p>Let&rsquo;s start this month&rsquo;s roundup with a faster decoder!</p>
 <h1 id="dav1d-050--051-release">dav1d 0.5.0 &amp; 0.5.1 release<a hidden class="anchor" aria-hidden="true" href="#dav1d-050--051-release">#</a></h1>
 <p>In October, dav1d saw two new releases with some fantastic speed improvements. Here is a summary:</p>
 <ul>
@@ -319,12 +304,6 @@ November 14, 2019&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Kay Singh
         <span>AV1 Ecosystem Update: September 2019</span>
       </a>
     </nav>
-
-
-
-
-
-
 <div class="share-buttons">
     <a target="_blank" rel="noopener noreferrer" aria-label="share AV1 Ecosystem Update: October 2019 on twitter"
         href="https://twitter.com/intent/tweet/?text=AV1%20Ecosystem%20Update%3a%20October%202019&amp;url=https%3a%2f%2fsinghkays.com%2fblog%2fav1-ecosystem-update-october-2019%2f&amp;hashtags=AV1%2cCodecs%2cSocionext%2cGoogle%2cgav1%2cdav1d%2clibaom%2crav1e">
@@ -371,10 +350,9 @@ November 14, 2019&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Kay Singh
 </div>
 
   </footer>
-
-
 </article>
-    </main><footer class="footer">
+    </main>
+    <footer class="footer">
     <span>Copyright © 2017–2021, Kay Singh; all rights reserved.</span>
     <span>&middot;</span>
     <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
@@ -388,11 +366,9 @@ November 14, 2019&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Kay Singh
         </svg>
     </button>
 </a>
-
-
-
 <script defer src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
     onload="hljs.initHighlightingOnLoad();"></script>
+
 <script>
     window.onload = function () {
         if (localStorage.getItem("menu-scroll-position")) {
@@ -437,7 +413,6 @@ November 14, 2019&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Kay Singh
     };
 
 </script>
-
 </body>
 
 </html>
