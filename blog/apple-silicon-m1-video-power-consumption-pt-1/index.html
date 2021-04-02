@@ -396,7 +396,7 @@ if (!doNotTrack) {
 <p>Power Consumption was measured using <a href="https://developer.apple.com/library/archive/documentation/Performance/Conceptual/power_efficiency_guidelines_osx/PrioritizeWorkAtTheTaskLevel.html#//apple_ref/doc/uid/TP40013929-CH35-SW10">Apple&rsquo;s powermetrics utility</a>. <code>powermetrics</code> is a Mac-only command-line utility that provides many high-quality power-related measurements. It is most useful for getting CPU, GPU and wakeup measurements in a precise and easily scriptable fashion (unlike <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Performance/Activity_Monitor_and_top">Activity Monitor and top</a>)</p>
 <p>Below is a sample log from <code>powermetrics</code> output after running the following command:</p>
 <div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo powermetrics -i <span style="color:#ae81ff">1000</span> --samplers cpu_power,gpu_power -a --hide-cpu-duty-cycle --show-usage-summary --show-extra-power-info -u ~/powerlogs.txt
-</code></pre></div><pre><code>*** Sampled system activity (Thu Feb 11 00:10:50 2021 -0800) (1004.97ms elapsed) *** 
+</code></pre></div><pre><code>*** Sampled system activity (Thu Feb 11 00:10:50 2021 -0800) (1004.97ms elapsed) ***
 
 **** Processor usage ****
 
