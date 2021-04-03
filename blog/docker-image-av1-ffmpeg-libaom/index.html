@@ -57,12 +57,12 @@ if (!doNotTrack) {
 <meta property="og:description" content="Motivation While trying to try out the latest features for the libaom AV1 encoder, I&rsquo;ve been trying to figure out how to get a hold of the latest binary. As of writing of this blog, I haven&rsquo;t come across any source on the web that publishes a binary of libaom AV1 encoder. Often while trying to get a hold of the latest changes in libaom, you have to build the source yourself which takes time." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://singhkays.com/blog/docker-image-av1-ffmpeg-libaom/" />
-<meta property="og:image" content="https://singhkays.com/media/docker-ffmpeg-av1-libaom.png" /><meta property="article:section" content="blog" />
+<meta property="og:image" content="https://singhkays.com/blog/docker-image-av1-ffmpeg-libaom/media/docker-ffmpeg-av1-libaom.png" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2019-09-21T00:00:00&#43;00:00" />
 <meta property="article:modified_time" content="2021-01-26T00:18:12-08:00" /><meta property="og:site_name" content="Kay&#39;s Blog" />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://singhkays.com/media/docker-ffmpeg-av1-libaom.png" />
+<meta name="twitter:image" content="https://singhkays.com/blog/docker-image-av1-ffmpeg-libaom/media/docker-ffmpeg-av1-libaom.png" />
 <meta name="twitter:title" content="Now Available: Weekly build of libaom AV1 &#43; FFmpeg docker image"/>
 <meta name="twitter:description" content="Motivation While trying to try out the latest features for the libaom AV1 encoder, I&rsquo;ve been trying to figure out how to get a hold of the latest binary. As of writing of this blog, I haven&rsquo;t come across any source on the web that publishes a binary of libaom AV1 encoder. Often while trying to get a hold of the latest changes in libaom, you have to build the source yourself which takes time."/>
 
@@ -100,7 +100,7 @@ if (!doNotTrack) {
   "articleBody": "Motivation While trying to try out the latest features for the libaom AV1 encoder, I’ve been trying to figure out how to get a hold of the latest binary. As of writing of this blog, I haven’t come across any source on the web that publishes a binary of libaom AV1 encoder. Often while trying to get a hold of the latest changes in libaom, you have to build the source yourself which takes time. Therefore, I took it upon myself to publish a weekly build of FFmpeg with the latest available libaom source @ https://aomedia.googlesource.com/aom.\nConfiguration  Latest release of FFmpeg (v4.2.1 as of writing this blog) Latest commit in the master branch from https://aomedia.googlesource.com/aom/+/refs/heads/master at the time of build Built on Ubuntu 18.04 LTS Built with GCC 8 Built every Sunday @ 00:00 UTC time FFmpeg build also includes x264, x265, VP9, VMAF, LAME, AAC, OPUS  Download The docker image is available @ Docker Hub - singhkays/ffmpeg-av1-libaom\nUsage If you haven’t used docker containers before, I suggest reading the below links first:\n Get started with Docker Install Docker Community Engine  Running the AV1 docker container The command below will run the AV1 container in interactive mode and map your current working directory to /usr/workspace.\ndocker run -it --name ffmpegcontainer -v $(pwd):/usr/workspace singhkays/ffmpeg-av1-libaom:latest bash\nAV1 ecosystem updates  AV1 Ecosystem Update July 2019 AV1 Ecosystem Update June 2019 AV1 Ecosystem Update May 2019 AV1 Ecosystem Update April 2019  AV1 resources  AV1 Resource Central: Videos, Tools, Presentations, Comparisons, Research Papers, Encoders, Decoders It’s time to replace GIFs with AV1 video!  Contact Reach out if you have any questions! Feel free to follow me on\n Twitter - @singhkays LinkedIn - https://www.linkedin.com/in/singhkays/  ",
   "wordCount" : "278",
   "inLanguage": "en",
-  "image":"https://singhkays.com/media/docker-ffmpeg-av1-libaom.png","datePublished": "2019-09-21T00:00:00Z",
+  "image":"https://singhkays.com/blog/docker-image-av1-ffmpeg-libaom/media/docker-ffmpeg-av1-libaom.png","datePublished": "2019-09-21T00:00:00Z",
   "dateModified": "2021-01-26T00:18:12-08:00",
   "author":{
     "@type": "Person",

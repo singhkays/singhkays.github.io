@@ -61,12 +61,12 @@ if (!doNotTrack) {
 Get the credits rolling! Recently, Video Indexer announced they’ve added the capability to detect rolling credits in the videos." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://singhkays.com/blog/detect-rolling-credits-video-indexer/" />
-<meta property="og:image" content="https://singhkays.com/media/netflix-autoplay.jpg" /><meta property="article:section" content="blog" />
+<meta property="og:image" content="https://singhkays.com/blog/detect-rolling-credits-video-indexer/media/netflix-autoplay.jpg" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2019-04-11T00:00:00&#43;00:00" />
 <meta property="article:modified_time" content="2021-01-26T00:18:12-08:00" /><meta property="og:site_name" content="Kay&#39;s Blog" />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://singhkays.com/media/netflix-autoplay.jpg" />
+<meta name="twitter:image" content="https://singhkays.com/blog/detect-rolling-credits-video-indexer/media/netflix-autoplay.jpg" />
 <meta name="twitter:title" content="Detect Rolling Credits with Azure Video Indexer"/>
 <meta name="twitter:description" content="Azure Video Indexer is one of my favorite services! It provides some amazing features such as:
  Identify faces and celebrities Extract text and objects (e.g. cat, table, car etc.) Detect scenes and shots Emotion and sentiment detection Audio effects such as clapping, silence &amp; speech  The full list of features can be viewed at https://vi.microsoft.com/en-us/
@@ -106,7 +106,7 @@ Get the credits rolling! Recently, Video Indexer announced they’ve added the c
   "articleBody": "Azure Video Indexer is one of my favorite services! It provides some amazing features such as:\n Identify faces and celebrities Extract text and objects (e.g. cat, table, car etc.) Detect scenes and shots Emotion and sentiment detection Audio effects such as clapping, silence \u0026 speech  The full list of features can be viewed at https://vi.microsoft.com/en-us/\nGet the credits rolling! Recently, Video Indexer announced they’ve added the capability to detect rolling credits in the videos. One of the key scenarios enabled by this feature is the ability for video owners to identify a natural point in the video where they can recommend the next episode or show aka Netflix autoplay experience as shown below:\nTesting the rolling credits! To test this out, I uploaded an open source video by the Blender foundation – Tears of Steel to Video Indexer. Once the video has completed indexing, I downloaded the insights JSON from the video details page like shown below:\nRolling credits JSON object can be accessed in the two places\n The labels object currently with id = \"-1\". The full path is jsonObj[\"summarizedInsights\"][\"labels\"][4][\"id\"] The “framePatterns” object with id = \"0\". The full path is jsonObj[\"videos\"][0][\"insights\"][\"framePatterns\"][0][\"id\"]  The Rolling Credits object for the Tears of Steel has the following time values according to Video Indexer\n{ \"id\": -1, \"name\": \"RollingCredits\", \"appearances\": [ { \"startTime\": \"0:10:31\", \"endTime\": \"0:11:50\", \"startSeconds\": 631, \"endSeconds\": 710 } ] } The results When looking through the actual video, I noticed that there are a non-traditional set of credits that start at 9 min 49 second. This is surprising as Video Indexer thinks the credits should begin at 10 min 31 second mark.\nWhen we look at the 10 min 31 second mark, I see the traditional “Rolling Credits” that move up slowly, start as expected. At first I was surprised but then I realized Video Indexer isn’t taking into account the different ending credit design. Maybe that’ll come in the future but this should be good enough to achieve our Netflix auto-play scenario! :) Reach out if you have any questions! Feel free to follow me on\n Twitter - @singhkays LinkedIn - https://www.linkedin.com/in/singhkays/  ",
   "wordCount" : "353",
   "inLanguage": "en",
-  "image":"https://singhkays.com/media/netflix-autoplay.jpg","datePublished": "2019-04-11T00:00:00Z",
+  "image":"https://singhkays.com/blog/detect-rolling-credits-video-indexer/media/netflix-autoplay.jpg","datePublished": "2019-04-11T00:00:00Z",
   "dateModified": "2021-01-26T00:18:12-08:00",
   "author":{
     "@type": "Person",

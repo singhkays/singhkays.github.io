@@ -61,12 +61,12 @@ sed -i &#39;s/search_string/replace_string/&#39; filename The Error However, I k
 sed: 1: &#34;i2.html&#34;: command i expects \ followed by text I spent a bunch of time trying to make sure I escaped the right characters in my strings but the error was persistent!" />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://singhkays.com/blog/sed-error-i-expects-followed-by-text/" />
-<meta property="og:image" content="https://singhkays.com/media/sed-all-the-things.jpg" /><meta property="article:section" content="blog" />
+<meta property="og:image" content="https://singhkays.com/blog/sed-error-i-expects-followed-by-text/media/sed-all-the-things.jpg" /><meta property="article:section" content="blog" />
 <meta property="article:published_time" content="2020-12-10T00:00:00&#43;00:00" />
 <meta property="article:modified_time" content="2021-01-26T00:18:12-08:00" /><meta property="og:site_name" content="Kay&#39;s Blog" />
 
 <meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:image" content="https://singhkays.com/media/sed-all-the-things.jpg" />
+<meta name="twitter:image" content="https://singhkays.com/blog/sed-error-i-expects-followed-by-text/media/sed-all-the-things.jpg" />
 <meta name="twitter:title" content="Fixing &#34;sed: command i expects \ followed by text&#34; error"/>
 <meta name="twitter:description" content="I ran into a very weird error today. While trying to automate the deployment for this blog, I needed to replace a string in a file. The internet tutorials [1, 2, 3, 4] told me that sed would be perfect for this job and the following command should work:
 sed -i &#39;s/search_string/replace_string/&#39; filename The Error However, I kept getting tripped up by the following error:
@@ -106,7 +106,7 @@ sed: 1: &#34;i2.html&#34;: command i expects \ followed by text I spent a bunch 
   "articleBody": "I ran into a very weird error today. While trying to automate the deployment for this blog, I needed to replace a string in a file. The internet tutorials [1, 2, 3, 4] told me that sed would be perfect for this job and the following command should work:\nsed -i 's/search_string/replace_string/' filename The Error However, I kept getting tripped up by the following error:\nsed: 1: \"i2.html\": command i expects \\ followed by text I spent a bunch of time trying to make sure I escaped the right characters in my strings but the error was persistent! What a nuisance! 😭\nThe Issue Upon further searching, the issue turns out to be differences in sed on Mac systems vs Linux. As is with every question asked, StackOverflow has an answer. High Performance Mark explains:\n Your Mac does indeed run a BASH shell, but this is more a question of which implementation of sed you are dealing with. On a Mac sed comes from BSD and is subtly different from the sed you might find on a typical Linux box. I suggest you man sed.\n The Fix It turns out that providing the backup extension is required when using the -i switch. chipiik provides the answer that works!\n This works with both GNU and BSD versions of sed:\nsed -i'' -e 's/old_link/new_link/g' * or with backup:\nsed -i'.bak' -e 's/old_link/new_link/g' * Note missing space after -i option! (Necessary for GNU sed)\n Conclusion HowToGeek described it perfectly:\n The sed command is a bit like chess: it takes an hour to learn the basics and a lifetime to master them (or, at least a lot of practice).\n Happy editing!\n",
   "wordCount" : "277",
   "inLanguage": "en",
-  "image":"https://singhkays.com/media/sed-all-the-things.jpg","datePublished": "2020-12-10T00:00:00Z",
+  "image":"https://singhkays.com/blog/sed-error-i-expects-followed-by-text/media/sed-all-the-things.jpg","datePublished": "2020-12-10T00:00:00Z",
   "dateModified": "2021-01-26T00:18:12-08:00",
   "author":{
     "@type": "Person",
