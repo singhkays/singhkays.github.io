@@ -41,8 +41,6 @@
 </script>
 
 
-    <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
-
 
 <script type="application/javascript">
 var doNotTrack = false;
@@ -99,8 +97,8 @@ if (!doNotTrack) {
   "keywords": [
     "Apple Silicon", "M1", "Apple", "YouTube", "Video Decoding", "Power Consumption", "VLC", "Netflix", "Safari", "Chrome", "VP9", "HEVC", "H.265"
   ],
-  "articleBody": "One of the themes of my previous Apple Silicon M1 article - Apple Silicon M1: Black. Magic. Fuckery. - was the stupendous battery life offered by the new M1-based MacBooks. While unveiling the M1 chip, Apple touted the new M1-based MacBook Air and MacBook Pro’s energy efficiency with up to 18 hours and 20 hours of movie playback, 6 and 10 hours more than previous models.\n  Apple M1 MacBook Pro and MacBook Air battery video playback numbers [Source: Apple]\n    Apple M1 MacBook Air battery improvement [Source: Apple M1 unveiling event]\n    Apple M1 MacBook Pro battery improvement [Source: Apple M1 unveiling event]\n  These battery life advances are massive and typically once-in-a-generation improvements. These are made possible because of Apple’s focus on low-power design and decoding video using specialized hardware engines rather than relying on the general-purpose CPU. Decoding video using a chip built for the sole purpose of decoding video can dramatically affect power consumption, as you will see later in this blog.\n  Apple M1 block diagram. Highlighted components are dedicated to low-power video playback [Source: Apple M1 unveiling event]\n  This blog is Part 1 of a multi-part series of investigations into the actual power these M1 chips consume in some of the most common scenarios. This Part 1 focuses on one of the most critical Pandemic activities - streaming a video from YouTube or Netflix. The lower the power consumption, the longer your battery will last (if you’re not connected to the charger).\nTesting Methodology Software \u0026 Hardware  MacOS 11.2.2 running in safe mode to limit the effect of background processes and other applications on power consumption Safari 14.0.3 Chrome 89 (Apple Silicon version) VLC 3.0.12.1 (Apple Silicon version) Mac Mini M1 16GB RAM, 256GB SSD (I didn’t have a MacBook so this test represents the power of the M1 components, not the overall system power) Peripherels attached: Apple Magic Keyboard and Magic Trackpad (Bluetooth)  Power Consumption Measurement Power Consumption was measured using Apple’s powermetrics utility. powermetrics is a Mac-only command-line utility that provides many high-quality power-related measurements. It is most useful for getting CPU, GPU and wakeup measurements in a precise and easily scriptable fashion (unlike Activity Monitor and top)\nBelow is a sample log from powermetrics output after running the following command:\nsudo powermetrics -i 1000 --samplers cpu_power,gpu_power -a --hide-cpu-duty-cycle --show-usage-summary --show-extra-power-info -u ~/powerlogs.txt *** Sampled system activity (Thu Feb 11 00:10:50 2021 -0800) (1004.97ms elapsed) *** **** Processor usage **** E-Cluster Power: 14 mW E-Cluster HW active frequency: 1031 MHz E-Cluster HW active residency: 11.15% (600 MHz: 2.8% 972 MHz: 88% 1332 MHz: 2.5% 1704 MHz: 3.0% 2064 MHz: 3.5%) E-Cluster idle residency: 88.85% P-Cluster Power: 16 mW P-Cluster HW active frequency: 712 MHz P-Cluster HW active residency: 2.34% (600 MHz: 90% 828 MHz: .42% 1056 MHz: 1.4% 1284 MHz: 3.0% 1500 MHz: .49% 1728 MHz: .79% 1956 MHz: 1.2% 2184 MHz: .59% 2388 MHz: 1.0% 2592 MHz: 0% 2772 MHz: .40% 2988 MHz: .20% 3096 MHz: 0% 3144 MHz: .20% 3204 MHz: .36%) P-Cluster idle residency: 97.66% ANE Power: 0 mW DRAM Power: 14 mW Clusters Total Power: 30 mW GPU Power: 14 mW Package Power: 99 mW **** GPU usage **** GPU active frequency: 709 MHz GPU active residency: 1.51% (396 MHz: .05% 528 MHz: 0% 720 MHz: 1.5% 924 MHz: 0% 1128 MHz: 0% 1278 MHz: 0%) GPU requested frequency: (396 MHz: 0% 528 MHz: 0% 720 MHz: 1.5% 924 MHz: 0% 1128 MHz: 0% 1278 MHz: 0%) GPU idle residency: 98.49% GPU Power: 14 mW I wrote a custom Python script to parse out these logs and plot the graphs below. For our purpose, I extracted the following fields:\n   Extracted Field Description Represented as     E-Cluster Power Total power consumption of the 4 high-efficiency cores Efficiency Cluster   P-Cluster Power Total power consumption of the 4 high-performance cores Performance Cluster   DRAM Power Power consumption of the embedded RAM DRAM   GPU Power Power consumption of the M1 GPU GPU   Package Power Total power consumption of the M1 chip including the CPU, GPU, DRAM and other components like Thunderbolt and SSD controller, media decoding engines, ISP, Secure Enclave etc. Other    For an overview of the M1 architecture, see Apple’s official product page and the press release.\nTest 1: YouTube streaming I tested the following video - “Japan in 8K” - while streaming from YouTube in Safari, Chrome browsers and VLC players.\n   I included the VLC player in this test to compare against the local playback. VLC currently cannot use the hardware VP9 decoder. Therefore the video is played using the software-based decoder. I also tested Chrome in software-decode mode by forcing the hardware VP9 decoder off using the Chrome flag at chrome://flags/#videotoolbox-vp9-decoding.\nThis gave us the following test matrix:\n   Player Codec Resolution Represented as     VLC (Software) VP9 4K VLC-SW   Chrome (Software) VP9 4K Chrome-SW   Chrome (Hardware) VP9 4K Chrome-HW   Safari (Hardware) VP9 4K Safari-HW    To compare against idle state, there was an idle period of 60 seconds before and after playing the video in both scenarios.\n INFO: The charts are interactive. Here’s what you can do:\n Hover over the charts to view the data points. Select and zoom over a specific time period in the line-charts to take a closer look. Single click on a legend item to remove it from the chart. Double-click to isolate it. Double click anywhere on the chart to zoom out   Power Consumption Right off the bat, you can see the difference between the power consumption between hardware decoding and software decoding. Surprisingly, Chrome’s power consumption is higher than Safari’s while both are decoding hardware decoding of VP9 codec. Looking at the average and total power consumption, I made the following observations:\n Power Consumption for Chrome hardware decoding = 2x Safari hardware decoding 🤨 Power Consumption for Chrome software decoding is more efficient than VLC software decoding 🧐    Plotly.d3.json(\"./json/plotly-power-total-browser.json\", function(err, fig) { Plotly.plot('.\\/json\\/plotly-power-total-browser.json', fig.data, fig.layout, {responsive: true, displaylogo: false, modeBarButtonsToRemove: [\"toggleSpikelines\", \"hoverClosestCartesian\", \"hoverCompareCartesian\", \"select2d\", \"lasso2d\"]}); });    Plotly.d3.json(\"./json/plotly-power-average-browser.json\", function(err, fig) { Plotly.plot('.\\/json\\/plotly-power-average-browser.json', fig.data, fig.layout, {responsive: true, displaylogo: false, modeBarButtonsToRemove: [\"toggleSpikelines\", \"hoverClosestCartesian\", \"hoverCompareCartesian\", \"select2d\", \"lasso2d\"]}); });    Plotly.d3.json(\"./json/plotly-power-average-total-browser.json\", function(err, fig) { Plotly.plot('.\\/json\\/plotly-power-average-total-browser.json', fig.data, fig.layout, {responsive: true, displaylogo: false, modeBarButtonsToRemove: [\"toggleSpikelines\", \"hoverClosestCartesian\", \"hoverCompareCartesian\", \"select2d\", \"lasso2d\"]}); });    Plotly.d3.json(\"./json/plotly-power-package-browser.json\", function(err, fig) { Plotly.plot('.\\/json\\/plotly-power-package-browser.json', fig.data, fig.layout, {responsive: true, displaylogo: false, modeBarButtonsToRemove: [\"toggleSpikelines\", \"hoverClosestCartesian\", \"hoverCompareCartesian\", \"select2d\", \"lasso2d\"]}); });  CPU \u0026 GPU Usage Looking at the CPU and GPU usage leads to some interesting observations:\n The GPU usage on Safari hardware decoding is nearly 0%. Chrome software decoding uses more of the efficiency cluster than VLC software decoding but less of the performance cluster. The performance cluster usage jumps between 0% and ~50% in the browsers compared whereas it constantly hovers around 50% in software decoding scenarios. (Select and Zoom in on the graphs to take a closer look.)    Plotly.d3.json(\"./json/plotly-usage-browser.json\", function(err, fig) { Plotly.plot('.\\/json\\/plotly-usage-browser.json', fig.data, fig.layout, {responsive: true, displaylogo: false, modeBarButtonsToRemove: [\"toggleSpikelines\", \"hoverClosestCartesian\", \"hoverCompareCartesian\", \"select2d\", \"lasso2d\"]}); });    Plotly.d3.json(\"./json/plotly-usage-average-browser.json\", function(err, fig) { Plotly.plot('.\\/json\\/plotly-usage-average-browser.json', fig.data, fig.layout, {responsive: true, displaylogo: false, modeBarButtonsToRemove: [\"toggleSpikelines\", \"hoverClosestCartesian\", \"hoverCompareCartesian\", \"select2d\", \"lasso2d\"]}); });  CPU \u0026 GPU Frequency Looking at the CPU and GPU usage, I made the following observations:\n In Safari hardware decoding, the GPU frequency is 0 Hz for a sustained period of time. Does this mean the M1 chip can turn the GPU off? This is quite possible because if you look at the Average Power Consumption chart for the same test (Safari hardware decoding), the GPU’s average power consumption was 2mw! Let me type that again. Over 4-5 minutes where the Apple M1 chip played a 4K video in Safari browser, the GPU consumed only 2 milliwatts! The average frequencies are almost neck and neck for hardware decoding modes (except GPU) and higher in software decoding modes. With VLC, the GPU is consistently around 715 MHz, even in the idle phase (i.e. video not playing).    Plotly.d3.json(\"./json/plotly-frequency-browser.json\", function(err, fig) { Plotly.plot('.\\/json\\/plotly-frequency-browser.json', fig.data, fig.layout, {responsive: true, displaylogo: false, modeBarButtonsToRemove: [\"toggleSpikelines\", \"hoverClosestCartesian\", \"hoverCompareCartesian\", \"select2d\", \"lasso2d\"]}); });    Plotly.d3.json(\"./json/plotly-frequency-average-browser.json\", function(err, fig) { Plotly.plot('.\\/json\\/plotly-frequency-average-browser.json', fig.data, fig.layout, {responsive: true, displaylogo: false, modeBarButtonsToRemove: [\"toggleSpikelines\", \"hoverClosestCartesian\", \"hoverCompareCartesian\", \"select2d\", \"lasso2d\"]}); });  Test 2: Netflix streaming For this test, I streamed Queen’s Gambit from Netflix in both Safari and Chrome browsers. Just like the last test to compare against the idle state, there was an idle period of 60 seconds before and after playing the video in both scenarios. The footage in this test was played for 60 seconds.\nThe are two interesting parts to Netflix streaming between these browsers:\n Safari can stream in 1080p and 4K, while Chrome is limited to 720p due to hardware-based DRM limitations. Netflix states that to stream in Ultra HD, one needs a device with an Apple T2 Security chip.    Netflix requirements for streaming in Ultra HD on Mac [Source: Netflix]\n  Safari streamed this title in H.265/HEVC codec while Chrome streams in VP9.    Netflix Queen’s Gambit streaming on Safari [Source: Netflix]\n    Netflix Queen’s Gambit streaming on Chrome [Source: Netflix]\n   INFO: The charts are interactive. Here’s what you can do:\n Hover over the charts to view the data points. Select and zoom over a specific time period in the line-charts to take a closer look. Single click on a legend item to remove it from the chart. Double-click to isolate it. Double click anywhere on the chart to zoom out   Power Consumption Overall, both browsers end up being similar in the average and total power consumption numbers.\n  Plotly.d3.json(\"./json/plotly-power-average-total-netflix.json\", function(err, fig) { Plotly.plot('.\\/json\\/plotly-power-average-total-netflix.json', fig.data, fig.layout, {responsive: true, displaylogo: false, modeBarButtonsToRemove: [\"toggleSpikelines\", \"hoverClosestCartesian\", \"hoverCompareCartesian\", \"select2d\", \"lasso2d\"]}); });     Plotly.d3.json(\"./json/plotly-power-package-netflix.json\", function(err, fig) { Plotly.plot('.\\/json\\/plotly-power-package-netflix.json', fig.data, fig.layout, {responsive: true, displaylogo: false, modeBarButtonsToRemove: [\"toggleSpikelines\", \"hoverClosestCartesian\", \"hoverCompareCartesian\", \"select2d\", \"lasso2d\"]}); });  However, once you dig down into individual components, we notice some interesting details.\n On the M1, the DRAM usage in Safari is really high! It’s more than both the CPU clusters. It’s most likely because Safari is streaming 1080p vs. Chrome’s 720p stream. The “Other” component is consuming ~2x the power in Safari vs. Chrome. This is most likely due to the T2 chip being leveraged because of hardware DRM implementation. Just like the YouTube test, Chrome seems to be leveraging quite a bit of GPU. It’s the component that consumes the most power.    Plotly.d3.json(\"./json/plotly-power-total-netflix.json\", function(err, fig) { Plotly.plot('.\\/json\\/plotly-power-total-netflix.json', fig.data, fig.layout, {responsive: true, displaylogo: false, modeBarButtonsToRemove: [\"toggleSpikelines\", \"hoverClosestCartesian\", \"hoverCompareCartesian\", \"select2d\", \"lasso2d\"]}); });    Plotly.d3.json(\"./json/plotly-power-average-netflix.json\", function(err, fig) { Plotly.plot('.\\/json\\/plotly-power-average-netflix.json', fig.data, fig.layout, {responsive: true, displaylogo: false, modeBarButtonsToRemove: [\"toggleSpikelines\", \"hoverClosestCartesian\", \"hoverCompareCartesian\", \"select2d\", \"lasso2d\"]}); });  CPU \u0026 GPU Usage No surprises looking at the usage charts than what we already gleaned from the power consumption charts i.e. GPU usage in Chrome is much higher.\n  Plotly.d3.json(\"./json/plotly-usage-netflix.json\", function(err, fig) { Plotly.plot('.\\/json\\/plotly-usage-netflix.json', fig.data, fig.layout, {responsive: true, displaylogo: false, modeBarButtonsToRemove: [\"toggleSpikelines\", \"hoverClosestCartesian\", \"hoverCompareCartesian\", \"select2d\", \"lasso2d\"]}); });    Plotly.d3.json(\"./json/plotly-usage-average-netflix.json\", function(err, fig) { Plotly.plot('.\\/json\\/plotly-usage-average-netflix.json', fig.data, fig.layout, {responsive: true, displaylogo: false, modeBarButtonsToRemove: [\"toggleSpikelines\", \"hoverClosestCartesian\", \"hoverCompareCartesian\", \"select2d\", \"lasso2d\"]}); });  CPU \u0026 GPU Frequency Some interesting things are going on with the GPU on the frequency charts.\n In Safari, the GPU is clocking up and down (zoom in on the details), while in Chrome, the GPU is constantly running around 710 MHz. The performance cluster runs around 600 Mhz most of the time but has periodic jumps to almost 3.2 GHz (max frequency for the cluster as confirmed by Anandtech).    Plotly.d3.json(\"./json/plotly-frequency-netflix.json\", function(err, fig) { Plotly.plot('.\\/json\\/plotly-frequency-netflix.json', fig.data, fig.layout, {responsive: true, displaylogo: false, modeBarButtonsToRemove: [\"toggleSpikelines\", \"hoverClosestCartesian\", \"hoverCompareCartesian\", \"select2d\", \"lasso2d\"]}); });    Plotly.d3.json(\"./json/plotly-frequency-average-netflix.json\", function(err, fig) { Plotly.plot('.\\/json\\/plotly-frequency-average-netflix.json', fig.data, fig.layout, {responsive: true, displaylogo: false, modeBarButtonsToRemove: [\"toggleSpikelines\", \"hoverClosestCartesian\", \"hoverCompareCartesian\", \"select2d\", \"lasso2d\"]}); });  Conclusion Hopefully, that was an insightful look into the M1 power characteristics! Stay tuned for Part 2, where I’ll dig into similar details but this time with local playback.\nAlso, I hear Big Sur 11.3 will finally allow Safari to play VP9 files. If it changes any of the numbers here in any meaningful way, I’ll update this blog.\nStay tuned for the updates by subscribing to the RSS Feed or the Mailing List\nBuy If you’re planning on buying an Apple M1 product, you can support this blog by using my affiliate links below:\nMacBook Air M1 (2020)\n Apple MacBook Air with Apple M1 Chip (13-inch, 8GB RAM, 256GB SSD Storage) - Space Gray Apple MacBook Air with Apple M1 Chip (13-inch, 8GB RAM, 512GB SSD Storage) - Space Gray Apple MacBook Air with Apple M1 Chip (13-inch, 16GB RAM, 1TB SSD Storage) - Space Gray  MacBook Pro M1 (2020)\n Apple MacBook Air with Apple M1 Chip (13-inch, 8GB RAM, 256GB SSD Storage) - Space Gray Apple MacBook Pro with Apple M1 Chip (13-inch, 8GB RAM, 512GB SSD Storage) - Silver Apple MacBook Pro with Apple M1 Chip (13-inch, 16GB RAM, 256GB SSD Storage) - Space Gray   Contact Reach out if you have any questions! Feel free to follow me on\n Twitter - @singhkays LinkedIn - https://www.linkedin.com/in/singhkays/  ",
-  "wordCount" : "2100",
+  "articleBody": "One of the themes of my previous Apple Silicon M1 article - Apple Silicon M1: Black. Magic. Fuckery. - was the stupendous battery life offered by the new M1-based MacBooks. While unveiling the M1 chip, Apple touted the new M1-based MacBook Air and MacBook Pro’s energy efficiency with up to 18 hours and 20 hours of movie playback, 6 and 10 hours more than previous models.\n  Apple M1 MacBook Pro and MacBook Air battery video playback numbers [Source: Apple]\n    Apple M1 MacBook Air battery improvement [Source: Apple M1 unveiling event]\n    Apple M1 MacBook Pro battery improvement [Source: Apple M1 unveiling event]\n  These battery life advances are massive and typically once-in-a-generation improvements. These are made possible because of Apple’s focus on low-power design and decoding video using specialized hardware engines rather than relying on the general-purpose CPU. Decoding video using a chip built for the sole purpose of decoding video can dramatically affect power consumption, as you will see later in this blog.\n  Apple M1 block diagram. Highlighted components are dedicated to low-power video playback [Source: Apple M1 unveiling event]\n  This blog is Part 1 of a multi-part series of investigations into the actual power these M1 chips consume in some of the most common scenarios. This Part 1 focuses on one of the most critical Pandemic activities - streaming a video from YouTube or Netflix. The lower the power consumption, the longer your battery will last (if you’re not connected to the charger).\nTesting Methodology Software \u0026 Hardware  MacOS 11.2.2 running in safe mode to limit the effect of background processes and other applications on power consumption Safari 14.0.3 Chrome 89 (Apple Silicon version) VLC 3.0.12.1 (Apple Silicon version) Mac Mini M1 16GB RAM, 256GB SSD (I didn’t have a MacBook so this test represents the power of the M1 components, not the overall system power) Peripherels attached: Apple Magic Keyboard and Magic Trackpad (Bluetooth)  Power Consumption Measurement Power Consumption was measured using Apple’s powermetrics utility. powermetrics is a Mac-only command-line utility that provides many high-quality power-related measurements. It is most useful for getting CPU, GPU and wakeup measurements in a precise and easily scriptable fashion (unlike Activity Monitor and top)\nBelow is a sample log from powermetrics output after running the following command:\nsudo powermetrics -i 1000 --samplers cpu_power,gpu_power -a --hide-cpu-duty-cycle --show-usage-summary --show-extra-power-info -u ~/powerlogs.txt *** Sampled system activity (Thu Feb 11 00:10:50 2021 -0800) (1004.97ms elapsed) *** **** Processor usage **** E-Cluster Power: 14 mW E-Cluster HW active frequency: 1031 MHz E-Cluster HW active residency: 11.15% (600 MHz: 2.8% 972 MHz: 88% 1332 MHz: 2.5% 1704 MHz: 3.0% 2064 MHz: 3.5%) E-Cluster idle residency: 88.85% P-Cluster Power: 16 mW P-Cluster HW active frequency: 712 MHz P-Cluster HW active residency: 2.34% (600 MHz: 90% 828 MHz: .42% 1056 MHz: 1.4% 1284 MHz: 3.0% 1500 MHz: .49% 1728 MHz: .79% 1956 MHz: 1.2% 2184 MHz: .59% 2388 MHz: 1.0% 2592 MHz: 0% 2772 MHz: .40% 2988 MHz: .20% 3096 MHz: 0% 3144 MHz: .20% 3204 MHz: .36%) P-Cluster idle residency: 97.66% ANE Power: 0 mW DRAM Power: 14 mW Clusters Total Power: 30 mW GPU Power: 14 mW Package Power: 99 mW **** GPU usage **** GPU active frequency: 709 MHz GPU active residency: 1.51% (396 MHz: .05% 528 MHz: 0% 720 MHz: 1.5% 924 MHz: 0% 1128 MHz: 0% 1278 MHz: 0%) GPU requested frequency: (396 MHz: 0% 528 MHz: 0% 720 MHz: 1.5% 924 MHz: 0% 1128 MHz: 0% 1278 MHz: 0%) GPU idle residency: 98.49% GPU Power: 14 mW I wrote a custom Python script to parse out these logs and plot the graphs below. For our purpose, I extracted the following fields:\n   Extracted Field Description Represented as     E-Cluster Power Total power consumption of the 4 high-efficiency cores Efficiency Cluster   P-Cluster Power Total power consumption of the 4 high-performance cores Performance Cluster   DRAM Power Power consumption of the embedded RAM DRAM   GPU Power Power consumption of the M1 GPU GPU   Package Power Total power consumption of the M1 chip including the CPU, GPU, DRAM and other components like Thunderbolt and SSD controller, media decoding engines, ISP, Secure Enclave etc. Other    For an overview of the M1 architecture, see Apple’s official product page and the press release.\nTest 1: YouTube streaming I tested the following video - “Japan in 8K” - while streaming from YouTube in Safari, Chrome browsers and VLC players.\n   I included the VLC player in this test to compare against the local playback. VLC currently cannot use the hardware VP9 decoder. Therefore the video is played using the software-based decoder. I also tested Chrome in software-decode mode by forcing the hardware VP9 decoder off using the Chrome flag at chrome://flags/#videotoolbox-vp9-decoding.\nThis gave us the following test matrix:\n   Player Codec Resolution Represented as     VLC (Software) VP9 4K VLC-SW   Chrome (Software) VP9 4K Chrome-SW   Chrome (Hardware) VP9 4K Chrome-HW   Safari (Hardware) VP9 4K Safari-HW    To compare against idle state, there was an idle period of 60 seconds before and after playing the video in both scenarios.\nPower Consumption Right off the bat, you can see the difference between the power consumption between hardware decoding and software decoding. Surprisingly, Chrome’s power consumption is higher than Safari’s while both are decoding hardware decoding of VP9 codec. Looking at the average and total power consumption, I made the following observations:\n Power Consumption for Chrome hardware decoding = 2x Safari hardware decoding 🤨 Power Consumption for Chrome software decoding is more efficient than VLC software decoding 🧐  CPU \u0026 GPU Usage Looking at the CPU and GPU usage leads to some interesting observations:\n The GPU usage on Safari hardware decoding is nearly 0%. Chrome software decoding uses more of the efficiency cluster than VLC software decoding but less of the performance cluster. The performance cluster usage jumps between 0% and ~50% in the browsers compared whereas it constantly hovers around 50% in software decoding scenarios. (Select and Zoom in on the graphs to take a closer look.)  CPU \u0026 GPU Frequency Looking at the CPU and GPU usage, I made the following observations:\n In Safari hardware decoding, the GPU frequency is 0 Hz for a sustained period of time. Does this mean the M1 chip can turn the GPU off? This is quite possible because if you look at the Average Power Consumption chart for the same test (Safari hardware decoding), the GPU’s average power consumption was 2mw! Let me type that again. Over 4-5 minutes where the Apple M1 chip played a 4K video in Safari browser, the GPU consumed only 2 milliwatts! The average frequencies are almost neck and neck for hardware decoding modes (except GPU) and higher in software decoding modes. With VLC, the GPU is consistently around 715 MHz, even in the idle phase (i.e. video not playing).  Test 2: Netflix streaming For this test, I streamed Queen’s Gambit from Netflix in both Safari and Chrome browsers. Just like the last test to compare against the idle state, there was an idle period of 60 seconds before and after playing the video in both scenarios. The footage in this test was played for 60 seconds.\nThe are two interesting parts to Netflix streaming between these browsers:\n Safari can stream in 1080p and 4K, while Chrome is limited to 720p due to hardware-based DRM limitations. Netflix states that to stream in Ultra HD, one needs a device with an Apple T2 Security chip.    Netflix requirements for streaming in Ultra HD on Mac [Source: Netflix]\n  Safari streamed this title in H.265/HEVC codec while Chrome streams in VP9.    Netflix Queen’s Gambit streaming on Safari [Source: Netflix]\n    Netflix Queen’s Gambit streaming on Chrome [Source: Netflix]\n  Power Consumption Overall, both browsers end up being similar in the average and total power consumption numbers.\nHowever, once you dig down into individual components, we notice some interesting details.\n On the M1, the DRAM usage in Safari is really high! It’s more than both the CPU clusters. It’s most likely because Safari is streaming 1080p vs. Chrome’s 720p stream. The “Other” component is consuming ~2x the power in Safari vs. Chrome. This is most likely due to the T2 chip being leveraged because of hardware DRM implementation. Just like the YouTube test, Chrome seems to be leveraging quite a bit of GPU. It’s the component that consumes the most power.  CPU \u0026 GPU Usage No surprises looking at the usage charts than what we already gleaned from the power consumption charts i.e. GPU usage in Chrome is much higher.\nCPU \u0026 GPU Frequency Some interesting things are going on with the GPU on the frequency charts.\n In Safari, the GPU is clocking up and down (zoom in on the details), while in Chrome, the GPU is constantly running around 710 MHz. The performance cluster runs around 600 Mhz most of the time but has periodic jumps to almost 3.2 GHz (max frequency for the cluster as confirmed by Anandtech).  Conclusion Hopefully, that was an insightful look into the M1 power characteristics! Stay tuned for Part 2, where I’ll dig into similar details but this time with local playback.\nAlso, I hear Big Sur 11.3 will finally allow Safari to play VP9 files. If it changes any of the numbers here in any meaningful way, I’ll update this blog.\nStay tuned for the updates by subscribing to the RSS Feed or the Mailing List\nBuy If you’re planning on buying an Apple M1 product, you can support this blog by using my affiliate links below:\nMacBook Air M1 (2020)\n Apple MacBook Air with Apple M1 Chip (13-inch, 8GB RAM, 256GB SSD Storage) - Space Gray Apple MacBook Air with Apple M1 Chip (13-inch, 8GB RAM, 512GB SSD Storage) - Space Gray Apple MacBook Air with Apple M1 Chip (13-inch, 16GB RAM, 1TB SSD Storage) - Space Gray  MacBook Pro M1 (2020)\n Apple MacBook Air with Apple M1 Chip (13-inch, 8GB RAM, 256GB SSD Storage) - Space Gray Apple MacBook Pro with Apple M1 Chip (13-inch, 8GB RAM, 512GB SSD Storage) - Silver Apple MacBook Pro with Apple M1 Chip (13-inch, 16GB RAM, 256GB SSD Storage) - Space Gray   Contact Reach out if you have any questions! Feel free to follow me on\n Twitter - @singhkays LinkedIn - https://www.linkedin.com/in/singhkays/  ",
+  "wordCount" : "1692",
   "inLanguage": "en",
   "image":"https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/media/apple-m1-video-playback-consumption-cover.png","datePublished": "2021-04-02T00:00:00Z",
   "dateModified": "2021-04-02T20:03:18-07:00",
@@ -181,7 +179,7 @@ if (!doNotTrack) {
     <h1 class="post-title">
       Apple Silicon M1 Power Consumption Deep Dive Part 1: Safari vs Chrome
     </h1>
-    <div class="post-meta">April 2, 2021&nbsp;·&nbsp;10 min&nbsp;·&nbsp;Kay Singh
+    <div class="post-meta">April 2, 2021&nbsp;·&nbsp;8 min&nbsp;·&nbsp;Kay Singh
 </div>
   </header> 
 <figure class="entry-cover">
@@ -508,15 +506,6 @@ GPU Power: 14 mW
 </tbody>
 </table>
 <p>To compare against idle state, there was an idle period of 60 seconds before and after playing the video in both scenarios.</p>
-<blockquote>
-<p><strong>INFO: The charts are interactive. Here&rsquo;s what you can do:</strong></p>
-<ol>
-<li>Hover over the charts to view the data points.</li>
-<li>Select and zoom over a specific time period in the line-charts to take a closer look.</li>
-<li>Single click on a legend item to remove it from the chart. Double-click to isolate it.</li>
-<li>Double click anywhere on the chart to zoom out</li>
-</ol>
-</blockquote>
 <h2 id="power-consumption">Power Consumption<a hidden class="anchor" aria-hidden="true" href="#power-consumption">#</a></h2>
 <p>Right off the bat, you can see the difference between the power consumption between hardware decoding and software decoding. Surprisingly, Chrome&rsquo;s power consumption is higher than Safari&rsquo;s while both are decoding hardware decoding of VP9 codec.
 Looking at the average and total power consumption, I made the following observations:</p>
@@ -524,41 +513,14 @@ Looking at the average and total power consumption, I made the following observa
 <li>Power Consumption for Chrome hardware decoding = 2x Safari hardware decoding 🤨</li>
 <li>Power Consumption for Chrome software decoding is more efficient than VLC software decoding 🧐</li>
 </ol>
-
-
-<div id="./json/plotly-power-total-browser.json" class="plotly" style="height:900px"></div>
-<script>
-Plotly.d3.json("./json/plotly-power-total-browser.json", function(err, fig) {
-    Plotly.plot('.\/json\/plotly-power-total-browser.json', fig.data, fig.layout, {responsive: true, displaylogo: false, modeBarButtonsToRemove: ["toggleSpikelines", "hoverClosestCartesian",  "hoverCompareCartesian", "select2d", "lasso2d"]});
-});
-</script>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-
-
-<div id="./json/plotly-power-average-browser.json" class="plotly" style="height:400px"></div>
-<script>
-Plotly.d3.json("./json/plotly-power-average-browser.json", function(err, fig) {
-    Plotly.plot('.\/json\/plotly-power-average-browser.json', fig.data, fig.layout, {responsive: true, displaylogo: false, modeBarButtonsToRemove: ["toggleSpikelines", "hoverClosestCartesian",  "hoverCompareCartesian", "select2d", "lasso2d"]});
-});
-</script>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-
-
-<div id="./json/plotly-power-average-total-browser.json" class="plotly" style="height:250px"></div>
-<script>
-Plotly.d3.json("./json/plotly-power-average-total-browser.json", function(err, fig) {
-    Plotly.plot('.\/json\/plotly-power-average-total-browser.json', fig.data, fig.layout, {responsive: true, displaylogo: false, modeBarButtonsToRemove: ["toggleSpikelines", "hoverClosestCartesian",  "hoverCompareCartesian", "select2d", "lasso2d"]});
-});
-</script>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-
-
-<div id="./json/plotly-power-package-browser.json" class="plotly" style="height:350px"></div>
-<script>
-Plotly.d3.json("./json/plotly-power-package-browser.json", function(err, fig) {
-    Plotly.plot('.\/json\/plotly-power-package-browser.json', fig.data, fig.layout, {responsive: true, displaylogo: false, modeBarButtonsToRemove: ["toggleSpikelines", "hoverClosestCartesian",  "hoverCompareCartesian", "select2d", "lasso2d"]});
-});
-</script>
+<p><img loading="lazy" src="./svg/plotly-power-total-browser.svg" alt=""  />
+</p>
+<p><img loading="lazy" src="./svg/plotly-power-average-browser.svg" alt=""  />
+</p>
+<p><img loading="lazy" src="./svg/plotly-power-average-total-browser.svg" alt=""  />
+</p>
+<p><img loading="lazy" src="./svg/plotly-power-package-browser.svg" alt=""  />
+</p>
 <h2 id="cpu--gpu-usage">CPU &amp; GPU Usage<a hidden class="anchor" aria-hidden="true" href="#cpu--gpu-usage">#</a></h2>
 <p>Looking at the CPU and GPU usage leads to some interesting observations:</p>
 <ol>
@@ -566,23 +528,10 @@ Plotly.d3.json("./json/plotly-power-package-browser.json", function(err, fig) {
 <li>Chrome software decoding uses more of the efficiency cluster than VLC software decoding but less of the performance cluster.</li>
 <li>The performance cluster usage jumps between 0% and ~50% in the browsers compared whereas it constantly hovers around 50% in software decoding scenarios. (<em>Select and Zoom in on the graphs to take a closer look.</em>)</li>
 </ol>
-
-
-<div id="./json/plotly-usage-browser.json" class="plotly" style="height:350px"></div>
-<script>
-Plotly.d3.json("./json/plotly-usage-browser.json", function(err, fig) {
-    Plotly.plot('.\/json\/plotly-usage-browser.json', fig.data, fig.layout, {responsive: true, displaylogo: false, modeBarButtonsToRemove: ["toggleSpikelines", "hoverClosestCartesian",  "hoverCompareCartesian", "select2d", "lasso2d"]});
-});
-</script>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-
-
-<div id="./json/plotly-usage-average-browser.json" class="plotly" style="height:350px"></div>
-<script>
-Plotly.d3.json("./json/plotly-usage-average-browser.json", function(err, fig) {
-    Plotly.plot('.\/json\/plotly-usage-average-browser.json', fig.data, fig.layout, {responsive: true, displaylogo: false, modeBarButtonsToRemove: ["toggleSpikelines", "hoverClosestCartesian",  "hoverCompareCartesian", "select2d", "lasso2d"]});
-});
-</script>
+<p><img loading="lazy" src="./svg/plotly-usage-browser.svg" alt=""  />
+</p>
+<p><img loading="lazy" src="./svg/plotly-usage-average-browser.svg" alt=""  />
+</p>
 <h2 id="cpu--gpu-frequency">CPU &amp; GPU Frequency<a hidden class="anchor" aria-hidden="true" href="#cpu--gpu-frequency">#</a></h2>
 <p>Looking at the CPU and GPU usage, I made the following observations:</p>
 <ol>
@@ -590,23 +539,10 @@ Plotly.d3.json("./json/plotly-usage-average-browser.json", function(err, fig) {
 <li>The average frequencies are almost neck and neck for hardware decoding modes (<em>except GPU</em>) and higher in software decoding modes.</li>
 <li>With VLC, the GPU is consistently around 715 MHz, even in the idle phase (<em>i.e. video not playing</em>).</li>
 </ol>
-
-
-<div id="./json/plotly-frequency-browser.json" class="plotly" style="height:350px"></div>
-<script>
-Plotly.d3.json("./json/plotly-frequency-browser.json", function(err, fig) {
-    Plotly.plot('.\/json\/plotly-frequency-browser.json', fig.data, fig.layout, {responsive: true, displaylogo: false, modeBarButtonsToRemove: ["toggleSpikelines", "hoverClosestCartesian",  "hoverCompareCartesian", "select2d", "lasso2d"]});
-});
-</script>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-
-
-<div id="./json/plotly-frequency-average-browser.json" class="plotly" style="height:350px"></div>
-<script>
-Plotly.d3.json("./json/plotly-frequency-average-browser.json", function(err, fig) {
-    Plotly.plot('.\/json\/plotly-frequency-average-browser.json', fig.data, fig.layout, {responsive: true, displaylogo: false, modeBarButtonsToRemove: ["toggleSpikelines", "hoverClosestCartesian",  "hoverCompareCartesian", "select2d", "lasso2d"]});
-});
-</script>
+<p><img loading="lazy" src="./svg/plotly-frequency-browser.svg" alt=""  />
+</p>
+<p><img loading="lazy" src="./svg/plotly-frequency-average-browser.svg" alt=""  />
+</p>
 <h1 id="test-2-netflix-streaming">Test 2: Netflix streaming<a hidden class="anchor" aria-hidden="true" href="#test-2-netflix-streaming">#</a></h1>
 <p>For this test, I streamed Queen&rsquo;s Gambit from Netflix in both Safari and Chrome browsers. Just like the last test to compare against the idle state, there was an idle period of 60 seconds before and after playing the video in both scenarios. The footage in this test was played for 60 seconds.</p>
 <p>The are two interesting parts to Netflix streaming between these browsers:</p>
@@ -724,101 +660,38 @@ Plotly.d3.json("./json/plotly-frequency-average-browser.json", function(err, fig
         </figcaption>
 </figure>
 
-<blockquote>
-<p><strong>INFO: The charts are interactive. Here&rsquo;s what you can do:</strong></p>
-<ol>
-<li>Hover over the charts to view the data points.</li>
-<li>Select and zoom over a specific time period in the line-charts to take a closer look.</li>
-<li>Single click on a legend item to remove it from the chart. Double-click to isolate it.</li>
-<li>Double click anywhere on the chart to zoom out</li>
-</ol>
-</blockquote>
 <h2 id="power-consumption-1">Power Consumption<a hidden class="anchor" aria-hidden="true" href="#power-consumption-1">#</a></h2>
 <p>Overall, both browsers end up being similar in the average and total power consumption numbers.</p>
-
-
-<div id="./json/plotly-power-average-total-netflix.json" class="plotly" style="height:200px"></div>
-<script>
-Plotly.d3.json("./json/plotly-power-average-total-netflix.json", function(err, fig) {
-    Plotly.plot('.\/json\/plotly-power-average-total-netflix.json', fig.data, fig.layout, {responsive: true, displaylogo: false, modeBarButtonsToRemove: ["toggleSpikelines", "hoverClosestCartesian",  "hoverCompareCartesian", "select2d", "lasso2d"]});
-});
-</script>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-<p>
-
-<div id="./json/plotly-power-package-netflix.json" class="plotly" style="height:350px"></div>
-<script>
-Plotly.d3.json("./json/plotly-power-package-netflix.json", function(err, fig) {
-    Plotly.plot('.\/json\/plotly-power-package-netflix.json', fig.data, fig.layout, {responsive: true, displaylogo: false, modeBarButtonsToRemove: ["toggleSpikelines", "hoverClosestCartesian",  "hoverCompareCartesian", "select2d", "lasso2d"]});
-});
-</script>
-<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p><img loading="lazy" src="./svg/plotly-power-average-total-netflix.svg" alt=""  />
+</p>
+<p><img loading="lazy" src="./svg/plotly-power-package-netflix.svg" alt=""  />
+</p>
 <p>However, once you dig down into individual components, we notice some interesting details.</p>
 <ol>
 <li>On the M1, the DRAM usage in Safari is really high! It&rsquo;s more than both the CPU clusters. It&rsquo;s most likely because Safari is streaming 1080p vs. Chrome&rsquo;s 720p stream.</li>
 <li>The &ldquo;Other&rdquo; component is consuming ~2x the power in Safari vs. Chrome. This is most likely due to the T2 chip being leveraged because of hardware DRM implementation.</li>
 <li>Just like the YouTube test, Chrome seems to be leveraging quite a bit of GPU. It&rsquo;s the component that consumes the most power.</li>
 </ol>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-
-
-<div id="./json/plotly-power-total-netflix.json" class="plotly" style="height:500px"></div>
-<script>
-Plotly.d3.json("./json/plotly-power-total-netflix.json", function(err, fig) {
-    Plotly.plot('.\/json\/plotly-power-total-netflix.json', fig.data, fig.layout, {responsive: true, displaylogo: false, modeBarButtonsToRemove: ["toggleSpikelines", "hoverClosestCartesian",  "hoverCompareCartesian", "select2d", "lasso2d"]});
-});
-</script>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-
-
-<div id="./json/plotly-power-average-netflix.json" class="plotly" style="height:400px"></div>
-<script>
-Plotly.d3.json("./json/plotly-power-average-netflix.json", function(err, fig) {
-    Plotly.plot('.\/json\/plotly-power-average-netflix.json', fig.data, fig.layout, {responsive: true, displaylogo: false, modeBarButtonsToRemove: ["toggleSpikelines", "hoverClosestCartesian",  "hoverCompareCartesian", "select2d", "lasso2d"]});
-});
-</script>
+<p><img loading="lazy" src="./svg/plotly-power-total-netflix.svg" alt=""  />
+</p>
+<p><img loading="lazy" src="./svg/plotly-power-average-netflix.svg" alt=""  />
+</p>
 <h2 id="cpu--gpu-usage-1">CPU &amp; GPU Usage<a hidden class="anchor" aria-hidden="true" href="#cpu--gpu-usage-1">#</a></h2>
 <p>No surprises looking at the usage charts than what we already gleaned from the power consumption charts i.e. GPU usage in Chrome is much higher.</p>
-
-
-<div id="./json/plotly-usage-netflix.json" class="plotly" style="height:350px"></div>
-<script>
-Plotly.d3.json("./json/plotly-usage-netflix.json", function(err, fig) {
-    Plotly.plot('.\/json\/plotly-usage-netflix.json', fig.data, fig.layout, {responsive: true, displaylogo: false, modeBarButtonsToRemove: ["toggleSpikelines", "hoverClosestCartesian",  "hoverCompareCartesian", "select2d", "lasso2d"]});
-});
-</script>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-
-
-<div id="./json/plotly-usage-average-netflix.json" class="plotly" style="height:350px"></div>
-<script>
-Plotly.d3.json("./json/plotly-usage-average-netflix.json", function(err, fig) {
-    Plotly.plot('.\/json\/plotly-usage-average-netflix.json', fig.data, fig.layout, {responsive: true, displaylogo: false, modeBarButtonsToRemove: ["toggleSpikelines", "hoverClosestCartesian",  "hoverCompareCartesian", "select2d", "lasso2d"]});
-});
-</script>
+<p><img loading="lazy" src="./svg/plotly-usage-netflix.svg" alt=""  />
+</p>
+<p><img loading="lazy" src="./svg/plotly-usage-average-netflix.svg" alt=""  />
+</p>
 <h2 id="cpu--gpu-frequency-1">CPU &amp; GPU Frequency<a hidden class="anchor" aria-hidden="true" href="#cpu--gpu-frequency-1">#</a></h2>
 <p>Some interesting things are going on with the GPU on the frequency charts.</p>
 <ol>
 <li>In Safari, the GPU is clocking up and down (zoom in on the details), while in Chrome, the GPU is constantly running around 710 MHz.</li>
 <li>The performance cluster runs around 600 Mhz most of the time but has periodic jumps to almost 3.2 GHz (<em><a href="https://www.anandtech.com/show/16252/mac-mini-apple-m1-tested?utm_source=singhkays.com">max frequency for the cluster as confirmed by Anandtech</a></em>).</li>
 </ol>
-
-
-<div id="./json/plotly-frequency-netflix.json" class="plotly" style="height:350px"></div>
-<script>
-Plotly.d3.json("./json/plotly-frequency-netflix.json", function(err, fig) {
-    Plotly.plot('.\/json\/plotly-frequency-netflix.json', fig.data, fig.layout, {responsive: true, displaylogo: false, modeBarButtonsToRemove: ["toggleSpikelines", "hoverClosestCartesian",  "hoverCompareCartesian", "select2d", "lasso2d"]});
-});
-</script>
-<p><!-- raw HTML omitted --><!-- raw HTML omitted --></p>
-
-
-<div id="./json/plotly-frequency-average-netflix.json" class="plotly" style="height:350px"></div>
-<script>
-Plotly.d3.json("./json/plotly-frequency-average-netflix.json", function(err, fig) {
-    Plotly.plot('.\/json\/plotly-frequency-average-netflix.json', fig.data, fig.layout, {responsive: true, displaylogo: false, modeBarButtonsToRemove: ["toggleSpikelines", "hoverClosestCartesian",  "hoverCompareCartesian", "select2d", "lasso2d"]});
-});
-</script>
+<p><img loading="lazy" src="./svg/plotly-frequency-netflix.svg" alt=""  />
+</p>
+<p><img loading="lazy" src="./svg/plotly-frequency-average-netflix.svg" alt=""  />
+</p>
 <h1 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h1>
 <p>Hopefully, that was an insightful look into the M1 power characteristics! Stay tuned for Part 2, where I&rsquo;ll dig into similar details but this time with local playback.</p>
 <p>Also, I hear <a href="https://9to5mac.com/2021/02/18/apple-adds-webm-video-playback-support-to-safari-with-macos-big-sur-11-3?utm_source=singhkays.com">Big Sur 11.3 will finally allow Safari to play VP9 files</a>. If it changes any of the numbers here in any meaningful way, I&rsquo;ll update this blog.</p>
