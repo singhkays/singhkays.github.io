@@ -6,7 +6,16 @@
     <description>Recent content in VLC on KAY SINGH</description>
     <generator>Hugo -- gohugo.io</generator>
     <copyright>Copyright © 2017–2021, Kay Singh; all rights reserved.</copyright>
-    <lastBuildDate>Fri, 02 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/tags/vlc/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 08 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/tags/vlc/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Apple Silicon M1 Power Consumption Deep Dive Part 2: Local Playback</title>
+      <link>https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-2/</link>
+      <pubDate>Sat, 08 May 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-2/</guid>
+      <description>Apple M1 is an amazingly efficient piece of silicon. How much power do you think it consumes while playing 4K and 1080p videos in VLC player? Read on to find out.</description>
+    </item>
+    
     <item>
       <title>Apple Silicon M1 Power Consumption Deep Dive Part 1: Safari vs Chrome</title>
       <link>https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/</link>

@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Apple Silicon M1 Power Consumption Deep Dive Part 2: Local Playback | KAY SINGH</title>
+<meta name="keywords" content="Apple Silicon, M1, Apple, YouTube, Video Decoding, Power Consumption, VLC, Netflix, Safari, Chrome, VP9, HEVC, H.265" />
+<meta name="description" content="Apple M1 is an amazingly efficient piece of silicon. How much power do you think it consumes while playing 4K and 1080p videos in VLC player? Read on to find out.">
+<meta name="author" content="Kay Singh">
+<link rel="canonical" href="https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-2/" />
+<link href="/assets/css/stylesheet.min.008046a736ca917e1b698ee5423c620b52157fe427092ea7d1103ea41befdf2c.css" integrity="sha256-AIBGpzbKkX4baY7lQjxiC1IVf&#43;QnCS6n0RA&#43;pBvv3yw=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://singhkays.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://singhkays.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://singhkays.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://singhkays.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://singhkays.com/android-chrome-512x512.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<meta name="generator" content="Hugo 0.83.1" />
+
+
+<script type="text/javascript">
+  window._mNHandle = window._mNHandle || {};
+  window._mNHandle.queue = window._mNHandle.queue || [];
+  medianet_versionId = "3121199";
+</script>
+<script src="//contextual.media.net/dmedianet.js?cid=8CUX6J71X" async="async"></script>
+
+<script data-ad-client="ca-pub-8046835310934475" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JDVREY790Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JDVREY790Z');
+</script>
+
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+	(i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+	m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+	})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+	ga('create', 'UA-108462543-1', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script><meta property="og:title" content="Apple Silicon M1 Power Consumption Deep Dive Part 2: Local Playback" />
+<meta property="og:description" content="Apple M1 is an amazingly efficient piece of silicon. How much power do you think it consumes while playing 4K and 1080p videos in VLC player? Read on to find out." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-2/" />
+<meta property="og:image" content="https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-2/media/apple-m1-video-playback-consumption-pt2-cover.png" /><meta property="article:section" content="blog" />
+<meta property="article:published_time" content="2021-05-08T00:00:00&#43;00:00" />
+<meta property="article:modified_time" content="2021-04-03T00:34:45-07:00" /><meta property="og:site_name" content="Kay&#39;s Blog" />
+
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:image" content="https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-2/media/apple-m1-video-playback-consumption-pt2-cover.png" />
+<meta name="twitter:title" content="Apple Silicon M1 Power Consumption Deep Dive Part 2: Local Playback"/>
+<meta name="twitter:description" content="Apple M1 is an amazingly efficient piece of silicon. How much power do you think it consumes while playing 4K and 1080p videos in VLC player? Read on to find out."/>
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Blogs",
+      "item": "https://singhkays.com/blog/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Apple Silicon M1 Power Consumption Deep Dive Part 2: Local Playback",
+      "item": "https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-2/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Apple Silicon M1 Power Consumption Deep Dive Part 2: Local Playback",
+  "name": "Apple Silicon M1 Power Consumption Deep Dive Part 2: Local Playback",
+  "description": "Apple M1 is an amazingly efficient piece of silicon. How much power do you think it consumes while playing 4K and 1080p videos in VLC player? Read on to find out.",
+  "keywords": [
+    "Apple Silicon", "M1", "Apple", "YouTube", "Video Decoding", "Power Consumption", "VLC", "Netflix", "Safari", "Chrome", "VP9", "HEVC", "H.265"
+  ],
+  "articleBody": "In Part 1 of this series, I explored Apple M1’s power consumption while streaming video from YouTube and Netflix using Chrome and Safari. Here’s a quick recap of the most important findings in Part 1:\nRecap  The GPU usage on Safari hardware decoding is nearly 0%. In Safari hardware decoding, the GPU frequency is 0 Hz for a sustained period of time. Does this mean the M1 chip can turn the GPU off? This is quite possible because if you look at the Average Power Consumption chart for the same test (Safari hardware decoding), the GPU’s average power consumption was 2mw! Let me type that again. Over 4-5 minutes where the Apple M1 chip played a 4K video in Safari browser, the GPU consumed only 2 milliwatts! The “Other” component is consuming ~2x the power in Safari vs. Chrome. This is most likely due to the T2 chip being leveraged because of hardware DRM implementation.  For the complete set of findings, read Apple Silicon M1 Power Consumption Deep Dive Part 1: Safari vs Chrome\nTesting Methodology Software \u0026 Hardware  MacOS 11.2.2 running in safe mode to limit the effect of background processes and other applications on power consumption VLC 3.0.12.1 (Apple Silicon version)  I’m using VLC because QuickTime player does not open WebM files.   Mac Mini M1 16GB RAM, 256GB SSD (I didn’t have a MacBook so this test represents the power of the M1 components, not the overall system power) Peripherels attached: Apple Magic Keyboard and Magic Trackpad (Bluetooth)  Power Consumption Measurement Power Consumption was measured using Apple’s powermetrics utility. powermetrics is a Mac-only command-line utility that provides many high-quality power-related measurements. It is most useful for getting CPU, GPU and wakeup measurements in a precise and easily scriptable fashion (unlike Activity Monitor and top)\nBelow is a sample log from powermetrics output after running the following command:\nsudo powermetrics -i 1000 --samplers cpu_power,gpu_power -a --hide-cpu-duty-cycle --show-usage-summary --show-extra-power-info -u ~/powerlogs.txt *** Sampled system activity (Thu Feb 11 00:10:50 2021 -0800) (1004.97ms elapsed) *** **** Processor usage **** E-Cluster Power: 14 mW E-Cluster HW active frequency: 1031 MHz E-Cluster HW active residency: 11.15% (600 MHz: 2.8% 972 MHz: 88% 1332 MHz: 2.5% 1704 MHz: 3.0% 2064 MHz: 3.5%) E-Cluster idle residency: 88.85% P-Cluster Power: 16 mW P-Cluster HW active frequency: 712 MHz P-Cluster HW active residency: 2.34% (600 MHz: 90% 828 MHz: .42% 1056 MHz: 1.4% 1284 MHz: 3.0% 1500 MHz: .49% 1728 MHz: .79% 1956 MHz: 1.2% 2184 MHz: .59% 2388 MHz: 1.0% 2592 MHz: 0% 2772 MHz: .40% 2988 MHz: .20% 3096 MHz: 0% 3144 MHz: .20% 3204 MHz: .36%) P-Cluster idle residency: 97.66% ANE Power: 0 mW DRAM Power: 14 mW Clusters Total Power: 30 mW GPU Power: 14 mW Package Power: 99 mW **** GPU usage **** GPU active frequency: 709 MHz GPU active residency: 1.51% (396 MHz: .05% 528 MHz: 0% 720 MHz: 1.5% 924 MHz: 0% 1128 MHz: 0% 1278 MHz: 0%) GPU requested frequency: (396 MHz: 0% 528 MHz: 0% 720 MHz: 1.5% 924 MHz: 0% 1128 MHz: 0% 1278 MHz: 0%) GPU idle residency: 98.49% GPU Power: 14 mW I wrote a custom Python script to parse out these logs and plot the graphs below. For our purpose, I extracted the following fields:\n   Extracted Field Description Represented as     E-Cluster Power Total power consumption of the 4 high-efficiency cores Efficiency Cluster   P-Cluster Power Total power consumption of the 4 high-performance cores Performance Cluster   DRAM Power Power consumption of the embedded RAM DRAM   GPU Power Power consumption of the M1 GPU GPU   Package Power Total power consumption of the M1 chip including the CPU, GPU, DRAM and other components like Thunderbolt and SSD controller, media decoding engines, ISP, Secure Enclave etc. Other    For an overview of the M1 architecture, see Apple’s official product page and the press release.\nIf you’re interested in exploring the code that was used to parse the logs, visit the following Github repo\n https://github.com/singhkays/apple-m1-power-consumption-powermetrics  Videos Tested I’m still testing the same video — “Japan in 8K” — that I used in Part 1.\n   The difference is that this video is now played locally using the venerable VLC player. The video was download to disk using the youtube-dl utility. I focused on two of the most common resolutions today - 1920x1080 (aka Full HD/1080p) \u0026 3840x2160 (aka 4K/2160p) and downloaded the AV1, VP9 and H.264 versions of this video. This gave us the following test matrix.\n   Resolution → Codec ↓ FHD 4K     H.264 ✅ ❌   VP9 ✅ ✅   AV1 ✅ ✅    Like before, there was an idle period of 60 seconds before and after playing the video in both scenarios.\nThe Results Power Consumption Right off the bat, I noticed a couple of things:\n 4K VP9 power consumption is pretty surprising. Given the testing in Part 1, I expected it to be lower for local playback as well. What this means is that VLC is not using M1’s hardware VP9 decoder. The power consumption for AV1 software-decoding is lower than VP9 software-decoding. Not bad for a codec that’s only a couple of years old. Of course, this is because of the fantastic work done by the dav1d decoder team.  For reference, here’s the power consumption of decoding 4K VP9 from Part 1 using M1’s hardware-decoders (represented by Safari-HW and Chrome-HW in the chart. VLC software-decoding is represented as VLC-SW).\nBreaking down the power consumption per component, I noticed:\n “Performance Cluster” power consumption for 4K VP9 is significantly higher than 4K AV1 while “Efficiency Cluster” power consumption is lower. While decoding Full-HD AV1 is not far off of the power consumption of solving Full-HD H.264 using the H.264 hardware decoder in M1. This certainly bodes well if Apple decided to support AV1 software decoding in iOS devices.  CPU \u0026 GPU Usage Looking at the CPU and GPU usage leads to some interesting observations:\n 4K VP9 decoding continues to use more of the “Performance Cluster” compared to 4K AV1 GPU usage is similar across all the videos “Performance Cluster” usage is almost 0% while decoding Full-HD H.264  CPU \u0026 GPU Frequency The frequency charts only confirm the previous discoveries. Specifically:\n While decoding 4K VP9, the “Performance Cluster” almost hits 2.5 GHz, explaining the higher power consumption. AV1 decoding continues to surprise despite being done through software. It’s more efficient than VP9 software-decoding.  Conclusion I was a little disappointed that the M1 cannot hardware decode local VP9 files like it can with Safari. After some internet search-fu, I landed on this Twitter thread that contains a possible explanation.\n1. WebM support is inner of WebKit (and only with MSE), so we can't play WebM with AVFoundation.\n2. We can use VP9 HW Decoder with MP4 file (not WebM), but currently opt-in, so must be enable with new API https://t.co/Xe1R6bMjCX and QT looks like doesn't calling this API.\n— りんすき (@428rinsuki) August 5, 2020  So there’s a chance that this will improve, but for now, at least the 80% scenario of streaming VP9 in the browser works well.\nWhat I’m most excited about is the state of the AV1 codec. I’ve written extensively about AV1 before here, here, and here. AV1 is well on its way to becoming the default codec of the web with traction from YouTube and Netflix. In these tests, AV1 fared much better than VP9, even with software decoding, and it’s only going to get better from here. We’re starting to see hardware decoders for AV1 ship from Nvidia, Intel, AMD, and other manufacturers. It’s only a matter of time before similar hardware decode support comes to Apple Silicon.\nStay tuned for the updates by subscribing to the RSS Feed or the Mailing List.\nBuy If you’re planning on buying an Apple M1 product, you can support this blog by using my affiliate links below:\nMacBook Air M1 (2020)\n Apple MacBook Air with Apple M1 Chip (13-inch, 8GB RAM, 256GB SSD Storage) - Space Gray Apple MacBook Air with Apple M1 Chip (13-inch, 8GB RAM, 512GB SSD Storage) - Space Gray Apple MacBook Air with Apple M1 Chip (13-inch, 16GB RAM, 1TB SSD Storage) - Space Gray  MacBook Pro M1 (2020)\n Apple MacBook Air with Apple M1 Chip (13-inch, 8GB RAM, 256GB SSD Storage) - Space Gray Apple MacBook Pro with Apple M1 Chip (13-inch, 8GB RAM, 512GB SSD Storage) - Silver Apple MacBook Pro with Apple M1 Chip (13-inch, 16GB RAM, 256GB SSD Storage) - Space Gray   Contact Reach out if you have any questions! Feel free to follow me on\n Twitter - @singhkays LinkedIn - https://www.linkedin.com/in/singhkays/  ",
+  "wordCount" : "1417",
+  "inLanguage": "en",
+  "image":"https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-2/media/apple-m1-video-playback-consumption-pt2-cover.png","datePublished": "2021-05-08T00:00:00Z",
+  "dateModified": "2021-04-03T00:34:45-07:00",
+  "author":{
+    "@type": "Person",
+    "name": "Kay Singh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-2/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "KAY SINGH",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://singhkays.com/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+<noscript>
+    <style type="text/css">
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://singhkays.com/" accesskey="h" title="Kay Singh (Alt + H)">
+                <img src="/android-chrome-192x192.png" alt="logo" aria-label="logo"
+                    height="35">Kay Singh</a>
+            <span class="logo-switches">
+            </span>
+        </div>
+        <ul id="menu" onscroll="menu_on_scroll()">
+            <li>
+                <a href="https://singhkays.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://singhkays.com/archives/" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://singhkays.com/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://singhkays.com/contact/" title="Contact">
+                    <span>Contact</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://singhkays.com/index.xml" title="RSS Feed">
+                    <span>RSS Feed</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title">
+      Apple Silicon M1 Power Consumption Deep Dive Part 2: Local Playback
+    </h1>
+    <div class="post-meta">May 8, 2021&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Kay Singh
+</div>
+  </header> 
+<figure class="entry-cover">
+        <img loading="lazy" srcset="https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-2/media/apple-m1-video-playback-consumption-pt2-cover_huf8fd1f7b3db5b06ab66fa1259130a469_129126_360x0_resize_lanczos_2.png 360w ,https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-2/media/apple-m1-video-playback-consumption-pt2-cover_huf8fd1f7b3db5b06ab66fa1259130a469_129126_480x0_resize_lanczos_2.png 480w ,https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-2/media/apple-m1-video-playback-consumption-pt2-cover_huf8fd1f7b3db5b06ab66fa1259130a469_129126_720x0_resize_lanczos_2.png 720w ,https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-2/media/apple-m1-video-playback-consumption-pt2-cover.png 876w"
+            sizes="(min-width: 768px) 720px, 100vw" src="https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-2/media/apple-m1-video-playback-consumption-pt2-cover.png" alt="" />
+        
+</figure><div class="toc">
+    <details  open>
+        <summary accesskey="c" title="(Alt + C)">
+            <div class="details">Table of Contents</div>
+        </summary>
+        <div class="inner"><ul><ul><ul>
+                <li>
+                    <a href="#recap" aria-label="Recap">Recap</a></li></ul>
+                    </ul>
+                    
+                <li>
+                    <a href="#testing-methodology" aria-label="Testing Methodology">Testing Methodology</a><ul>
+                        
+                <li>
+                    <a href="#software--hardware" aria-label="Software &amp;amp; Hardware">Software &amp; Hardware</a></li>
+                <li>
+                    <a href="#power-consumption-measurement" aria-label="Power Consumption Measurement">Power Consumption Measurement</a></li>
+                <li>
+                    <a href="#videos-tested" aria-label="Videos Tested">Videos Tested</a></li></ul>
+                </li>
+                <li>
+                    <a href="#the-results" aria-label="The Results">The Results</a><ul>
+                        
+                <li>
+                    <a href="#power-consumption" aria-label="Power Consumption">Power Consumption</a></li>
+                <li>
+                    <a href="#cpu--gpu-usage" aria-label="CPU &amp;amp; GPU Usage">CPU &amp; GPU Usage</a></li>
+                <li>
+                    <a href="#cpu--gpu-frequency" aria-label="CPU &amp;amp; GPU Frequency">CPU &amp; GPU Frequency</a></li></ul>
+                </li>
+                <li>
+                    <a href="#conclusion" aria-label="Conclusion">Conclusion</a></li>
+                <li>
+                    <a href="#buy" aria-label="Buy">Buy</a></li>
+                <li>
+                    <a href="#contact" aria-label="Contact">Contact</a>
+                </li>
+            </ul>
+        </div>
+    </details>
+</div>
+<center><b> Subscribe to stay in touch with the latest updates </b></center>
+<script async data-uid="75bd47613f" src="https://singhkays.ck.page/75bd47613f/index.js"></script>
+  <div class="post-content"><p><a href="https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/">In Part 1 of this series</a>, I explored Apple M1&rsquo;s power consumption while streaming video from YouTube and Netflix using Chrome and Safari. Here&rsquo;s a quick recap of the most important findings in Part 1:</p>
+<h3 id="recap">Recap<a hidden class="anchor" aria-hidden="true" href="#recap">#</a></h3>
+<ol>
+<li>The GPU usage on Safari hardware decoding is nearly 0%.</li>
+<li>In Safari hardware decoding, the GPU frequency is 0 Hz for a sustained period of time. Does this mean the M1 chip can turn the GPU off? This is quite possible because if you look at the Average Power Consumption chart for the same test (Safari hardware decoding), the GPU&rsquo;s average power consumption was 2mw! Let me type that again. Over 4-5 minutes where the Apple M1 chip played a 4K video in Safari browser, the GPU consumed only 2 milliwatts!</li>
+<li>The &ldquo;Other&rdquo; component is consuming ~2x the power in Safari vs. Chrome. This is most likely due to the T2 chip being leveraged because of hardware DRM implementation.</li>
+</ol>
+<p>For the complete set of findings, read <a href="https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/">Apple Silicon M1 Power Consumption Deep Dive Part 1: Safari vs Chrome</a></p>
+<h1 id="testing-methodology">Testing Methodology<a hidden class="anchor" aria-hidden="true" href="#testing-methodology">#</a></h1>
+<h2 id="software--hardware">Software &amp; Hardware<a hidden class="anchor" aria-hidden="true" href="#software--hardware">#</a></h2>
+<ul>
+<li>MacOS 11.2.2 running in safe mode to limit the effect of background processes and other applications on power consumption</li>
+<li>VLC 3.0.12.1 (Apple Silicon version)
+<ul>
+<li>I&rsquo;m using VLC because QuickTime player does not open WebM files.</li>
+</ul>
+</li>
+<li>Mac Mini M1 16GB RAM, 256GB SSD (<em>I didn&rsquo;t have a MacBook so this test represents the power of the M1 components, not the overall system power</em>)</li>
+<li>Peripherels attached: Apple Magic Keyboard and Magic Trackpad (Bluetooth)</li>
+</ul>
+<h2 id="power-consumption-measurement">Power Consumption Measurement<a hidden class="anchor" aria-hidden="true" href="#power-consumption-measurement">#</a></h2>
+<p>Power Consumption was measured using <a href="https://developer.apple.com/library/archive/documentation/Performance/Conceptual/power_efficiency_guidelines_osx/PrioritizeWorkAtTheTaskLevel.html#//apple_ref/doc/uid/TP40013929-CH35-SW10">Apple&rsquo;s powermetrics utility</a>. <code>powermetrics</code> is a Mac-only command-line utility that provides many high-quality power-related measurements. It is most useful for getting CPU, GPU and wakeup measurements in a precise and easily scriptable fashion (unlike <a href="https://developer.mozilla.org/en-US/docs/Mozilla/Performance/Activity_Monitor_and_top">Activity Monitor and top</a>)</p>
+<p>Below is a sample log from <code>powermetrics</code> output after running the following command:</p>
+<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sudo powermetrics -i <span style="color:#ae81ff">1000</span> --samplers cpu_power,gpu_power -a --hide-cpu-duty-cycle --show-usage-summary --show-extra-power-info -u ~/powerlogs.txt
+</code></pre></div><pre><code>*** Sampled system activity (Thu Feb 11 00:10:50 2021 -0800) (1004.97ms elapsed) ***
+
+**** Processor usage ****
+
+E-Cluster Power: 14 mW
+E-Cluster HW active frequency: 1031 MHz
+E-Cluster HW active residency:  11.15% (600 MHz: 2.8% 972 MHz:  88% 1332 MHz: 2.5% 1704 MHz: 3.0% 2064 MHz: 3.5%)
+E-Cluster idle residency:  88.85%
+
+P-Cluster Power: 16 mW
+P-Cluster HW active frequency: 712 MHz
+P-Cluster HW active residency:   2.34% (600 MHz:  90% 828 MHz: .42% 1056 MHz: 1.4% 1284 MHz: 3.0% 1500 MHz: .49% 1728 MHz: .79% 1956 MHz: 1.2% 2184 MHz: .59% 2388 MHz: 1.0% 2592 MHz:   0% 2772 MHz: .40% 2988 MHz: .20% 3096 MHz:   0% 3144 MHz: .20% 3204 MHz: .36%)
+P-Cluster idle residency:  97.66%
+
+ANE Power: 0 mW
+DRAM Power: 14 mW
+Clusters Total Power: 30 mW
+GPU Power: 14 mW
+Package Power: 99 mW
+
+**** GPU usage ****
+
+GPU active frequency: 709 MHz
+GPU active residency:   1.51% (396 MHz: .05% 528 MHz:   0% 720 MHz: 1.5% 924 MHz:   0% 1128 MHz:   0% 1278 MHz:   0%)
+GPU requested frequency: (396 MHz:   0% 528 MHz:   0% 720 MHz: 1.5% 924 MHz:   0% 1128 MHz:   0% 1278 MHz:   0%)
+GPU idle residency:  98.49%
+GPU Power: 14 mW
+</code></pre><p>I wrote a custom Python script to parse out these logs and plot the graphs below. For our purpose, I extracted the following fields:</p>
+<table>
+<thead>
+<tr>
+<th>Extracted Field</th>
+<th>Description</th>
+<th>Represented as</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>E-Cluster Power</td>
+<td>Total power consumption of the 4 high-efficiency cores</td>
+<td>Efficiency Cluster</td>
+</tr>
+<tr>
+<td>P-Cluster Power</td>
+<td>Total power consumption of the 4 high-performance cores</td>
+<td>Performance Cluster</td>
+</tr>
+<tr>
+<td>DRAM Power</td>
+<td>Power consumption of the embedded RAM</td>
+<td>DRAM</td>
+</tr>
+<tr>
+<td>GPU Power</td>
+<td>Power consumption of the M1 GPU</td>
+<td>GPU</td>
+</tr>
+<tr>
+<td>Package Power</td>
+<td>Total power consumption of the M1 chip including the CPU, GPU, DRAM and other components like Thunderbolt and SSD controller, media decoding engines, ISP, Secure Enclave etc.</td>
+<td>Other</td>
+</tr>
+</tbody>
+</table>
+<p>For an overview of the M1 architecture, see <a href="https://www.apple.com/mac/m1/">Apple&rsquo;s official product page</a> and the <a href="https://www.apple.com/newsroom/2020/11/apple-unleashes-m1/">press release</a>.</p>
+<p>If you&rsquo;re interested in exploring the code that was used to parse the logs, visit the following Github repo</p>
+<ul>
+<li><a href="https://github.com/singhkays/apple-m1-power-consumption-powermetrics">https://github.com/singhkays/apple-m1-power-consumption-powermetrics</a></li>
+</ul>
+<h2 id="videos-tested">Videos Tested<a hidden class="anchor" aria-hidden="true" href="#videos-tested">#</a></h2>
+<p>I&rsquo;m still testing the same video — &ldquo;Japan in 8K&rdquo; — that I used in Part 1.</p>
+<p>
+<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+  <iframe src="https://www.youtube.com/embed/m1jY2VLCRmY" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;" allowfullscreen title="YouTube Video"></iframe>
+</div>
+
+<!-- raw HTML omitted --><!-- raw HTML omitted --></p>
+<p>The difference is that this video is now played locally using the venerable VLC player. The video was download to disk using the <code>youtube-dl</code> utility. I focused on two of the most common resolutions today - <code>1920x1080 (aka Full HD/1080p)</code> &amp; <code>3840x2160 (aka 4K/2160p)</code> and downloaded the AV1, VP9 and H.264 versions of this video. This gave us the following test matrix.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">Resolution → <!-- raw HTML omitted --><!-- raw HTML omitted --> Codec ↓</th>
+<th style="text-align:center">FHD</th>
+<th style="text-align:center">4K</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">H.264</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">❌</td>
+</tr>
+<tr>
+<td style="text-align:center">VP9</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+</tr>
+<tr>
+<td style="text-align:center">AV1</td>
+<td style="text-align:center">✅</td>
+<td style="text-align:center">✅</td>
+</tr>
+</tbody>
+</table>
+<p>Like before, there was an idle period of 60 seconds before and after playing the video in both scenarios.</p>
+<h1 id="the-results">The Results<a hidden class="anchor" aria-hidden="true" href="#the-results">#</a></h1>
+<h2 id="power-consumption">Power Consumption<a hidden class="anchor" aria-hidden="true" href="#power-consumption">#</a></h2>
+<p>Right off the bat, I noticed a couple of things:</p>
+<ol>
+<li>4K VP9 power consumption is pretty surprising. Given the testing in Part 1, I expected it to be lower for local playback as well. What this means is that VLC is not using M1&rsquo;s hardware VP9 decoder.</li>
+<li>The power consumption for AV1 software-decoding is lower than VP9 software-decoding. Not bad for a codec that&rsquo;s only a couple of years old. Of course, this is because of the fantastic work done by the <a href="https://www.videolan.org/projects/dav1d.html">dav1d decoder team</a>.</li>
+</ol>
+<p><img loading="lazy" src="./svg/plotly-power-package.svg" alt=""  />
+</p>
+<p><img loading="lazy" src="./svg/plotly-power-average-total.svg" alt=""  />
+</p>
+<p>For reference, here&rsquo;s the power consumption of decoding 4K VP9 from Part 1 using M1&rsquo;s hardware-decoders (<em>represented by Safari-HW and Chrome-HW in the chart. VLC software-decoding is represented as VLC-SW</em>).</p>
+<p><img loading="lazy" src="./svg/plotly-power-average-total-browser.svg" alt=""  />
+</p>
+<p>Breaking down the power consumption per component, I noticed:</p>
+<ol>
+<li>&ldquo;Performance Cluster&rdquo; power consumption for 4K VP9 is significantly higher than 4K AV1 while &ldquo;Efficiency Cluster&rdquo; power consumption is lower.</li>
+<li>While decoding Full-HD AV1 is not far off of the power consumption of solving Full-HD H.264 using the H.264 hardware decoder in M1. This certainly bodes well if Apple decided to support AV1 software decoding in iOS devices.</li>
+</ol>
+<p><img loading="lazy" src="./svg/plotly-power-average.svg" alt=""  />
+</p>
+<p><img loading="lazy" src="./svg/plotly-power-total.svg" alt=""  />
+</p>
+<h2 id="cpu--gpu-usage">CPU &amp; GPU Usage<a hidden class="anchor" aria-hidden="true" href="#cpu--gpu-usage">#</a></h2>
+<p>Looking at the CPU and GPU usage leads to some interesting observations:</p>
+<ol>
+<li>4K VP9 decoding continues to use more of the &ldquo;Performance Cluster&rdquo; compared to 4K AV1</li>
+<li>GPU usage is similar across all the videos</li>
+<li>&ldquo;Performance Cluster&rdquo; usage is almost 0% while decoding Full-HD H.264</li>
+</ol>
+<p><img loading="lazy" src="./svg/plotly-usage.svg" alt=""  />
+</p>
+<p><img loading="lazy" src="./svg/plotly-usage-average.svg" alt=""  />
+</p>
+<h2 id="cpu--gpu-frequency">CPU &amp; GPU Frequency<a hidden class="anchor" aria-hidden="true" href="#cpu--gpu-frequency">#</a></h2>
+<p>The frequency charts only confirm the previous discoveries. Specifically:</p>
+<ol>
+<li>While decoding 4K VP9, the &ldquo;Performance Cluster&rdquo; almost hits 2.5 GHz, explaining the higher power consumption.</li>
+<li>AV1 decoding continues to surprise despite being done through software. It&rsquo;s more efficient than VP9 software-decoding.</li>
+</ol>
+<p><img loading="lazy" src="./svg/plotly-frequency.svg" alt=""  />
+</p>
+<p><img loading="lazy" src="./svg/plotly-frequency-average.svg" alt=""  />
+</p>
+<h1 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h1>
+<p>I was a little disappointed that the M1 cannot hardware decode local VP9 files like it can with Safari. After some internet search-fu, I landed on this Twitter thread that contains a possible explanation.</p>
+<blockquote class="twitter-tweet"><p lang="en" dir="ltr">1. WebM support is inner of WebKit (and only with MSE), so we can&#39;t play WebM with AVFoundation.<br><br>2. We can use VP9 HW Decoder with MP4 file (not WebM), but currently opt-in, so must be enable with new API <a href="https://t.co/Xe1R6bMjCX">https://t.co/Xe1R6bMjCX</a> and QT looks like doesn&#39;t calling this API.</p>&mdash; りんすき (@428rinsuki) <a href="https://twitter.com/428rinsuki/status/1290977508242780162?ref_src=twsrc%5Etfw">August 5, 2020</a></blockquote>
+<script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+
+<p>So there&rsquo;s a chance that this will improve, but for now, at least the 80% scenario of streaming VP9 in the browser works well.</p>
+<p>What I&rsquo;m most excited about is the state of the AV1 codec. I&rsquo;ve written extensively about AV1 before <a href="https://singhkays.com/blog/its-time-replace-gifs-with-av1-video/">here</a>, <a href="https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-1/">here</a>, and <a href="https://singhkays.com/blog/av1-2019-year-in-review/">here</a>. AV1 is well on its way to becoming the default codec of the web with traction from <a href="https://www.youtube.com/playlist?list=PLyqf6gJt7KuHBmeVzZteZUlNUQAVLwrZS">YouTube</a> and <a href="https://netflixtechblog.com/netflix-now-streaming-av1-on-android-d5264a515202">Netflix</a>. In these tests, AV1 fared much better than VP9, even with software decoding, and it&rsquo;s only going to get better from here. We&rsquo;re starting to see hardware decoders for AV1 ship from <a href="https://www.nvidia.com/en-us/geforce/news/rtx-30-series-av1-decoding/">Nvidia</a>, <a href="https://www.intel.com/content/www/us/en/newsroom/news/11th-gen-tiger-lake-evo.html#gs.0u468p">Intel</a>, <a href="https://www.notebookcheck.net/AMD-joins-NVIDIA-and-Intel-with-enabling-AV1-hardware-acceleration-on-the-Radeon-RX-6000-series.497826.0.html">AMD</a>, and other manufacturers. It&rsquo;s only a matter of time before similar hardware decode support comes to Apple Silicon.</p>
+<p>Stay tuned for the updates by subscribing to the <a href="https://singhkays.com/index.xml">RSS Feed</a> or the <a href="https://singhkays.ck.page/75bd47613f">Mailing List</a>.</p>
+<h1 id="buy">Buy<a hidden class="anchor" aria-hidden="true" href="#buy">#</a></h1>
+<p>If you&rsquo;re planning on buying an Apple M1 product, you can support this blog by using my affiliate links below:</p>
+<p><strong>MacBook Air M1 (2020)</strong></p>
+<ul>
+<li><a href="https://amzn.to/38VTYKW">Apple MacBook Air with Apple M1 Chip (13-inch, 8GB RAM, 256GB SSD Storage) - Space Gray</a></li>
+<li><a href="https://amzn.to/3lsz4Zc">Apple MacBook Air with Apple M1 Chip (13-inch, 8GB RAM, 512GB SSD Storage) - Space Gray</a></li>
+<li><a href="https://amzn.to/3cIEXgO">Apple MacBook Air with Apple M1 Chip (13-inch, 16GB RAM, 1TB SSD Storage) - Space Gray</a></li>
+</ul>
+<p><strong>MacBook Pro M1 (2020)</strong></p>
+<ul>
+<li><a href="https://amzn.to/38YG6zE">Apple MacBook Air with Apple M1 Chip (13-inch, 8GB RAM, 256GB SSD Storage) - Space Gray</a></li>
+<li><a href="https://amzn.to/3seBwVT">Apple MacBook Pro with Apple M1 Chip (13-inch, 8GB RAM, 512GB SSD Storage) - Silver</a></li>
+<li><a href="https://amzn.to/3vziOdo">Apple MacBook Pro with Apple M1 Chip (13-inch, 16GB RAM, 256GB SSD Storage) - Space Gray </a></li>
+</ul>
+<h1 id="contact">Contact<a hidden class="anchor" aria-hidden="true" href="#contact">#</a></h1>
+<p>Reach out if you have any questions! Feel free to follow me on</p>
+<ul>
+<li>Twitter - <a href="https://twitter.com/singhkays">@singhkays</a></li>
+<li>LinkedIn - <a href="https://www.linkedin.com/in/singhkays/">https://www.linkedin.com/in/singhkays/</a></li>
+</ul>
+
+</div>
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://singhkays.com/tags/apple-silicon/">Apple Silicon</a></li>
+      <li><a href="https://singhkays.com/tags/m1/">M1</a></li>
+      <li><a href="https://singhkays.com/tags/apple/">Apple</a></li>
+      <li><a href="https://singhkays.com/tags/youtube/">YouTube</a></li>
+      <li><a href="https://singhkays.com/tags/video-decoding/">Video Decoding</a></li>
+      <li><a href="https://singhkays.com/tags/power-consumption/">Power Consumption</a></li>
+      <li><a href="https://singhkays.com/tags/vlc/">VLC</a></li>
+      <li><a href="https://singhkays.com/tags/netflix/">Netflix</a></li>
+      <li><a href="https://singhkays.com/tags/safari/">Safari</a></li>
+      <li><a href="https://singhkays.com/tags/chrome/">Chrome</a></li>
+      <li><a href="https://singhkays.com/tags/vp9/">VP9</a></li>
+      <li><a href="https://singhkays.com/tags/hevc/">HEVC</a></li>
+      <li><a href="https://singhkays.com/tags/h.265/">H.265</a></li>
+    </ul>
+    <nav class="paginav">
+      <a class="next" href="https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/">
+        <span class="title">Next Page »</span>
+        <br>
+        <span>Apple Silicon M1 Power Consumption Deep Dive Part 1: Safari vs Chrome</span>
+      </a>
+    </nav>
+<div class="share-buttons">
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Apple Silicon M1 Power Consumption Deep Dive Part 2: Local Playback on twitter"
+        href="https://twitter.com/intent/tweet/?text=Apple%20Silicon%20M1%20Power%20Consumption%20Deep%20Dive%20Part%202%3a%20Local%20Playback&amp;url=https%3a%2f%2fsinghkays.com%2fblog%2fapple-silicon-m1-video-power-consumption-pt-2%2f&amp;hashtags=AppleSilicon%2cM1%2cApple%2cYouTube%2cVideoDecoding%2cPowerConsumption%2cVLC%2cNetflix%2cSafari%2cChrome%2cVP9%2cHEVC%2cH.265">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-253.927,424.544c135.939,0 210.268,-112.643 210.268,-210.268c0,-3.218 0,-6.437 -0.153,-9.502c14.406,-10.421 26.973,-23.448 36.935,-38.314c-13.18,5.824 -27.433,9.809 -42.452,11.648c15.326,-9.196 26.973,-23.602 32.49,-40.92c-14.252,8.429 -30.038,14.56 -46.896,17.931c-13.487,-14.406 -32.644,-23.295 -53.946,-23.295c-40.767,0 -73.87,33.104 -73.87,73.87c0,5.824 0.613,11.494 1.992,16.858c-61.456,-3.065 -115.862,-32.49 -152.337,-77.241c-6.284,10.881 -9.962,23.601 -9.962,37.088c0,25.594 13.027,48.276 32.95,61.456c-12.107,-0.307 -23.448,-3.678 -33.41,-9.196l0,0.92c0,35.862 25.441,65.594 59.311,72.49c-6.13,1.686 -12.72,2.606 -19.464,2.606c-4.751,0 -9.348,-0.46 -13.946,-1.38c9.349,29.426 36.628,50.728 68.965,51.341c-25.287,19.771 -57.164,31.571 -91.8,31.571c-5.977,0 -11.801,-0.306 -17.625,-1.073c32.337,21.15 71.264,33.41 112.95,33.41Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Apple Silicon M1 Power Consumption Deep Dive Part 2: Local Playback on linkedin"
+        href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsinghkays.com%2fblog%2fapple-silicon-m1-video-power-consumption-pt-2%2f&amp;title=Apple%20Silicon%20M1%20Power%20Consumption%20Deep%20Dive%20Part%202%3a%20Local%20Playback&amp;summary=Apple%20Silicon%20M1%20Power%20Consumption%20Deep%20Dive%20Part%202%3a%20Local%20Playback&amp;source=https%3a%2f%2fsinghkays.com%2fblog%2fapple-silicon-m1-video-power-consumption-pt-2%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Apple Silicon M1 Power Consumption Deep Dive Part 2: Local Playback on reddit"
+        href="https://reddit.com/submit?url=https%3a%2f%2fsinghkays.com%2fblog%2fapple-silicon-m1-video-power-consumption-pt-2%2f&title=Apple%20Silicon%20M1%20Power%20Consumption%20Deep%20Dive%20Part%202%3a%20Local%20Playback">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Apple Silicon M1 Power Consumption Deep Dive Part 2: Local Playback on facebook"
+        href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fsinghkays.com%2fblog%2fapple-silicon-m1-video-power-consumption-pt-2%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Apple Silicon M1 Power Consumption Deep Dive Part 2: Local Playback on whatsapp"
+        href="https://api.whatsapp.com/send?text=Apple%20Silicon%20M1%20Power%20Consumption%20Deep%20Dive%20Part%202%3a%20Local%20Playback%20-%20https%3a%2f%2fsinghkays.com%2fblog%2fapple-silicon-m1-video-power-consumption-pt-2%2f">
+        <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve">
+            <path
+                d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+        </svg>
+    </a>
+    <a target="_blank" rel="noopener noreferrer" aria-label="share Apple Silicon M1 Power Consumption Deep Dive Part 2: Local Playback on telegram"
+        href="https://telegram.me/share/url?text=Apple%20Silicon%20M1%20Power%20Consumption%20Deep%20Dive%20Part%202%3a%20Local%20Playback&amp;url=https%3a%2f%2fsinghkays.com%2fblog%2fapple-silicon-m1-video-power-consumption-pt-2%2f">
+        <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28">
+            <path
+                d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+        </svg>
+    </a>
+</div>
+
+  </footer>
+</article>
+    </main>
+    <footer class="footer">
+    <span>Copyright © 2017–2021, Kay Singh; all rights reserved.</span>
+    <span>&middot;</span>
+    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
+    <span>&middot;</span>
+    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
+    <button class="top-link" id="top-link" type="button" accesskey="g">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+            <path d="M12 6H0l6-6z" />
+        </svg>
+    </button>
+</a>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "50f40f74d1b240c398f1be6760b6e964"}'></script>
+
+<script defer src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+    onload="hljs.initHighlightingOnLoad();"></script>
+
+<script>
+    window.onload = function () {
+        if (localStorage.getItem("menu-scroll-position")) {
+            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
+        }
+    }
+
+    function menu_on_scroll() {
+        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+</body>
+
+</html>
