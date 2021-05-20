@@ -2,6 +2,33 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>https://singhkays.com/blog/</loc>
+    <lastmod>2021-05-19T23:34:35-07:00</lastmod>
+  </url><url>
+    <loc>https://singhkays.com/tags/calibri/</loc>
+    <lastmod>2021-05-19T23:34:35-07:00</lastmod>
+  </url><url>
+    <loc>https://singhkays.com/categories/</loc>
+    <lastmod>2021-05-19T23:34:35-07:00</lastmod>
+  </url><url>
+    <loc>https://singhkays.com/tags/font/</loc>
+    <lastmod>2021-05-19T23:34:35-07:00</lastmod>
+  </url><url>
+    <loc>https://singhkays.com/tags/microsoft/</loc>
+    <lastmod>2021-05-19T23:34:35-07:00</lastmod>
+  </url><url>
+    <loc>https://singhkays.com/tags/</loc>
+    <lastmod>2021-05-19T23:34:35-07:00</lastmod>
+  </url><url>
+    <loc>https://singhkays.com/blog/microsoft-calibri-replacements/</loc>
+    <lastmod>2021-05-19T23:34:35-07:00</lastmod>
+  </url><url>
+    <loc>https://singhkays.com/tags/typography/</loc>
+    <lastmod>2021-05-19T23:34:35-07:00</lastmod>
+  </url><url>
+    <loc>https://singhkays.com/categories/typography/</loc>
+    <lastmod>2021-05-19T23:34:35-07:00</lastmod>
+  </url><url>
     <loc>https://singhkays.com/tags/apple/</loc>
     <lastmod>2021-05-08T15:58:59-07:00</lastmod>
   </url><url>
@@ -9,12 +36,6 @@
     <lastmod>2021-05-08T15:58:59-07:00</lastmod>
   </url><url>
     <loc>https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-2/</loc>
-    <lastmod>2021-05-08T15:58:59-07:00</lastmod>
-  </url><url>
-    <loc>https://singhkays.com/blog/</loc>
-    <lastmod>2021-05-08T15:58:59-07:00</lastmod>
-  </url><url>
-    <loc>https://singhkays.com/categories/</loc>
     <lastmod>2021-05-08T15:58:59-07:00</lastmod>
   </url><url>
     <loc>https://singhkays.com/tags/chrome/</loc>
@@ -42,9 +63,6 @@
     <lastmod>2021-05-08T15:58:59-07:00</lastmod>
   </url><url>
     <loc>https://singhkays.com/tags/safari/</loc>
-    <lastmod>2021-05-08T15:58:59-07:00</lastmod>
-  </url><url>
-    <loc>https://singhkays.com/tags/</loc>
     <lastmod>2021-05-08T15:58:59-07:00</lastmod>
   </url><url>
     <loc>https://singhkays.com/tags/video-decoding/</loc>
