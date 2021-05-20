@@ -10,7 +10,8 @@
 <meta name="description" content="Kay Singh&#39;s Blog">
 <meta name="author" content="Kay Singh">
 <link rel="canonical" href="https://singhkays.com/tags/libaom/" />
-<link href="/assets/css/stylesheet.min.008046a736ca917e1b698ee5423c620b52157fe427092ea7d1103ea41befdf2c.css" integrity="sha256-AIBGpzbKkX4baY7lQjxiC1IVf&#43;QnCS6n0RA&#43;pBvv3yw=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.d9d1cd3d9fa4d0b86a02da599d4a226feca9f58cbcccce3f6bddd0e3cd48bfa9.css" integrity="sha256-2dHNPZ&#43;k0LhqAtpZnUoib&#43;yp9Yy8zM4/a93Q481Iv6k=" rel="preload stylesheet" as="style">
+<link rel="preload" href="/android-chrome-192x192.png" as="image">
 <link rel="icon" href="https://singhkays.com/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://singhkays.com/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://singhkays.com/favicon-32x32.png">
@@ -19,7 +20,7 @@
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
 <meta name="generator" content="Hugo 0.83.1" />
-<link rel="alternate" type="application/rss&#43;xml" href="https://singhkays.com/tags/libaom/index.xml">
+<link rel="alternate" type="application/rss+xml" href="https://singhkays.com/tags/libaom/index.xml">
 
 
 <script type="text/javascript">
@@ -85,7 +86,7 @@ if (!doNotTrack) {
             <span class="logo-switches">
             </span>
         </div>
-        <ul id="menu" onscroll="menu_on_scroll()">
+        <ul id="menu">
             <li>
                 <a href="https://singhkays.com/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
@@ -232,10 +233,11 @@ SVT-AV1 is making strides! Let’s start with SVT-AV1 encoder, the current encod
     </main>
     <footer class="footer">
     <span>Copyright © 2017–2021, Kay Singh; all rights reserved.</span>
-    <span>&middot;</span>
-    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
-    <span>&middot;</span>
-    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
     <button class="top-link" id="top-link" type="button" accesskey="g">
@@ -248,14 +250,10 @@ SVT-AV1 is making strides! Let’s start with SVT-AV1 encoder, the current encod
 
 
 <script>
-    window.onload = function () {
-        if (localStorage.getItem("menu-scroll-position")) {
-            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
-        }
-    }
-
-    function menu_on_scroll() {
-        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    let menu = document.getElementById('menu')
+    menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+    menu.onscroll = function () {
+        localStorage.setItem("menu-scroll-position", menu.scrollLeft);
     }
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {

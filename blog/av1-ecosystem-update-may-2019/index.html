@@ -12,7 +12,10 @@ SVT-AV1 is making strides! Let&rsquo;s start with SVT-AV1 encoder, the current e
  8 bit / 10 bit 4:2:0 up to 4K60p resolutions Presets 0-8 New API, FFmpeg, GStreamer plugins Rate control support (VBR, CVBR) Block sizes from 4x4 to 128x128 Non-square blocks Tiles Deblocking / CDEF / Restoration filters Film Grain Warped motion estimation Intra block copy Trellis quantized coefficient optimization Support for 4 and 5 layers prediction structures Chroma search in MD Multi-reference picture support  Other notable updates   May also saw the most number of commits to the SVT-AV1 Github repo as shown by the graph below.">
 <meta name="author" content="Kay Singh">
 <link rel="canonical" href="https://singhkays.com/blog/av1-ecosystem-update-may-2019/" />
-<link href="/assets/css/stylesheet.min.008046a736ca917e1b698ee5423c620b52157fe427092ea7d1103ea41befdf2c.css" integrity="sha256-AIBGpzbKkX4baY7lQjxiC1IVf&#43;QnCS6n0RA&#43;pBvv3yw=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.min.d9d1cd3d9fa4d0b86a02da599d4a226feca9f58cbcccce3f6bddd0e3cd48bfa9.css" integrity="sha256-2dHNPZ&#43;k0LhqAtpZnUoib&#43;yp9Yy8zM4/a93Q481Iv6k=" rel="preload stylesheet" as="style">
+<link rel="preload" href="/android-chrome-192x192.png" as="image">
+<script defer crossorigin="anonymous" src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
+    onload="hljs.initHighlightingOnLoad();"></script>
 <link rel="icon" href="https://singhkays.com/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://singhkays.com/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://singhkays.com/favicon-32x32.png">
@@ -148,7 +151,7 @@ SVT-AV1 is making strides! Let&rsquo;s start with SVT-AV1 encoder, the current e
             <span class="logo-switches">
             </span>
         </div>
-        <ul id="menu" onscroll="menu_on_scroll()">
+        <ul id="menu">
             <li>
                 <a href="https://singhkays.com/search/" title="Search (Alt &#43; /)" accesskey=/>
                     <span>Search</span>
@@ -300,18 +303,19 @@ Reach out if you have any questions! Feel free to follow me on</p>
       <li><a href="https://singhkays.com/tags/libaom/">libaom</a></li>
       <li><a href="https://singhkays.com/tags/rav1e/">rav1e</a></li>
     </ul>
-    <nav class="paginav">
-      <a class="prev" href="https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-1/">
-        <span class="title">« Prev Page</span>
-        <br>
-        <span>Part 1: Building a scalable &#39;shot-based&#39; serverless AV1 video encoder in Azure</span>
-      </a>
-      <a class="next" href="https://singhkays.com/blog/av1-wiki-resources-tools/">
-        <span class="title">Next Page »</span>
-        <br>
-        <span>AV1 Resource Central: Videos, Tools, Presentations, Comparisons, Research Papers, Encoders, Decoders</span>
-      </a>
-    </nav>
+<nav class="paginav">
+  <a class="prev" href="https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-1/">
+    <span class="title">« Prev Page</span>
+    <br>
+    <span>Part 1: Building a scalable &#39;shot-based&#39; serverless AV1 video encoder in Azure</span>
+  </a>
+  <a class="next" href="https://singhkays.com/blog/av1-wiki-resources-tools/">
+    <span class="title">Next Page »</span>
+    <br>
+    <span>AV1 Resource Central: Videos, Tools, Presentations, Comparisons, Research Papers, Encoders, Decoders</span>
+  </a>
+</nav>
+
 <div class="share-buttons">
     <a target="_blank" rel="noopener noreferrer" aria-label="share AV1 Ecosystem Update: May 2019 on twitter"
         href="https://twitter.com/intent/tweet/?text=AV1%20Ecosystem%20Update%3a%20May%202019&amp;url=https%3a%2f%2fsinghkays.com%2fblog%2fav1-ecosystem-update-may-2019%2f&amp;hashtags=AV1%2cIntel%2cMozilla%2cFirefox%2cdav1d%2cSVT-AV1%2cCodecs%2cAndroid%2cGoogle%2cVisionular%2cVVC%2cAmphion%2clibaom%2crav1e">
@@ -362,10 +366,11 @@ Reach out if you have any questions! Feel free to follow me on</p>
     </main>
     <footer class="footer">
     <span>Copyright © 2017–2021, Kay Singh; all rights reserved.</span>
-    <span>&middot;</span>
-    <span>Powered by <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a></span>
-    <span>&middot;</span>
-    <span>Theme <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a></span>
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://git.io/hugopapermod" rel="noopener" target="_blank">PaperMod</a>
+    </span>
 </footer>
 <a href="#top" aria-label="go to top" title="Go to Top (Alt + G)">
     <button class="top-link" id="top-link" type="button" accesskey="g">
@@ -376,18 +381,12 @@ Reach out if you have any questions! Feel free to follow me on</p>
 </a>
 <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "50f40f74d1b240c398f1be6760b6e964"}'></script>
 
-<script defer src="/assets/js/highlight.min.7680afc38aa6b15ddf158a4f3780b7b1f7dde7e91d26f073e6229bb7a0793c92.js" integrity="sha256-doCvw4qmsV3fFYpPN4C3sffd5&#43;kdJvBz5iKbt6B5PJI="
-    onload="hljs.initHighlightingOnLoad();"></script>
 
 <script>
-    window.onload = function () {
-        if (localStorage.getItem("menu-scroll-position")) {
-            document.getElementById('menu').scrollLeft = localStorage.getItem("menu-scroll-position");
-        }
-    }
-
-    function menu_on_scroll() {
-        localStorage.setItem("menu-scroll-position", document.getElementById('menu').scrollLeft);
+    let menu = document.getElementById('menu')
+    menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+    menu.onscroll = function () {
+        localStorage.setItem("menu-scroll-position", menu.scrollLeft);
     }
 
     document.querySelectorAll('a[href^="#"]').forEach(anchor => {
