@@ -21,7 +21,7 @@
 <link rel="mask-icon" href="https://singhkays.com/android-chrome-512x512.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.83.1" />
+<meta name="generator" content="Hugo 0.87.0" />
 
 
 <script type="text/javascript">
@@ -186,7 +186,7 @@ if (!doNotTrack) {
 </div>
   </header> 
 <figure class="entry-cover">
-        <img loading="lazy" srcset="https://singhkays.com/blog/its-time-replace-gifs-with-av1-video/media/aint-nobody-got-time-for-gif_hu02e4cc70f3fa4246eb397fd85b9e39a8_515478_360x0_resize_lanczos_2.png 360w ,https://singhkays.com/blog/its-time-replace-gifs-with-av1-video/media/aint-nobody-got-time-for-gif_hu02e4cc70f3fa4246eb397fd85b9e39a8_515478_480x0_resize_lanczos_2.png 480w ,https://singhkays.com/blog/its-time-replace-gifs-with-av1-video/media/aint-nobody-got-time-for-gif_hu02e4cc70f3fa4246eb397fd85b9e39a8_515478_720x0_resize_lanczos_2.png 720w ,https://singhkays.com/blog/its-time-replace-gifs-with-av1-video/media/aint-nobody-got-time-for-gif.png 779w"
+        <img loading="lazy" srcset="https://singhkays.com/blog/its-time-replace-gifs-with-av1-video/media/aint-nobody-got-time-for-gif_hu02e4cc70f3fa4246eb397fd85b9e39a8_515478_360x0_resize_lanczos_3.png 360w ,https://singhkays.com/blog/its-time-replace-gifs-with-av1-video/media/aint-nobody-got-time-for-gif_hu02e4cc70f3fa4246eb397fd85b9e39a8_515478_480x0_resize_lanczos_3.png 480w ,https://singhkays.com/blog/its-time-replace-gifs-with-av1-video/media/aint-nobody-got-time-for-gif_hu02e4cc70f3fa4246eb397fd85b9e39a8_515478_720x0_resize_lanczos_3.png 720w ,https://singhkays.com/blog/its-time-replace-gifs-with-av1-video/media/aint-nobody-got-time-for-gif.png 779w"
             sizes="(min-width: 768px) 720px, 100vw" src="https://singhkays.com/blog/its-time-replace-gifs-with-av1-video/media/aint-nobody-got-time-for-gif.png" alt="" />
         
 </figure>
@@ -247,7 +247,7 @@ Exciting! :)</p>
 <p>For smartphones, the support is lacking at present but that&rsquo;s to be expected due to the lack of hardware decoders. Without hardware decoders, the decoding can be done in software without any hiccups but it would cause an increase in battery consumption. The first set of mobile SOCs with hardware decoding support for AV1 are expected to come to market in 2020.</p>
 <h4 id="target-audience-of-this-article-aka-if-mobile-users-cant-decode-then-why-adopt-av1">Target audience of this article AKA &ldquo;If mobile users can&rsquo;t decode, then why adopt AV1?&rdquo;<a hidden class="anchor" aria-hidden="true" href="#target-audience-of-this-article-aka-if-mobile-users-cant-decode-then-why-adopt-av1">#</a></h4>
 <p>AV1 is a fairly new codec and we&rsquo;re at the beginning of it&rsquo;s adoption curve. Think of this article as the build-it phase of &ldquo;If you build it, they will come&rdquo; approach. We know with desktop browser support, we can enable a subset of the market and reduce the amount of data downloaded. We an also employ a strategy where we can fallback to supported codecs on user devices if AV1 support is not enabled. When these users upgrade to devices with AV1 support, they will automatically get the smaller AV1 video. To enable this we&rsquo;ll need to create a video tag like below which will allow us to serve the videos in this preference order - <strong>AV1</strong>-&gt;<strong>VP9</strong>-&gt;<strong>H.264</strong>. If a user has a really old browser or a device that cannot decode any of the videos <em>(highly unlikely with H264 video inluded)</em>, then they would just get the GIF file 😞</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">video</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;display:block; margin: 0 auto;&#34;</span> <span style="color:#a6e22e">autoplay</span> <span style="color:#a6e22e">loop</span> <span style="color:#a6e22e">muted</span> <span style="color:#a6e22e">playsinline</span> <span style="color:#a6e22e">poster</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;RollingCredits.jpg&#34;</span>&gt;
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-html" data-lang="html">&lt;<span style="color:#f92672">video</span> <span style="color:#a6e22e">style</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;display:block; margin: 0 auto;&#34;</span> <span style="color:#a6e22e">autoplay</span> <span style="color:#a6e22e">loop</span> <span style="color:#a6e22e">muted</span> <span style="color:#a6e22e">playsinline</span> <span style="color:#a6e22e">poster</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;RollingCredits.jpg&#34;</span>&gt;
   &lt;<span style="color:#f92672">source</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;media/RollingCredits.av1.mp4&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;video/mp4&#34;</span>&gt;
   &lt;<span style="color:#f92672">source</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;media/RollingCredits.vp9.webm&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;video/webm&#34;</span>&gt;
   &lt;<span style="color:#f92672">source</span> <span style="color:#a6e22e">src</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;media/RollingCredits.x264.mp4&#34;</span> <span style="color:#a6e22e">type</span><span style="color:#f92672">=</span><span style="color:#e6db74">&#34;video/mp4&#34;</span>&gt;
@@ -261,7 +261,7 @@ mode to achieve a target bitrate. For this, we’ll run ffmpeg twice.
 In the first pass we’ll output to a null file descriptor, not
 an actual file. This generates a logfile that ffmpeg needs for the
 second pass.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Linux or Mac</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash"><span style="color:#75715e"># Linux or Mac</span>
 <span style="color:#75715e">## Pass 1</span>
 ffmpeg -i input.mp4 -c:v libaom-av1 -b:v 200k -filter:v scale<span style="color:#f92672">=</span>720:-1 -strict experimental -cpu-used <span style="color:#ae81ff">1</span> -tile-columns <span style="color:#ae81ff">2</span> -row-mt <span style="color:#ae81ff">1</span> -threads <span style="color:#ae81ff">8</span> -pass <span style="color:#ae81ff">1</span> -f mp4 /dev/null <span style="color:#f92672">&amp;&amp;</span> <span style="color:#ae81ff">\
 </span><span style="color:#ae81ff"></span><span style="color:#75715e">## Pass 2</span>
@@ -301,7 +301,7 @@ ffmpeg.exe -i input.mp4 -pix_fmt yuv420p -movflags faststart -c:v libaom-av1 -b:
 
 </code></pre><h2 id="gif-recipe">GIF recipe<a hidden class="anchor" aria-hidden="true" href="#gif-recipe">#</a></h2>
 <p>For generating the GIF, I used the below command. To reduce the size of the GIF, I scaled the GIF to 720px wide and 12 fps instead of 24 fps source video.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./ffmpeg -i /mnt/c/Users/kasing/Desktop/ToS.mov -ss 00:08:08 -t <span style="color:#ae81ff">12</span>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">./ffmpeg -i /mnt/c/Users/kasing/Desktop/ToS.mov -ss 00:08:08 -t <span style="color:#ae81ff">12</span>
 -filter_complex <span style="color:#e6db74">&#34;[0:v] fps=12,scale=720:-1&#34;</span> -y scene2.gif
 </code></pre></div><!-- raw HTML omitted -->
 <h2 id="test-results">Test Results<a hidden class="anchor" aria-hidden="true" href="#test-results">#</a></h2>

@@ -21,7 +21,7 @@
 <link rel="mask-icon" href="https://singhkays.com/android-chrome-512x512.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.83.1" />
+<meta name="generator" content="Hugo 0.87.0" />
 
 
 <script type="text/javascript">
@@ -186,7 +186,7 @@ if (!doNotTrack) {
 </div>
   </header> 
 <figure class="entry-cover">
-        <img loading="lazy" srcset="https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/media/serverless-av1_hu50128734b74bf29ac20ac761b6575f84_112807_360x0_resize_lanczos_2.png 360w ,https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/media/serverless-av1_hu50128734b74bf29ac20ac761b6575f84_112807_480x0_resize_lanczos_2.png 480w ,https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/media/serverless-av1_hu50128734b74bf29ac20ac761b6575f84_112807_720x0_resize_lanczos_2.png 720w ,https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/media/serverless-av1_hu50128734b74bf29ac20ac761b6575f84_112807_1080x0_resize_lanczos_2.png 1080w ,https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/media/serverless-av1_hu50128734b74bf29ac20ac761b6575f84_112807_1500x0_resize_lanczos_2.png 1500w ,https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/media/serverless-av1.png 2771w"
+        <img loading="lazy" srcset="https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/media/serverless-av1_hu50128734b74bf29ac20ac761b6575f84_112807_360x0_resize_lanczos_3.png 360w ,https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/media/serverless-av1_hu50128734b74bf29ac20ac761b6575f84_112807_480x0_resize_lanczos_3.png 480w ,https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/media/serverless-av1_hu50128734b74bf29ac20ac761b6575f84_112807_720x0_resize_lanczos_3.png 720w ,https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/media/serverless-av1_hu50128734b74bf29ac20ac761b6575f84_112807_1080x0_resize_lanczos_3.png 1080w ,https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/media/serverless-av1_hu50128734b74bf29ac20ac761b6575f84_112807_1500x0_resize_lanczos_3.png 1500w ,https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/media/serverless-av1.png 2771w"
             sizes="(min-width: 768px) 720px, 100vw" src="https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/media/serverless-av1.png" alt="" />
         
 </figure>
@@ -217,7 +217,7 @@ if (!doNotTrack) {
 <p><img loading="lazy" src="media/3-azure-av1-encoder-video-indexer-get-video-index.png" alt="azure-av1-encoder-video-indexer-get-video-index"  />
 </p>
 <p>a. The tricky part is the video id field as that is available as &ldquo;dynamic content&rdquo; as of this writing. After a bit of trial and error and looking at the output of the &ldquo;When a HTTP request is received&rdquo; step, I saw the video id was a field that was returned in the output JSON. Here&rsquo;s an example output of the HTTP request step</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">{
     <span style="color:#f92672">&#34;headers&#34;</span>: {
         <span style="color:#f92672">&#34;Connection&#34;</span>: <span style="color:#e6db74">&#34;Keep-Alive&#34;</span>,
         <span style="color:#f92672">&#34;Host&#34;</span>: <span style="color:#e6db74">&#34;prod-19.westus2.logic.azure.com&#34;</span>,
@@ -330,7 +330,7 @@ if (!doNotTrack) {
 <p>It&rsquo;s time to put the individual encoded shots together into a singular video file. To do this we&rsquo;ll create a container instance like shown below and pass in the requisite commands.</p>
 <p>You can use the following JSON definitions</p>
 <p><strong>Containers</strong> &ndash;</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
 {
     <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;concat-ffmpeg&#34;</span>,
     <span style="color:#f92672">&#34;properties&#34;</span>: {
@@ -375,7 +375,7 @@ if (!doNotTrack) {
 }
 ]
 </code></pre></div><p><strong>Volumes</strong> (don’t forget to first add this additional parameter)</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-json" data-lang="json">[
     {
         <span style="color:#f92672">&#34;azureFile&#34;</span>: {
         <span style="color:#f92672">&#34;readOnly&#34;</span>: <span style="color:#66d9ef">true</span>,

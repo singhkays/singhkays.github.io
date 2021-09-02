@@ -22,7 +22,7 @@ Here&rsquo;s an example AzureRM resource Id for reference">
 <link rel="mask-icon" href="https://singhkays.com/android-chrome-512x512.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.83.1" />
+<meta name="generator" content="Hugo 0.87.0" />
 
 
 <script type="text/javascript">
@@ -189,7 +189,7 @@ Here&rsquo;s an example AzureRM resource Id for reference"/>
 </div>
   </header> 
 <figure class="entry-cover">
-        <img loading="lazy" srcset="https://singhkays.com/blog/azure-automation-runbook-output-logic-apps/media/logic-app-send-email_hu37a7ef70f94e61683b4c3315160b6c29_50822_360x0_resize_lanczos_2.png 360w ,https://singhkays.com/blog/azure-automation-runbook-output-logic-apps/media/logic-app-send-email_hu37a7ef70f94e61683b4c3315160b6c29_50822_480x0_resize_lanczos_2.png 480w ,https://singhkays.com/blog/azure-automation-runbook-output-logic-apps/media/logic-app-send-email.png 670w"
+        <img loading="lazy" srcset="https://singhkays.com/blog/azure-automation-runbook-output-logic-apps/media/logic-app-send-email_hu37a7ef70f94e61683b4c3315160b6c29_50822_360x0_resize_lanczos_3.png 360w ,https://singhkays.com/blog/azure-automation-runbook-output-logic-apps/media/logic-app-send-email_hu37a7ef70f94e61683b4c3315160b6c29_50822_480x0_resize_lanczos_3.png 480w ,https://singhkays.com/blog/azure-automation-runbook-output-logic-apps/media/logic-app-send-email.png 670w"
             sizes="(min-width: 768px) 720px, 100vw" src="https://singhkays.com/blog/azure-automation-runbook-output-logic-apps/media/logic-app-send-email.png" alt="" />
         
 </figure>
@@ -198,7 +198,7 @@ Here&rsquo;s an example AzureRM resource Id for reference"/>
 <p>Here&rsquo;s an example AzureRM resource Id for reference</p>
 <pre><code>/subscriptions/12345678-abcd-4179-8ab1-sda1231sada/resourcegroups/some-rg/providers/Microsoft.Compute/disks/somedisk
 </code></pre><p>The expected output of the above should be</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Resource Group Name   = some-rg
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell">Resource Group Name   = some-rg
 Resource Name         = somedisk
 Subscription Name     = Visual Studio Ultimate with MSDN
 </code></pre></div><blockquote>
@@ -210,7 +210,7 @@ Subscription Name     = Visual Studio Ultimate with MSDN
 </code></pre><p>Using the above knowledge, parsing out the required fields is relatively trivial using one of the string manipulation functions in your favorite scripting/programming language. However, because we need to make an authenticated call to Azure to get the name of the subscription for the corresponding subscription Id, I decided to use Azure Automation. The benefit of Azure Automation over another serverless service like Azure Functions is that Azure PowerShell modules are available without you having to figure out the installation.</p>
 <h2 id="solution">Solution<a hidden class="anchor" aria-hidden="true" href="#solution">#</a></h2>
 <p>Here&rsquo;s the PowerShell (not PowerShell workflow) runbook I wrote for Azure Automation. To pass the data on to the Logic Apps, I convert the output into a JSON object. The reason for doing this is that there is a Logic Apps <a href="https://docs.microsoft.com/en-us/azure/connectors/apis-list#message-manipulation-actions">Parse JSON</a> connector that makes reading the Azure Automation output a breeze.</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">param</span>(
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-powershell" data-lang="powershell"><span style="color:#66d9ef">param</span>(
     <span style="color:#66d9ef">[string]</span>$id
 )
 

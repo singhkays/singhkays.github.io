@@ -23,7 +23,7 @@ sed: 1: &#34;i2.html&#34;: command i expects \ followed by text I spent a bunch 
 <link rel="mask-icon" href="https://singhkays.com/android-chrome-512x512.png">
 <meta name="theme-color" content="#2e2e33">
 <meta name="msapplication-TileColor" content="#2e2e33">
-<meta name="generator" content="Hugo 0.83.1" />
+<meta name="generator" content="Hugo 0.87.0" />
 
 
 <script type="text/javascript">
@@ -197,10 +197,10 @@ sed: 1: &#34;i2.html&#34;: command i expects \ followed by text I spent a bunch 
         
 </figure>
   <div class="post-content"><p>I ran into a very weird error today. While trying to automate the deployment for this blog, I needed to replace a string in a file. The internet tutorials [<a href="https://linuxhint.com/replace_string_in_file_bash/">1</a>, <a href="https://clubmate.fi/replace-strings-in-files-with-the-sed-bash-command/">2</a>, <a href="https://linuxize.com/post/how-to-use-sed-to-find-and-replace-string-in-files/">3</a>, <a href="https://www.diskinternals.com/linux-reader/shell-script-replace-string-in-file/">4</a>] told me that <code>sed</code> would be perfect for this job and the following command should work:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sed -i <span style="color:#e6db74">&#39;s/search_string/replace_string/&#39;</span> filename
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sed -i <span style="color:#e6db74">&#39;s/search_string/replace_string/&#39;</span> filename
 </code></pre></div><h1 id="the-error">The Error<a hidden class="anchor" aria-hidden="true" href="#the-error">#</a></h1>
 <p>However, I kept getting tripped up by the following error:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sed: 1: <span style="color:#e6db74">&#34;i2.html&#34;</span>: command i expects <span style="color:#ae81ff">\ </span>followed by text
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-bash" data-lang="bash">sed: 1: <span style="color:#e6db74">&#34;i2.html&#34;</span>: command i expects <span style="color:#ae81ff">\ </span>followed by text
 </code></pre></div><p>I spent a bunch of time trying to make sure I escaped the right characters in my strings but the error was persistent! What a nuisance! 😭</p>
 <!-- raw HTML omitted -->
 <h1 id="the-issue">The Issue<a hidden class="anchor" aria-hidden="true" href="#the-issue">#</a></h1>
@@ -212,9 +212,9 @@ sed: 1: &#34;i2.html&#34;: command i expects \ followed by text I spent a bunch 
 <p>It turns out that providing the backup extension is required when using the <code>-i</code> switch. <a href="https://stackoverflow.com/a/14813278">chipiik provides the answer that works!</a></p>
 <blockquote>
 <p>This works with both GNU and BSD versions of sed:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sed -i<span style="color:#e6db74">&#39;&#39;</span> -e <span style="color:#e6db74">&#39;s/old_link/new_link/g&#39;</span> *
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sed -i<span style="color:#e6db74">&#39;&#39;</span> -e <span style="color:#e6db74">&#39;s/old_link/new_link/g&#39;</span> *
 </code></pre></div><p>or with backup:</p>
-<div class="highlight"><pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sed -i<span style="color:#e6db74">&#39;.bak&#39;</span> -e <span style="color:#e6db74">&#39;s/old_link/new_link/g&#39;</span> *
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-sh" data-lang="sh">sed -i<span style="color:#e6db74">&#39;.bak&#39;</span> -e <span style="color:#e6db74">&#39;s/old_link/new_link/g&#39;</span> *
 </code></pre></div><p>Note missing space after <code>-i</code> option! (Necessary for GNU sed)</p>
 </blockquote>
 <h1 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h1>
