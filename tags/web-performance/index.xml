@@ -4,17 +4,26 @@
     <title>Web Performance on KAY SINGH</title>
     <link>https://singhkays.com/tags/web-performance/</link>
     <description>Recent content in Web Performance on KAY SINGH</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright © 2017–2021, Kay Singh; all rights reserved.</copyright>
-    <lastBuildDate>Sun, 28 Apr 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/tags/web-performance/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.149.0</generator>
+    <language>en</language>
+    <copyright>Copyright © 2025, Kay Singh; all rights reserved.</copyright>
+    <lastBuildDate>Sat, 03 Apr 2021 00:34:45 -0700</lastBuildDate>
+    <atom:link href="https://singhkays.com/tags/web-performance/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>It&#39;s time to replace GIFs with AV1 video!</title>
       <link>https://singhkays.com/blog/its-time-replace-gifs-with-av1-video/</link>
       <pubDate>Sun, 28 Apr 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://singhkays.com/blog/its-time-replace-gifs-with-av1-video/</guid>
-      <description>It is 2019 and we need to make a decision about GIFs (no, not that one! We’re never going to be able to decide that one!). GIFs take up a massive amount of space (often multiple megabytes!) and if you’re a web developer, then that’s completely against your ethos! As a web developer, you want to minimize the bits your users need to download so that your website loads fast. That’s why you minify javascript, optimize PNGs, JPEGs and sometimes turn JPEGs to WebPs as well.</description>
+      <description>&lt;p&gt;It is 2019 and we need to make a decision about GIFs (&lt;a href=&#34;https://bits.blogs.nytimes.com/2013/05/23/battle-over-gif-pronunciation-erupts/&#34;&gt;no, not that
+one! We’re never going to be able to decide that
+one!&lt;/a&gt;).
+GIFs take up a massive amount of space &lt;em&gt;(often multiple megabytes!)&lt;/em&gt; and
+if you’re a web developer, then that’s completely against your ethos! As a
+web developer, you want to minimize the bits your users need to download
+so that your website loads fast. That’s why you minify javascript,
+optimize PNGs, JPEGs and sometimes turn &lt;a href=&#34;https://developers.google.com/speed/webp/&#34;&gt;JPEGs to WebPs as
+well&lt;/a&gt;. But then what about
+the venerable GIF?&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

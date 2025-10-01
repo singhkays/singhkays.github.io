@@ -4,27 +4,34 @@
     <title>Push Notifications on KAY SINGH</title>
     <link>https://singhkays.com/tags/push-notifications/</link>
     <description>Recent content in Push Notifications on KAY SINGH</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright © 2017–2021, Kay Singh; all rights reserved.</copyright>
-    <lastBuildDate>Thu, 02 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/tags/push-notifications/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.149.0</generator>
+    <language>en</language>
+    <copyright>Copyright © 2025, Kay Singh; all rights reserved.</copyright>
+    <lastBuildDate>Tue, 26 Jan 2021 00:18:12 -0800</lastBuildDate>
+    <atom:link href="https://singhkays.com/tags/push-notifications/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to Customize LinkedIn Android App Notifications</title>
       <link>https://singhkays.com/blog/customize-linkedin-android-app-notifications/</link>
       <pubDate>Thu, 02 Jan 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://singhkays.com/blog/customize-linkedin-android-app-notifications/</guid>
-      <description>I recently discovered the importance of being in control of the notifications on your smartphone. When my recent LinkedIn post went viral, I received many comments and connection requests, which led to a constant buzzing of notifications from the LinkedIn app on my phone. This is never fun when you’re trying to concentrate 😊
-Pre-Requisites  Install the LinkedIn Android app . A fairly recent version of Android. This guide is based on Android 9 behavior.</description>
+      <description>&lt;p&gt;I recently discovered the importance of being in control of the notifications on your smartphone. When my &lt;a href=&#34;https://www.singhkays.com/blog/what-happens-when-your-linkedin-post-goes-viral/&#34;&gt;recent LinkedIn post went viral&lt;/a&gt;, I received many comments and connection requests, which led to a constant buzzing of notifications from the LinkedIn app on my phone. This is never fun when you’re trying to concentrate 😊&lt;/p&gt;
+&lt;h2 id=&#34;pre-requisites&#34;&gt;Pre-Requisites&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Install the LinkedIn Android app .&lt;/li&gt;
+&lt;li&gt;A fairly recent version of Android. This guide is based on Android 9 behavior.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;steps-to-customize-the-app-notifications&#34;&gt;Steps to customize the app notifications&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;To get started, locate the LinkedIn app in your app drawer or on the home screen.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>What Happens When Your LinkedIn post goes viral!</title>
       <link>https://singhkays.com/blog/what-happens-when-your-linkedin-post-goes-viral/</link>
       <pubDate>Thu, 02 Jan 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://singhkays.com/blog/what-happens-when-your-linkedin-post-goes-viral/</guid>
-      <description>What is LinkedIn? I have never really discovered the value of LinkedIn until about a year ago when I started using it seriously to search for a new job opportunity. I have always viewed it as a Facebook clone with a horrible and inconsistent UI. But I was surprised to discover that LinkedIn had updated their UI with a copy-paste job from Facebook. Using LinkedIn is now a much more pleasant experience!</description>
+      <description>&lt;h1 id=&#34;what-is-linkedin&#34;&gt;What is LinkedIn?&lt;/h1&gt;
+&lt;p&gt;I have never really discovered the value of LinkedIn until about a year ago when I started using it seriously to search for a new job opportunity. I have always viewed it as a Facebook clone with a horrible and inconsistent UI. But I was surprised to discover that LinkedIn had updated their UI with a copy-paste job from Facebook. Using LinkedIn is now a much more pleasant experience!&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

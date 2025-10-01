@@ -4,19 +4,22 @@
     <title>Developer on KAY SINGH</title>
     <link>https://singhkays.com/tags/developer/</link>
     <description>Recent content in Developer on KAY SINGH</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright © 2017–2021, Kay Singh; all rights reserved.</copyright>
-    <lastBuildDate>Thu, 10 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/tags/developer/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.149.0</generator>
+    <language>en</language>
+    <copyright>Copyright © 2025, Kay Singh; all rights reserved.</copyright>
+    <lastBuildDate>Sat, 03 Apr 2021 00:34:45 -0700</lastBuildDate>
+    <atom:link href="https://singhkays.com/tags/developer/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Fixing &#34;sed: command i expects \ followed by text&#34; error</title>
       <link>https://singhkays.com/blog/sed-error-i-expects-followed-by-text/</link>
       <pubDate>Thu, 10 Dec 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://singhkays.com/blog/sed-error-i-expects-followed-by-text/</guid>
-      <description>I ran into a very weird error today. While trying to automate the deployment for this blog, I needed to replace a string in a file. The internet tutorials [1, 2, 3, 4] told me that sed would be perfect for this job and the following command should work:
-sed -i &amp;#39;s/search_string/replace_string/&amp;#39; filename The Error However, I kept getting tripped up by the following error:
-sed: 1: &amp;#34;i2.html&amp;#34;: command i expects \ followed by text I spent a bunch of time trying to make sure I escaped the right characters in my strings but the error was persistent!</description>
+      <description>&lt;p&gt;I ran into a very weird error today. While trying to automate the deployment for this blog, I needed to replace a string in a file. The internet tutorials [&lt;a href=&#34;https://linuxhint.com/replace_string_in_file_bash/&#34;&gt;1&lt;/a&gt;, &lt;a href=&#34;https://clubmate.fi/replace-strings-in-files-with-the-sed-bash-command/&#34;&gt;2&lt;/a&gt;, &lt;a href=&#34;https://linuxize.com/post/how-to-use-sed-to-find-and-replace-string-in-files/&#34;&gt;3&lt;/a&gt;, &lt;a href=&#34;https://www.diskinternals.com/linux-reader/shell-script-replace-string-in-file/&#34;&gt;4&lt;/a&gt;] told me that &lt;code&gt;sed&lt;/code&gt; would be perfect for this job and the following command should work:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sed -i &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#39;s/search_string/replace_string/&amp;#39;&lt;/span&gt; filename
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;h1 id=&#34;the-error&#34;&gt;The Error&lt;/h1&gt;
+&lt;p&gt;However, I kept getting tripped up by the following error:&lt;/p&gt;
+&lt;div class=&#34;highlight&#34;&gt;&lt;pre tabindex=&#34;0&#34; style=&#34;color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;&#34;&gt;&lt;code class=&#34;language-bash&#34; data-lang=&#34;bash&#34;&gt;&lt;span style=&#34;display:flex;&#34;&gt;&lt;span&gt;sed: 1: &lt;span style=&#34;color:#e6db74&#34;&gt;&amp;#34;i2.html&amp;#34;&lt;/span&gt;: command i expects &lt;span style=&#34;color:#ae81ff&#34;&gt;\ &lt;/span&gt;followed by text
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;&lt;p&gt;I spent a bunch of time trying to make sure I escaped the right characters in my strings but the error was persistent! What a nuisance! 😭&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

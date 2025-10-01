@@ -4,19 +4,34 @@
     <title>AI on KAY SINGH</title>
     <link>https://singhkays.com/tags/ai/</link>
     <description>Recent content in AI on KAY SINGH</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright © 2017–2021, Kay Singh; all rights reserved.</copyright>
-    <lastBuildDate>Thu, 11 Apr 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/tags/ai/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.149.0</generator>
+    <language>en</language>
+    <copyright>Copyright © 2025, Kay Singh; all rights reserved.</copyright>
+    <lastBuildDate>Sat, 03 Apr 2021 00:34:45 -0700</lastBuildDate>
+    <atom:link href="https://singhkays.com/tags/ai/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Detect Rolling Credits with Azure Video Indexer</title>
       <link>https://singhkays.com/blog/detect-rolling-credits-video-indexer/</link>
       <pubDate>Thu, 11 Apr 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://singhkays.com/blog/detect-rolling-credits-video-indexer/</guid>
-      <description>Azure Video Indexer is one of my favorite services! It provides some amazing features such as:
- Identify faces and celebrities Extract text and objects (e.g. cat, table, car etc.) Detect scenes and shots Emotion and sentiment detection Audio effects such as clapping, silence &amp;amp; speech  The full list of features can be viewed at https://vi.microsoft.com/en-us/
-Get the credits rolling! Recently, Video Indexer announced they’ve added the capability to detect rolling credits in the videos.</description>
+      <description>&lt;p&gt;Azure Video Indexer is one of my favorite services! It provides
+some amazing features such as:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Identify faces and celebrities&lt;/li&gt;
+&lt;li&gt;Extract text and objects (e.g. cat, table, car etc.)&lt;/li&gt;
+&lt;li&gt;Detect scenes and shots&lt;/li&gt;
+&lt;li&gt;Emotion and sentiment detection&lt;/li&gt;
+&lt;li&gt;Audio effects such as clapping, silence &amp;amp; speech&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;The full list of features can be viewed at &lt;a href=&#34;https://vi.microsoft.com/en-us/&#34;&gt;https://vi.microsoft.com/en-us/&lt;/a&gt;&lt;/p&gt;
+&lt;h2 id=&#34;get-the-credits-rolling&#34;&gt;Get the credits rolling!&lt;/h2&gt;
+&lt;p&gt;Recently, &lt;a href=&#34;https://azure.microsoft.com/en-us/blog/azure-media-services-the-latest-video-indexer-updates-from-nab-show-2019/&#34;&gt;Video Indexer announced they’ve added the capability to
+detect rolling credits in the
+videos&lt;/a&gt;.
+One of the key scenarios enabled by this feature is the ability for
+video owners to identify a natural point in the video where they can
+recommend the next episode or show aka Netflix autoplay experience as
+shown below:&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

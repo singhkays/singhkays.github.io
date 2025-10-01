@@ -4,19 +4,27 @@
     <title>Amlogic on KAY SINGH</title>
     <link>https://singhkays.com/tags/amlogic/</link>
     <description>Recent content in Amlogic on KAY SINGH</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright © 2017–2021, Kay Singh; all rights reserved.</copyright>
-    <lastBuildDate>Sun, 05 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/tags/amlogic/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.149.0</generator>
+    <language>en</language>
+    <copyright>Copyright © 2025, Kay Singh; all rights reserved.</copyright>
+    <lastBuildDate>Sat, 03 Apr 2021 00:34:45 -0700</lastBuildDate>
+    <atom:link href="https://singhkays.com/tags/amlogic/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AV1 Ecosystem Update: December 2019</title>
       <link>https://singhkays.com/blog/av1-ecosystem-update-december-2019/</link>
       <pubDate>Sun, 05 Jan 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://singhkays.com/blog/av1-ecosystem-update-december-2019/</guid>
-      <description>dav1d 0.5.2 &amp;lsquo;Asiatic Cheetah&amp;rsquo; released dav1d ended the year with another performance improvement release. Dubbed the &amp;ldquo;Asiatic Cheetah&amp;rdquo; this release brings the following improvements:
- ARM32 optimizations for loopfilter, ipred_dc|h|v Add section-5 raw OBU demuxer Improve the speed by reducing the L2 cache collisions Fix minor issues, including compilation on some OSes  Release notes for dav1d 0.5.2 &amp;lsquo;Asiatic Cheetah&amp;rsquo;
-rav1e v0.2.0: Winter Solstice released Building on the official 0.1.0 release in November, rav1e had a busy December with 3 releases.</description>
+      <description>&lt;h1 id=&#34;dav1d-052-asiatic-cheetah-released&#34;&gt;dav1d 0.5.2 &amp;lsquo;Asiatic Cheetah&amp;rsquo; released&lt;/h1&gt;
+&lt;p&gt;dav1d ended the year with another performance improvement release. Dubbed the &amp;ldquo;Asiatic Cheetah&amp;rdquo; this release brings the following improvements:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;ARM32 optimizations for loopfilter, ipred_dc|h|v&lt;/li&gt;
+&lt;li&gt;Add section-5 raw OBU demuxer&lt;/li&gt;
+&lt;li&gt;Improve the speed by reducing the L2 cache collisions&lt;/li&gt;
+&lt;li&gt;Fix minor issues, including compilation on some OSes&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;a href=&#34;https://code.videolan.org/videolan/dav1d/-/tags/0.5.2&#34;&gt;Release notes for dav1d 0.5.2 &amp;lsquo;Asiatic Cheetah&amp;rsquo;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id=&#34;rav1e-v020-winter-solstice-released&#34;&gt;rav1e v0.2.0: Winter Solstice released&lt;/h1&gt;
+&lt;p&gt;Building on the official 0.1.0 release in November, rav1e had a busy December with 3 releases. Overall, rav1e got a lot faster which is only good news for AV1 encoding! Here are the improvements included in the 0.2.0 release.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

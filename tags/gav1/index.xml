@@ -1,22 +1,29 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>gav1 on KAY SINGH</title>
+    <title>Gav1 on KAY SINGH</title>
     <link>https://singhkays.com/tags/gav1/</link>
-    <description>Recent content in gav1 on KAY SINGH</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright © 2017–2021, Kay Singh; all rights reserved.</copyright>
-    <lastBuildDate>Thu, 14 Nov 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/tags/gav1/index.xml" rel="self" type="application/rss+xml" />
+    <description>Recent content in Gav1 on KAY SINGH</description>
+    <generator>Hugo -- 0.149.0</generator>
+    <language>en</language>
+    <copyright>Copyright © 2025, Kay Singh; all rights reserved.</copyright>
+    <lastBuildDate>Sat, 03 Apr 2021 00:34:45 -0700</lastBuildDate>
+    <atom:link href="https://singhkays.com/tags/gav1/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AV1 Ecosystem Update: October 2019</title>
       <link>https://singhkays.com/blog/av1-ecosystem-update-october-2019/</link>
       <pubDate>Thu, 14 Nov 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://singhkays.com/blog/av1-ecosystem-update-october-2019/</guid>
-      <description>Let&amp;rsquo;s start this month&amp;rsquo;s roundup with a faster decoder!
-dav1d 0.5.0 &amp;amp; 0.5.1 release In October, dav1d saw two new releases with some fantastic speed improvements. Here is a summary:
- Large improvements in speed on SSSE3 CPU (up to 40% speedup) Speed improvements on AVX-2 (for 4-7%) Speed improvements on ARM64 (up to 10%) and ARM32. 0.5.1 is a minor release which brings improvements in speed for SSE2 CPUs (up to 50% speedup), and ARMv7 CPUs (up to 41% speedup).</description>
+      <description>&lt;p&gt;Let&amp;rsquo;s start this month&amp;rsquo;s roundup with a faster decoder!&lt;/p&gt;
+&lt;h1 id=&#34;dav1d-050--051-release&#34;&gt;dav1d 0.5.0 &amp;amp; 0.5.1 release&lt;/h1&gt;
+&lt;p&gt;In October, dav1d saw two new releases with some fantastic speed improvements. Here is a summary:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;Large improvements in speed on SSSE3 CPU (up to 40% speedup)&lt;/li&gt;
+&lt;li&gt;Speed improvements on AVX-2 (for 4-7%)&lt;/li&gt;
+&lt;li&gt;Speed improvements on ARM64 (up to 10%) and ARM32.&lt;/li&gt;
+&lt;li&gt;0.5.1 is a minor release which brings improvements in speed for SSE2 CPUs (up to 50% speedup), and ARMv7 CPUs (up to 41% speedup).&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Detailed release notes can be found at:&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

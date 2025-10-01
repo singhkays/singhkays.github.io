@@ -4,49 +4,74 @@
     <title>Managed Disks on KAY SINGH</title>
     <link>https://singhkays.com/tags/managed-disks/</link>
     <description>Recent content in Managed Disks on KAY SINGH</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright © 2017–2021, Kay Singh; all rights reserved.</copyright>
-    <lastBuildDate>Tue, 30 Apr 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/tags/managed-disks/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.149.0</generator>
+    <language>en</language>
+    <copyright>Copyright © 2025, Kay Singh; all rights reserved.</copyright>
+    <lastBuildDate>Sat, 03 Apr 2021 00:34:45 -0700</lastBuildDate>
+    <atom:link href="https://singhkays.com/tags/managed-disks/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to identify boot, temp and data disks in Azure Linux VMs</title>
       <link>https://singhkays.com/blog/how-to-identify-azure-linux-vm-disks/</link>
       <pubDate>Tue, 30 Apr 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://singhkays.com/blog/how-to-identify-azure-linux-vm-disks/</guid>
-      <description>In Azure, every VM has a persistent OS Disk that is used for booting the VM and contains the operating system. In addition to an OS disk, each VM also has a temporary disk that is present on the compute cluster hosting your VM.
-Why is my OS disk not @ /dev/sda? In most cases the OS disk is /dev/sda but in some odd cases it is not. This is not an Azure specific issue but a default Linux behavior.</description>
+      <description>&lt;p&gt;In Azure, every VM has a persistent OS Disk that is used for booting the VM and contains the operating system. In addition to an OS disk, each VM also has a temporary disk that is present on the compute cluster hosting your VM.&lt;/p&gt;
+&lt;h2 id=&#34;why-is-my-os-disk-not--devsda&#34;&gt;Why is my OS disk not @ /dev/sda?&lt;/h2&gt;
+&lt;p&gt;In most cases the OS disk is &lt;code&gt;/dev/sda&lt;/code&gt; but in some odd cases it is not. This is not an Azure specific issue but a default Linux behavior. The ordering in which Linux enumerates SCSI devices is nondeterministic. It scans SCSI devices in the order they appear on the PCI Bus. Therefore, whichever disk is enumerated first is &lt;code&gt;/dev/sda&lt;/code&gt;.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Microsoft Ignite 2018: VM Scale Sets &#43; Shared Image Gallery = Infrastructure at scale - BRK3339</title>
       <link>https://singhkays.com/blog/ignite2018-vm-scale-sets-shared-image-gallery-infrastructure/</link>
       <pubDate>Thu, 27 Sep 2018 00:00:00 +0000</pubDate>
-      
       <guid>https://singhkays.com/blog/ignite2018-vm-scale-sets-shared-image-gallery-infrastructure/</guid>
-      <description>When you need to create a lot of instances from a custom VM image, VM Scale Sets and Shared Image Gallery are the services you need to use. In this session we walk through how to combine the power of VM Scale Sets &amp;amp; Shared Image Gallery to build infrastructure at scale.
-  </description>
+      <description>&lt;p&gt;When you need to create a lot of instances from a custom VM image, VM Scale Sets and Shared Image Gallery are the services you need to use. In this session we walk through how to combine the power of VM Scale Sets &amp;amp; Shared Image Gallery to build infrastructure at scale.&lt;/p&gt;
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/9_AFLKg0EIw?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+
+&lt;script id=&#34;mNCC&#34; language=&#34;javascript&#34;&gt;
+    medianet_width = &#34;600&#34;;
+    medianet_height = &#34;250&#34;;
+    medianet_crid = &#34;228792741&#34;;
+    medianet_versionId = &#34;3111299&#34;; 
+  &lt;/script&gt;
+&lt;script src=&#34;//contextual.media.net/nmedianet.js?cid=8CUX6J71X&#34;&gt;&lt;/script&gt;</description>
     </item>
-    
     <item>
       <title>Microsoft Ignite 2018: What&#39;s new in Managed Disks - THR2263</title>
       <link>https://singhkays.com/blog/ignite2018-whats-new-managed-disks/</link>
       <pubDate>Wed, 26 Sep 2018 00:00:00 +0000</pubDate>
-      
       <guid>https://singhkays.com/blog/ignite2018-whats-new-managed-disks/</guid>
-      <description>Managed Disks make the managedment of disks a breeze in Azure. In this session I talk about the updates we&amp;rsquo;ve introduced to Managed Disks since Ignite 2017.
-  </description>
+      <description>&lt;p&gt;Managed Disks make the managedment of disks a breeze in Azure. In this session I talk about the updates we&amp;rsquo;ve introduced to Managed Disks since Ignite 2017.&lt;/p&gt;
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/IUgiPrN7P3A?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+
+&lt;script id=&#34;mNCC&#34; language=&#34;javascript&#34;&gt;
+    medianet_width = &#34;600&#34;;
+    medianet_height = &#34;250&#34;;
+    medianet_crid = &#34;228792741&#34;;
+    medianet_versionId = &#34;3111299&#34;; 
+  &lt;/script&gt;
+&lt;script src=&#34;//contextual.media.net/nmedianet.js?cid=8CUX6J71X&#34;&gt;&lt;/script&gt;</description>
     </item>
-    
     <item>
       <title>Microsoft Ignite 2018: Share custom VM images with Shared Image Gallery - THR2264</title>
       <link>https://singhkays.com/blog/ignite2018-share-vm-images-shared-image-gallery/</link>
       <pubDate>Mon, 24 Sep 2018 00:00:00 +0000</pubDate>
-      
       <guid>https://singhkays.com/blog/ignite2018-share-vm-images-shared-image-gallery/</guid>
-      <description>Sharing custom images within an organization to different subscriptions globally has been a long standing ask from Azure customers. With Shared Image Gallery we&amp;rsquo;re making this dream a reality! Read more about Shared Image Gallery https://azure.microsoft.com/en-us/blog/shared-image-gallery-now-in-limited-public-preview/
-In this session, I present how customers can get started with Shared Image Gallery.
-  </description>
+      <description>&lt;p&gt;Sharing custom images within an organization to different subscriptions globally has been a long standing ask from Azure customers. With Shared Image Gallery we&amp;rsquo;re making this dream a reality! Read more about Shared Image Gallery &lt;a href=&#34;https://azure.microsoft.com/en-us/blog/shared-image-gallery-now-in-limited-public-preview/&#34;&gt;https://azure.microsoft.com/en-us/blog/shared-image-gallery-now-in-limited-public-preview/&lt;/a&gt;&lt;/p&gt;
+&lt;p&gt;In this session, I present how customers can get started with Shared Image Gallery.&lt;/p&gt;
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/xonDAxEUBJM?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+
+&lt;script id=&#34;mNCC&#34; language=&#34;javascript&#34;&gt;
+    medianet_width = &#34;600&#34;;
+    medianet_height = &#34;250&#34;;
+    medianet_crid = &#34;228792741&#34;;
+    medianet_versionId = &#34;3111299&#34;; 
+  &lt;/script&gt;
+&lt;script src=&#34;//contextual.media.net/nmedianet.js?cid=8CUX6J71X&#34;&gt;&lt;/script&gt;</description>
     </item>
-    
   </channel>
 </rss>

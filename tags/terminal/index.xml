@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>terminal on KAY SINGH</title>
+    <title>Terminal on KAY SINGH</title>
     <link>https://singhkays.com/tags/terminal/</link>
-    <description>Recent content in terminal on KAY SINGH</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright © 2017–2021, Kay Singh; all rights reserved.</copyright>
-    <lastBuildDate>Sat, 21 Apr 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/tags/terminal/index.xml" rel="self" type="application/rss+xml" />
+    <description>Recent content in Terminal on KAY SINGH</description>
+    <generator>Hugo -- 0.149.0</generator>
+    <language>en</language>
+    <copyright>Copyright © 2025, Kay Singh; all rights reserved.</copyright>
+    <lastBuildDate>Sat, 03 Apr 2021 00:34:45 -0700</lastBuildDate>
+    <atom:link href="https://singhkays.com/tags/terminal/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How do I discard unstaged changes in Git?</title>
       <link>https://singhkays.com/blog/git-discard-changes-terminal/</link>
       <pubDate>Sat, 21 Apr 2018 00:00:00 +0000</pubDate>
-      
       <guid>https://singhkays.com/blog/git-discard-changes-terminal/</guid>
-      <description>Often when I’m working on this blog, I work over multiple days and end up working on multiple devices. The blog is written in markdown and tracked in a Git repo on Azure Devops. The other day a scenario arose where I was customizing the theme of the blog but not getting anywhere. I decided to have another go at the customization few days later but this time on another device.</description>
+      <description>&lt;p&gt;Often when I’m working on this blog, I work over multiple days and end up working on multiple devices. The blog is written in markdown and tracked in a Git repo on &lt;a href=&#34;https://azure.microsoft.com/en-us/services/devops/&#34;&gt;Azure Devops&lt;/a&gt;. The other day a scenario arose where I was customizing the theme of the blog but not getting anywhere. I decided to have another go at the customization few days later but this time on another device. Luckily, I was able to make progress and achieve the style I was looking for.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

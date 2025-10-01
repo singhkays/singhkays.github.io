@@ -4,18 +4,19 @@
     <title>Azure B Series on KAY SINGH</title>
     <link>https://singhkays.com/tags/azure-b-series/</link>
     <description>Recent content in Azure B Series on KAY SINGH</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright © 2017–2021, Kay Singh; all rights reserved.</copyright>
-    <lastBuildDate>Mon, 13 Nov 2017 16:59:56 -0800</lastBuildDate><atom:link href="https://singhkays.com/tags/azure-b-series/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.149.0</generator>
+    <language>en</language>
+    <copyright>Copyright © 2025, Kay Singh; all rights reserved.</copyright>
+    <lastBuildDate>Fri, 02 Apr 2021 20:03:18 -0700</lastBuildDate>
+    <atom:link href="https://singhkays.com/tags/azure-b-series/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Understanding the Azure B Series and CPU credits</title>
       <link>https://singhkays.com/blog/understanding-azure-b-series/</link>
       <pubDate>Mon, 13 Nov 2017 16:59:56 -0800</pubDate>
-      
       <guid>https://singhkays.com/blog/understanding-azure-b-series/</guid>
-      <description>Azure recently introduced its first burstable VM size - the B-series. This VM type is meant to compete directly with AWS&#39; T2 instances. In the below few words (or more :smile: ) I try to explain what this means and why you should care. If you still have questions after reading, hit me up on Twitter or leave a comment below.
-So why do I need a burstable size anyway? If you have applications that remain idle for a long time and burst occasionally, then the B-series might be the perfect fit for you.</description>
+      <description>&lt;p&gt;Azure &lt;a href=&#34;https://azure.microsoft.com/en-us/blog/introducing-b-series-our-new-burstable-vm-size/&#34;&gt;recently introduced&lt;/a&gt; its first burstable VM size - the B-series. This VM type is meant to compete directly with AWS&amp;rsquo; T2 instances. In the below few words (or more :smile: ) I try to explain what this means and why you should care. If you still have questions after reading, hit me up on Twitter or leave a comment below.&lt;/p&gt;
+&lt;h1 id=&#34;so-why-do-i-need-a-burstable-size-anyway&#34;&gt;So why do I need a burstable size anyway?&lt;/h1&gt;
+&lt;p&gt;If you have applications that remain idle for a long time and burst occasionally, then the B-series might be the perfect fit for you. To understand why, we first need to understand how the pricing for a VM works in the cloud. When you deploy a VM in the cloud, you&amp;rsquo;re paying the same regardless of the % of CPU used. Therefore, anytime your VM is not using 100% CPU, you are leaving computing cycles on the table that you are paying for. Typically, users will solve this problem by deploying a VM size with smaller number of cores and lesser RAM. However, sometimes the application demands more computing power. This is a classic &lt;a href=&#34;https://en.wikipedia.org/wiki/Scalability#Horizontal_and_vertical_scaling&#34;&gt;vertical scalability problem&lt;/a&gt;. As the &lt;a href=&#34;https://electronics.stackexchange.com/questions/122050/what-limits-cpu-speed&#34;&gt;physics of semiconductors&lt;/a&gt; limits the number of cores, CPU clock speeds and RAM you can add to a single node, users have solved this problem by developing applications that can scale horizontally to more nodes.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

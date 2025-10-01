@@ -4,72 +4,74 @@
     <title>Video Encoding on KAY SINGH</title>
     <link>https://singhkays.com/tags/video-encoding/</link>
     <description>Recent content in Video Encoding on KAY SINGH</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright © 2017–2021, Kay Singh; all rights reserved.</copyright>
-    <lastBuildDate>Wed, 29 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/tags/video-encoding/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.149.0</generator>
+    <language>en</language>
+    <copyright>Copyright © 2025, Kay Singh; all rights reserved.</copyright>
+    <lastBuildDate>Sat, 03 Apr 2021 00:34:45 -0700</lastBuildDate>
+    <atom:link href="https://singhkays.com/tags/video-encoding/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AV1 2019: A Year In Review</title>
       <link>https://singhkays.com/blog/av1-2019-year-in-review/</link>
       <pubDate>Wed, 29 Jan 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://singhkays.com/blog/av1-2019-year-in-review/</guid>
-      <description>Introduction It&amp;rsquo;s not often you see so many logos of tech giants on one page backing the same technology. In my experience, every enterprise has developed a case of NIH and come up with their standards. No surprise then that there&amp;rsquo;s an XKCD describing this phenomenon!
-But when the AV1 1.0.0 spec was finalized in 2018, with the backing of so many giants, the world knew AV1 would be a serious piece of tech.</description>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;It&amp;rsquo;s not often you see so many logos of tech giants &lt;a href=&#34;http://aomedia.org/membership/members/&#34;&gt;on one page backing the same technology&lt;/a&gt;. In my experience, every enterprise has developed a case of &lt;a href=&#34;https://en.wikipedia.org/wiki/Not_invented_here&#34;&gt;NIH&lt;/a&gt; and come up with their standards. No surprise then that there&amp;rsquo;s an XKCD describing this phenomenon!&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;XKCD on Standards&#34; loading=&#34;lazy&#34; src=&#34;https://imgs.xkcd.com/comics/standards.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;But when the AV1 1.0.0 spec was finalized in 2018, with the backing of so many giants, the world knew AV1 would be a serious piece of tech. With the spec finalized, the race was on to get AV1 integrated into your favorite software &amp;amp; hardware for encoding, decoding, and viewing media. By the end of 2018, AV1 adoption was moving at a healthy pace and completed significant milestones necessary to mainstream adoption. Some of these were:&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Part 3: Building a scalable &#39;shot-based&#39; serverless AV1 video encoder in Azure</title>
       <link>https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/</link>
       <pubDate>Thu, 26 Sep 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/</guid>
-      <description>This is a 3-part blog covering how to build a scalable shot-based serverless video encoder in Azure. In Part 1, I explain what AV1 is and where we are in the video encoding space. In part 2, we create a logic app to upload and index the video. In part 3, we&amp;rsquo;ll need to split the video into its scenes and encode individual scenes. For reference, here are the links to all the parts:</description>
+      <description>&lt;p&gt;This is a 3-part blog covering how to build a scalable shot-based serverless video encoder in Azure. In Part 1, I explain what AV1 is and where we are in the video encoding space. In part 2, we create a logic app to upload and index the video. In part 3, we&amp;rsquo;ll need to split the video into its scenes and encode individual scenes. For reference, here are the links to all the parts:&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Now Available: Weekly build of libaom AV1 &#43; FFmpeg docker image</title>
       <link>https://singhkays.com/blog/docker-image-av1-ffmpeg-libaom/</link>
       <pubDate>Sat, 21 Sep 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://singhkays.com/blog/docker-image-av1-ffmpeg-libaom/</guid>
-      <description>Motivation While trying to try out the latest features for the libaom AV1 encoder, I&amp;rsquo;ve been trying to figure out how to get a hold of the latest binary. As of writing of this blog, I haven&amp;rsquo;t come across any source on the web that publishes a binary of libaom AV1 encoder. Often while trying to get a hold of the latest changes in libaom, you have to build the source yourself which takes time.</description>
+      <description>&lt;p&gt;&lt;img alt=&#34;Docker image with libaom AV1 ffmpeg&#34; loading=&#34;lazy&#34; src=&#34;https://singhkays.com/blog/docker-image-av1-ffmpeg-libaom/media/docker-ffmpeg-av1-libaom.png&#34;&gt;
+ &lt;/p&gt;
+&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;While trying to try out the latest features for the libaom AV1 encoder, I&amp;rsquo;ve been trying to figure out how to get a hold of the latest binary. As of writing of this blog, I haven&amp;rsquo;t come across any source on the web that publishes a binary of libaom AV1 encoder. Often while trying to get a hold of the latest changes in libaom, you have to build the source yourself which takes time. Therefore, I took it upon myself to publish a weekly build of FFmpeg with the latest available libaom source @ &lt;a href=&#34;https://aomedia.googlesource.com/aom&#34;&gt;https://aomedia.googlesource.com/aom&lt;/a&gt;.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Part 2: Building a scalable &#39;shot-based&#39; serverless AV1 video encoder in Azure</title>
       <link>https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-2/</link>
       <pubDate>Thu, 01 Aug 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-2/</guid>
-      <description>This is a 3-part blog covering how to build a scalable shot-based serverless video encoder in Azure. In Part 1, I explain what AV1 is and where we are in the video encoding space. In part 2, we create a logic app to upload and index the video. In part 3, we&amp;rsquo;ll need to split the video into its scenes and encode individual scenes. For reference, here are the links to all the parts:</description>
+      <description>&lt;p&gt;This is a 3-part blog covering how to build a scalable shot-based serverless video encoder in Azure. In Part 1, I explain what AV1 is and where we are in the video encoding space. In part 2, we create a logic app to upload and index the video. In part 3, we&amp;rsquo;ll need to split the video into its scenes and encode individual scenes. For reference, here are the links to all the parts:&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Part 1: Building a scalable &#39;shot-based&#39; serverless AV1 video encoder in Azure</title>
       <link>https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-1/</link>
       <pubDate>Thu, 20 Jun 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-1/</guid>
-      <description>This is a 3-part blog covering how to build a scalable shot-based serverless video encoder in Azure. In Part 1, I explain what AV1 is and where we are in the video encoding space. In part 2, we create a logic app to upload and index the video. In part 3, we&amp;rsquo;ll need to split the video into its scenes and encode individual scenes. For reference, here are the links to all the parts:</description>
+      <description>&lt;p&gt;This is a 3-part blog covering how to build a scalable shot-based serverless video encoder in Azure. In Part 1, I explain what AV1 is and where we are in the video encoding space. In part 2, we create a logic app to upload and index the video. In part 3, we&amp;rsquo;ll need to split the video into its scenes and encode individual scenes. For reference, here are the links to all the parts:&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>It&#39;s time to replace GIFs with AV1 video!</title>
       <link>https://singhkays.com/blog/its-time-replace-gifs-with-av1-video/</link>
       <pubDate>Sun, 28 Apr 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://singhkays.com/blog/its-time-replace-gifs-with-av1-video/</guid>
-      <description>It is 2019 and we need to make a decision about GIFs (no, not that one! We’re never going to be able to decide that one!). GIFs take up a massive amount of space (often multiple megabytes!) and if you’re a web developer, then that’s completely against your ethos! As a web developer, you want to minimize the bits your users need to download so that your website loads fast. That’s why you minify javascript, optimize PNGs, JPEGs and sometimes turn JPEGs to WebPs as well.</description>
+      <description>&lt;p&gt;It is 2019 and we need to make a decision about GIFs (&lt;a href=&#34;https://bits.blogs.nytimes.com/2013/05/23/battle-over-gif-pronunciation-erupts/&#34;&gt;no, not that
+one! We’re never going to be able to decide that
+one!&lt;/a&gt;).
+GIFs take up a massive amount of space &lt;em&gt;(often multiple megabytes!)&lt;/em&gt; and
+if you’re a web developer, then that’s completely against your ethos! As a
+web developer, you want to minimize the bits your users need to download
+so that your website loads fast. That’s why you minify javascript,
+optimize PNGs, JPEGs and sometimes turn &lt;a href=&#34;https://developers.google.com/speed/webp/&#34;&gt;JPEGs to WebPs as
+well&lt;/a&gt;. But then what about
+the venerable GIF?&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>Testing x265 encoder scaling on a 128 core Azure VM for 4K HDR</title>
       <link>https://singhkays.com/blog/x265-128-core-scaling-4k-hevc-hdr-azure-vm/</link>
       <pubDate>Sun, 19 Aug 2018 13:52:28 -0700</pubDate>
-      
       <guid>https://singhkays.com/blog/x265-128-core-scaling-4k-hevc-hdr-azure-vm/</guid>
-      <description>Video encoding has always been a fairly compute intensive task. With every new generation of video encoders, more computational power has been required to achieve the compression benefits. HEVC/H.265 is the latest state of the art video compression standard with x265 being the most popular open-source encoder used for encoding into the HEVC/H.265 format. In comparison to AVC/H.264 (the previous state of the art encoding format), HEVC offers about double the data compression ratio at the same level of video quality, or substantially improved video quality at the same bit rate.</description>
+      <description>&lt;p&gt;Video encoding has always been a fairly compute intensive task. With every new generation of video encoders, more computational power has been required to achieve the compression benefits. &lt;a href=&#34;https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding&#34;&gt;HEVC/H.265&lt;/a&gt; is the latest state of the art video compression standard with &lt;a href=&#34;https://en.wikipedia.org/wiki/X265&#34;&gt;x265&lt;/a&gt; being the most popular open-source encoder used for encoding into the HEVC/H.265 format. In comparison to AVC/H.264 &lt;em&gt;(the previous state of the art encoding format),&lt;/em&gt; HEVC offers about double the data compression ratio at the same level of video quality, or substantially improved video quality at the same bit rate.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

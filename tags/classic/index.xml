@@ -4,18 +4,28 @@
     <title>Classic on KAY SINGH</title>
     <link>https://singhkays.com/tags/classic/</link>
     <description>Recent content in Classic on KAY SINGH</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright © 2017–2021, Kay Singh; all rights reserved.</copyright>
-    <lastBuildDate>Tue, 25 Sep 2018 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/tags/classic/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.149.0</generator>
+    <language>en</language>
+    <copyright>Copyright © 2025, Kay Singh; all rights reserved.</copyright>
+    <lastBuildDate>Sat, 03 Apr 2021 00:34:45 -0700</lastBuildDate>
+    <atom:link href="https://singhkays.com/tags/classic/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Microsoft Ignite 2018: Migrating your IaaS infrastructure from ASM to ARM without downtime - THR2265</title>
       <link>https://singhkays.com/blog/ignite2018-migrate-asm-arm-iaas/</link>
       <pubDate>Tue, 25 Sep 2018 00:00:00 +0000</pubDate>
-      
       <guid>https://singhkays.com/blog/ignite2018-migrate-asm-arm-iaas/</guid>
-      <description>Azure Resource Manager stack has been released for almost three years now. In those three years many features have been added that are exclusive to Azure Resource Manager. In this session, I demonstrate the process of migrating your existing infrastructure to Azure Resource Manager without downtime. See a list of all the benefits here: https://azure.microsoft.com/en-us/blog/migrate-iaas-to-azure-resource-manager.
-  </description>
+      <description>&lt;p&gt;Azure Resource Manager stack has been released for almost three years now. In those three years many features have been added that are exclusive to Azure Resource Manager. In this session, I demonstrate the process of migrating your existing infrastructure to Azure Resource Manager without downtime. See a list of all the benefits here: &lt;a href=&#34;https://azure.microsoft.com/en-us/blog/migrate-iaas-to-azure-resource-manager&#34;&gt;https://azure.microsoft.com/en-us/blog/migrate-iaas-to-azure-resource-manager&lt;/a&gt;.&lt;/p&gt;
+&lt;div style=&#34;position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;&#34;&gt;
+      &lt;iframe allow=&#34;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share; fullscreen&#34; loading=&#34;eager&#34; referrerpolicy=&#34;strict-origin-when-cross-origin&#34; src=&#34;https://www.youtube.com/embed/RkTVPOxpwyw?autoplay=0&amp;amp;controls=1&amp;amp;end=0&amp;amp;loop=0&amp;amp;mute=0&amp;amp;start=0&#34; style=&#34;position: absolute; top: 0; left: 0; width: 100%; height: 100%; border:0;&#34; title=&#34;YouTube video&#34;&gt;&lt;/iframe&gt;
+    &lt;/div&gt;
+
+&lt;script id=&#34;mNCC&#34; language=&#34;javascript&#34;&gt;
+    medianet_width = &#34;600&#34;;
+    medianet_height = &#34;250&#34;;
+    medianet_crid = &#34;228792741&#34;;
+    medianet_versionId = &#34;3111299&#34;; 
+  &lt;/script&gt;
+&lt;script src=&#34;//contextual.media.net/nmedianet.js?cid=8CUX6J71X&#34;&gt;&lt;/script&gt;</description>
     </item>
-    
   </channel>
 </rss>

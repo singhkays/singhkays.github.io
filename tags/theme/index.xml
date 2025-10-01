@@ -4,18 +4,18 @@
     <title>Theme on KAY SINGH</title>
     <link>https://singhkays.com/tags/theme/</link>
     <description>Recent content in Theme on KAY SINGH</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright © 2017–2021, Kay Singh; all rights reserved.</copyright>
-    <lastBuildDate>Mon, 23 Oct 2017 23:22:52 -0700</lastBuildDate><atom:link href="https://singhkays.com/tags/theme/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.149.0</generator>
+    <language>en</language>
+    <copyright>Copyright © 2025, Kay Singh; all rights reserved.</copyright>
+    <lastBuildDate>Sat, 03 Apr 2021 00:34:45 -0700</lastBuildDate>
+    <atom:link href="https://singhkays.com/tags/theme/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Azure Cloud Shell &#43; Solarized Dark = ❤️ </title>
       <link>https://singhkays.com/blog/azure-cloud-shell-solarized-dark/</link>
       <pubDate>Mon, 23 Oct 2017 23:22:52 -0700</pubDate>
-      
       <guid>https://singhkays.com/blog/azure-cloud-shell-solarized-dark/</guid>
-      <description>I&amp;rsquo;m a big fan of typography! Clean and beautiful typography can make the experience of coding or reading an article so much better. It&amp;rsquo;s no wonder if you search for &amp;ldquo;best programming font&amp;rdquo;, there&amp;rsquo;s no shortage of font comparison articles. However, one of the things that is universally agreed upon is how terrible Courier/Courier New is.
-Azure Cloud Shell is a great product that takes away the complexity of figuring out the installation methods and authentication (esp.</description>
+      <description>&lt;p&gt;I&amp;rsquo;m a big fan of typography! Clean and beautiful typography can make the experience of coding or reading an article so much better. It&amp;rsquo;s no wonder if you search for &amp;ldquo;best programming font&amp;rdquo;, there&amp;rsquo;s no shortage of font comparison articles. However, one of the things that is universally agreed upon is how terrible &lt;em&gt;Courier/Courier New&lt;/em&gt; is.&lt;/p&gt;
+&lt;p&gt;&lt;a href=&#34;https://docs.microsoft.com/en-us/azure/cloud-shell/overview&#34;&gt;Azure Cloud Shell&lt;/a&gt; is a great product that takes away the complexity of figuring out the installation methods and authentication &lt;em&gt;(esp. in organizations with 2FA enabled)&lt;/em&gt; and gets you a CLI prompt ready to roll! However, Azure Cloud Shell forces you to use Courier New and a default white on black color scheme.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

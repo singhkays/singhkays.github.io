@@ -4,19 +4,32 @@
     <title>Broadcom on KAY SINGH</title>
     <link>https://singhkays.com/tags/broadcom/</link>
     <description>Recent content in Broadcom on KAY SINGH</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright © 2017–2021, Kay Singh; all rights reserved.</copyright>
-    <lastBuildDate>Fri, 04 Oct 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/tags/broadcom/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.149.0</generator>
+    <language>en</language>
+    <copyright>Copyright © 2025, Kay Singh; all rights reserved.</copyright>
+    <lastBuildDate>Sat, 03 Apr 2021 00:34:45 -0700</lastBuildDate>
+    <atom:link href="https://singhkays.com/tags/broadcom/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AV1 Ecosystem Update: September 2019</title>
       <link>https://singhkays.com/blog/av1-ecosystem-update-september-2019/</link>
       <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://singhkays.com/blog/av1-ecosystem-update-september-2019/</guid>
-      <description>Let&amp;rsquo;s start this month&amp;rsquo;s roundup with the release of two of our favorite encoders - rav1e and SVT-AV1! rav1e rav1e finally has a new weekly pre-release with the following updates:
-Improvements
- More API documentation Better error reporting Nicer error messages in the cli application Explicit validation of the encoder configuration The input Frame type can be expressed Added cargo-fuzz support and documented its usage Better rate-control support Two-pass rate-control support Additional speedups over all the speed levels on x86_64  Changes</description>
+      <description>&lt;p&gt;Let&amp;rsquo;s start this month&amp;rsquo;s roundup with the release of two of our favorite encoders - rav1e and SVT-AV1! &lt;/p&gt;
+&lt;h1 id=&#34;rav1e&#34;&gt;rav1e&lt;/h1&gt;
+&lt;p&gt;rav1e finally has a &lt;a href=&#34;https://github.com/xiph/rav1e/releases/tag/20190926&#34;&gt;new weekly pre-release&lt;/a&gt; with the following updates:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Improvements&lt;/strong&gt;&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;More API documentation&lt;/li&gt;
+&lt;li&gt;Better error reporting&lt;/li&gt;
+&lt;li&gt;Nicer error messages in the cli application&lt;/li&gt;
+&lt;li&gt;Explicit validation of the encoder configuration&lt;/li&gt;
+&lt;li&gt;The input Frame type can be expressed&lt;/li&gt;
+&lt;li&gt;Added cargo-fuzz support and documented its usage&lt;/li&gt;
+&lt;li&gt;Better rate-control support&lt;/li&gt;
+&lt;li&gt;Two-pass rate-control support&lt;/li&gt;
+&lt;li&gt;Additional speedups over all the speed levels on x86_64&lt;/li&gt;
+&lt;/ul&gt;
+&lt;p&gt;&lt;strong&gt;Changes&lt;/strong&gt;&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

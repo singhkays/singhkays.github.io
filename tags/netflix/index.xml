@@ -4,55 +4,50 @@
     <title>Netflix on KAY SINGH</title>
     <link>https://singhkays.com/tags/netflix/</link>
     <description>Recent content in Netflix on KAY SINGH</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright © 2017–2021, Kay Singh; all rights reserved.</copyright>
-    <lastBuildDate>Sat, 08 May 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/tags/netflix/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.149.0</generator>
+    <language>en</language>
+    <copyright>Copyright © 2025, Kay Singh; all rights reserved.</copyright>
+    <lastBuildDate>Wed, 03 Sep 2025 23:07:38 -0700</lastBuildDate>
+    <atom:link href="https://singhkays.com/tags/netflix/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Apple Silicon M1 Power Consumption Deep Dive Part 2: Local Playback</title>
       <link>https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-2/</link>
       <pubDate>Sat, 08 May 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-2/</guid>
       <description>Apple M1 is an amazingly efficient piece of silicon. How much power do you think it consumes while playing 4K and 1080p videos in VLC player? Read on to find out.</description>
     </item>
-    
     <item>
       <title>Apple Silicon M1 Power Consumption Deep Dive Part 1: Safari vs Chrome</title>
       <link>https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/</link>
       <pubDate>Fri, 02 Apr 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://singhkays.com/blog/apple-silicon-m1-video-power-consumption-pt-1/</guid>
       <description>Apple M1 is an amazingly efficient piece of silicon. How much power do you think it consumes while streaming from YouTube or Netflix? Read on to find out.</description>
     </item>
-    
     <item>
       <title>Netflix&#39;s Annual Reports (10-Ks) used to be a work of art. What happened?</title>
       <link>https://singhkays.com/blog/netflix-annual-reports-work-of-art/</link>
       <pubDate>Wed, 03 Feb 2021 00:00:00 +0000</pubDate>
-      
       <guid>https://singhkays.com/blog/netflix-annual-reports-work-of-art/</guid>
       <description>Netflix put some serious design resources into its Annual Reports pre-2010. What changed?</description>
     </item>
-    
     <item>
       <title>AV1 2019: A Year In Review</title>
       <link>https://singhkays.com/blog/av1-2019-year-in-review/</link>
       <pubDate>Wed, 29 Jan 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://singhkays.com/blog/av1-2019-year-in-review/</guid>
-      <description>Introduction It&amp;rsquo;s not often you see so many logos of tech giants on one page backing the same technology. In my experience, every enterprise has developed a case of NIH and come up with their standards. No surprise then that there&amp;rsquo;s an XKCD describing this phenomenon!
-But when the AV1 1.0.0 spec was finalized in 2018, with the backing of so many giants, the world knew AV1 would be a serious piece of tech.</description>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;It&amp;rsquo;s not often you see so many logos of tech giants &lt;a href=&#34;http://aomedia.org/membership/members/&#34;&gt;on one page backing the same technology&lt;/a&gt;. In my experience, every enterprise has developed a case of &lt;a href=&#34;https://en.wikipedia.org/wiki/Not_invented_here&#34;&gt;NIH&lt;/a&gt; and come up with their standards. No surprise then that there&amp;rsquo;s an XKCD describing this phenomenon!&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;XKCD on Standards&#34; loading=&#34;lazy&#34; src=&#34;https://imgs.xkcd.com/comics/standards.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;But when the AV1 1.0.0 spec was finalized in 2018, with the backing of so many giants, the world knew AV1 would be a serious piece of tech. With the spec finalized, the race was on to get AV1 integrated into your favorite software &amp;amp; hardware for encoding, decoding, and viewing media. By the end of 2018, AV1 adoption was moving at a healthy pace and completed significant milestones necessary to mainstream adoption. Some of these were:&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>AV1 Ecosystem Update: April 2019</title>
       <link>https://singhkays.com/blog/av1-ecosystem-update-april-2019/</link>
       <pubDate>Mon, 06 May 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://singhkays.com/blog/av1-ecosystem-update-april-2019/</guid>
-      <description>It&amp;rsquo;s been an exciting time following the progress of the royalty free video codec AV1 over the past year and April might just be the most exciting active month in the amount of news we got about AV1! It&amp;rsquo;s not every day that media industry giants such as Netflix, Google, Mozilla, Microsoft, Apple, Amazon, ARM, Facebook, Nvidia, Intel, Cisco and many others agree on the same technology stack!
-Samsung joins the party The month started with Samsung announcing they were joining the Alliance of Open Media Board at the highest level.</description>
+      <description>&lt;p&gt;It&amp;rsquo;s been an exciting time following the progress of the royalty free video codec AV1 over the past year and April might just be the most exciting active month in the amount of news we got about AV1! It&amp;rsquo;s not every day that media industry giants such as Netflix, Google, Mozilla, Microsoft, Apple, Amazon, ARM, Facebook, Nvidia, Intel, Cisco and many others agree on the same technology stack!&lt;/p&gt;
+&lt;h2 id=&#34;samsung-joins-the-party&#34;&gt;Samsung joins the party&lt;/h2&gt;
+&lt;p&gt;The month started with Samsung announcing they were joining the Alliance of Open Media Board at the highest level.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

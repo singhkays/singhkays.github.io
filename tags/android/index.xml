@@ -4,38 +4,65 @@
     <title>Android on KAY SINGH</title>
     <link>https://singhkays.com/tags/android/</link>
     <description>Recent content in Android on KAY SINGH</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright © 2017–2021, Kay Singh; all rights reserved.</copyright>
-    <lastBuildDate>Thu, 02 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.149.0</generator>
+    <language>en</language>
+    <copyright>Copyright © 2025, Kay Singh; all rights reserved.</copyright>
+    <lastBuildDate>Sat, 03 Apr 2021 00:34:45 -0700</lastBuildDate>
+    <atom:link href="https://singhkays.com/tags/android/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>How to Customize LinkedIn Android App Notifications</title>
       <link>https://singhkays.com/blog/customize-linkedin-android-app-notifications/</link>
       <pubDate>Thu, 02 Jan 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://singhkays.com/blog/customize-linkedin-android-app-notifications/</guid>
-      <description>I recently discovered the importance of being in control of the notifications on your smartphone. When my recent LinkedIn post went viral, I received many comments and connection requests, which led to a constant buzzing of notifications from the LinkedIn app on my phone. This is never fun when you’re trying to concentrate 😊
-Pre-Requisites  Install the LinkedIn Android app . A fairly recent version of Android. This guide is based on Android 9 behavior.</description>
+      <description>&lt;p&gt;I recently discovered the importance of being in control of the notifications on your smartphone. When my &lt;a href=&#34;https://www.singhkays.com/blog/what-happens-when-your-linkedin-post-goes-viral/&#34;&gt;recent LinkedIn post went viral&lt;/a&gt;, I received many comments and connection requests, which led to a constant buzzing of notifications from the LinkedIn app on my phone. This is never fun when you’re trying to concentrate 😊&lt;/p&gt;
+&lt;h2 id=&#34;pre-requisites&#34;&gt;Pre-Requisites&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;Install the LinkedIn Android app .&lt;/li&gt;
+&lt;li&gt;A fairly recent version of Android. This guide is based on Android 9 behavior.&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h2 id=&#34;steps-to-customize-the-app-notifications&#34;&gt;Steps to customize the app notifications&lt;/h2&gt;
+&lt;ol&gt;
+&lt;li&gt;
+&lt;p&gt;To get started, locate the LinkedIn app in your app drawer or on the home screen.&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>What Happens When Your LinkedIn post goes viral!</title>
       <link>https://singhkays.com/blog/what-happens-when-your-linkedin-post-goes-viral/</link>
       <pubDate>Thu, 02 Jan 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://singhkays.com/blog/what-happens-when-your-linkedin-post-goes-viral/</guid>
-      <description>What is LinkedIn? I have never really discovered the value of LinkedIn until about a year ago when I started using it seriously to search for a new job opportunity. I have always viewed it as a Facebook clone with a horrible and inconsistent UI. But I was surprised to discover that LinkedIn had updated their UI with a copy-paste job from Facebook. Using LinkedIn is now a much more pleasant experience!</description>
+      <description>&lt;h1 id=&#34;what-is-linkedin&#34;&gt;What is LinkedIn?&lt;/h1&gt;
+&lt;p&gt;I have never really discovered the value of LinkedIn until about a year ago when I started using it seriously to search for a new job opportunity. I have always viewed it as a Facebook clone with a horrible and inconsistent UI. But I was surprised to discover that LinkedIn had updated their UI with a copy-paste job from Facebook. Using LinkedIn is now a much more pleasant experience!&lt;/p&gt;</description>
     </item>
-    
     <item>
       <title>AV1 Ecosystem Update: May 2019</title>
       <link>https://singhkays.com/blog/av1-ecosystem-update-may-2019/</link>
       <pubDate>Mon, 10 Jun 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://singhkays.com/blog/av1-ecosystem-update-may-2019/</guid>
-      <description>May was another amazing month for the AV1 codec! We saw great progress in the SVT-AV1 encoder, Android update news and some surprising news out of China!
-SVT-AV1 is making strides! Let&amp;rsquo;s start with SVT-AV1 encoder, the current encoder of choice for Netflix, being developed by the folks at Intel. In May, version 0.5.0 was released with the following features:
- 8 bit / 10 bit 4:2:0 up to 4K60p resolutions Presets 0-8 New API, FFmpeg, GStreamer plugins Rate control support (VBR, CVBR) Block sizes from 4x4 to 128x128 Non-square blocks Tiles Deblocking / CDEF / Restoration filters Film Grain Warped motion estimation Intra block copy Trellis quantized coefficient optimization Support for 4 and 5 layers prediction structures Chroma search in MD Multi-reference picture support  Other notable updates   May also saw the most number of commits to the SVT-AV1 Github repo as shown by the graph below.</description>
+      <description>&lt;p&gt;May was another amazing month for the AV1 codec! We saw great progress in the SVT-AV1 encoder, Android update news and some  surprising news out of China!&lt;/p&gt;
+&lt;h2 id=&#34;svt-av1-is-making-strides&#34;&gt;SVT-AV1 is making strides!&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s start with SVT-AV1 encoder, &lt;a href=&#34;https://www.singhkays.com/blog/av1-ecosystem-update-april-2019/#intel-and-netflix-are-joining-forces&#34;&gt;the current encoder of choice for Netflix&lt;/a&gt;, being developed by the folks at Intel. In May, &lt;a href=&#34;https://github.com/OpenVisualCloud/SVT-AV1/releases/tag/v0.5.0&#34;&gt;version 0.5.0 was released&lt;/a&gt; with the following features:&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;8 bit / 10 bit 4:2:0 up to 4K60p resolutions&lt;/li&gt;
+&lt;li&gt;Presets 0-8&lt;/li&gt;
+&lt;li&gt;New API, FFmpeg, GStreamer plugins&lt;/li&gt;
+&lt;li&gt;Rate control support (VBR, CVBR)&lt;/li&gt;
+&lt;li&gt;Block sizes from 4x4 to 128x128&lt;/li&gt;
+&lt;li&gt;Non-square blocks&lt;/li&gt;
+&lt;li&gt;Tiles&lt;/li&gt;
+&lt;li&gt;Deblocking / CDEF / Restoration filters&lt;/li&gt;
+&lt;li&gt;Film Grain&lt;/li&gt;
+&lt;li&gt;Warped motion estimation&lt;/li&gt;
+&lt;li&gt;Intra block copy&lt;/li&gt;
+&lt;li&gt;Trellis quantized coefficient optimization&lt;/li&gt;
+&lt;li&gt;Support for 4 and 5 layers prediction structures&lt;/li&gt;
+&lt;li&gt;Chroma search in MD&lt;/li&gt;
+&lt;li&gt;Multi-reference picture support&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id=&#34;other-notable-updates&#34;&gt;Other notable updates&lt;/h4&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;May also saw the most number of commits to the SVT-AV1 Github repo as shown by the graph below. &lt;a href=&#34;https://github.com/OpenVisualCloud/SVT-AV1/pulls?utf8=%E2%9C%93&amp;amp;q=is%3Apr+is%3Amerged+merged%3A2019-05-01..2019-06-01&#34;&gt;There were also 40 PRs merged in the month of May&lt;/a&gt;.
+&lt;img alt=&#34;SVT-AV1 github repo number of commit graph in May 2019&#34; loading=&#34;lazy&#34; src=&#34;https://singhkays.com/blog/av1-ecosystem-update-may-2019/media/svt-av1-commits-may-2019.png&#34;&gt;&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

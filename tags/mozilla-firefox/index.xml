@@ -4,18 +4,20 @@
     <title>Mozilla Firefox on KAY SINGH</title>
     <link>https://singhkays.com/tags/mozilla-firefox/</link>
     <description>Recent content in Mozilla Firefox on KAY SINGH</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright © 2017–2021, Kay Singh; all rights reserved.</copyright>
-    <lastBuildDate>Wed, 29 Jan 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/tags/mozilla-firefox/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.149.0</generator>
+    <language>en</language>
+    <copyright>Copyright © 2025, Kay Singh; all rights reserved.</copyright>
+    <lastBuildDate>Fri, 02 Apr 2021 20:03:18 -0700</lastBuildDate>
+    <atom:link href="https://singhkays.com/tags/mozilla-firefox/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AV1 2019: A Year In Review</title>
       <link>https://singhkays.com/blog/av1-2019-year-in-review/</link>
       <pubDate>Wed, 29 Jan 2020 00:00:00 +0000</pubDate>
-      
       <guid>https://singhkays.com/blog/av1-2019-year-in-review/</guid>
-      <description>Introduction It&amp;rsquo;s not often you see so many logos of tech giants on one page backing the same technology. In my experience, every enterprise has developed a case of NIH and come up with their standards. No surprise then that there&amp;rsquo;s an XKCD describing this phenomenon!
-But when the AV1 1.0.0 spec was finalized in 2018, with the backing of so many giants, the world knew AV1 would be a serious piece of tech.</description>
+      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;It&amp;rsquo;s not often you see so many logos of tech giants &lt;a href=&#34;http://aomedia.org/membership/members/&#34;&gt;on one page backing the same technology&lt;/a&gt;. In my experience, every enterprise has developed a case of &lt;a href=&#34;https://en.wikipedia.org/wiki/Not_invented_here&#34;&gt;NIH&lt;/a&gt; and come up with their standards. No surprise then that there&amp;rsquo;s an XKCD describing this phenomenon!&lt;/p&gt;
+&lt;p&gt;&lt;img alt=&#34;XKCD on Standards&#34; loading=&#34;lazy&#34; src=&#34;https://imgs.xkcd.com/comics/standards.png&#34;&gt;&lt;/p&gt;
+&lt;p&gt;But when the AV1 1.0.0 spec was finalized in 2018, with the backing of so many giants, the world knew AV1 would be a serious piece of tech. With the spec finalized, the race was on to get AV1 integrated into your favorite software &amp;amp; hardware for encoding, decoding, and viewing media. By the end of 2018, AV1 adoption was moving at a healthy pace and completed significant milestones necessary to mainstream adoption. Some of these were:&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

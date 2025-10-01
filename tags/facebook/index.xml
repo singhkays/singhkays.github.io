@@ -4,17 +4,18 @@
     <title>Facebook on KAY SINGH</title>
     <link>https://singhkays.com/tags/facebook/</link>
     <description>Recent content in Facebook on KAY SINGH</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright © 2017–2021, Kay Singh; all rights reserved.</copyright>
-    <lastBuildDate>Tue, 17 Dec 2019 00:00:00 +0000</lastBuildDate><atom:link href="https://singhkays.com/tags/facebook/index.xml" rel="self" type="application/rss+xml" />
+    <generator>Hugo -- 0.149.0</generator>
+    <language>en</language>
+    <copyright>Copyright © 2025, Kay Singh; all rights reserved.</copyright>
+    <lastBuildDate>Sat, 03 Apr 2021 00:34:45 -0700</lastBuildDate>
+    <atom:link href="https://singhkays.com/tags/facebook/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>AV1 Ecosystem Update: November 2019</title>
       <link>https://singhkays.com/blog/av1-ecosystem-update-november-2019/</link>
       <pubDate>Tue, 17 Dec 2019 00:00:00 +0000</pubDate>
-      
       <guid>https://singhkays.com/blog/av1-ecosystem-update-november-2019/</guid>
-      <description>The Tale of Two next-gen SOCs - Snapdragon 865 and MediaTek Dimensity 1000 Last month, we saw the release of SOCs expected to power next-gen flagship smartphones. Since the AV1 standard as formalized, the community has been waiting to see when SOC manufacturers add hardware support for AV1 decoding. It looks like we&#39;ll be waiting a lot longer for such a chip from Qualcomm. In what might come as a shock, MediaTek announced the first SOC to feature such support with their new Dimensity 1000 chip.</description>
+      <description>&lt;h1 id=&#34;the-tale-of-two-next-gen-socs---snapdragon-865-and-mediatek-dimensity-1000&#34;&gt;The Tale of Two next-gen SOCs - Snapdragon 865 and MediaTek Dimensity 1000&lt;/h1&gt;
+&lt;p&gt;Last month, we saw the release of SOCs expected to power next-gen flagship smartphones. Since the AV1 standard as formalized, the community has been waiting to see when SOC manufacturers add hardware support for AV1 decoding. It looks like we&#39;ll be waiting a lot longer for such a chip from Qualcomm. In what might come as a shock, MediaTek announced the first SOC to feature such support with their new Dimensity 1000 chip. Qualcomm meanwhile announced the Snapdragon 865 SOC which focused on 5G support and camera improvements this year.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>

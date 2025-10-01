@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
   <channel>
-    <title>x265 on KAY SINGH</title>
+    <title>X265 on KAY SINGH</title>
     <link>https://singhkays.com/tags/x265/</link>
-    <description>Recent content in x265 on KAY SINGH</description>
-    <generator>Hugo -- gohugo.io</generator>
-    <copyright>Copyright © 2017–2021, Kay Singh; all rights reserved.</copyright>
-    <lastBuildDate>Sun, 19 Aug 2018 13:52:28 -0700</lastBuildDate><atom:link href="https://singhkays.com/tags/x265/index.xml" rel="self" type="application/rss+xml" />
+    <description>Recent content in X265 on KAY SINGH</description>
+    <generator>Hugo -- 0.149.0</generator>
+    <language>en</language>
+    <copyright>Copyright © 2025, Kay Singh; all rights reserved.</copyright>
+    <lastBuildDate>Tue, 26 Jan 2021 00:18:12 -0800</lastBuildDate>
+    <atom:link href="https://singhkays.com/tags/x265/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Testing x265 encoder scaling on a 128 core Azure VM for 4K HDR</title>
       <link>https://singhkays.com/blog/x265-128-core-scaling-4k-hevc-hdr-azure-vm/</link>
       <pubDate>Sun, 19 Aug 2018 13:52:28 -0700</pubDate>
-      
       <guid>https://singhkays.com/blog/x265-128-core-scaling-4k-hevc-hdr-azure-vm/</guid>
-      <description>Video encoding has always been a fairly compute intensive task. With every new generation of video encoders, more computational power has been required to achieve the compression benefits. HEVC/H.265 is the latest state of the art video compression standard with x265 being the most popular open-source encoder used for encoding into the HEVC/H.265 format. In comparison to AVC/H.264 (the previous state of the art encoding format), HEVC offers about double the data compression ratio at the same level of video quality, or substantially improved video quality at the same bit rate.</description>
+      <description>&lt;p&gt;Video encoding has always been a fairly compute intensive task. With every new generation of video encoders, more computational power has been required to achieve the compression benefits. &lt;a href=&#34;https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding&#34;&gt;HEVC/H.265&lt;/a&gt; is the latest state of the art video compression standard with &lt;a href=&#34;https://en.wikipedia.org/wiki/X265&#34;&gt;x265&lt;/a&gt; being the most popular open-source encoder used for encoding into the HEVC/H.265 format. In comparison to AVC/H.264 &lt;em&gt;(the previous state of the art encoding format),&lt;/em&gt; HEVC offers about double the data compression ratio at the same level of video quality, or substantially improved video quality at the same bit rate.&lt;/p&gt;</description>
     </item>
-    
   </channel>
 </rss>
