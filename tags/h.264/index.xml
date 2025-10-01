@@ -7,8 +7,15 @@
     <generator>Hugo -- 0.149.0</generator>
     <language>en</language>
     <copyright>Copyright © 2025, Kay Singh; all rights reserved.</copyright>
-    <lastBuildDate>Sat, 03 Apr 2021 00:34:45 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 01 Oct 2025 10:21:36 -0700</lastBuildDate>
     <atom:link href="https://singhkays.com/tags/h.264/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Decoding Netflix&#39;s AV1 Streams: Here are 10 things I found</title>
+      <link>https://singhkays.com/blog/netflix-av1-investigation/</link>
+      <pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://singhkays.com/blog/netflix-av1-investigation/</guid>
+      <description>A weekend project that turned into discovering how Netflix is quietly revolutionizing streaming efficiency with AV1.</description>
+    </item>
     <item>
       <title>AV1 2019: A Year In Review</title>
       <link>https://singhkays.com/blog/av1-2019-year-in-review/</link>

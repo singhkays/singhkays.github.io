@@ -145,6 +145,28 @@
 <article class="post-entry"> 
 <figure class="entry-cover">
             <img loading="lazy"
+                srcset='https://singhkays.com/blog/how-to-identify-azure-linux-vm-disks/media/azure-linux-vm-disks_hu_2b04cfbdcb8cef8e.png 360w,https://singhkays.com/blog/how-to-identify-azure-linux-vm-disks/media/azure-linux-vm-disks_hu_92a3d88cbacad9a6.png 480w,https://singhkays.com/blog/how-to-identify-azure-linux-vm-disks/media/azure-linux-vm-disks_hu_a44e018fd14834d0.png 720w,https://singhkays.com/blog/how-to-identify-azure-linux-vm-disks/media/azure-linux-vm-disks.png 974w'
+                src="https://singhkays.com/blog/how-to-identify-azure-linux-vm-disks/media/azure-linux-vm-disks.png"
+                sizes="(min-width: 768px) 720px, 100vw"
+                width="974" height="499"
+                alt="">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">How to identify boot, temp and data disks in Azure Linux VMs
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>In Azure, every VM has a persistent OS Disk that is used for booting the VM and contains the operating system. In addition to an OS disk, each VM also has a temporary disk that is present on the compute cluster hosting your VM.
+Why is my OS disk not @ /dev/sda? In most cases the OS disk is /dev/sda but in some odd cases it is not. This is not an Azure specific issue but a default Linux behavior. The ordering in which Linux enumerates SCSI devices is nondeterministic. It scans SCSI devices in the order they appear on the PCI Bus. Therefore, whichever disk is enumerated first is /dev/sda.
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-04-30 00:00:00 +0000 UTC'>April 30, 2019</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Kay Singh</footer>
+  <a class="entry-link" aria-label="post link to How to identify boot, temp and data disks in Azure Linux VMs" href="https://singhkays.com/blog/how-to-identify-azure-linux-vm-disks/"></a>
+</article>
+
+<article class="post-entry"> 
+<figure class="entry-cover">
+            <img loading="lazy"
                 srcset='https://singhkays.com/blog/its-time-replace-gifs-with-av1-video/media/aint-nobody-got-time-for-gif_hu_47d3c7a7d57c860b.png 360w,https://singhkays.com/blog/its-time-replace-gifs-with-av1-video/media/aint-nobody-got-time-for-gif_hu_a5ab90e1fa7086bc.png 480w,https://singhkays.com/blog/its-time-replace-gifs-with-av1-video/media/aint-nobody-got-time-for-gif_hu_ea3fd8e85a6b9ea3.png 720w,https://singhkays.com/blog/its-time-replace-gifs-with-av1-video/media/aint-nobody-got-time-for-gif.png 779w'
                 src="https://singhkays.com/blog/its-time-replace-gifs-with-av1-video/media/aint-nobody-got-time-for-gif.png"
                 sizes="(min-width: 768px) 720px, 100vw"
@@ -333,19 +355,6 @@ In this session, I present how customers can get started with Shared Image Galle
   </div>
   <footer class="entry-footer"><span title='2018-04-21 00:00:00 +0000 UTC'>April 21, 2018</span>&nbsp;·&nbsp;2 min&nbsp;·&nbsp;Kay Singh</footer>
   <a class="entry-link" aria-label="post link to How do I discard unstaged changes in Git?" href="https://singhkays.com/blog/git-discard-changes-terminal/"></a>
-</article>
-
-<article class="post-entry"> 
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">Vertical Scale Runbooks Updated with the latest Azure VM Sizes
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>In the world of cloud, horizontal scaling is well understood these days. It is easy to use applications like Kubernetes to automate the scale out your containerized applications based on workload demand. For applications running on VMs, we have cloud native services like VM Scale Sets that make scaling in and out a breeze. However, for an on-prem application going through a lift &amp; shift to the cloud, vertical scaling of the VM is still the king.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2017-12-10 14:43:18 -0800 PST'>December 10, 2017</span>&nbsp;·&nbsp;1 min&nbsp;·&nbsp;Kay Singh</footer>
-  <a class="entry-link" aria-label="post link to Vertical Scale Runbooks Updated with the latest Azure VM Sizes" href="https://singhkays.com/blog/vertical-scale-runbooks-update/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">

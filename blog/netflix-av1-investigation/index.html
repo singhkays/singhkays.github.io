@@ -1,0 +1,975 @@
+<!DOCTYPE html>
+<html lang="en" dir="auto">
+
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<meta name="robots" content="index, follow">
+<title>Decoding Netflix&#39;s AV1 Streams: Here are 10 things I found | KAY SINGH</title>
+<meta name="keywords" content="Netflix, AV1, Codec, Streaming, H.264, H.265, AVC, HEVC">
+<meta name="description" content="A weekend project that turned into discovering how Netflix is quietly revolutionizing streaming efficiency with AV1.">
+<meta name="author" content="Kay Singh">
+<link rel="canonical" href="https://singhkays.com/blog/netflix-av1-investigation/">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.1cd32833328c019a9d403828df426fd6fd627a89de23593fa56b232157bc7bd1.css" integrity="sha256-HNMoMzKMAZqdQDgo30Jv1v1ieoneI1k/pWsjIVe8e9E=" rel="preload stylesheet" as="style">
+<link rel="icon" href="https://singhkays.com/favicon.ico">
+<link rel="icon" type="image/png" sizes="16x16" href="https://singhkays.com/favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="https://singhkays.com/favicon-32x32.png">
+<link rel="apple-touch-icon" href="https://singhkays.com/apple-touch-icon.png">
+<link rel="mask-icon" href="https://singhkays.com/android-chrome-512x512.png">
+<meta name="theme-color" content="#2e2e33">
+<meta name="msapplication-TileColor" content="#2e2e33">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+<link rel="alternate" hreflang="en" href="https://singhkays.com/blog/netflix-av1-investigation/">
+<noscript>
+    <style>
+        #theme-toggle,
+        .top-link {
+            display: none;
+        }
+
+    </style>
+</noscript>
+
+<script type="text/javascript">
+  window._mNHandle = window._mNHandle || {};
+  window._mNHandle.queue = window._mNHandle.queue || [];
+  medianet_versionId = "3121199";
+</script>
+<script src="//contextual.media.net/dmedianet.js?cid=8CUX6J71X" async="async"></script>
+
+<script data-ad-client="ca-pub-8046835310934475" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JDVREY790Z"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-JDVREY790Z');
+</script>
+
+
+
+      <script async src="https://www.googletagmanager.com/gtag/js?id=G-JDVREY790Z"></script>
+      <script>
+        var doNotTrack = false;
+        if ( false ) {
+          var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
+          var doNotTrack = (dnt == "1" || dnt == "yes");
+        }
+        if (!doNotTrack) {
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
+          gtag('config', 'G-JDVREY790Z');
+        }
+      </script><meta property="og:url" content="https://singhkays.com/blog/netflix-av1-investigation/">
+  <meta property="og:site_name" content="KAY SINGH">
+  <meta property="og:title" content="Decoding Netflix&#39;s AV1 Streams: Here are 10 things I found">
+  <meta property="og:description" content="A weekend project that turned into discovering how Netflix is quietly revolutionizing streaming efficiency with AV1.">
+  <meta property="og:locale" content="en">
+  <meta property="og:type" content="article">
+    <meta property="article:section" content="blog">
+    <meta property="article:published_time" content="2025-10-01T00:00:00+00:00">
+    <meta property="article:modified_time" content="2025-10-01T10:21:36-07:00">
+    <meta property="article:tag" content="Netflix">
+    <meta property="article:tag" content="AV1">
+    <meta property="article:tag" content="Codec">
+    <meta property="article:tag" content="Streaming">
+    <meta property="article:tag" content="H.264">
+    <meta property="article:tag" content="H.265">
+    <meta property="og:image" content="https://singhkays.com/blog/netflix-av1-investigation/media/netflix-av1-iceberg-edit.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://singhkays.com/blog/netflix-av1-investigation/media/netflix-av1-iceberg-edit.png">
+<meta name="twitter:title" content="Decoding Netflix&#39;s AV1 Streams: Here are 10 things I found">
+<meta name="twitter:description" content="A weekend project that turned into discovering how Netflix is quietly revolutionizing streaming efficiency with AV1.">
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position":  1 ,
+      "name": "Blogs",
+      "item": "https://singhkays.com/blog/"
+    }, 
+    {
+      "@type": "ListItem",
+      "position":  2 ,
+      "name": "Decoding Netflix's AV1 Streams: Here are 10 things I found",
+      "item": "https://singhkays.com/blog/netflix-av1-investigation/"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Decoding Netflix's AV1 Streams: Here are 10 things I found",
+  "name": "Decoding Netflix\u0027s AV1 Streams: Here are 10 things I found",
+  "description": "A weekend project that turned into discovering how Netflix is quietly revolutionizing streaming efficiency with AV1.",
+  "keywords": [
+    "Netflix", "AV1", "Codec", "Streaming", "H.264", "H.265", "AVC", "HEVC"
+  ],
+  "articleBody": "Alright, pull up a chair. We need to talk about AV1. The codec wars are a special kind of hell.\nFor anyone who’s ever worked in video engineering, you know what I’m talking about. It’s a multi-decade, billion-dollar street fight over bytes and pixels, waged in the esoteric battlegrounds of DCT blocks and entropy coding. We argue endlessly about H.264’s ubiquity, HEVC’s licensing nightmare, and the mythical potential of the “next big thing.”\nFor years, we’ve been promised a streaming messiah. A codec that would deliver pristine 4K, slay the buffering dragon, and magically shrink our data bills. The industry anointed AV1 as the chosen one, the open-source hero that would free us from the licensing labyrinth of H.265/HEVC.\nMost of the time, a new codec offers a modest, almost boring improvement. You get a 15-20% bump in efficiency, you write some blog posts, and life goes on. It’s evolution, not revolution. Netflix, being Netflix, was one of the first to roll it out at scale. But is it actually any good? Or is it just another line item in a press release?\nI decided to find out. Armed with a Fire TV, a MacBook, the Android Debug Bridge (ADB), and a level of patience only attainable after debugging a newborn’s requirement at 3 AM, I spent multiple weekends capturing and analyzing every bit Netflix sent my way.\nThe assumption is simple: AV1, being newer, must be more efficient. And it is. But the real story, the one that matters to engineers and anyone who hates seeing a spinning circle, is far more interesting. It turns out that for some content, AV1 is so obsessed with quality it actually uses more data than its predecessor.\nYes, you read that right. Let’s get into it.\nTL;DR - The Numbers Don’t Lie Before we dive deep, here’s the high-level summary.\nUp to 55% bandwidth savings on blockbuster movies. Peak bitrate spikes often cut in half during action scenes (goodbye, buffering). 50% more Netflix hours per month on your phone’s data plan. Netflix’s wallet: My back-of-the-napkin math puts potential savings around $25M/year. The catch: Not all content benefits equally—some animated shows use more data with AV1. The following table is your cheat sheet to the entire analysis. All metrics are relative to AV1\nInsight Catch MeIf You CanH.264 MinionsH.264 PeakyBlindersH.264 BreakingBadHEVC BojackHorsemanHEVC % saved vs baseline 47.3% 54.9% 48.1% 31.1% −6.7% Instances \u003e10 Mbps AV10H.26416 AV12H.26416 AV10H.2649 AV128HEVC64 AV10HEVC0 GB saved 1.37 1.57 1.18 1.54 −0.05 Note: All metrics are relative to AV1. For “Instances \u003e10 Mbps,” lower is better.\nHow I Accidentally Became a Netflix Data Stalker Look, I wasn’t planning to spend my evenings decoding Netflix streams like some kind of bandwidth detective. But after seeing the 47th “AV1 is the future” post without actual data, I got annoyed enough to do something about it.\nThe Setup: Fire TV Stick (because it actually reports real bitrates) 4K Max model (2024) for receiving AV1 streams 4K model (2021) for receiving H.264 and H.265 streams Python script leveraging Android Debug (ADB) Bridge capturing data every 5 seconds 5 viewing sessions per title to account for network conditions 30-second windows aggregated into min/max/average values Zero chill about methodology Here’s what the debug info looks like on FireTV\nThe Victims: 🍌 Minions (CGI animation) - AV1 vs H.264 🎬 Catch Me If You Can (live-action film) - AV1 vs H.264 🎩 Peaky Blinders S1E1 (live-action TV) - AV1 vs H.264 🧪 Breaking Bad S1E1 (grainy film) - AV1 vs H.265 🐴 Bojack Horseman (2D animation) - AV1 vs H.265 Yes, I watched the Breaking Bad pilot ten times for science. My Netflix recommendations are permanently broken.\nPart 1: The Foundation - Massive Efficiency Gains First, let’s establish the baseline. Is AV1 actually more efficient? The data shows it’s not just an incremental improvement; it’s a demolition.\nFinding #1: The Headline Savings AV1 is fighting a war on two fronts: against the old king, H.264, and the modern contender, H.265/HEVC. What I found was a knockout in both fights.\nTitle Codec Battle Competitor\nAvg. Bitrate AV1\nAvg. Bitrate % Saved\nvs Competitor 🎩 Peaky Blinders AV1 / H.264 3,632 kbps 1,884 kbps 48.1 % 🍌 Minions AV1 / H.264 4,231 kbps 1,907 kbps 54.9 % 🎬 Catch Me If You Can AV1 / H.264 4,271 kbps 2,249 kbps 47.3 % 🧪 Breaking Bad AV1 / HEVC 7,369 kbps 5,081 kbps 24.2 % 🐴 Bojack Horseman AV1 / HEVC 1,027 kbps 1,096 kbps −6.7 % Let’s take Peaky Blinders as an example—a show famous for its cinematic style, complete with smoke and moody lighting. The average bitrate for the AV1 stream was 48.1% lower than H.264.\nInteractive chart: View on Datawrapper\nLet that sink in. This isn’t a minor tweak. This is a nearly 50% gain over the most ubiquitous codec on the planet. This was my first “holy shit” moment.\nFinding #2: The Art of Silence How does AV1 achieve such massive savings? Part of the secret is how ruthless it is during the boring parts. I call this the “efficiency floor”—the typical low-end bitrate a codec settles on during static, quiet scenes. To measure this, I analyzed the average of the minimum bitrates across all segments.\nTitle Codec Battle Competitor\nAvg. Minimum AV1\nAvg. Minimum AV1 Advantage\n% Lower 🍌 Minions AV1 / H.246 2,825 kbps 1,155 kbps 59.12 % 🎬 Catch Me If You Can AV1 / H.264 2,905 kbps 1,381 kbps 52.45 % 🎩 Peaky Blinders AV1 / H.264 2,121 kbps 1,076 kbps 49.29 % 🧪 Breaking Bad AV1 / HEVC 5,081 kbps 2,718 kbps 46.49 % 🐴 Bojack Horseman AV1 / HEVC 637 kbps 641 kbps -0.66 % AV1 is absolutely merciless during quiet moments, dropping to bitrates that would make H.264 engineers file bug reports. But it works—every saved bit during dialogue scenes funds the spectacular action sequences.\nFinding #3: The Payoff in Gigabytes Percentages are boring. Here’s what AV1 actually saves you in tangible data:\n🎬 Catch Me If You Can (141 min): 1.94 GB saved 🍌 Minions (91 min): 1.48 GB saved 🧪 Breaking Bad S1E1 (58 min): 0.93 GB saved 🎩 Peaky Blinders S1E1 (59 min): 0.7 GB saved For a 10-episode season of Peaky Blinders, that’s 7 GB saved. Enough for three additional HD movies.\n“Netflix literally gave you a ‘buy 10 episodes, get 3 movies free’ deal and nobody noticed.”\nPart 2: The Secret Weapon - Thriving Under Pressure Saving data is one thing, but AV1’s real genius lies in how it handles complexity. This is where we uncover the fascinating paradoxes that make AV1 a strategic masterpiece.\nFinding #4: The Action Scene Advantage You’d think a codec saves data by cutting corners during chaotic action scenes. AV1 does the exact opposite. Its efficiency advantage often accelerates when the on-screen complexity ramps up.\nWe can prove this by segmenting each stream into four “quartiles” of complexity. Q1 represents the quietest 25% of scenes, while Q4 represents the most frantic 25%.\nComplexity Level 🍌 Minions 🎬 Catch Me 🎩 Peaky Blinders 🧪 Breaking Bad 🐴 Bojack Easiest 25% 55.0 % 46.1 % 43.6 % 25.7 % -10.5 % Low‑Mid 56.5 % 47.2 % 43.4 % 36.9 % -8.9 % Mid‑High 54.6 % 49.2 % 47.0 % 34.6 % -9.7 % Hardest 25% 54.2 % 46.6 % 53.1 % 26.8 % -1.1 % Notice how Peaky Blinders actually gets MORE efficient as scenes get harder? A perfect example of this in action is the CGI-animated film Minions. The chart below shows the H.264 stream (red) spiking wildly during action scenes, while the AV1 stream (green) remains remarkably composed.\nInteractive chart: View on Datawrapper\nWhen the screen is filled with smoke, rain, and fast action, AV1’s advantage widens. It thrives under pressure.\nFinding #5: The Peak Bitrate Anomaly Peak bitrates are the silent killers of a smooth streaming experience. But in my analysis, the single highest bitrate spike across all five titles didn’t come from an older, less efficient codec. It came from AV1.\nThe hall of fame (or shame):\nAV1’s Wildest Moment: The AV1 stream for Breaking Bad hit a staggering 22,573 kbps spike. HEVC’s Response: For the same scene, the HEVC stream topped out at a more controlled 19,428 kbps. The Norm: In contrast, during the most chaotic action scenes in Minions, H.264 peaked at over 10 Mbps, while AV1 stayed calmly under 4 Mbps. This isn’t a bug. It’s a deliberate, almost fanatical, choice to prioritize visual quality over anything else, which leads us directly to the most interesting discovery of this project.\nFinding #6: The Breaking Bad Paradox So, why would the “more efficient” codec throw a 22 Mbps tantrum? This brings us to the Breaking Bad Paradox. The behavior we see is a direct result of Netflix’s shot-based encoding strategy in action. Their systems analyze the show scene-by-scene and see that its signature 35mm film grain is a crucial, and very data-intensive, part of its artistic identity.\nFaced with this, the encoder is given a clear directive: preserve that grain at all costs.\nThis results in a bizarre Jekyll-and-Hyde mode. Instead of just saving bits everywhere, the encoder acts like a savvy budget manager operating under Netflix’s quality-first philosophy:\nIt robs bits from the data-poor scenes (quiet dialogue) by compressing them aggressively. It then spends that budget on the data-rich scenes (intense grain), ensuring the show’s look is rendered with absolute fidelity, even if it causes a massive spike. Interactive chart: View on Datawrapper\nThis reveals that the ultimate strategy isn’t just about the codec’s raw power; it’s about the intelligent instructions guiding it.\nFinding #7: The Bojack Horseman Mystery The Bojack Horseman result, where AV1 uses slightly more data, is the other side of the same coin: Netflix’s obsession with perceptual quality. The shot-based analysis for this show isn’t concerned with film grain, but with preserving the clean lines and solid colors of 2D animation.\nHere’s what’s happening: the system recognizes that for this type of content, a tiny extra investment in bitrate can deliver a disproportionately large improvement in visual quality, eliminating subtle artifacts that older codecs might introduce around character outlines.\nInteractive chart: View on Datawrapper\nHEVC can hit “good enough” quality at 1.0 Mbps. But Netflix has directed AV1 to deliver “pristine” quality at 1.1 Mbps—a worthwhile trade-off to ensure the animation looks exactly as the creators intended. It’s the difference between a decent burger and a gourmet one for just a few cents more, a decision made possible by a platform that prioritizes quality over raw efficiency.\nPart 3: The User Experience - A Smoother, More Stable Stream All this technical wizardry is impressive, but what does it actually mean when you hit “play”?\nFinding #8: The Buffer Battle Royale Imagine a 10 Mbps internet connection. Let’s count how many times each stream would cause buffering by exceeding that limit.\nTitle Codec Battle H.264/HEVC Danger Zones AV1 Danger Zones Your Frustration Level 🎬 Catch Me If You Can AV1 / H.264 16 times 0 times Zen master 🎩 Peaky Blinders AV1 / H.264 9 times 0 times Zen master 🐴 Bojack Horseman AV1 / HEVC 0 times 0 times Equally smooth 🧪 Breaking Bad AV1 / HEVC 64 times 28 times Still annoyed, but less 🍌 Minions AV1 / H.264 16 times 2 times Still annoyed, but less In Catch Me If You Can, the H.264 stream crossed into the danger zone 16 times. The AV1 stream? Zero. The chart below makes this crystal clear—watch how the red H.264 line constantly spikes while the green AV1 line stays composed.\nInteractive chart: View on Datawrapper\nAV1 literally eliminated buffering for two titles and significantly reduced it for the others. Your internet didn’t get better—the codec did.\nFinding #9: Faster Start-Up, Less Waiting You click play, and those first 30 seconds determine whether you commit to watching or bounce to TikTok. A high initial bitrate can kill the experience on slower connections, leading to a frustrating wait before the video even starts.\nAcross the board, AV1 shows a massive advantage right from the very first frame.\nTitle Codec Battle Competitor\nStartup Bitrate AV1\nStartup Bitrate AV1 Advantage\n% Lower 🍌 Minions AV1 / H.264 3.4 Mbps 1.3 Mbps 61.8% 🧪 Breaking Bad AV1 / HEVC 4.0 Mbps 1.8 Mbps 55.0% 🎬 Catch Me If You Can AV1 / H.264 2.0 Mbps 1.1 Mbps 45.0% 🎩 Peaky Blinders AV1 / H.264 0.8 Mbps 0.5 Mbps 37.5% 🐴 Bojack Horseman AV1 / HEVC 0.9 Mbps 0.7 Mbps 22.2% Real-world impact: That hotel WiFi that barely loads your email? It might actually handle an AV1 Netflix stream from the get-go. By requiring less data to start, AV1 drastically reduces the initial buffering time, getting you to your show faster.\nFinding #10: The “Safe Zone” Revolution For users on mobile or congested Wi-Fi, the most important metric is the percentage of time a stream stays below a low-bitrate threshold (e.g., 2 Mbps).\nTitle Codec Battle Competitor\n% Time in Zone AV1\n% Time in Zone Threshold 🍌 Minions AV1 / H.264 6% 60% \u003c 2 Mbps 🎬 Catch Me If You Can AV1 / H.264 4% 38% \u003c 2 Mbps 🎩 Peaky Blinders AV1 / H.264 8% 66% \u003c 2 Mbps 🧪 Breaking Bad AV1 / HEVC 5% 39% \u003c 4 Mbps 🐴 Bojack Horseman AV1 / HEVC 98% 100% \u003c 2 Mbps AV1 makes HD streaming viable on connections that would have struggled with legacy codecs. Your mobile data plan just became way more useful.\nThe Bottom Line: What This Actually Means Let’s bring this all together.\nFor You, the Viewer On Your Phone: A 10GB data plan used to get you ~12 hours of Netflix. With AV1’s efficiency, that’s now closer to 20 hours. You can binge an entire extra season of a show on your commute, for free. On Bad Wi-Fi: That hotel or airport Wi-Fi that always buffers? AV1’s lower bitrate floor and superior stability make streaming on it not just possible, but smooth. On a Great Connection: You get a higher-quality, more detailed picture, especially in complex scenes, because the codec is using your bandwidth more intelligently. For Netflix, the Business Let’s talk money, because that’s what drives these decisions.\nMy back-of-the-napkin math, using some conservative industry estimates for bandwidth costs, puts Netflix’s potential savings in the ballpark of $25M/year. That’s money they can invest in shows instead of paying to internet providers. The Catch (There’s Always a Catch) I’m not an AV1 evangelist who ignores reality. The codec has two major hurdles:\nEncoding Cost: AV1 is a beast to encode. This isn’t just a one-time software update; it requires a massive, ongoing investment in server infrastructure for any streaming service. Device Support: Hardware decoding for AV1 isn’t on every device yet. This is a classic chicken-and-egg problem that will take a few more years of device refresh cycles to fully resolve. The Verdict: A Revolution in Progress Despite the hurdles, the data is clear. AV1 is not just another spec sheet with theoretical gains. In real-world streams, it delivers on its promise with staggering results.\nIt’s smarter in quiet moments, more composed during action scenes, and its efficiency advantage often accelerates the harder you push it. The transition will be slow and expensive, but it’s no longer a question of if AV1 will dominate streaming, but when.\nWe’re witnessing a quiet revolution, one Gigabyte at a time.\nFound this useful? Share it with anyone who’s ever cursed their internet connection during a Netflix binge. And yes, I realize I spent a few weekends proving that Netflix’s engineers know what they’re doing. No regrets.\n",
+  "wordCount" : "2604",
+  "inLanguage": "en",
+  "image":"https://singhkays.com/blog/netflix-av1-investigation/media/netflix-av1-iceberg-edit.png","datePublished": "2025-10-01T00:00:00Z",
+  "dateModified": "2025-10-01T10:21:36-07:00",
+  "author":{
+    "@type": "Person",
+    "name": "Kay Singh"
+  },
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://singhkays.com/blog/netflix-av1-investigation/"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "KAY SINGH",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://singhkays.com/favicon.ico"
+    }
+  }
+}
+</script>
+</head>
+
+<body class="" id="top">
+
+<header class="header">
+    <nav class="nav">
+        <div class="logo">
+            <a href="https://singhkays.com/" accesskey="h" title="Kay Singh (Alt + H)">
+                <img src="https://singhkays.com/android-chrome-192x192.png" alt="" aria-label="logo"
+                    height="35">Kay Singh</a>
+            <div class="logo-switches">
+            </div>
+        </div>
+        <ul id="menu">
+            <li>
+                <a href="https://singhkays.com/search/" title="Search (Alt &#43; /)" accesskey=/>
+                    <span>Search</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://singhkays.com/archives/" title="Archives">
+                    <span>Archives</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://singhkays.com/about/" title="About">
+                    <span>About</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://singhkays.com/contact/" title="Contact">
+                    <span>Contact</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://singhkays.com/index.xml" title="RSS Feed">
+                    <span>RSS Feed</span>
+                </a>
+            </li>
+        </ul>
+    </nav>
+</header>
+<main class="main">
+
+<article class="post-single">
+  <header class="post-header">
+    
+    <h1 class="post-title entry-hint-parent">
+      Decoding Netflix&#39;s AV1 Streams: Here are 10 things I found
+    </h1>
+    <div class="post-description">
+      A weekend project that turned into discovering how Netflix is quietly revolutionizing streaming efficiency with AV1.
+    </div>
+    <div class="post-meta">
+        
+        <div class="meta-primary">
+            <span title='2025-10-01 00:00:00 +0000 +0000'>October 1, 2025</span>&nbsp;·&nbsp;13 min&nbsp;·&nbsp;Kay Singh
+        </div>
+
+</div>
+  </header> 
+<figure class="entry-cover">
+            <img loading="eager"
+                srcset='https://singhkays.com/blog/netflix-av1-investigation/media/netflix-av1-iceberg-edit_hu_bc7e70eb9f3bcacb.png 360w,https://singhkays.com/blog/netflix-av1-investigation/media/netflix-av1-iceberg-edit_hu_75c49eb864a81282.png 480w,https://singhkays.com/blog/netflix-av1-investigation/media/netflix-av1-iceberg-edit_hu_fc563c869d4c1435.png 720w,https://singhkays.com/blog/netflix-av1-investigation/media/netflix-av1-iceberg-edit_hu_6e6c27c5dcf2116a.png 1080w,https://singhkays.com/blog/netflix-av1-investigation/media/netflix-av1-iceberg-edit_hu_266c4311b8ffb2b.png 1500w,https://singhkays.com/blog/netflix-av1-investigation/media/netflix-av1-iceberg-edit.png 1519w'
+                src="https://singhkays.com/blog/netflix-av1-investigation/media/netflix-av1-iceberg-edit.png"
+                sizes="(min-width: 768px) 720px, 100vw"
+                width="1519" height="1000"
+                alt="">
+        
+</figure>
+  <div class="post-content"><p>Alright, pull up a chair. <strong>We need to talk about AV1</strong>. The codec wars are a special kind of hell.</p>
+<p>For anyone who&rsquo;s ever worked in video engineering, you know what I&rsquo;m talking about. It&rsquo;s a multi-decade, billion-dollar street fight over bytes and pixels, waged in the esoteric battlegrounds of DCT blocks and entropy coding. We argue endlessly about H.264&rsquo;s ubiquity, HEVC&rsquo;s licensing nightmare, and the mythical potential of the &ldquo;next big thing.&rdquo;</p>
+<p>For years, we&rsquo;ve been promised a streaming messiah. A codec that would deliver pristine 4K, slay the buffering dragon, and magically shrink our data bills. The industry anointed AV1 as the chosen one, the open-source hero that would free us from the licensing labyrinth of H.265/HEVC.</p>
+<p>Most of the time, a new codec offers a modest, almost boring improvement. You get a 15-20% bump in efficiency, you write some blog posts, and life goes on. It&rsquo;s evolution, not revolution. Netflix, being Netflix, was one of the first to roll it out at scale. But is it actually any good? Or is it just another line item in a press release?</p>
+<p>I decided to find out. Armed with a Fire TV, a MacBook, the Android Debug Bridge (ADB), and a level of patience only attainable after debugging a newborn&rsquo;s requirement at 3 AM, I spent multiple weekends capturing and analyzing every bit Netflix sent my way.</p>
+<p>The assumption is simple: AV1, being newer, must be more efficient. And it is. But the real story, the one that matters to engineers and anyone who hates seeing a spinning circle, is far more interesting. It turns out that for some content, AV1 is so obsessed with quality <strong>it actually uses more data than its predecessor.</strong></p>
+<p>Yes, you read that right. Let&rsquo;s get into it.</p>
+<h1 id="tldr---the-numbers-dont-lie">TL;DR - The Numbers Don&rsquo;t Lie<a hidden class="anchor" aria-hidden="true" href="#tldr---the-numbers-dont-lie">#</a></h1>
+<p>Before we dive deep, here&rsquo;s the high-level summary.</p>
+<ul>
+<li><strong>Up to 55% bandwidth savings</strong> on blockbuster movies.</li>
+<li><strong>Peak bitrate spikes often cut in half</strong> during action scenes (goodbye, buffering).</li>
+<li><strong>50% more Netflix hours</strong> per month on your phone&rsquo;s data plan.</li>
+<li><strong>Netflix&rsquo;s wallet</strong>: My back-of-the-napkin math puts potential savings around <strong>$25M/year</strong>.</li>
+<li><strong>The catch</strong>: Not all content benefits equally—some animated shows use <em>more</em> data with AV1.</li>
+</ul>
+<p>The following table is your cheat sheet to the entire analysis.
+<small>All metrics are relative to <strong>AV1</strong></small></p>
+<div class="table-card">
+<table>
+  <thead>
+      <tr>
+          <th style="text-align: left">Insight</th>
+          <th style="text-align: center">Catch Me<br/>If You Can<br/><span class="pill">H.264</span></th>
+          <th style="text-align: center">Minions<br/><span class="pill">H.264</span></th>
+          <th style="text-align: center">Peaky<br/>Blinders<br/><span class="pill">H.264</span></th>
+          <th style="text-align: center">Breaking<br/>Bad<br/><span class="pill">HEVC</span></th>
+          <th style="text-align: center">Bojack<br/>Horseman<br/><span class="pill">HEVC</span></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td style="text-align: left">% saved vs baseline</td>
+          <td style="text-align: center"><span class="bar" data-value="47.3">47.3%</span></td>
+          <td style="text-align: center"><span class="bar" data-value="54.9">54.9%</span></td>
+          <td style="text-align: center"><span class="bar" data-value="48.1">48.1%</span></td>
+          <td style="text-align: center"><span class="bar" data-value="31.1">31.1%</span></td>
+          <td style="text-align: center"><span class="bar" data-value="-6.7">−6.7%</span></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">Instances &gt;10 Mbps</td>
+          <td style="text-align: center"><span class="pair pair--stack"><span class="codec-inline">AV1</span><span class="value">0</span><span class="codec-inline">H.264</span><span class="value">16</span></span></td>
+          <td style="text-align: center"><span class="pair pair--stack"><span class="codec-inline">AV1</span><span class="value">2</span><span class="codec-inline">H.264</span><span class="value">16</span></span></td>
+          <td style="text-align: center"><span class="pair pair--stack"><span class="codec-inline">AV1</span><span class="value">0</span><span class="codec-inline">H.264</span><span class="value">9</span></span></td>
+          <td style="text-align: center"><span class="pair pair--stack"><span class="codec-inline">AV1</span><span class="value">28</span><span class="codec-inline">HEVC</span><span class="value">64</span></span></td>
+          <td style="text-align: center"><span class="pair pair--stack"><span class="codec-inline">AV1</span><span class="value">0</span><span class="codec-inline">HEVC</span><span class="value">0</span></span></td>
+      </tr>
+      <tr>
+          <td style="text-align: left">GB saved</td>
+          <td style="text-align: center"><span class="bar" data-value="1.37">1.37</span></td>
+          <td style="text-align: center"><span class="bar" data-value="1.57">1.57</span></td>
+          <td style="text-align: center"><span class="bar" data-value="1.18">1.18</span></td>
+          <td style="text-align: center"><span class="bar" data-value="1.54">1.54</span></td>
+          <td style="text-align: center"><span class="bar" data-value="-0.05">−0.05</span></td>
+      </tr>
+  </tbody>
+</table>
+<p class="table-footnote"><span class="key-note">Note: All metrics are relative to AV1.</span> For “Instances >10 Mbps,” lower is better.</p>
+</div>
+<hr>
+<h1 id="how-i-accidentally-became-a-netflix-data-stalker">How I Accidentally Became a Netflix Data Stalker<a hidden class="anchor" aria-hidden="true" href="#how-i-accidentally-became-a-netflix-data-stalker">#</a></h1>
+<p>Look, I wasn&rsquo;t planning to spend my evenings decoding Netflix streams like some kind of bandwidth detective. But after seeing the 47th &ldquo;AV1 is the future&rdquo; post without actual data, I got annoyed enough to do something about it.</p>
+<h2 id="the-setup"><strong>The Setup:</strong><a hidden class="anchor" aria-hidden="true" href="#the-setup">#</a></h2>
+<ul>
+<li>Fire TV Stick (because it actually reports real bitrates)
+<ul>
+<li><a href="https://amzn.to/46I0YIA">4K Max model (2024)</a> for receiving AV1 streams</li>
+<li>4K model (2021) for receiving H.264 and H.265 streams</li>
+</ul>
+</li>
+<li>Python script leveraging Android Debug (ADB) Bridge capturing data every 5 seconds</li>
+<li>5 viewing sessions per title to account for network conditions</li>
+<li>30-second windows aggregated into min/max/average values</li>
+<li><em>Zero chill</em> about methodology</li>
+</ul>
+<p>Here&rsquo;s what the debug info looks like on FireTV</p>
+<p><img loading="lazy" src="/blog/netflix-av1-investigation/media/breaking-bad-firetv.jpeg"></p>
+<h2 id="the-victims"><strong>The Victims:</strong><a hidden class="anchor" aria-hidden="true" href="#the-victims">#</a></h2>
+<ul>
+<li>🍌 <strong>Minions</strong> (CGI animation) - AV1 vs H.264</li>
+<li>🎬 <strong>Catch Me If You Can</strong> (live-action film) - AV1 vs H.264</li>
+<li>🎩 <strong>Peaky Blinders S1E1</strong> (live-action TV) - AV1 vs H.264</li>
+<li>🧪 <strong>Breaking Bad S1E1</strong> (grainy film) - AV1 vs H.265</li>
+<li>🐴 <strong>Bojack Horseman</strong> (2D animation) - AV1 vs H.265</li>
+</ul>
+<blockquote>
+<p>Yes, I watched the Breaking Bad pilot ten times for science. My Netflix recommendations are permanently broken.</p></blockquote>
+<hr>
+<h1 id="part-1-the-foundation---massive-efficiency-gains">Part 1: The Foundation - Massive Efficiency Gains<a hidden class="anchor" aria-hidden="true" href="#part-1-the-foundation---massive-efficiency-gains">#</a></h1>
+<p>First, let&rsquo;s establish the baseline. Is AV1 actually more efficient? The data shows it’s not just an incremental improvement; <strong>it&rsquo;s a demolition.</strong></p>
+<h2 id="finding-1-the-headline-savings">Finding #1: The Headline Savings<a hidden class="anchor" aria-hidden="true" href="#finding-1-the-headline-savings">#</a></h2>
+<p>AV1 is fighting a war on two fronts: against the old king, H.264, and the modern contender, H.265/HEVC. What I found was a knockout in both fights.</p>
+<div class="table-card no-footnote">
+<table>
+  <thead>
+      <tr>
+          <th>Title</th>
+          <th style="text-align: center">Codec <br>Battle</th>
+          <th style="text-align: center"><span class="hdr">Competitor<br><span class="sub">Avg. Bitrate</span></span></th>
+          <th style="text-align: center"><span class="hdr">AV1<br><span class="sub">Avg. Bitrate</span></span></th>
+          <th style="text-align: center"><span class="hdr">% Saved<br><span class="sub">vs Competitor</span></span></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>🎩 Peaky Blinders</td>
+          <td style="text-align: center"><span class="codec-inline">AV1</span> / <span class="codec-inline">H.264</span></td>
+          <td style="text-align: center">3,632 kbps</td>
+          <td style="text-align: center">1,884 kbps</td>
+          <td style="text-align: center"><span class="bar" data-value="48.1">48.1 %</span></td>
+      </tr>
+      <tr>
+          <td>🍌 Minions</td>
+          <td style="text-align: center"><span class="codec-inline">AV1</span> / <span class="codec-inline">H.264</span></td>
+          <td style="text-align: center">4,231 kbps</td>
+          <td style="text-align: center">1,907 kbps</td>
+          <td style="text-align: center"><span class="bar" data-value="54.9">54.9 %</span></td>
+      </tr>
+      <tr>
+          <td>🎬 Catch Me If You Can</td>
+          <td style="text-align: center"><span class="codec-inline">AV1</span> / <span class="codec-inline">H.264</span></td>
+          <td style="text-align: center">4,271 kbps</td>
+          <td style="text-align: center">2,249 kbps</td>
+          <td style="text-align: center"><span class="bar" data-value="47.3">47.3 %</span></td>
+      </tr>
+      <tr>
+          <td>🧪 Breaking Bad</td>
+          <td style="text-align: center"><span class="codec-inline">AV1</span> / <span class="codec-inline">HEVC</span></td>
+          <td style="text-align: center">7,369 kbps</td>
+          <td style="text-align: center">5,081 kbps</td>
+          <td style="text-align: center"><span class="bar" data-value="24.2">24.2 %</span></td>
+      </tr>
+      <tr>
+          <td>🐴 Bojack Horseman</td>
+          <td style="text-align: center"><span class="codec-inline">AV1</span> / <span class="codec-inline">HEVC</span></td>
+          <td style="text-align: center">1,027 kbps</td>
+          <td style="text-align: center">1,096 kbps</td>
+          <td style="text-align: center"><span class="bar" data-value="-6.7">−6.7 %</span></td>
+      </tr>
+  </tbody>
+</table>
+</div>
+<p>Let&rsquo;s take <em>Peaky Blinders</em> as an example—a show famous for its cinematic style, complete with smoke and moody lighting. The average bitrate for the AV1 stream was <strong>48.1% lower</strong> than H.264.</p>
+
+<div class="table-card chart-card " role="figure" aria-labelledby="Peaky Blinders - S1E01">
+  <iframe
+    id="datawrapper-chart-1"
+    title="Peaky Blinders - S1E01"
+    aria-label="Line chart"
+    src="https://datawrapper.dwcdn.net/U6tiS/13/"
+    loading="lazy"
+    scrolling="no"
+    frameborder="0"
+    height="478"
+    style="width: 0; min-width: 100% !important; border: none;"
+    data-external="1"
+    data-embed="datawrapper"
+  ></iframe>
+  <noscript>
+    <p>Interactive chart: <a href="https://datawrapper.dwcdn.net/U6tiS/13/" rel="noopener noreferrer" target="_blank">View on Datawrapper</a></p>
+  </noscript>
+</div>
+
+<p>Let that sink in. This isn&rsquo;t a minor tweak. This is a nearly 50% gain over the most ubiquitous codec on the planet. This was my first &ldquo;holy shit&rdquo; moment.</p>
+<h2 id="finding-2-the-art-of-silence">Finding #2: The Art of Silence<a hidden class="anchor" aria-hidden="true" href="#finding-2-the-art-of-silence">#</a></h2>
+<p>How does AV1 achieve such massive savings? Part of the secret is how ruthless it is during the boring parts. I call this the <strong>&ldquo;efficiency floor&rdquo;</strong>—the typical low-end bitrate a codec settles on during static, quiet scenes. To measure this, I analyzed the average of the minimum bitrates across all segments.</p>
+<div class="table-card no-footnote">
+<table>
+  <thead>
+      <tr>
+          <th>Title</th>
+          <th style="text-align: center">Codec <br>Battle</th>
+          <th style="text-align: center"><span class="hdr">Competitor<br><span class="sub">Avg. Minimum</span></span></th>
+          <th style="text-align: center"><span class="hdr">AV1<br><span class="sub">Avg. Minimum</span></span></th>
+          <th style="text-align: center"><span class="hdr">AV1 Advantage<br><span class="sub">% Lower</span></span></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>🍌 Minions</td>
+          <td style="text-align: center"><span class="codec-inline">AV1</span> / <span class="codec-inline">H.246</span></td>
+          <td style="text-align: center">2,825 kbps</td>
+          <td style="text-align: center">1,155 kbps</td>
+          <td style="text-align: center"><span class="bar" data-value="59.12">59.12 %</span></td>
+      </tr>
+      <tr>
+          <td>🎬 Catch Me If You Can</td>
+          <td style="text-align: center"><span class="codec-inline">AV1</span> / <span class="codec-inline">H.264</span></td>
+          <td style="text-align: center">2,905 kbps</td>
+          <td style="text-align: center">1,381 kbps</td>
+          <td style="text-align: center"><span class="bar" data-value="52.45">52.45 %</span></td>
+      </tr>
+      <tr>
+          <td>🎩 Peaky Blinders</td>
+          <td style="text-align: center"><span class="codec-inline">AV1</span> / <span class="codec-inline">H.264</span></td>
+          <td style="text-align: center">2,121 kbps</td>
+          <td style="text-align: center">1,076 kbps</td>
+          <td style="text-align: center"><span class="bar" data-value="49.29">49.29 %</span></td>
+      </tr>
+      <tr>
+          <td>🧪 Breaking Bad</td>
+          <td style="text-align: center"><span class="codec-inline">AV1</span> / <span class="codec-inline">HEVC</span></td>
+          <td style="text-align: center">5,081 kbps</td>
+          <td style="text-align: center">2,718 kbps</td>
+          <td style="text-align: center"><span class="bar" data-value="46.49">46.49 %</span></td>
+      </tr>
+      <tr>
+          <td>🐴 Bojack Horseman</td>
+          <td style="text-align: center"><span class="codec-inline">AV1</span> / <span class="codec-inline">HEVC</span></td>
+          <td style="text-align: center">637 kbps</td>
+          <td style="text-align: center">641 kbps</td>
+          <td style="text-align: center"><span class="bar" data-value="-0.66">-0.66 %</span></td>
+      </tr>
+  </tbody>
+</table>
+</div>
+<p>AV1 is absolutely merciless during quiet moments, dropping to bitrates that would make H.264 engineers file bug reports. But it works—<strong>every saved bit during dialogue scenes funds the spectacular action sequences.</strong></p>
+<h2 id="finding-3-the-payoff-in-gigabytes">Finding #3: The Payoff in Gigabytes<a hidden class="anchor" aria-hidden="true" href="#finding-3-the-payoff-in-gigabytes">#</a></h2>
+<p>Percentages are boring. Here&rsquo;s what AV1 actually saves you in tangible data:</p>
+<ul>
+<li>🎬 <strong>Catch Me If You Can</strong> (141 min): <strong>1.94 GB saved</strong></li>
+<li>🍌 <strong>Minions</strong> (91 min): <strong>1.48 GB saved</strong></li>
+<li>🧪 <strong>Breaking Bad S1E1</strong> (58 min): <strong>0.93 GB saved</strong></li>
+<li>🎩 <strong>Peaky Blinders S1E1</strong> (59 min): <strong>0.7 GB saved</strong></li>
+</ul>
+<p>For a 10-episode season of Peaky Blinders, that&rsquo;s <strong>7 GB saved</strong>. Enough for three additional HD movies.</p>
+<blockquote>
+<p>&ldquo;Netflix literally gave you a &lsquo;buy 10 episodes, get 3 movies free&rsquo; deal and nobody noticed.&rdquo;</p></blockquote>
+<hr>
+<h1 id="part-2-the-secret-weapon---thriving-under-pressure">Part 2: The Secret Weapon - Thriving Under Pressure<a hidden class="anchor" aria-hidden="true" href="#part-2-the-secret-weapon---thriving-under-pressure">#</a></h1>
+<p>Saving data is one thing, but AV1&rsquo;s real genius lies in how it handles complexity. This is where we uncover the fascinating paradoxes that make AV1 a strategic masterpiece.</p>
+<h2 id="finding-4-the-action-scene-advantage">Finding #4: The Action Scene Advantage<a hidden class="anchor" aria-hidden="true" href="#finding-4-the-action-scene-advantage">#</a></h2>
+<p>You&rsquo;d think a codec saves data by cutting corners during chaotic action scenes. AV1 does the exact opposite. <strong>Its efficiency advantage often accelerates when the on-screen complexity ramps up.</strong></p>
+<p>We can prove this by segmenting each stream into four &ldquo;quartiles&rdquo; of complexity. Q1 represents the quietest 25% of scenes, while Q4 represents the most frantic 25%.</p>
+<div class="table-card no-footnote">
+<table>
+  <thead>
+      <tr>
+          <th>Complexity <br>Level</th>
+          <th style="text-align: center">🍌 Minions</th>
+          <th style="text-align: center">🎬 Catch Me</th>
+          <th style="text-align: center">🎩 Peaky Blinders</th>
+          <th style="text-align: center">🧪 Breaking Bad</th>
+          <th style="text-align: center">🐴 Bojack</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>Easiest 25%</td>
+          <td style="text-align: center"><span class="bar" data-value="55.0">55.0 %</span></td>
+          <td style="text-align: center"><span class="bar" data-value="46.1">46.1 %</span></td>
+          <td style="text-align: center"><span class="bar" data-value="43.6">43.6 %</span></td>
+          <td style="text-align: center"><span class="bar" data-value="25.7">25.7 %</span></td>
+          <td style="text-align: center"><span class="bar" data-value="-10.5">-10.5 %</span></td>
+      </tr>
+      <tr>
+          <td>Low‑Mid</td>
+          <td style="text-align: center"><span class="bar" data-value="56.5">56.5 %</span></td>
+          <td style="text-align: center"><span class="bar" data-value="47.2">47.2 %</span></td>
+          <td style="text-align: center"><span class="bar" data-value="43.4">43.4 %</span></td>
+          <td style="text-align: center"><span class="bar" data-value="36.9">36.9 %</span></td>
+          <td style="text-align: center"><span class="bar" data-value="-8.9">-8.9 %</span></td>
+      </tr>
+      <tr>
+          <td>Mid‑High</td>
+          <td style="text-align: center"><span class="bar" data-value="54.6">54.6 %</span></td>
+          <td style="text-align: center"><span class="bar" data-value="49.2">49.2 %</span></td>
+          <td style="text-align: center"><span class="bar" data-value="47.0">47.0 %</span></td>
+          <td style="text-align: center"><span class="bar" data-value="34.6">34.6 %</span></td>
+          <td style="text-align: center"><span class="bar" data-value="-9.7">-9.7 %</span></td>
+      </tr>
+      <tr>
+          <td>Hardest 25%</td>
+          <td style="text-align: center"><span class="bar" data-value="54.2">54.2 %</span></td>
+          <td style="text-align: center"><span class="bar" data-value="46.6">46.6 %</span></td>
+          <td style="text-align: center"><span class="bar" data-value="53.1">53.1 %</span></td>
+          <td style="text-align: center"><span class="bar" data-value="26.8">26.8 %</span></td>
+          <td style="text-align: center"><span class="bar" data-value="-1.1">-1.1 %</span></td>
+      </tr>
+  </tbody>
+</table>
+</div>
+<p>Notice how <em>Peaky Blinders</em> actually gets MORE efficient as scenes get harder? A perfect example of this in action is the CGI-animated film <em>Minions</em>. The chart below shows the H.264 stream (red) spiking wildly during action scenes, while the AV1 stream (green) remains remarkably composed.</p>
+
+<div class="table-card chart-card " role="figure" aria-labelledby="Minions">
+  <iframe
+    id="datawrapper-chart-2"
+    title="Minions"
+    aria-label="Line chart"
+    src="https://datawrapper.dwcdn.net/7GyCg/6/"
+    loading="lazy"
+    scrolling="no"
+    frameborder="0"
+    height="478"
+    style="width: 0; min-width: 100% !important; border: none;"
+    data-external="1"
+    data-embed="datawrapper"
+  ></iframe>
+  <noscript>
+    <p>Interactive chart: <a href="https://datawrapper.dwcdn.net/7GyCg/6/" rel="noopener noreferrer" target="_blank">View on Datawrapper</a></p>
+  </noscript>
+</div>
+
+<p>When the screen is filled with smoke, rain, and fast action, AV1&rsquo;s advantage widens. It thrives under pressure.</p>
+<h2 id="finding-5-the-peak-bitrate-anomaly">Finding #5: The Peak Bitrate Anomaly<a hidden class="anchor" aria-hidden="true" href="#finding-5-the-peak-bitrate-anomaly">#</a></h2>
+<p>Peak bitrates are the silent killers of a smooth streaming experience. But in my analysis, the single highest bitrate spike across all five titles didn’t come from an older, less efficient codec. <strong>It came from AV1.</strong></p>
+<p><strong>The hall of fame (or shame):</strong></p>
+<ul>
+<li><strong>AV1&rsquo;s Wildest Moment</strong>: The AV1 stream for <em>Breaking Bad</em> hit a staggering <strong>22,573 kbps</strong> spike.</li>
+<li><strong>HEVC&rsquo;s Response</strong>: For the same scene, the HEVC stream topped out at a more controlled <strong>19,428 kbps</strong>.</li>
+<li><strong>The Norm</strong>: In contrast, during the most chaotic action scenes in <em>Minions</em>, H.264 peaked at over 10 Mbps, while AV1 stayed calmly under 4 Mbps.</li>
+</ul>
+<p>This isn&rsquo;t a bug. It’s a <strong>deliberate, almost fanatical, choice</strong> to prioritize visual quality over anything else, which leads us directly to the most interesting discovery of this project.</p>
+<h2 id="finding-6-the-breaking-bad-paradox">Finding #6: The Breaking Bad Paradox<a hidden class="anchor" aria-hidden="true" href="#finding-6-the-breaking-bad-paradox">#</a></h2>
+<p>So, why would the &ldquo;more efficient&rdquo; codec throw a 22 Mbps tantrum? This brings us to the Breaking Bad Paradox. The behavior we see is a direct result of <strong>Netflix&rsquo;s shot-based encoding strategy</strong> in action. Their systems analyze the show scene-by-scene and see that its signature 35mm film grain is a crucial, and very data-intensive, part of its artistic identity.</p>
+<p>Faced with this, the encoder is given a clear directive: <strong>preserve that grain at all costs.</strong></p>
+<p>This results in a bizarre Jekyll-and-Hyde mode. Instead of just saving bits everywhere, the encoder acts like a savvy budget manager operating under Netflix&rsquo;s quality-first philosophy:</p>
+<ul>
+<li>It <strong>robs bits</strong> from the data-poor scenes (quiet dialogue) by compressing them aggressively.</li>
+<li>It then <strong>spends that budget</strong> on the data-rich scenes (intense grain), ensuring the show&rsquo;s look is rendered with absolute fidelity, even if it causes a massive spike.</li>
+</ul>
+
+<div class="table-card chart-card " role="figure" aria-labelledby="Breaking Bad - S1E01">
+  <iframe
+    id="datawrapper-chart-3"
+    title="Breaking Bad - S1E01"
+    aria-label="Line chart"
+    src="https://datawrapper.dwcdn.net/Rn3cP/9/"
+    loading="lazy"
+    scrolling="no"
+    frameborder="0"
+    height="478"
+    style="width: 0; min-width: 100% !important; border: none;"
+    data-external="1"
+    data-embed="datawrapper"
+  ></iframe>
+  <noscript>
+    <p>Interactive chart: <a href="https://datawrapper.dwcdn.net/Rn3cP/9/" rel="noopener noreferrer" target="_blank">View on Datawrapper</a></p>
+  </noscript>
+</div>
+
+<p>This reveals that the ultimate strategy isn&rsquo;t just about the codec&rsquo;s raw power; it&rsquo;s about the <strong>intelligent instructions</strong> guiding it.</p>
+<h2 id="finding-7-the-bojack-horseman-mystery">Finding #7: The Bojack Horseman Mystery<a hidden class="anchor" aria-hidden="true" href="#finding-7-the-bojack-horseman-mystery">#</a></h2>
+<p>The <em>Bojack Horseman</em> result, where AV1 uses slightly <em>more</em> data, is the other side of the same coin: Netflix&rsquo;s obsession with <strong>perceptual quality</strong>. The shot-based analysis for this show isn&rsquo;t concerned with film grain, but with preserving the clean lines and solid colors of 2D animation.</p>
+<p>Here&rsquo;s what&rsquo;s happening: the system recognizes that for this type of content, a tiny extra investment in bitrate can deliver a disproportionately large improvement in visual quality, eliminating subtle artifacts that older codecs might introduce around character outlines.</p>
+
+<div class="table-card chart-card " role="figure" aria-labelledby="Bojack Horseman - S1E01">
+  <iframe
+    id="datawrapper-chart-4"
+    title="Bojack Horseman - S1E01"
+    aria-label="Line chart"
+    src="https://datawrapper.dwcdn.net/qxwdB/7/"
+    loading="lazy"
+    scrolling="no"
+    frameborder="0"
+    height="478"
+    style="width: 0; min-width: 100% !important; border: none;"
+    data-external="1"
+    data-embed="datawrapper"
+  ></iframe>
+  <noscript>
+    <p>Interactive chart: <a href="https://datawrapper.dwcdn.net/qxwdB/7/" rel="noopener noreferrer" target="_blank">View on Datawrapper</a></p>
+  </noscript>
+</div>
+
+<p>HEVC can hit &ldquo;good enough&rdquo; quality at 1.0 Mbps. But Netflix has directed AV1 to deliver &ldquo;pristine&rdquo; quality at 1.1 Mbps—a worthwhile trade-off to ensure the animation looks exactly as the creators intended. It&rsquo;s the difference between a decent burger and a gourmet one for just a few cents more, a decision made possible by <strong>a platform that prioritizes quality over raw efficiency.</strong></p>
+<hr>
+<h1 id="part-3-the-user-experience---a-smoother-more-stable-stream">Part 3: The User Experience - A Smoother, More Stable Stream<a hidden class="anchor" aria-hidden="true" href="#part-3-the-user-experience---a-smoother-more-stable-stream">#</a></h1>
+<p>All this technical wizardry is impressive, but what does it actually mean when you hit &ldquo;play&rdquo;?</p>
+<h2 id="finding-8-the-buffer-battle-royale">Finding #8: The Buffer Battle Royale<a hidden class="anchor" aria-hidden="true" href="#finding-8-the-buffer-battle-royale">#</a></h2>
+<p><strong>Imagine a 10 Mbps internet connection</strong>. Let&rsquo;s count how many times each stream would cause buffering by exceeding that limit.</p>
+<div class="table-card no-footnote">
+<table>
+  <thead>
+      <tr>
+          <th>Title</th>
+          <th style="text-align: center">Codec <br>Battle</th>
+          <th style="text-align: center">H.264/HEVC <br> Danger Zones</th>
+          <th style="text-align: center">AV1 <br> Danger Zones</th>
+          <th style="text-align: center">Your Frustration <br> Level</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>🎬 Catch Me If You Can</td>
+          <td style="text-align: center"><span class="codec-inline">AV1</span> / <span class="codec-inline">H.264</span></td>
+          <td style="text-align: center"><span class="bar neg" data-value="16">16</span> times</td>
+          <td style="text-align: center"><span class="bar" data-value="0">0</span> times</td>
+          <td style="text-align: center"><span class="delta pos">Zen master</span></td>
+      </tr>
+      <tr>
+          <td>🎩 Peaky Blinders</td>
+          <td style="text-align: center"><span class="codec-inline">AV1</span> / <span class="codec-inline">H.264</span></td>
+          <td style="text-align: center"><span class="bar neg" data-value="9">9</span> times</td>
+          <td style="text-align: center"><span class="bar" data-value="0">0</span> times</td>
+          <td style="text-align: center"><span class="delta pos">Zen master</span></td>
+      </tr>
+      <tr>
+          <td>🐴 Bojack Horseman</td>
+          <td style="text-align: center"><span class="codec-inline">AV1</span> / <span class="codec-inline">HEVC</span></td>
+          <td style="text-align: center"><span class="bar neg" data-value="0">0</span> times</td>
+          <td style="text-align: center"><span class="bar" data-value="0">0</span> times</td>
+          <td style="text-align: center"><span class="delta pos">Equally smooth</span></td>
+      </tr>
+      <tr>
+          <td>🧪 Breaking Bad</td>
+          <td style="text-align: center"><span class="codec-inline">AV1</span> / <span class="codec-inline">HEVC</span></td>
+          <td style="text-align: center"><span class="bar neg" data-value="64">64</span> times</td>
+          <td style="text-align: center"><span class="bar" data-value="28">28</span> times</td>
+          <td style="text-align: center"><span class="delta neg">Still annoyed, but less</span></td>
+      </tr>
+      <tr>
+          <td>🍌 Minions</td>
+          <td style="text-align: center"><span class="codec-inline">AV1</span> / <span class="codec-inline">H.264</span></td>
+          <td style="text-align: center"><span class="bar neg" data-value="16">16</span> times</td>
+          <td style="text-align: center"><span class="bar" data-value="2">2</span> times</td>
+          <td style="text-align: center"><span class="delta neg">Still annoyed, but less</span></td>
+      </tr>
+  </tbody>
+</table>
+</div>
+<p>In <em>Catch Me If You Can</em>, the H.264 stream crossed into the danger zone 16 times. The AV1 stream? <strong>Zero.</strong> The chart below makes this crystal clear—watch how the red H.264 line constantly spikes while the green AV1 line stays composed.</p>
+
+<div class="table-card chart-card " role="figure" aria-labelledby="Catch Me If You Can">
+  <iframe
+    id="datawrapper-chart-5"
+    title="Catch Me If You Can"
+    aria-label="Line chart"
+    src="https://datawrapper.dwcdn.net/Kp2s6/3/"
+    loading="lazy"
+    scrolling="no"
+    frameborder="0"
+    height="478"
+    style="width: 0; min-width: 100% !important; border: none;"
+    data-external="1"
+    data-embed="datawrapper"
+  ></iframe>
+  <noscript>
+    <p>Interactive chart: <a href="https://datawrapper.dwcdn.net/Kp2s6/3/" rel="noopener noreferrer" target="_blank">View on Datawrapper</a></p>
+  </noscript>
+</div>
+
+<p><strong>AV1 literally eliminated buffering for two titles</strong> and significantly reduced it for the others. Your internet didn&rsquo;t get better—the codec did.</p>
+<h2 id="finding-9-faster-start-up-less-waiting">Finding #9: Faster Start-Up, Less Waiting<a hidden class="anchor" aria-hidden="true" href="#finding-9-faster-start-up-less-waiting">#</a></h2>
+<p>You click play, and those first 30 seconds determine whether you commit to watching or bounce to TikTok. A high initial bitrate can kill the experience on slower connections, leading to a frustrating wait before the video even starts.</p>
+<p>Across the board, AV1 shows a massive advantage right from the very first frame.</p>
+<div class="table-card no-footnote">
+<table>
+  <thead>
+      <tr>
+          <th>Title</th>
+          <th style="text-align: center">Codec <br>Battle</th>
+          <th style="text-align: center"><span class="hdr">Competitor<br><span class="sub">Startup Bitrate</span></span></th>
+          <th style="text-align: center"><span class="hdr">AV1<br><span class="sub">Startup Bitrate</span></span></th>
+          <th style="text-align: center"><span class="hdr">AV1 Advantage<br><span class="sub">% Lower</span></span></th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>🍌 Minions</td>
+          <td style="text-align: center"><span class="codec-inline">AV1</span> / <span class="codec-inline">H.264</span></td>
+          <td style="text-align: center">3.4 Mbps</td>
+          <td style="text-align: center">1.3 Mbps</td>
+          <td style="text-align: center"><span class="bar" data-value="61.8">61.8%</span></td>
+      </tr>
+      <tr>
+          <td>🧪 Breaking Bad</td>
+          <td style="text-align: center"><span class="codec-inline">AV1</span> / <span class="codec-inline">HEVC</span></td>
+          <td style="text-align: center">4.0 Mbps</td>
+          <td style="text-align: center">1.8 Mbps</td>
+          <td style="text-align: center"><span class="bar" data-value="55.0">55.0%</span></td>
+      </tr>
+      <tr>
+          <td>🎬 Catch Me If You Can</td>
+          <td style="text-align: center"><span class="codec-inline">AV1</span> / <span class="codec-inline">H.264</span></td>
+          <td style="text-align: center">2.0 Mbps</td>
+          <td style="text-align: center">1.1 Mbps</td>
+          <td style="text-align: center"><span class="bar" data-value="45.0">45.0%</span></td>
+      </tr>
+      <tr>
+          <td>🎩 Peaky Blinders</td>
+          <td style="text-align: center"><span class="codec-inline">AV1</span> / <span class="codec-inline">H.264</span></td>
+          <td style="text-align: center">0.8 Mbps</td>
+          <td style="text-align: center">0.5 Mbps</td>
+          <td style="text-align: center"><span class="bar" data-value="37.5">37.5%</span></td>
+      </tr>
+      <tr>
+          <td>🐴 Bojack Horseman</td>
+          <td style="text-align: center"><span class="codec-inline">AV1</span> / <span class="codec-inline">HEVC</span></td>
+          <td style="text-align: center">0.9 Mbps</td>
+          <td style="text-align: center">0.7 Mbps</td>
+          <td style="text-align: center"><span class="bar" data-value="22.2">22.2%</span></td>
+      </tr>
+  </tbody>
+</table>
+</div>
+<p><strong>Real-world impact</strong>: That hotel WiFi that barely loads your email? It might actually handle an AV1 Netflix stream from the get-go. By requiring less data to start, AV1 drastically reduces the initial buffering time, getting you to your show faster.</p>
+<h2 id="finding-10-the-safe-zone-revolution">Finding #10: The &ldquo;Safe Zone&rdquo; Revolution<a hidden class="anchor" aria-hidden="true" href="#finding-10-the-safe-zone-revolution">#</a></h2>
+<p>For users on mobile or congested Wi-Fi, the most important metric is the percentage of time a stream stays below a low-bitrate threshold (e.g., 2 Mbps).</p>
+<div class="table-card no-footnote">
+<table>
+  <thead>
+      <tr>
+          <th>Title</th>
+          <th style="text-align: center">Codec <br>Battle</th>
+          <th style="text-align: center"><span class="hdr">Competitor<br><span class="sub">% Time in Zone</span></span></th>
+          <th style="text-align: center"><span class="hdr">AV1<br><span class="sub">% Time in Zone</span></span></th>
+          <th style="text-align: center">Threshold</th>
+      </tr>
+  </thead>
+  <tbody>
+      <tr>
+          <td>🍌 Minions</td>
+          <td style="text-align: center"><span class="codec-inline">AV1</span> / <span class="codec-inline">H.264</span></td>
+          <td style="text-align: center"><span class="bar" data-value="6">6%</span></td>
+          <td style="text-align: center"><span class="bar" data-value="60">60%</span></td>
+          <td style="text-align: center">&lt; 2 Mbps</td>
+      </tr>
+      <tr>
+          <td>🎬 Catch Me If You Can</td>
+          <td style="text-align: center"><span class="codec-inline">AV1</span> / <span class="codec-inline">H.264</span></td>
+          <td style="text-align: center"><span class="bar" data-value="4">4%</span></td>
+          <td style="text-align: center"><span class="bar" data-value="38">38%</span></td>
+          <td style="text-align: center">&lt; 2 Mbps</td>
+      </tr>
+      <tr>
+          <td>🎩 Peaky Blinders</td>
+          <td style="text-align: center"><span class="codec-inline">AV1</span> / <span class="codec-inline">H.264</span></td>
+          <td style="text-align: center"><span class="bar" data-value="8">8%</span></td>
+          <td style="text-align: center"><span class="bar" data-value="66">66%</span></td>
+          <td style="text-align: center">&lt; 2 Mbps</td>
+      </tr>
+      <tr>
+          <td>🧪 Breaking Bad</td>
+          <td style="text-align: center"><span class="codec-inline">AV1</span> / <span class="codec-inline">HEVC</span></td>
+          <td style="text-align: center"><span class="bar" data-value="5">5%</span></td>
+          <td style="text-align: center"><span class="bar" data-value="39">39%</span></td>
+          <td style="text-align: center">&lt; 4 Mbps</td>
+      </tr>
+      <tr>
+          <td>🐴 Bojack Horseman</td>
+          <td style="text-align: center"><span class="codec-inline">AV1</span> / <span class="codec-inline">HEVC</span></td>
+          <td style="text-align: center"><span class="bar" data-value="98">98%</span></td>
+          <td style="text-align: center"><span class="bar" data-value="100">100%</span></td>
+          <td style="text-align: center">&lt; 2 Mbps</td>
+      </tr>
+  </tbody>
+</table>
+</div>
+<p>AV1 makes HD streaming viable on connections that would have struggled with legacy codecs. <strong>Your mobile data plan just became way more useful.</strong></p>
+<hr>
+<h1 id="the-bottom-line-what-this-actually-means">The Bottom Line: What This Actually Means<a hidden class="anchor" aria-hidden="true" href="#the-bottom-line-what-this-actually-means">#</a></h1>
+<p>Let&rsquo;s bring this all together.</p>
+<h2 id="for-you-the-viewer">For You, the Viewer<a hidden class="anchor" aria-hidden="true" href="#for-you-the-viewer">#</a></h2>
+<ul>
+<li><strong>On Your Phone:</strong> A 10GB data plan used to get you ~12 hours of Netflix. With AV1&rsquo;s efficiency, that&rsquo;s now closer to <strong>20 hours</strong>. You can binge an entire extra season of a show on your commute, for free.</li>
+<li><strong>On Bad Wi-Fi:</strong> That hotel or airport Wi-Fi that always buffers? AV1&rsquo;s lower bitrate floor and superior stability make streaming on it <strong>not just possible, but smooth.</strong></li>
+<li><strong>On a Great Connection:</strong> You get a <strong>higher-quality, more detailed picture</strong>, especially in complex scenes, because the codec is using your bandwidth more intelligently.</li>
+</ul>
+<h2 id="for-netflix-the-business">For Netflix, the Business<a hidden class="anchor" aria-hidden="true" href="#for-netflix-the-business">#</a></h2>
+<p>Let&rsquo;s talk money, because that&rsquo;s what drives these decisions.</p>
+<ul>
+<li><strong>My back-of-the-napkin math</strong>, using some conservative industry estimates for bandwidth costs, puts Netflix&rsquo;s potential savings in the ballpark of <strong>$25M/year</strong>. That&rsquo;s money they can invest in shows instead of paying to internet providers.</li>
+</ul>
+<hr>
+<h1 id="the-catch-theres-always-a-catch">The Catch (There&rsquo;s Always a Catch)<a hidden class="anchor" aria-hidden="true" href="#the-catch-theres-always-a-catch">#</a></h1>
+<p>I&rsquo;m not an AV1 evangelist who ignores reality. The codec has two major hurdles:</p>
+<ol>
+<li><strong>Encoding Cost:</strong> AV1 is a beast to encode. This isn&rsquo;t just a one-time software update; it requires a <strong>massive, ongoing investment in server infrastructure</strong> for any streaming service.</li>
+<li><strong>Device Support:</strong> Hardware decoding for AV1 isn&rsquo;t on every device yet. This is a classic chicken-and-egg problem that will take a <strong>few more years of device refresh cycles</strong> to fully resolve.</li>
+</ol>
+<h1 id="the-verdict-a-revolution-in-progress">The Verdict: A Revolution in Progress<a hidden class="anchor" aria-hidden="true" href="#the-verdict-a-revolution-in-progress">#</a></h1>
+<p>Despite the hurdles, the data is clear. AV1 is not just another spec sheet with theoretical gains. In real-world streams, it delivers on its promise with staggering results.</p>
+<p>It&rsquo;s smarter in quiet moments, more composed during action scenes, and its efficiency advantage often accelerates the harder you push it. The transition will be slow and expensive, but it&rsquo;s no longer a question of <em><strong>if</strong></em> <strong>AV1 will dominate streaming, but</strong> <em><strong>when</strong></em>.</p>
+<blockquote>
+<p>We&rsquo;re witnessing a quiet revolution, one Gigabyte at a time.</p></blockquote>
+<hr>
+<p><em>Found this useful? Share it with anyone who&rsquo;s ever cursed their internet connection during a Netflix binge. And yes, I realize I spent a few weekends proving that Netflix&rsquo;s engineers know what they&rsquo;re doing. No regrets.</em></p>
+
+
+  </div>
+
+  <footer class="post-footer">
+    <ul class="post-tags">
+      <li><a href="https://singhkays.com/tags/netflix/">Netflix</a></li>
+      <li><a href="https://singhkays.com/tags/av1/">AV1</a></li>
+      <li><a href="https://singhkays.com/tags/codec/">Codec</a></li>
+      <li><a href="https://singhkays.com/tags/streaming/">Streaming</a></li>
+      <li><a href="https://singhkays.com/tags/h.264/">H.264</a></li>
+      <li><a href="https://singhkays.com/tags/h.265/">H.265</a></li>
+      <li><a href="https://singhkays.com/tags/avc/">AVC</a></li>
+      <li><a href="https://singhkays.com/tags/hevc/">HEVC</a></li>
+    </ul>
+<nav class="paginav">
+  <a class="next" href="https://singhkays.com/blog/microsoft-calibri-replacements/">
+    <span class="title">Next »</span>
+    <br>
+    <span>Taking Microsoft&#39;s Calibri replacements for a spin</span>
+  </a>
+</nav>
+
+
+<ul class="share-buttons">
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Decoding Netflix&#39;s AV1 Streams: Here are 10 things I found on x"
+            href="https://x.com/intent/tweet/?text=Decoding%20Netflix%27s%20AV1%20Streams%3a%20Here%20are%2010%20things%20I%20found&amp;url=https%3a%2f%2fsinghkays.com%2fblog%2fnetflix-av1-investigation%2f&amp;hashtags=Netflix%2cAV1%2cCodec%2cStreaming%2cH.264%2cH.265%2cAVC%2cHEVC">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M512 62.554 L 512 449.446 C 512 483.97 483.97 512 449.446 512 L 62.554 512 C 28.03 512 0 483.97 0 449.446 L 0 62.554 C 0 28.03 28.029 0 62.554 0 L 449.446 0 C 483.971 0 512 28.03 512 62.554 Z M 269.951 190.75 L 182.567 75.216 L 56 75.216 L 207.216 272.95 L 63.9 436.783 L 125.266 436.783 L 235.9 310.383 L 332.567 436.783 L 456 436.783 L 298.367 228.367 L 432.367 75.216 L 371.033 75.216 Z M 127.633 110 L 164.101 110 L 383.481 400.065 L 349.5 400.065 Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Decoding Netflix&#39;s AV1 Streams: Here are 10 things I found on linkedin"
+            href="https://www.linkedin.com/shareArticle?mini=true&amp;url=https%3a%2f%2fsinghkays.com%2fblog%2fnetflix-av1-investigation%2f&amp;title=Decoding%20Netflix%27s%20AV1%20Streams%3a%20Here%20are%2010%20things%20I%20found&amp;summary=Decoding%20Netflix%27s%20AV1%20Streams%3a%20Here%20are%2010%20things%20I%20found&amp;source=https%3a%2f%2fsinghkays.com%2fblog%2fnetflix-av1-investigation%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-288.985,423.278l0,-225.717l-75.04,0l0,225.717l75.04,0Zm270.539,0l0,-129.439c0,-69.333 -37.018,-101.586 -86.381,-101.586c-39.804,0 -57.634,21.891 -67.617,37.266l0,-31.958l-75.021,0c0.995,21.181 0,225.717 0,225.717l75.02,0l0,-126.056c0,-6.748 0.486,-13.492 2.474,-18.315c5.414,-13.475 17.767,-27.434 38.494,-27.434c27.135,0 38.007,20.707 38.007,51.037l0,120.768l75.024,0Zm-307.552,-334.556c-25.674,0 -42.448,16.879 -42.448,39.002c0,21.658 16.264,39.002 41.455,39.002l0.484,0c26.165,0 42.452,-17.344 42.452,-39.002c-0.485,-22.092 -16.241,-38.954 -41.943,-39.002Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Decoding Netflix&#39;s AV1 Streams: Here are 10 things I found on reddit"
+            href="https://reddit.com/submit?url=https%3a%2f%2fsinghkays.com%2fblog%2fnetflix-av1-investigation%2f&title=Decoding%20Netflix%27s%20AV1%20Streams%3a%20Here%20are%2010%20things%20I%20found">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-3.446,265.638c0,-22.964 -18.616,-41.58 -41.58,-41.58c-11.211,0 -21.361,4.457 -28.841,11.666c-28.424,-20.508 -67.586,-33.757 -111.204,-35.278l18.941,-89.121l61.884,13.157c0.756,15.734 13.642,28.29 29.56,28.29c16.407,0 29.706,-13.299 29.706,-29.701c0,-16.403 -13.299,-29.702 -29.706,-29.702c-11.666,0 -21.657,6.792 -26.515,16.578l-69.105,-14.69c-1.922,-0.418 -3.939,-0.042 -5.585,1.036c-1.658,1.073 -2.811,2.761 -3.224,4.686l-21.152,99.438c-44.258,1.228 -84.046,14.494 -112.837,35.232c-7.468,-7.164 -17.589,-11.591 -28.757,-11.591c-22.965,0 -41.585,18.616 -41.585,41.58c0,16.896 10.095,31.41 24.568,37.918c-0.639,4.135 -0.99,8.328 -0.99,12.576c0,63.977 74.469,115.836 166.33,115.836c91.861,0 166.334,-51.859 166.334,-115.836c0,-4.218 -0.347,-8.387 -0.977,-12.493c14.564,-6.47 24.735,-21.034 24.735,-38.001Zm-119.474,108.193c-20.27,20.241 -59.115,21.816 -70.534,21.816c-11.428,0 -50.277,-1.575 -70.522,-21.82c-3.007,-3.008 -3.007,-7.882 0,-10.889c3.003,-2.999 7.882,-3.003 10.885,0c12.777,12.781 40.11,17.317 59.637,17.317c19.522,0 46.86,-4.536 59.657,-17.321c3.016,-2.999 7.886,-2.995 10.885,0.008c3.008,3.011 3.003,7.882 -0.008,10.889Zm-5.23,-48.781c-16.373,0 -29.701,-13.324 -29.701,-29.698c0,-16.381 13.328,-29.714 29.701,-29.714c16.378,0 29.706,13.333 29.706,29.714c0,16.374 -13.328,29.698 -29.706,29.698Zm-160.386,-29.702c0,-16.381 13.328,-29.71 29.714,-29.71c16.369,0 29.689,13.329 29.689,29.71c0,16.373 -13.32,29.693 -29.689,29.693c-16.386,0 -29.714,-13.32 -29.714,-29.693Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Decoding Netflix&#39;s AV1 Streams: Here are 10 things I found on facebook"
+            href="https://facebook.com/sharer/sharer.php?u=https%3a%2f%2fsinghkays.com%2fblog%2fnetflix-av1-investigation%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-106.468,0l0,-192.915l66.6,0l12.672,-82.621l-79.272,0l0,-53.617c0,-22.603 11.073,-44.636 46.58,-44.636l36.042,0l0,-70.34c0,0 -32.71,-5.582 -63.982,-5.582c-65.288,0 -107.96,39.569 -107.96,111.204l0,62.971l-72.573,0l0,82.621l72.573,0l0,192.915l-191.104,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Decoding Netflix&#39;s AV1 Streams: Here are 10 things I found on whatsapp"
+            href="https://api.whatsapp.com/send?text=Decoding%20Netflix%27s%20AV1%20Streams%3a%20Here%20are%2010%20things%20I%20found%20-%20https%3a%2f%2fsinghkays.com%2fblog%2fnetflix-av1-investigation%2f">
+            <svg version="1.1" viewBox="0 0 512 512" xml:space="preserve" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M449.446,0c34.525,0 62.554,28.03 62.554,62.554l0,386.892c0,34.524 -28.03,62.554 -62.554,62.554l-386.892,0c-34.524,0 -62.554,-28.03 -62.554,-62.554l0,-386.892c0,-34.524 28.029,-62.554 62.554,-62.554l386.892,0Zm-58.673,127.703c-33.842,-33.881 -78.847,-52.548 -126.798,-52.568c-98.799,0 -179.21,80.405 -179.249,179.234c-0.013,31.593 8.241,62.428 23.927,89.612l-25.429,92.884l95.021,-24.925c26.181,14.28 55.659,21.807 85.658,21.816l0.074,0c98.789,0 179.206,-80.413 179.247,-179.243c0.018,-47.895 -18.61,-92.93 -52.451,-126.81Zm-126.797,275.782l-0.06,0c-26.734,-0.01 -52.954,-7.193 -75.828,-20.767l-5.441,-3.229l-56.386,14.792l15.05,-54.977l-3.542,-5.637c-14.913,-23.72 -22.791,-51.136 -22.779,-79.287c0.033,-82.142 66.867,-148.971 149.046,-148.971c39.793,0.014 77.199,15.531 105.329,43.692c28.128,28.16 43.609,65.592 43.594,105.4c-0.034,82.149 -66.866,148.983 -148.983,148.984Zm81.721,-111.581c-4.479,-2.242 -26.499,-13.075 -30.604,-14.571c-4.105,-1.495 -7.091,-2.241 -10.077,2.241c-2.986,4.483 -11.569,14.572 -14.182,17.562c-2.612,2.988 -5.225,3.364 -9.703,1.12c-4.479,-2.241 -18.91,-6.97 -36.017,-22.23c-13.314,-11.876 -22.304,-26.542 -24.916,-31.026c-2.612,-4.484 -0.279,-6.908 1.963,-9.14c2.016,-2.007 4.48,-5.232 6.719,-7.847c2.24,-2.615 2.986,-4.484 4.479,-7.472c1.493,-2.99 0.747,-5.604 -0.374,-7.846c-1.119,-2.241 -10.077,-24.288 -13.809,-33.256c-3.635,-8.733 -7.327,-7.55 -10.077,-7.688c-2.609,-0.13 -5.598,-0.158 -8.583,-0.158c-2.986,0 -7.839,1.121 -11.944,5.604c-4.105,4.484 -15.675,15.32 -15.675,37.364c0,22.046 16.048,43.342 18.287,46.332c2.24,2.99 31.582,48.227 76.511,67.627c10.685,4.615 19.028,7.371 25.533,9.434c10.728,3.41 20.492,2.929 28.209,1.775c8.605,-1.285 26.499,-10.833 30.231,-21.295c3.732,-10.464 3.732,-19.431 2.612,-21.298c-1.119,-1.869 -4.105,-2.99 -8.583,-5.232Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Decoding Netflix&#39;s AV1 Streams: Here are 10 things I found on telegram"
+            href="https://telegram.me/share/url?text=Decoding%20Netflix%27s%20AV1%20Streams%3a%20Here%20are%2010%20things%20I%20found&amp;url=https%3a%2f%2fsinghkays.com%2fblog%2fnetflix-av1-investigation%2f">
+            <svg version="1.1" xml:space="preserve" viewBox="2 2 28 28" height="30px" width="30px" fill="currentColor">
+                <path
+                    d="M26.49,29.86H5.5a3.37,3.37,0,0,1-2.47-1,3.35,3.35,0,0,1-1-2.47V5.48A3.36,3.36,0,0,1,3,3,3.37,3.37,0,0,1,5.5,2h21A3.38,3.38,0,0,1,29,3a3.36,3.36,0,0,1,1,2.46V26.37a3.35,3.35,0,0,1-1,2.47A3.38,3.38,0,0,1,26.49,29.86Zm-5.38-6.71a.79.79,0,0,0,.85-.66L24.73,9.24a.55.55,0,0,0-.18-.46.62.62,0,0,0-.41-.17q-.08,0-16.53,6.11a.59.59,0,0,0-.41.59.57.57,0,0,0,.43.52l4,1.24,1.61,4.83a.62.62,0,0,0,.63.43.56.56,0,0,0,.4-.17L16.54,20l4.09,3A.9.9,0,0,0,21.11,23.15ZM13.8,20.71l-1.21-4q8.72-5.55,8.78-5.55c.15,0,.23,0,.23.16a.18.18,0,0,1,0,.06s-2.51,2.3-7.52,6.8Z" />
+            </svg>
+        </a>
+    </li>
+    <li>
+        <a target="_blank" rel="noopener noreferrer" aria-label="share Decoding Netflix&#39;s AV1 Streams: Here are 10 things I found on ycombinator"
+            href="https://news.ycombinator.com/submitlink?t=Decoding%20Netflix%27s%20AV1%20Streams%3a%20Here%20are%2010%20things%20I%20found&u=https%3a%2f%2fsinghkays.com%2fblog%2fnetflix-av1-investigation%2f">
+            <svg version="1.1" xml:space="preserve" width="30px" height="30px" viewBox="0 0 512 512" fill="currentColor"
+                xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape">
+                <path
+                    d="M449.446 0C483.971 0 512 28.03 512 62.554L512 449.446C512 483.97 483.97 512 449.446 512L62.554 512C28.03 512 0 483.97 0 449.446L0 62.554C0 28.03 28.029 0 62.554 0L449.446 0ZM183.8767 87.9921H121.8427L230.6673 292.4508V424.0079H281.3328V292.4508L390.1575 87.9921H328.1233L256 238.2489z" />
+            </svg>
+        </a>
+    </li>
+</ul>
+
+  </footer>
+</article>
+    </main>
+    
+<footer class="footer">
+        <span>Copyright © 2025, Kay Singh; all rights reserved.</span> · 
+
+    <span>
+        Powered by
+        <a href="https://gohugo.io/" rel="noopener noreferrer" target="_blank">Hugo</a> &
+        <a href="https://github.com/adityatelange/hugo-PaperMod/" rel="noopener" target="_blank">PaperMod</a>
+    </span>
+</footer>
+<a href="#top" aria-label="go to top" title="Go to Top (Alt + G)" class="top-link" id="top-link" accesskey="g">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 12 6" fill="currentColor">
+        <path d="M12 6H0l6-6z" />
+    </svg>
+</a>
+<script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "50f40f74d1b240c398f1be6760b6e964"}'></script>
+
+
+<script>
+    let menu = document.getElementById('menu')
+    if (menu) {
+        menu.scrollLeft = localStorage.getItem("menu-scroll-position");
+        menu.onscroll = function () {
+            localStorage.setItem("menu-scroll-position", menu.scrollLeft);
+        }
+    }
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener("click", function (e) {
+            e.preventDefault();
+            var id = this.getAttribute("href").substr(1);
+            if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView({
+                    behavior: "smooth"
+                });
+            } else {
+                document.querySelector(`[id='${decodeURIComponent(id)}']`).scrollIntoView();
+            }
+            if (id === "top") {
+                history.replaceState(null, null, " ");
+            } else {
+                history.pushState(null, null, `#${id}`);
+            }
+        });
+    });
+
+</script>
+<script>
+    var mybutton = document.getElementById("top-link");
+    window.onscroll = function () {
+        if (document.body.scrollTop > 800 || document.documentElement.scrollTop > 800) {
+            mybutton.style.visibility = "visible";
+            mybutton.style.opacity = "1";
+        } else {
+            mybutton.style.visibility = "hidden";
+            mybutton.style.opacity = "0";
+        }
+    };
+
+</script>
+
+      
+<script>
+(function () {
+  "use strict";
+  if (window.__DW_RESIZER_LOADED__) return;
+  window.__DW_RESIZER_LOADED__ = true;
+
+  window.addEventListener("message", function (event) {
+    if (event.data && event.data["datawrapper-height"]) {
+      
+      var iframes = document.querySelectorAll("iframe[data-embed='datawrapper']");
+      for (var key in event.data["datawrapper-height"]) {
+        for (var i = 0; i < iframes.length; i++) {
+          var iframe = iframes[i];
+          if (iframe.contentWindow === event.source) {
+            iframe.style.height = event.data["datawrapper-height"][key] + "px";
+          }
+        }
+      }
+    }
+  });
+})();
+</script>
+
+    
+</body>
+
+</html>

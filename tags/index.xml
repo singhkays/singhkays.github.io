@@ -7,8 +7,64 @@
     <generator>Hugo -- 0.149.0</generator>
     <language>en</language>
     <copyright>Copyright © 2025, Kay Singh; all rights reserved.</copyright>
-    <lastBuildDate>Wed, 03 Sep 2025 23:07:38 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 01 Oct 2025 10:21:36 -0700</lastBuildDate>
     <atom:link href="https://singhkays.com/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AV1</title>
+      <link>https://singhkays.com/tags/av1/</link>
+      <pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://singhkays.com/tags/av1/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>AVC</title>
+      <link>https://singhkays.com/tags/avc/</link>
+      <pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://singhkays.com/tags/avc/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Codec</title>
+      <link>https://singhkays.com/tags/codec/</link>
+      <pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://singhkays.com/tags/codec/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>H.264</title>
+      <link>https://singhkays.com/tags/h.264/</link>
+      <pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://singhkays.com/tags/h.264/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>H.265</title>
+      <link>https://singhkays.com/tags/h.265/</link>
+      <pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://singhkays.com/tags/h.265/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>HEVC</title>
+      <link>https://singhkays.com/tags/hevc/</link>
+      <pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://singhkays.com/tags/hevc/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Netflix</title>
+      <link>https://singhkays.com/tags/netflix/</link>
+      <pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://singhkays.com/tags/netflix/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Streaming</title>
+      <link>https://singhkays.com/tags/streaming/</link>
+      <pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate>
+      <guid>https://singhkays.com/tags/streaming/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Calibri</title>
       <link>https://singhkays.com/tags/calibri/</link>
@@ -59,31 +115,10 @@
       <description></description>
     </item>
     <item>
-      <title>H.265</title>
-      <link>https://singhkays.com/tags/h.265/</link>
-      <pubDate>Sat, 08 May 2021 00:00:00 +0000</pubDate>
-      <guid>https://singhkays.com/tags/h.265/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>HEVC</title>
-      <link>https://singhkays.com/tags/hevc/</link>
-      <pubDate>Sat, 08 May 2021 00:00:00 +0000</pubDate>
-      <guid>https://singhkays.com/tags/hevc/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>M1</title>
       <link>https://singhkays.com/tags/m1/</link>
       <pubDate>Sat, 08 May 2021 00:00:00 +0000</pubDate>
       <guid>https://singhkays.com/tags/m1/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Netflix</title>
-      <link>https://singhkays.com/tags/netflix/</link>
-      <pubDate>Sat, 08 May 2021 00:00:00 +0000</pubDate>
-      <guid>https://singhkays.com/tags/netflix/</guid>
       <description></description>
     </item>
     <item>
@@ -182,13 +217,6 @@
       <link>https://singhkays.com/tags/financial/</link>
       <pubDate>Wed, 03 Feb 2021 00:00:00 +0000</pubDate>
       <guid>https://singhkays.com/tags/financial/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>Streaming</title>
-      <link>https://singhkays.com/tags/streaming/</link>
-      <pubDate>Wed, 03 Feb 2021 00:00:00 +0000</pubDate>
-      <guid>https://singhkays.com/tags/streaming/</guid>
       <description></description>
     </item>
     <item>
@@ -430,24 +458,10 @@
       <description></description>
     </item>
     <item>
-      <title>AV1</title>
-      <link>https://singhkays.com/tags/av1/</link>
-      <pubDate>Wed, 29 Jan 2020 00:00:00 +0000</pubDate>
-      <guid>https://singhkays.com/tags/av1/</guid>
-      <description></description>
-    </item>
-    <item>
       <title>Ffmpeg</title>
       <link>https://singhkays.com/tags/ffmpeg/</link>
       <pubDate>Wed, 29 Jan 2020 00:00:00 +0000</pubDate>
       <guid>https://singhkays.com/tags/ffmpeg/</guid>
-      <description></description>
-    </item>
-    <item>
-      <title>H.264</title>
-      <link>https://singhkays.com/tags/h.264/</link>
-      <pubDate>Wed, 29 Jan 2020 00:00:00 +0000</pubDate>
-      <guid>https://singhkays.com/tags/h.264/</guid>
       <description></description>
     </item>
     <item>

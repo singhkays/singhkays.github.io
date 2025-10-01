@@ -145,6 +145,27 @@
 <article class="post-entry"> 
 <figure class="entry-cover">
             <img loading="lazy"
+                srcset='https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/media/serverless-av1_hu_4653755e6c408f50.png 360w,https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/media/serverless-av1_hu_74cd163b4e8a55ea.png 480w,https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/media/serverless-av1_hu_cddb9e98846e63c.png 720w,https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/media/serverless-av1_hu_3dc9ae0b16513cc1.png 1080w,https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/media/serverless-av1_hu_5f3b05d10e4af6bd.png 1500w,https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/media/serverless-av1.png 2771w'
+                src="https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/media/serverless-av1.png"
+                sizes="(min-width: 768px) 720px, 100vw"
+                width="2771" height="1238"
+                alt="">
+</figure>
+  <header class="entry-header">
+    <h2 class="entry-hint-parent">Part 3: Building a scalable &#39;shot-based&#39; serverless AV1 video encoder in Azure
+    </h2>
+  </header>
+  <div class="entry-content">
+    <p>This is a 3-part blog covering how to build a scalable shot-based serverless video encoder in Azure. In Part 1, I explain what AV1 is and where we are in the video encoding space. In part 2, we create a logic app to upload and index the video. In part 3, we’ll need to split the video into its scenes and encode individual scenes. For reference, here are the links to all the parts:
+...</p>
+  </div>
+  <footer class="entry-footer"><span title='2019-09-26 00:00:00 +0000 UTC'>September 26, 2019</span>&nbsp;·&nbsp;7 min&nbsp;·&nbsp;Kay Singh</footer>
+  <a class="entry-link" aria-label="post link to Part 3: Building a scalable &#39;shot-based&#39; serverless AV1 video encoder in Azure" href="https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/"></a>
+</article>
+
+<article class="post-entry"> 
+<figure class="entry-cover">
+            <img loading="lazy"
                 srcset='https://singhkays.com/blog/docker-image-av1-ffmpeg-libaom/media/docker-ffmpeg-av1-libaom_hu_5ccad11709ad2f0a.png 360w,https://singhkays.com/blog/docker-image-av1-ffmpeg-libaom/media/docker-ffmpeg-av1-libaom_hu_9373d19082479626.png 480w,https://singhkays.com/blog/docker-image-av1-ffmpeg-libaom/media/docker-ffmpeg-av1-libaom_hu_dd920c679b04ea1c.png 720w,https://singhkays.com/blog/docker-image-av1-ffmpeg-libaom/media/docker-ffmpeg-av1-libaom_hu_997d66905391bc77.png 1080w,https://singhkays.com/blog/docker-image-av1-ffmpeg-libaom/media/docker-ffmpeg-av1-libaom_hu_e3fef64768090abc.png 1500w,https://singhkays.com/blog/docker-image-av1-ffmpeg-libaom/media/docker-ffmpeg-av1-libaom.png 1568w'
                 src="https://singhkays.com/blog/docker-image-av1-ffmpeg-libaom/media/docker-ffmpeg-av1-libaom.png"
                 sizes="(min-width: 768px) 720px, 100vw"
@@ -328,28 +349,6 @@ Samsung joins the party The month started with Samsung announcing they were join
   </div>
   <footer class="entry-footer"><span title='2019-05-06 00:00:00 +0000 UTC'>May 6, 2019</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Kay Singh</footer>
   <a class="entry-link" aria-label="post link to AV1 Ecosystem Update: April 2019" href="https://singhkays.com/blog/av1-ecosystem-update-april-2019/"></a>
-</article>
-
-<article class="post-entry"> 
-<figure class="entry-cover">
-            <img loading="lazy"
-                srcset='https://singhkays.com/blog/how-to-identify-azure-linux-vm-disks/media/azure-linux-vm-disks_hu_2b04cfbdcb8cef8e.png 360w,https://singhkays.com/blog/how-to-identify-azure-linux-vm-disks/media/azure-linux-vm-disks_hu_92a3d88cbacad9a6.png 480w,https://singhkays.com/blog/how-to-identify-azure-linux-vm-disks/media/azure-linux-vm-disks_hu_a44e018fd14834d0.png 720w,https://singhkays.com/blog/how-to-identify-azure-linux-vm-disks/media/azure-linux-vm-disks.png 974w'
-                src="https://singhkays.com/blog/how-to-identify-azure-linux-vm-disks/media/azure-linux-vm-disks.png"
-                sizes="(min-width: 768px) 720px, 100vw"
-                width="974" height="499"
-                alt="">
-</figure>
-  <header class="entry-header">
-    <h2 class="entry-hint-parent">How to identify boot, temp and data disks in Azure Linux VMs
-    </h2>
-  </header>
-  <div class="entry-content">
-    <p>In Azure, every VM has a persistent OS Disk that is used for booting the VM and contains the operating system. In addition to an OS disk, each VM also has a temporary disk that is present on the compute cluster hosting your VM.
-Why is my OS disk not @ /dev/sda? In most cases the OS disk is /dev/sda but in some odd cases it is not. This is not an Azure specific issue but a default Linux behavior. The ordering in which Linux enumerates SCSI devices is nondeterministic. It scans SCSI devices in the order they appear on the PCI Bus. Therefore, whichever disk is enumerated first is /dev/sda.
-...</p>
-  </div>
-  <footer class="entry-footer"><span title='2019-04-30 00:00:00 +0000 UTC'>April 30, 2019</span>&nbsp;·&nbsp;3 min&nbsp;·&nbsp;Kay Singh</footer>
-  <a class="entry-link" aria-label="post link to How to identify boot, temp and data disks in Azure Linux VMs" href="https://singhkays.com/blog/how-to-identify-azure-linux-vm-disks/"></a>
 </article>
 <footer class="page-footer">
   <nav class="pagination">
