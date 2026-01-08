@@ -4,11 +4,32 @@
     <title>Categories on KAY SINGH</title>
     <link>https://singhkays.com/categories/</link>
     <description>Recent content in Categories on KAY SINGH</description>
-    <generator>Hugo -- 0.149.0</generator>
+    <generator>Hugo -- 0.152.2</generator>
     <language>en</language>
     <copyright>Copyright © 2025, Kay Singh; all rights reserved.</copyright>
-    <lastBuildDate>Thu, 02 Oct 2025 23:02:25 -0700</lastBuildDate>
+    <lastBuildDate>Thu, 08 Jan 2026 00:00:00 +0000</lastBuildDate>
     <atom:link href="https://singhkays.com/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>AI</title>
+      <link>https://singhkays.com/categories/ai/</link>
+      <pubDate>Thu, 08 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://singhkays.com/categories/ai/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Image Generation</title>
+      <link>https://singhkays.com/categories/image-generation/</link>
+      <pubDate>Thu, 08 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://singhkays.com/categories/image-generation/</guid>
+      <description></description>
+    </item>
+    <item>
+      <title>Models</title>
+      <link>https://singhkays.com/categories/models/</link>
+      <pubDate>Thu, 08 Jan 2026 00:00:00 +0000</pubDate>
+      <guid>https://singhkays.com/categories/models/</guid>
+      <description></description>
+    </item>
     <item>
       <title>Streaming</title>
       <link>https://singhkays.com/categories/streaming/</link>
