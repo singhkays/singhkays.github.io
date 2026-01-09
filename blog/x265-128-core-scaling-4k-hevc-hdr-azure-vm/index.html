@@ -200,6 +200,15 @@
 
 </div>
   </header> 
+<figure class="entry-cover">
+            <img loading="eager"
+                srcset='https://singhkays.com/blog/x265-128-core-scaling-4k-hevc-hdr-azure-vm/media/average-cpu-2-3-4-encodes_hu_a3a98edcad0535bc.png 360w,https://singhkays.com/blog/x265-128-core-scaling-4k-hevc-hdr-azure-vm/media/average-cpu-2-3-4-encodes_hu_192face211158b7c.png 480w,https://singhkays.com/blog/x265-128-core-scaling-4k-hevc-hdr-azure-vm/media/average-cpu-2-3-4-encodes_hu_2502641bc6ec5ff0.png 720w,https://singhkays.com/blog/x265-128-core-scaling-4k-hevc-hdr-azure-vm/media/average-cpu-2-3-4-encodes_hu_d6a8195ea04a26d3.png 1080w,https://singhkays.com/blog/x265-128-core-scaling-4k-hevc-hdr-azure-vm/media/average-cpu-2-3-4-encodes_hu_7fba1a326fa5ade9.png 1500w,https://singhkays.com/blog/x265-128-core-scaling-4k-hevc-hdr-azure-vm/media/average-cpu-2-3-4-encodes.png 1605w'
+                src="https://singhkays.com/blog/x265-128-core-scaling-4k-hevc-hdr-azure-vm/media/average-cpu-2-3-4-encodes.png"
+                sizes="(min-width: 768px) 720px, 100vw"
+                width="1605" height="664"
+                alt="">
+        
+</figure>
   <div class="post-content"><p>Video encoding has always been a fairly compute intensive task. With every new generation of video encoders, more computational power has been required to achieve the compression benefits. <a href="https://en.wikipedia.org/wiki/High_Efficiency_Video_Coding">HEVC/H.265</a> is the latest state of the art video compression standard with <a href="https://en.wikipedia.org/wiki/X265">x265</a> being the most popular open-source encoder used for encoding into the HEVC/H.265 format. In comparison to AVC/H.264 <em>(the previous state of the art encoding format),</em> HEVC offers about double the data compression ratio at the same level of video quality, or substantially improved video quality at the same bit rate.</p>
 <p>To achieve the increased compression, the x265 encoder also requires more processing power than the x264 encoder. Throwing more CPU cores at this problem usually provides a linear gain in the encoding speed. However, in the consumer CPU space we&rsquo;ve been limited to 4-6 cores for almost a decade now. Intel first introduced a Quad core CPU in 2006, followed by a 6 core CPU in 2010. Only recently in the last few years have we seen the introduction of 8+ core CPUs in the consumer space. With the recent introduction of AMD 16 &amp; 32 core Threadripper CPUs and the competing announcements from Intel, we&rsquo;re seeing a resurgence of competition in the multi-core space. It is a very exciting time to be a hardware enthusiast with the return of AMD to high-end CPU market! :)</p>
 <h2 id="azure-m-series-vms">Azure M-series VMs<a hidden class="anchor" aria-hidden="true" href="#azure-m-series-vms">#</a></h2>

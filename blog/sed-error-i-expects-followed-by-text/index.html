@@ -212,6 +212,15 @@ I spent a bunch of time trying to make sure I escaped the right characters in my
 
 </div>
   </header> 
+<figure class="entry-cover">
+            <img loading="eager"
+                srcset='https://singhkays.com/blog/sed-error-i-expects-followed-by-text/media/sed-all-the-things_hu_6d2f453b4936dfd.jpg 360w,https://singhkays.com/blog/sed-error-i-expects-followed-by-text/media/sed-all-the-things_hu_c583177805a4e611.jpg 480w,https://singhkays.com/blog/sed-error-i-expects-followed-by-text/media/sed-all-the-things.jpg 667w'
+                src="https://singhkays.com/blog/sed-error-i-expects-followed-by-text/media/sed-all-the-things.jpg"
+                sizes="(min-width: 768px) 720px, 100vw"
+                width="667" height="500"
+                alt="">
+        
+</figure>
   <div class="post-content"><p>I ran into a very weird error today. While trying to automate the deployment for this blog, I needed to replace a string in a file. The internet tutorials [<a href="https://linuxhint.com/replace_string_in_file_bash/">1</a>, <a href="https://clubmate.fi/replace-strings-in-files-with-the-sed-bash-command/">2</a>, <a href="https://linuxize.com/post/how-to-use-sed-to-find-and-replace-string-in-files/">3</a>, <a href="https://www.diskinternals.com/linux-reader/shell-script-replace-string-in-file/">4</a>] told me that <code>sed</code> would be perfect for this job and the following command should work:</p>
 <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span>sed -i <span style="color:#e6db74">&#39;s/search_string/replace_string/&#39;</span> filename
 </span></span></code></pre></div><h1 id="the-error">The Error<a hidden class="anchor" aria-hidden="true" href="#the-error">#</a></h1>
