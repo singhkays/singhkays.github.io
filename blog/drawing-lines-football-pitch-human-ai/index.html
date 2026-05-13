@@ -7,7 +7,7 @@
 <meta name="robots" content="index, follow">
 <title>What drawing lines on a football pitch taught me about the future of human-AI collaboration | KAY SINGH</title>
 <meta name="keywords" content="AI, Agents, Agentic, Football">
-<meta name="description" content="How I used Codex, computer vision, and football intuition to measure a UEFA Champions League goal">
+<meta name="description" content="A weekend project that turned into discovering how Netflix is quietly revolutionizing streaming efficiency with AV1.">
 <meta name="author" content="Kay Singh">
 <link rel="canonical" href="https://singhkays.com/blog/drawing-lines-football-pitch-human-ai/">
 <link crossorigin="anonymous" href="/assets/css/stylesheet.a152980e410f936205d1e53468caf5429a185e49fde366e204e9e1ca67ffba6c.css" integrity="sha256-oVKYDkEPk2IF0eU0aMr1QpoYXkn942biBOnhymf/umw=" rel="preload stylesheet" as="style">
@@ -70,12 +70,12 @@
       </script><meta property="og:url" content="https://singhkays.com/blog/drawing-lines-football-pitch-human-ai/">
   <meta property="og:site_name" content="KAY SINGH">
   <meta property="og:title" content="What drawing lines on a football pitch taught me about the future of human-AI collaboration">
-  <meta property="og:description" content="How I used Codex, computer vision, and football intuition to measure a UEFA Champions League goal">
+  <meta property="og:description" content="A weekend project that turned into discovering how Netflix is quietly revolutionizing streaming efficiency with AV1.">
   <meta property="og:locale" content="en">
   <meta property="og:type" content="article">
     <meta property="article:section" content="blog">
     <meta property="article:published_time" content="2026-05-13T00:00:00+00:00">
-    <meta property="article:modified_time" content="2026-05-13T00:11:05-07:00">
+    <meta property="article:modified_time" content="2026-05-13T00:24:23-07:00">
     <meta property="article:tag" content="AI">
     <meta property="article:tag" content="Agents">
     <meta property="article:tag" content="Agentic">
@@ -84,7 +84,7 @@
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:image" content="https://singhkays.com/blog/drawing-lines-football-pitch-human-ai/media/football-human-ai-cover.png">
 <meta name="twitter:title" content="What drawing lines on a football pitch taught me about the future of human-AI collaboration">
-<meta name="twitter:description" content="How I used Codex, computer vision, and football intuition to measure a UEFA Champions League goal">
+<meta name="twitter:description" content="A weekend project that turned into discovering how Netflix is quietly revolutionizing streaming efficiency with AV1.">
 
 
 <script type="application/ld+json">
@@ -113,7 +113,7 @@
   "@type": "BlogPosting",
   "headline": "What drawing lines on a football pitch taught me about the future of human-AI collaboration",
   "name": "What drawing lines on a football pitch taught me about the future of human-AI collaboration",
-  "description": "How I used Codex, computer vision, and football intuition to measure a UEFA Champions League goal",
+  "description": "A weekend project that turned into discovering how Netflix is quietly revolutionizing streaming efficiency with AV1.",
   "keywords": [
     "AI", "Agents", "Agentic", "Football"
   ],
@@ -121,7 +121,7 @@
   "wordCount" : "1782",
   "inLanguage": "en",
   "image":"https://singhkays.com/blog/drawing-lines-football-pitch-human-ai/media/football-human-ai-cover.png","datePublished": "2026-05-13T00:00:00Z",
-  "dateModified": "2026-05-13T00:11:05-07:00",
+  "dateModified": "2026-05-13T00:24:23-07:00",
   "author":{
     "@type": "Person",
     "name": "Kay Singh"
@@ -191,7 +191,7 @@
       What drawing lines on a football pitch taught me about the future of human-AI collaboration
     </h1>
     <div class="post-description">
-      How I used Codex, computer vision, and football intuition to measure a UEFA Champions League goal
+      A weekend project that turned into discovering how Netflix is quietly revolutionizing streaming efficiency with AV1.
     </div>
     <div class="post-meta">
         
@@ -222,30 +222,151 @@
 
 <h2 id="tldr">TLDR;<a hidden class="anchor" aria-hidden="true" href="#tldr">#</a></h2>
 <p>Here is the final result of how the goal was scored. Marquinhos rocks back ~0.6 ft, Luis Díaz cuts right ~8.9 ft resulting in the shot window opening up from ~5.5ft/8.6° to ~7.5ft/22.0°.</p>
-<p><img alt="Final result of how Luis Díaz goal was scored" loading="lazy" src="/blog/drawing-lines-football-pitch-human-ai/media/UCL-final.png"></p>
+
+
+
+
+
+
+
+
+<figure><a href="media/UCL-final.png" target="_blank">
+    <img
+        
+            sizes="(min-width: 35em) 1200px, 100vw"
+              
+            srcset='
+            
+                   https://singhkays.com/blog/drawing-lines-football-pitch-human-ai/media/UCL-final_hu_81065ae10ef154e0.png 480w,
+            
+                   https://singhkays.com/blog/drawing-lines-football-pitch-human-ai/media/UCL-final_hu_ee0f65ad1a228e83.png 800w,
+            
+                   https://singhkays.com/blog/drawing-lines-football-pitch-human-ai/media/UCL-final_hu_84cdb3c4b4eb9d40.png 1200w,
+            
+                   
+            '
+
+            
+            
+            src="https://singhkays.com/blog/drawing-lines-football-pitch-human-ai/media/UCL-final_hu_ee0f65ad1a228e83.png"
+            
+
+        /> </a>
+</figure>
+
 <p>The part I keep thinking about is this: if I had let Codex fully guide the project, I would have ended up with a confident but wrong result. My football intuition caught things that Codex did not know to care about. The full story of how we got there is below.</p>
 <h2 id="the-long-version">The Long Version<a hidden class="anchor" aria-hidden="true" href="#the-long-version">#</a></h2>
 <p>For everyone else continuing on this ride, let&rsquo;s talk about the rest of the story.</p>
 <h3 id="can-codex-solve-this">Can Codex solve this?<a hidden class="anchor" aria-hidden="true" href="#can-codex-solve-this">#</a></h3>
-<p><img alt="Luis Díaz vs Marquinhos - PSG vs Bayern Munich - UEFA Champions League Semi Final Leg 1 - 2025-2026" loading="lazy" src="/blog/drawing-lines-football-pitch-human-ai/media/ucl-gol-contact-sheet-clean-v2.jpg"></p>
+
+
+
+
+
+
+
+
+<figure><a href="media/ucl-gol-contact-sheet-clean-v2.jpg" target="_blank">
+    <img
+        
+            sizes="(min-width: 35em) 1200px, 100vw"
+              
+            srcset='
+            
+                   https://singhkays.com/blog/drawing-lines-football-pitch-human-ai/media/ucl-gol-contact-sheet-clean-v2_hu_3262187d564aeffa.jpg 480w,
+            
+                   https://singhkays.com/blog/drawing-lines-football-pitch-human-ai/media/ucl-gol-contact-sheet-clean-v2_hu_fcbc4f28df40d859.jpg 800w,
+            
+                   https://singhkays.com/blog/drawing-lines-football-pitch-human-ai/media/ucl-gol-contact-sheet-clean-v2_hu_4904fe5ecb8e3206.jpg 1200w,
+            
+                   
+            '
+
+            
+            
+            src="https://singhkays.com/blog/drawing-lines-football-pitch-human-ai/media/ucl-gol-contact-sheet-clean-v2_hu_fcbc4f28df40d859.jpg"
+            
+
+        /> </a>
+</figure>
+
 <p>I gave Codex the screenshots of the play and described what I wanted. It thought other angles might help, so I pulled YouTube screenshots from a few alternate camera angles seen below.</p>
-<p><img alt="Alternate angles of the PSG vs Bayern goal" loading="lazy" src="/blog/drawing-lines-football-pitch-human-ai/media/alternate-angles-contact-sheet.jpg"></p>
+
+
+
+
+
+
+
+
+<figure><a href="media/alternate-angles-contact-sheet.jpg" target="_blank">
+    <img
+        
+            sizes="(min-width: 35em) 1200px, 100vw"
+              
+            srcset='
+            
+                   https://singhkays.com/blog/drawing-lines-football-pitch-human-ai/media/alternate-angles-contact-sheet_hu_fb36f79cbc502c72.jpg 480w,
+            
+                   https://singhkays.com/blog/drawing-lines-football-pitch-human-ai/media/alternate-angles-contact-sheet_hu_267b93e101c19112.jpg 800w,
+            
+                   https://singhkays.com/blog/drawing-lines-football-pitch-human-ai/media/alternate-angles-contact-sheet_hu_7fd457bfd626d9c8.jpg 1200w,
+            
+                   
+            '
+
+            
+            
+            src="https://singhkays.com/blog/drawing-lines-football-pitch-human-ai/media/alternate-angles-contact-sheet_hu_267b93e101c19112.jpg"
+            
+
+        /> </a>
+</figure>
+
 <p>After a bit of back and forth, I decided that the following two frames best represented the change in distances we wanted to calculate (player movement, goal window) so I asked Codex to use these as the primary angle and other angles for validation.</p>
-<p><img loading="lazy" src="/blog/drawing-lines-football-pitch-human-ai/media/AA2-3.jpeg"></p>
-<p><img loading="lazy" src="/blog/drawing-lines-football-pitch-human-ai/media/AA2-8.jpeg"></p>
+<div class="img-row">
+  <a href="media/AA2-3.jpeg" target="_blank" rel="noopener">
+    <img src="media/AA2-3.jpeg" alt="">
+  </a>
+  <a href="media/AA2-8.jpeg" target="_blank" rel="noopener">
+    <img src="media/AA2-8.jpeg" alt="">
+  </a>
+</div>
 <p>Codex did what AI tools are very good at: it turned a fuzzy idea into a working direction. It suggested ways to measure distances, picked a Python image-processing stack, started detecting points, and generated annotated outputs. The first version looked convincing which I later found out was a problem.</p>
 <h3 id="the-problem-codex-created">The problem Codex created<a hidden class="anchor" aria-hidden="true" href="#the-problem-codex-created">#</a></h3>
 <p>I do not know much about computer vision, but I do know football. In the first attempt, Codex claimed that the &ldquo;goal window became 2.3x wider&rdquo; which did not pass the smell test for me. I manually compared the open goal window to the right of the goalkeeper in pixels and it definitely didn&rsquo;t seem like the new window was 2.3x wider.</p>
 <p>Out of curiosity, I asked Codex to &ldquo;show its work&rdquo; by &ldquo;visualizing&rdquo; how it came up with the distance calculations for my review. As I looked at the following annotated images, I quickly found out how off the calculations were. Codex tried to find goal posts, player positions, field lines, and distances but each measurement looked erroneous.</p>
-<p><img loading="lazy" src="/blog/drawing-lines-football-pitch-human-ai/media/AA2-3-V2-overlay.png"></p>
-<p><img loading="lazy" src="/blog/drawing-lines-football-pitch-human-ai/media/AA2-8-V2-overlay.png"></p>
+<div class="img-row">
+  <a href="media/AA2-3-V2-overlay.png" target="_blank" rel="noopener">
+    <img src="media/AA2-3-V2-overlay.png" alt="">
+  </a>
+  <a href="media/AA2-8-V2-overlay.png" target="_blank" rel="noopener">
+    <img src="media/AA2-8-V2-overlay.png" alt="">
+  </a>
+</div>
 <p>Some points were not exactly on the bottom of the goal posts. Some foot markers were close, but not close enough. The shot cone angle points were not in the expected places. This was a problem because if the goal post marker was five pixels off, or the player foot marker was placed on a shadow instead of the boot, the final number inherited that error.</p>
-<p><img loading="lazy" src="/blog/drawing-lines-football-pitch-human-ai/media/AA2-goal-face-audit.png"></p>
-<p><img loading="lazy" src="/blog/drawing-lines-football-pitch-human-ai/media/AA3-3_vision_contours.png"></p>
-<p><img loading="lazy" src="/blog/drawing-lines-football-pitch-human-ai/media/goal_sequence_keypoints.png"></p>
-<p><img loading="lazy" src="/blog/drawing-lines-football-pitch-human-ai/media/d-box-measure.png"></p>
-<p><img loading="lazy" src="/blog/drawing-lines-football-pitch-human-ai/media/auto-points-label.png"></p>
-<p><img loading="lazy" src="/blog/drawing-lines-football-pitch-human-ai/media/Context-render-v2.png"></p>
+<div class="img-row">
+  <a href="media/AA2-goal-face-audit.png" target="_blank" rel="noopener">
+    <img src="media/AA2-goal-face-audit.png" alt="">
+  </a>
+  <a href="media/goal_sequence_keypoints.png" target="_blank" rel="noopener">
+    <img src="media/goal_sequence_keypoints.png" alt="">
+  </a>
+</div>
+<div class="img-row">
+    <a href="media/AA3-3_vision_contours.png" target="_blank" rel="noopener">
+      <img src="media/AA3-3_vision_contours.png" alt="">
+    </a>
+</div>
+<a href="media/d-box-measure.png" target="_blank" rel="noopener">
+  <img src="media/d-box-measure.png" alt="">
+</a>
+  <a href="media/auto-points-label.png" target="_blank" rel="noopener">
+    <img src="media/auto-points-label.png" alt="">
+  </a>
+  <a href="media/Context-render-v2.png" target="_blank" rel="noopener">
+    <img src="media/Context-render-v2.png" alt="">
+  </a>
 <p>What I discovered was that agents can spend a lot of time &ldquo;working&rdquo; but it doesn&rsquo;t reduce the hallucination tendencies.</p>
 <h3 id="learning-1-human-domain-expertise-still-matters">Learning 1: Human domain expertise still matters<a hidden class="anchor" aria-hidden="true" href="#learning-1-human-domain-expertise-still-matters">#</a></h3>
 <p>I asked Codex whether using the known football dimensions would simplify the measurement problem. Specifically, a regulation goal is 24 feet wide, 8 feet high. Similarly, the six-yard box, penalty area and penalty mark also have known dimensions. If the broadcast frame showed the goal mouth clearly, maybe we could use the known goal width to calibrate the shot window. Codex agreed that these would be &ldquo;very useful&rdquo; but I was left wondering why it had not suggested these originally.</p>
@@ -262,15 +383,52 @@
 <li>Convert the ratio into feet.</li>
 </ul>
 <p>Here&rsquo;s what that looked like in the workbench.</p>
-<p><img loading="lazy" src="/blog/drawing-lines-football-pitch-human-ai/media/workbench-measure.png"></p>
-<p><img loading="lazy" src="/blog/drawing-lines-football-pitch-human-ai/media/workbench-reference.png"></p>
+<div class="img-row">
+  <a href="media/workbench-measure.png" target="_blank" rel="noopener">
+    <img src="media/workbench-measure.png" alt="">
+  </a>
+  <a href="media/workbench-reference.png" target="_blank" rel="noopener">
+    <img src="media/workbench-reference.png" alt="">
+  </a>
+</div>
 <p><strong>Learning:</strong> Codex will happily write more code before it suggests letting you help. You have to ask for the human-in-the-loop pipeline; it will not offer it.</p>
 <h3 id="learning-3-agents-can-name-what-you-dont-know-to-ask">Learning 3: Agents can name what you don&rsquo;t know to ask<a hidden class="anchor" aria-hidden="true" href="#learning-3-agents-can-name-what-you-dont-know-to-ask">#</a></h3>
 <p>Calculating the player movement was harder. For movement, we needed to compare player foot positions across two different broadcast frames where the camera angle changes slightly. The players move across the pitch which is a flat plane, but the image is perspective-distorted. You cannot just subtract pixel coordinates and call it distance.</p>
 <p>I described the perspective problem to Codex and it came back with &ldquo;homography&rdquo; which is a word I had never heard of before. In simple terms, homography lets you map points from one view of a flat surface to another view of that same surface. In this case, the flat surface is the football pitch. We could apply this concept to this use-case because in our case the pitch is the same planar surface between these two frames and the players feet represent same points on that plane.</p>
 <p>This is where the collaboration got interesting. I steered the measurement process using domain intuition. I knew which points mattered as well as when a foot marker felt wrong. I knew that same-foot movement was a better metric than mixing left and right foot positions. Codex did the engineering work. It wrote the workbench server, the UI, the JSON review files, the geometry helpers, the tests, and the final HTML generator. As I saw the benefits of our initial collaboration, I kept getting ambitious and asking more and more of Codex. We kept building: a goal measurement tool, a movement tracker, a ghost alignment layer, and a final QA tool for placing labels directly on the shareable image.</p>
 <p>Here&rsquo;s what it ended up looking like and it was glorious!</p>
-<p><img alt="AZk8T.jpg" loading="lazy" src="/blog/drawing-lines-football-pitch-human-ai/media/movement-qa-tool.png"></p>
+
+
+
+
+
+
+
+
+<figure><a href="media/movement-qa-tool.png" target="_blank">
+    <img
+        
+            sizes="(min-width: 35em) 1200px, 100vw"
+              
+            srcset='
+            
+                   https://singhkays.com/blog/drawing-lines-football-pitch-human-ai/media/movement-qa-tool_hu_550a68b485a7f0c4.png 480w,
+            
+                   https://singhkays.com/blog/drawing-lines-football-pitch-human-ai/media/movement-qa-tool_hu_e6bd969da78666a.png 800w,
+            
+                   
+            
+                   
+            '
+
+            
+            
+            src="https://singhkays.com/blog/drawing-lines-football-pitch-human-ai/media/movement-qa-tool_hu_e6bd969da78666a.png"
+            
+
+        /> </a>
+</figure>
+
 <p><strong>Learning:</strong> Don&rsquo;t be afraid to be ambitious! What AI can accomplish might just surprise you.</p>
 <h3 id="learning-4-your-context-unlocks-better-tools-than-the-agents-defaults">Learning 4: Your context unlocks better tools than the agent&rsquo;s defaults<a hidden class="anchor" aria-hidden="true" href="#learning-4-your-context-unlocks-better-tools-than-the-agents-defaults">#</a></h3>
 <p>The final visual still needed to be understandable without reading a measurement report. I had another idea: what if we placed the players from the previous frame into the later frame at low opacity, like ghosts? That would show how far they had moved without relying only on arrows.</p>
@@ -279,17 +437,107 @@
 <li>In the first example, the cutouts are basically ovals around players in the previous frame which also includes the grass from the rest of the frame that frankly just looks like eggs placed in the middle of a frame.</li>
 <li>In the second example, the cutouts were too wide, included too much grass, and did not follow the body outlines closely enough.</li>
 </ol>
-<p><img loading="lazy" src="/blog/drawing-lines-football-pitch-human-ai/media/ghost-v1.png"></p>
+
+
+
+
+
+
+
+
+<figure><a href="media/ghost-v1.png" target="_blank">
+    <img
+        
+            sizes="(min-width: 35em) 1200px, 100vw"
+              
+            srcset='
+            
+                   https://singhkays.com/blog/drawing-lines-football-pitch-human-ai/media/ghost-v1_hu_277d7b315935ba60.png 480w,
+            
+                   https://singhkays.com/blog/drawing-lines-football-pitch-human-ai/media/ghost-v1_hu_346a8cab9a298881.png 800w,
+            
+                   
+            
+                   
+            '
+
+            
+            
+            src="https://singhkays.com/blog/drawing-lines-football-pitch-human-ai/media/ghost-v1_hu_346a8cab9a298881.png"
+            
+
+        /> </a>
+</figure>
+
 <p>Then I remembered we were on a Mac. Apple has Vision APIs for foreground extraction and segmentation. Out of curiosity, I asked Codex if we could use Apple Neural Engine (ANE) for this problem. Although the solution Codex came up with didn&rsquo;t leverage ANE, Codex&rsquo;s suggested Apple Vision APIs gave me a much better cutout as seen below.</p>
-<p><img loading="lazy" src="/blog/drawing-lines-football-pitch-human-ai/media/cutout-comparison.png"></p>
+
+
+
+
+
+
+
+
+<figure><a href="media/cutout-comparison.png" target="_blank">
+    <img
+        
+            sizes="(min-width: 35em) 1200px, 100vw"
+              
+            srcset='
+            
+                   https://singhkays.com/blog/drawing-lines-football-pitch-human-ai/media/cutout-comparison_hu_c2088ec026d23f9.png 480w,
+            
+                   https://singhkays.com/blog/drawing-lines-football-pitch-human-ai/media/cutout-comparison_hu_380552460194392c.png 800w,
+            
+                   https://singhkays.com/blog/drawing-lines-football-pitch-human-ai/media/cutout-comparison_hu_bc299e8f24ee1551.png 1200w,
+            
+                   
+            '
+
+            
+            
+            src="https://singhkays.com/blog/drawing-lines-football-pitch-human-ai/media/cutout-comparison_hu_380552460194392c.png"
+            
+
+        /> </a>
+</figure>
+
 <p>The cutout script used Apple Vision&rsquo;s <code>VNGenerateForegroundInstanceMaskRequest</code> to generate a foreground mask. The resulting player cutouts were much tighter around the bodies than the earlier Python attempt. I do not know whether this is the same underlying API Apple uses for iPhone camera app portrait mode but visually it felt like the right class of tool.</p>
 <p>I then used the ghost alignment tool in the workbench to place the previous-frame cutout into the later frame.</p>
-<p><img loading="lazy" src="/blog/drawing-lines-football-pitch-human-ai/media/ghost-qa-tool.png"></p>
-<p>When the ghost finally sat inside the later frame at the right scale, in the right position, and pointing the right direction, it was a pure Michael Scott happy moment for me. That was the instant the whole project felt real.</p>
-<div class='align-center'>
-  <img loading="lazy" src="media/michael.gif">
-</div>
 
+
+
+
+
+
+
+
+<figure><a href="media/ghost-qa-tool.png" target="_blank">
+    <img
+        
+            sizes="(min-width: 35em) 1200px, 100vw"
+              
+            srcset='
+            
+                   https://singhkays.com/blog/drawing-lines-football-pitch-human-ai/media/ghost-qa-tool_hu_d3b51d7c3793018d.png 480w,
+            
+                   https://singhkays.com/blog/drawing-lines-football-pitch-human-ai/media/ghost-qa-tool_hu_759f04b31a039bf8.png 800w,
+            
+                   https://singhkays.com/blog/drawing-lines-football-pitch-human-ai/media/ghost-qa-tool_hu_c7739d8a0db9a33e.png 1200w,
+            
+                   https://singhkays.com/blog/drawing-lines-football-pitch-human-ai/media/ghost-qa-tool_hu_27697e837db520ff.png 1500w,
+            '
+
+            
+            
+            src="https://singhkays.com/blog/drawing-lines-football-pitch-human-ai/media/ghost-qa-tool_hu_759f04b31a039bf8.png"
+            
+
+        /> </a>
+</figure>
+
+<p>When the ghost finally sat inside the later frame at the right scale, in the right position, and pointing the right direction, it was a pure Michael Scott happy moment for me. That was the instant the whole project felt real.</p>
+<p><img loading="lazy" src="/blog/drawing-lines-football-pitch-human-ai/media/michael.gif"></p>
 <p><strong>Learning:</strong> Codex reached for Python tools because those are its safe defaults. Only because I asked about MacOS APIs did it try the Apple Vision APIs, which produced much cleaner cutouts. The agent will not ask what hardware or ecosystem you have. You have to offer that context yourself.</p>
 <h2 id="conclusion">Conclusion<a hidden class="anchor" aria-hidden="true" href="#conclusion">#</a></h2>
 <p>Yes, professional tracking systems exist. This exercise was never about building a better one. It was about seeing how far a curious non-engineer could get with just an agent and some domain knowledge.</p>
