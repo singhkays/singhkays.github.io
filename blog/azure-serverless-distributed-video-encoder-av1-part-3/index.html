@@ -10,7 +10,7 @@
 <meta name="description" content="This is a 3-part blog covering how to build a scalable shot-based serverless video encoder in Azure. In Part 1, I explain what AV1 is and where we are in the video encoding space. In part 2, we create a logic app to upload and index the video. In part 3, we&rsquo;ll need to split the video into its scenes and encode individual scenes. For reference, here are the links to all the parts:">
 <meta name="author" content="Kay Singh">
 <link rel="canonical" href="https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.0d76b8494cc53aa74bcdc9f0398c73b29778bd3edb7fcb18e70807226313887f.css" integrity="sha256-DXa4SUzFOqdLzcnwOYxzspd4vT7bf8sY5wgHImMTiH8=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.a152980e410f936205d1e53468caf5429a185e49fde366e204e9e1ca67ffba6c.css" integrity="sha256-oVKYDkEPk2IF0eU0aMr1QpoYXkn942biBOnhymf/umw=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://singhkays.com/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://singhkays.com/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://singhkays.com/favicon-32x32.png">
@@ -57,7 +57,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-JDVREY790Z"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -202,7 +202,7 @@
   </header> 
 <figure class="entry-cover">
             <img loading="eager"
-                srcset='https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/media/serverless-av1_hu_4653755e6c408f50.png 360w,https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/media/serverless-av1_hu_74cd163b4e8a55ea.png 480w,https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/media/serverless-av1_hu_cddb9e98846e63c.png 720w,https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/media/serverless-av1_hu_3dc9ae0b16513cc1.png 1080w,https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/media/serverless-av1_hu_5f3b05d10e4af6bd.png 1500w,https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/media/serverless-av1.png 2771w'
+                srcset='https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/media/serverless-av1_hu_d7a8c3eff59d0ee2.png 360w,https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/media/serverless-av1_hu_5401a5d46d979fab.png 480w,https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/media/serverless-av1_hu_538a8ef635454e83.png 720w,https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/media/serverless-av1_hu_de8289e99053f3bf.png 1080w,https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/media/serverless-av1_hu_5bb62f3013e9ca21.png 1500w,https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/media/serverless-av1.png 2771w'
                 src="https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/media/serverless-av1.png"
                 sizes="(min-width: 768px) 720px, 100vw"
                 width="2771" height="1238"
@@ -233,7 +233,7 @@
 <p>Now that we have an access token, we can get the video index. Add a &ldquo;Get Video Index&rdquo; step and configure like shown below.</p>
 <p><img alt="azure-av1-encoder-video-indexer-get-video-index" loading="lazy" src="/blog/azure-serverless-distributed-video-encoder-av1-part-3/media/3-azure-av1-encoder-video-indexer-get-video-index.png"></p>
 <p>a. The tricky part is the video id field as that is available as &ldquo;dynamic content&rdquo; as of this writing. After a bit of trial and error and looking at the output of the &ldquo;When a HTTP request is received&rdquo; step, I saw the video id was a field that was returned in the output JSON. Here&rsquo;s an example output of the HTTP request step</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;headers&#34;</span>: {
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;Connection&#34;</span>: <span style="color:#e6db74">&#34;Keep-Alive&#34;</span>,
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;Host&#34;</span>: <span style="color:#e6db74">&#34;prod-19.westus2.logic.azure.com&#34;</span>,
@@ -349,7 +349,7 @@
 <p>It&rsquo;s time to put the individual encoded shots together into a singular video file. To do this we&rsquo;ll create a container instance like shown below and pass in the requisite commands.</p>
 <p>You can use the following JSON definitions</p>
 <p><strong>Containers</strong> &ndash;</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
 </span></span><span style="display:flex;"><span>{
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#e6db74">&#34;concat-ffmpeg&#34;</span>,
 </span></span><span style="display:flex;"><span>    <span style="color:#f92672">&#34;properties&#34;</span>: {
@@ -394,7 +394,7 @@
 </span></span><span style="display:flex;"><span>}
 </span></span><span style="display:flex;"><span>]
 </span></span></code></pre></div><p><strong>Volumes</strong> (don’t forget to first add this additional parameter)</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
 </span></span><span style="display:flex;"><span>    {
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;azureFile&#34;</span>: {
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;readOnly&#34;</span>: <span style="color:#66d9ef">true</span>,

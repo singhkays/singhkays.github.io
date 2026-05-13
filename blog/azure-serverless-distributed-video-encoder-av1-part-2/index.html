@@ -10,7 +10,7 @@
 <meta name="description" content="This is a 3-part blog covering how to build a scalable shot-based serverless video encoder in Azure. In Part 1, I explain what AV1 is and where we are in the video encoding space. In part 2, we create a logic app to upload and index the video. In part 3, we&rsquo;ll need to split the video into its scenes and encode individual scenes. For reference, here are the links to all the parts:">
 <meta name="author" content="Kay Singh">
 <link rel="canonical" href="https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-2/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.0d76b8494cc53aa74bcdc9f0398c73b29778bd3edb7fcb18e70807226313887f.css" integrity="sha256-DXa4SUzFOqdLzcnwOYxzspd4vT7bf8sY5wgHImMTiH8=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.a152980e410f936205d1e53468caf5429a185e49fde366e204e9e1ca67ffba6c.css" integrity="sha256-oVKYDkEPk2IF0eU0aMr1QpoYXkn942biBOnhymf/umw=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://singhkays.com/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://singhkays.com/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://singhkays.com/favicon-32x32.png">
@@ -57,7 +57,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-JDVREY790Z"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -202,7 +202,7 @@
   </header> 
 <figure class="entry-cover">
             <img loading="eager"
-                srcset='https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-2/media/serverless-av1_hu_4653755e6c408f50.png 360w,https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-2/media/serverless-av1_hu_74cd163b4e8a55ea.png 480w,https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-2/media/serverless-av1_hu_cddb9e98846e63c.png 720w,https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-2/media/serverless-av1_hu_3dc9ae0b16513cc1.png 1080w,https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-2/media/serverless-av1_hu_5f3b05d10e4af6bd.png 1500w,https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-2/media/serverless-av1.png 2771w'
+                srcset='https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-2/media/serverless-av1_hu_d7a8c3eff59d0ee2.png 360w,https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-2/media/serverless-av1_hu_5401a5d46d979fab.png 480w,https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-2/media/serverless-av1_hu_538a8ef635454e83.png 720w,https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-2/media/serverless-av1_hu_de8289e99053f3bf.png 1080w,https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-2/media/serverless-av1_hu_5bb62f3013e9ca21.png 1500w,https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-2/media/serverless-av1.png 2771w'
                 src="https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-2/media/serverless-av1.png"
                 sizes="(min-width: 768px) 720px, 100vw"
                 width="2771" height="1238"
@@ -372,7 +372,7 @@ g.  Delete all steps except <strong>&ldquo;Compose&rdquo;</strong></p>
 <p>Note that I&rsquo;m creating this container in a new resource group <strong>&ldquo;encoding-containers-rg&rdquo;</strong> to keep a dedicated resource group for creating container instances.</p>
 <p><img alt="A screenshot of a cell phone Description automatically generated" loading="lazy" src="/blog/azure-serverless-distributed-video-encoder-av1-part-2/media/7-create-container-group.png"></p>
 <p>For the containers field, you can use the following JSON to configure easily</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-json" data-lang="json"><span style="display:flex;"><span>[
 </span></span><span style="display:flex;"><span>    {
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;name&#34;</span>: <span style="color:#960050;background-color:#1e0010">&lt;select</span> <span style="color:#960050;background-color:#1e0010">output</span> <span style="color:#960050;background-color:#1e0010">Video</span> <span style="color:#960050;background-color:#1e0010">Id</span> <span style="color:#960050;background-color:#1e0010">of</span> <span style="color:#960050;background-color:#1e0010">“Upload</span> <span style="color:#960050;background-color:#1e0010">and</span> <span style="color:#960050;background-color:#1e0010">index”</span> <span style="color:#960050;background-color:#1e0010">step</span>,
 </span></span><span style="display:flex;"><span>        <span style="color:#f92672">&#34;properties&#34;</span>: {

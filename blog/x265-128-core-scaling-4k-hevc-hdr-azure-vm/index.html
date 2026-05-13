@@ -10,7 +10,7 @@
 <meta name="description" content="Video encoding has always been a fairly compute intensive task. With every new generation of video encoders, more computational power has been required to achieve the compression benefits. HEVC/H.265 is the latest state of the art video compression standard with x265 being the most popular open-source encoder used for encoding into the HEVC/H.265 format. In comparison to AVC/H.264 (the previous state of the art encoding format), HEVC offers about double the data compression ratio at the same level of video quality, or substantially improved video quality at the same bit rate.">
 <meta name="author" content="Kay Singh">
 <link rel="canonical" href="https://singhkays.com/blog/x265-128-core-scaling-4k-hevc-hdr-azure-vm/">
-<link crossorigin="anonymous" href="/assets/css/stylesheet.0d76b8494cc53aa74bcdc9f0398c73b29778bd3edb7fcb18e70807226313887f.css" integrity="sha256-DXa4SUzFOqdLzcnwOYxzspd4vT7bf8sY5wgHImMTiH8=" rel="preload stylesheet" as="style">
+<link crossorigin="anonymous" href="/assets/css/stylesheet.a152980e410f936205d1e53468caf5429a185e49fde366e204e9e1ca67ffba6c.css" integrity="sha256-oVKYDkEPk2IF0eU0aMr1QpoYXkn942biBOnhymf/umw=" rel="preload stylesheet" as="style">
 <link rel="icon" href="https://singhkays.com/favicon.ico">
 <link rel="icon" type="image/png" sizes="16x16" href="https://singhkays.com/favicon-16x16.png">
 <link rel="icon" type="image/png" sizes="32x32" href="https://singhkays.com/favicon-32x32.png">
@@ -57,7 +57,7 @@
       <script async src="https://www.googletagmanager.com/gtag/js?id=G-JDVREY790Z"></script>
       <script>
         var doNotTrack = false;
-        if ( false ) {
+        if ( true ) {
           var dnt = (navigator.doNotTrack || window.doNotTrack || navigator.msDoNotTrack);
           var doNotTrack = (dnt == "1" || dnt == "yes");
         }
@@ -202,7 +202,7 @@
   </header> 
 <figure class="entry-cover">
             <img loading="eager"
-                srcset='https://singhkays.com/blog/x265-128-core-scaling-4k-hevc-hdr-azure-vm/media/average-cpu-2-3-4-encodes_hu_a3a98edcad0535bc.png 360w,https://singhkays.com/blog/x265-128-core-scaling-4k-hevc-hdr-azure-vm/media/average-cpu-2-3-4-encodes_hu_192face211158b7c.png 480w,https://singhkays.com/blog/x265-128-core-scaling-4k-hevc-hdr-azure-vm/media/average-cpu-2-3-4-encodes_hu_2502641bc6ec5ff0.png 720w,https://singhkays.com/blog/x265-128-core-scaling-4k-hevc-hdr-azure-vm/media/average-cpu-2-3-4-encodes_hu_d6a8195ea04a26d3.png 1080w,https://singhkays.com/blog/x265-128-core-scaling-4k-hevc-hdr-azure-vm/media/average-cpu-2-3-4-encodes_hu_7fba1a326fa5ade9.png 1500w,https://singhkays.com/blog/x265-128-core-scaling-4k-hevc-hdr-azure-vm/media/average-cpu-2-3-4-encodes.png 1605w'
+                srcset='https://singhkays.com/blog/x265-128-core-scaling-4k-hevc-hdr-azure-vm/media/average-cpu-2-3-4-encodes_hu_72dfcb938d0a894b.png 360w,https://singhkays.com/blog/x265-128-core-scaling-4k-hevc-hdr-azure-vm/media/average-cpu-2-3-4-encodes_hu_9a1585525d76aaae.png 480w,https://singhkays.com/blog/x265-128-core-scaling-4k-hevc-hdr-azure-vm/media/average-cpu-2-3-4-encodes_hu_7e611dc6d46e8189.png 720w,https://singhkays.com/blog/x265-128-core-scaling-4k-hevc-hdr-azure-vm/media/average-cpu-2-3-4-encodes_hu_3eb0e445490af440.png 1080w,https://singhkays.com/blog/x265-128-core-scaling-4k-hevc-hdr-azure-vm/media/average-cpu-2-3-4-encodes_hu_5d7536873b1dc13b.png 1500w,https://singhkays.com/blog/x265-128-core-scaling-4k-hevc-hdr-azure-vm/media/average-cpu-2-3-4-encodes.png 1605w'
                 src="https://singhkays.com/blog/x265-128-core-scaling-4k-hevc-hdr-azure-vm/media/average-cpu-2-3-4-encodes.png"
                 sizes="(min-width: 768px) 720px, 100vw"
                 width="1605" height="664"
@@ -251,7 +251,7 @@
   </tbody>
 </table>
 <p>Here is the <code>lscpu</code> output from the <strong>Standard_M128ms VM</strong></p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>kay@mvmssl4ct000001:~$ lscpu
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>kay@mvmssl4ct000001:~$ lscpu
 </span></span><span style="display:flex;"><span>Architecture:          x86_64
 </span></span><span style="display:flex;"><span>CPU op-mode<span style="color:#f92672">(</span>s<span style="color:#f92672">)</span>:        32-bit, 64-bit
 </span></span><span style="display:flex;"><span>Byte Order:            Little Endian
@@ -296,7 +296,7 @@
 </ul>
 <h4 id="mediainfo">Mediainfo<a hidden class="anchor" aria-hidden="true" href="#mediainfo">#</a></h4>
 <p>Here are the media details of the test sample</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>kay@mvmssl4ct000001:~/ffmpeg-4.0.2-64bit-static$ mediainfo Life_of_<span style="color:#ae81ff">\ </span>Pi_draft_Ultra-HD_HDR.mp4
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>kay@mvmssl4ct000001:~/ffmpeg-4.0.2-64bit-static$ mediainfo Life_of_<span style="color:#ae81ff">\ </span>Pi_draft_Ultra-HD_HDR.mp4
 </span></span><span style="display:flex;"><span>General
 </span></span><span style="display:flex;"><span>Complete name                            : Life_of_ Pi_draft_Ultra-HD_HDR.mp4
 </span></span><span style="display:flex;"><span>Format                                   : MPEG-4
@@ -339,7 +339,7 @@
 </span></span><span style="display:flex;"><span>Mastering display luminance              : min: 0.0200 cd/m2, max: <span style="color:#ae81ff">1200</span> cd/m2
 </span></span></code></pre></div><h4 id="ffmpeg-command-used">FFmpeg command used<a hidden class="anchor" aria-hidden="true" href="#ffmpeg-command-used">#</a></h4>
 <p>I used the 10-bit version of FFmpeg to encode the file to a HDR compatible output. Very slow preset was used to ensure the most CPU intensive parameters were used (<em>outside of the placebo preset</em> :) ).</p>
-<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>kay@mvmssl4ct000001:~/ffmpeg-4.0.2-64bit-static$ ./ffmpeg-10bit -i <span style="color:#e6db74">&#39;Life_of_ Pi_draft_Ultra-HD_HDR.mp4&#39;</span> -pix_fmt yuv420p10le -profile:v main10 -c:v libx265 -crf <span style="color:#ae81ff">21</span> -preset veryslow -x265-params <span style="color:#e6db74">&#39;no-strong-intra-smoothing=1:no-sao=1:deblock=-2\:-2:colorprim=bt2020:transfer=smpte2084:colormatrix=bt2020nc:range=limited:master-display=G(13250,34500)B(7500,3000)R(34000,16000)WP(15635,16450)L(40000000,50):max-cll=1200,0.0200&#39;</span> -an vslow_crf21.mp4
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;-webkit-text-size-adjust:none;"><code class="language-zsh" data-lang="zsh"><span style="display:flex;"><span>kay@mvmssl4ct000001:~/ffmpeg-4.0.2-64bit-static$ ./ffmpeg-10bit -i <span style="color:#e6db74">&#39;Life_of_ Pi_draft_Ultra-HD_HDR.mp4&#39;</span> -pix_fmt yuv420p10le -profile:v main10 -c:v libx265 -crf <span style="color:#ae81ff">21</span> -preset veryslow -x265-params <span style="color:#e6db74">&#39;no-strong-intra-smoothing=1:no-sao=1:deblock=-2\:-2:colorprim=bt2020:transfer=smpte2084:colormatrix=bt2020nc:range=limited:master-display=G(13250,34500)B(7500,3000)R(34000,16000)WP(15635,16450)L(40000000,50):max-cll=1200,0.0200&#39;</span> -an vslow_crf21.mp4
 </span></span></code></pre></div><script id="mNCC" language="javascript">
     medianet_width = "600";
     medianet_height = "250";
