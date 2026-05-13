@@ -7,7 +7,7 @@
     <generator>Hugo -- 0.161.1</generator>
     <language>en</language>
     <copyright>Copyright © 2025, Kay Singh; all rights reserved.</copyright>
-    <lastBuildDate>Wed, 13 May 2026 00:24:23 -0700</lastBuildDate>
+    <lastBuildDate>Wed, 13 May 2026 07:14:51 -0700</lastBuildDate>
     <atom:link href="https://singhkays.com/tags/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Agentic</title>
@@ -507,7 +507,7 @@
       <description></description>
     </item>
     <item>
-      <title>FFmpeg</title>
+      <title>Ffmpeg</title>
       <link>https://singhkays.com/tags/ffmpeg/</link>
       <pubDate>Wed, 29 Jan 2020 00:00:00 +0000</pubDate>
       <guid>https://singhkays.com/tags/ffmpeg/</guid>
