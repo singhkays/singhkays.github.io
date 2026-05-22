@@ -1,37 +1,7 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title>AV1 on KAY SINGH</title>
-    <link>https://singhkays.com/tags/av1/</link>
-    <description>Recent content in AV1 on KAY SINGH</description>
-    <generator>Hugo -- 0.161.1</generator>
-    <language>en</language>
-    <copyright>Copyright © 2025, Kay Singh; all rights reserved.</copyright>
-    <lastBuildDate>Thu, 02 Oct 2025 23:02:25 -0700</lastBuildDate>
-    <atom:link href="https://singhkays.com/tags/av1/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Decoding Netflix&#39;s AV1 Streams: Here are 10 things I found</title>
-      <link>https://singhkays.com/blog/netflix-av1-decode/</link>
-      <pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate>
-      <guid>https://singhkays.com/blog/netflix-av1-decode/</guid>
-      <description>A weekend project that turned into discovering how Netflix is quietly revolutionizing streaming efficiency with AV1.</description>
-    </item>
-    <item>
-      <title>AV1 2019: A Year In Review</title>
-      <link>https://singhkays.com/blog/av1-2019-year-in-review/</link>
-      <pubDate>Wed, 29 Jan 2020 00:00:00 +0000</pubDate>
-      <guid>https://singhkays.com/blog/av1-2019-year-in-review/</guid>
-      <description>&lt;h1 id=&#34;introduction&#34;&gt;Introduction&lt;/h1&gt;
-&lt;p&gt;It&amp;rsquo;s not often you see so many logos of tech giants &lt;a href=&#34;http://aomedia.org/membership/members/&#34;&gt;on one page backing the same technology&lt;/a&gt;. In my experience, every enterprise has developed a case of &lt;a href=&#34;https://en.wikipedia.org/wiki/Not_invented_here&#34;&gt;NIH&lt;/a&gt; and come up with their standards. No surprise then that there&amp;rsquo;s an XKCD describing this phenomenon!&lt;/p&gt;
-&lt;p&gt;&lt;img alt=&#34;XKCD on Standards&#34; loading=&#34;lazy&#34; src=&#34;https://imgs.xkcd.com/comics/standards.png&#34;&gt;&lt;/p&gt;
-&lt;p&gt;But when the AV1 1.0.0 spec was finalized in 2018, with the backing of so many giants, the world knew AV1 would be a serious piece of tech. With the spec finalized, the race was on to get AV1 integrated into your favorite software &amp;amp; hardware for encoding, decoding, and viewing media. By the end of 2018, AV1 adoption was moving at a healthy pace and completed significant milestones necessary to mainstream adoption. Some of these were:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>AV1 Ecosystem Update: December 2019</title>
-      <link>https://singhkays.com/blog/av1-ecosystem-update-december-2019/</link>
-      <pubDate>Sun, 05 Jan 2020 00:00:00 +0000</pubDate>
-      <guid>https://singhkays.com/blog/av1-ecosystem-update-december-2019/</guid>
-      <description>&lt;h1 id=&#34;dav1d-052-asiatic-cheetah-released&#34;&gt;dav1d 0.5.2 &amp;lsquo;Asiatic Cheetah&amp;rsquo; released&lt;/h1&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>AV1 on KAY SINGH</title><link>https://singhkays.com/tags/av1/</link><description>Recent content in AV1 on KAY SINGH</description><generator>Hugo -- 0.161.1</generator><language>en</language><copyright>Copyright © 2025, Kay Singh; all rights reserved.</copyright><lastBuildDate>Thu, 02 Oct 2025 23:02:25 -0700</lastBuildDate><atom:link href="https://singhkays.com/tags/av1/index.xml" rel="self" type="application/rss+xml"/><item><title>Decoding Netflix's AV1 Streams: Here are 10 things I found</title><link>https://singhkays.com/blog/netflix-av1-decode/</link><pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate><guid>https://singhkays.com/blog/netflix-av1-decode/</guid><description>A weekend project that turned into discovering how Netflix is quietly revolutionizing streaming efficiency with AV1.</description></item><item><title>AV1 2019: A Year In Review</title><link>https://singhkays.com/blog/av1-2019-year-in-review/</link><pubDate>Wed, 29 Jan 2020 00:00:00 +0000</pubDate><guid>https://singhkays.com/blog/av1-2019-year-in-review/</guid><description>&lt;h1 id="introduction"&gt;Introduction&lt;/h1&gt;
+&lt;p&gt;It&amp;rsquo;s not often you see so many logos of tech giants &lt;a href="http://aomedia.org/membership/members/"&gt;on one page backing the same technology&lt;/a&gt;. In my experience, every enterprise has developed a case of &lt;a href="https://en.wikipedia.org/wiki/Not_invented_here"&gt;NIH&lt;/a&gt; and come up with their standards. No surprise then that there&amp;rsquo;s an XKCD describing this phenomenon!&lt;/p&gt;
+&lt;p&gt;&lt;img loading="lazy" src="https://imgs.xkcd.com/comics/standards.png" alt="XKCD on Standards" &gt;&lt;/p&gt;
+&lt;p&gt;But when the AV1 1.0.0 spec was finalized in 2018, with the backing of so many giants, the world knew AV1 would be a serious piece of tech. With the spec finalized, the race was on to get AV1 integrated into your favorite software &amp;amp; hardware for encoding, decoding, and viewing media. By the end of 2018, AV1 adoption was moving at a healthy pace and completed significant milestones necessary to mainstream adoption. Some of these were:&lt;/p&gt;</description></item><item><title>AV1 Ecosystem Update: December 2019</title><link>https://singhkays.com/blog/av1-ecosystem-update-december-2019/</link><pubDate>Sun, 05 Jan 2020 00:00:00 +0000</pubDate><guid>https://singhkays.com/blog/av1-ecosystem-update-december-2019/</guid><description>&lt;h1 id="dav1d-052-asiatic-cheetah-released"&gt;dav1d 0.5.2 &amp;lsquo;Asiatic Cheetah&amp;rsquo; released&lt;/h1&gt;
 &lt;p&gt;dav1d ended the year with another performance improvement release. Dubbed the &amp;ldquo;Asiatic Cheetah&amp;rdquo; this release brings the following improvements:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;ARM32 optimizations for loopfilter, ipred_dc|h|v&lt;/li&gt;
@@ -39,25 +9,11 @@
 &lt;li&gt;Improve the speed by reducing the L2 cache collisions&lt;/li&gt;
 &lt;li&gt;Fix minor issues, including compilation on some OSes&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;a href=&#34;https://code.videolan.org/videolan/dav1d/-/tags/0.5.2&#34;&gt;Release notes for dav1d 0.5.2 &amp;lsquo;Asiatic Cheetah&amp;rsquo;&lt;/a&gt;&lt;/p&gt;
-&lt;h1 id=&#34;rav1e-v020-winter-solstice-released&#34;&gt;rav1e v0.2.0: Winter Solstice released&lt;/h1&gt;
-&lt;p&gt;Building on the official 0.1.0 release in November, rav1e had a busy December with 3 releases. Overall, rav1e got a lot faster which is only good news for AV1 encoding! Here are the improvements included in the 0.2.0 release.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>AV1 Ecosystem Update: November 2019</title>
-      <link>https://singhkays.com/blog/av1-ecosystem-update-november-2019/</link>
-      <pubDate>Tue, 17 Dec 2019 00:00:00 +0000</pubDate>
-      <guid>https://singhkays.com/blog/av1-ecosystem-update-november-2019/</guid>
-      <description>&lt;h1 id=&#34;the-tale-of-two-next-gen-socs---snapdragon-865-and-mediatek-dimensity-1000&#34;&gt;The Tale of Two next-gen SOCs - Snapdragon 865 and MediaTek Dimensity 1000&lt;/h1&gt;
-&lt;p&gt;Last month, we saw the release of SOCs expected to power next-gen flagship smartphones. Since the AV1 standard as formalized, the community has been waiting to see when SOC manufacturers add hardware support for AV1 decoding. It looks like we&#39;ll be waiting a lot longer for such a chip from Qualcomm. In what might come as a shock, MediaTek announced the first SOC to feature such support with their new Dimensity 1000 chip. Qualcomm meanwhile announced the Snapdragon 865 SOC which focused on 5G support and camera improvements this year.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>AV1 Ecosystem Update: October 2019</title>
-      <link>https://singhkays.com/blog/av1-ecosystem-update-october-2019/</link>
-      <pubDate>Thu, 14 Nov 2019 00:00:00 +0000</pubDate>
-      <guid>https://singhkays.com/blog/av1-ecosystem-update-october-2019/</guid>
-      <description>&lt;p&gt;Let&amp;rsquo;s start this month&amp;rsquo;s roundup with a faster decoder!&lt;/p&gt;
-&lt;h1 id=&#34;dav1d-050--051-release&#34;&gt;dav1d 0.5.0 &amp;amp; 0.5.1 release&lt;/h1&gt;
+&lt;p&gt;&lt;a href="https://code.videolan.org/videolan/dav1d/-/tags/0.5.2"&gt;Release notes for dav1d 0.5.2 &amp;lsquo;Asiatic Cheetah&amp;rsquo;&lt;/a&gt;&lt;/p&gt;
+&lt;h1 id="rav1e-v020-winter-solstice-released"&gt;rav1e v0.2.0: Winter Solstice released&lt;/h1&gt;
+&lt;p&gt;Building on the official 0.1.0 release in November, rav1e had a busy December with 3 releases. Overall, rav1e got a lot faster which is only good news for AV1 encoding! Here are the improvements included in the 0.2.0 release.&lt;/p&gt;</description></item><item><title>AV1 Ecosystem Update: November 2019</title><link>https://singhkays.com/blog/av1-ecosystem-update-november-2019/</link><pubDate>Tue, 17 Dec 2019 00:00:00 +0000</pubDate><guid>https://singhkays.com/blog/av1-ecosystem-update-november-2019/</guid><description>&lt;h1 id="the-tale-of-two-next-gen-socs---snapdragon-865-and-mediatek-dimensity-1000"&gt;The Tale of Two next-gen SOCs - Snapdragon 865 and MediaTek Dimensity 1000&lt;/h1&gt;
+&lt;p&gt;Last month, we saw the release of SOCs expected to power next-gen flagship smartphones. Since the AV1 standard as formalized, the community has been waiting to see when SOC manufacturers add hardware support for AV1 decoding. It looks like we'll be waiting a lot longer for such a chip from Qualcomm. In what might come as a shock, MediaTek announced the first SOC to feature such support with their new Dimensity 1000 chip. Qualcomm meanwhile announced the Snapdragon 865 SOC which focused on 5G support and camera improvements this year.&lt;/p&gt;</description></item><item><title>AV1 Ecosystem Update: October 2019</title><link>https://singhkays.com/blog/av1-ecosystem-update-october-2019/</link><pubDate>Thu, 14 Nov 2019 00:00:00 +0000</pubDate><guid>https://singhkays.com/blog/av1-ecosystem-update-october-2019/</guid><description>&lt;p&gt;Let&amp;rsquo;s start this month&amp;rsquo;s roundup with a faster decoder!&lt;/p&gt;
+&lt;h1 id="dav1d-050--051-release"&gt;dav1d 0.5.0 &amp;amp; 0.5.1 release&lt;/h1&gt;
 &lt;p&gt;In October, dav1d saw two new releases with some fantastic speed improvements. Here is a summary:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;Large improvements in speed on SSSE3 CPU (up to 40% speedup)&lt;/li&gt;
@@ -65,16 +21,9 @@
 &lt;li&gt;Speed improvements on ARM64 (up to 10%) and ARM32.&lt;/li&gt;
 &lt;li&gt;0.5.1 is a minor release which brings improvements in speed for SSE2 CPUs (up to 50% speedup), and ARMv7 CPUs (up to 41% speedup).&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Detailed release notes can be found at:&lt;/strong&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>AV1 Ecosystem Update: September 2019</title>
-      <link>https://singhkays.com/blog/av1-ecosystem-update-september-2019/</link>
-      <pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate>
-      <guid>https://singhkays.com/blog/av1-ecosystem-update-september-2019/</guid>
-      <description>&lt;p&gt;Let&amp;rsquo;s start this month&amp;rsquo;s roundup with the release of two of our favorite encoders - rav1e and SVT-AV1! &lt;/p&gt;
-&lt;h1 id=&#34;rav1e&#34;&gt;rav1e&lt;/h1&gt;
-&lt;p&gt;rav1e finally has a &lt;a href=&#34;https://github.com/xiph/rav1e/releases/tag/20190926&#34;&gt;new weekly pre-release&lt;/a&gt; with the following updates:&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Detailed release notes can be found at:&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>AV1 Ecosystem Update: September 2019</title><link>https://singhkays.com/blog/av1-ecosystem-update-september-2019/</link><pubDate>Fri, 04 Oct 2019 00:00:00 +0000</pubDate><guid>https://singhkays.com/blog/av1-ecosystem-update-september-2019/</guid><description>&lt;p&gt;Let&amp;rsquo;s start this month&amp;rsquo;s roundup with the release of two of our favorite encoders - rav1e and SVT-AV1! &lt;/p&gt;
+&lt;h1 id="rav1e"&gt;rav1e&lt;/h1&gt;
+&lt;p&gt;rav1e finally has a &lt;a href="https://github.com/xiph/rav1e/releases/tag/20190926"&gt;new weekly pre-release&lt;/a&gt; with the following updates:&lt;/p&gt;
 &lt;p&gt;&lt;strong&gt;Improvements&lt;/strong&gt;&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;More API documentation&lt;/li&gt;
@@ -87,81 +36,39 @@
 &lt;li&gt;Two-pass rate-control support&lt;/li&gt;
 &lt;li&gt;Additional speedups over all the speed levels on x86_64&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;strong&gt;Changes&lt;/strong&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Part 3: Building a scalable &#39;shot-based&#39; serverless AV1 video encoder in Azure</title>
-      <link>https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/</link>
-      <pubDate>Thu, 26 Sep 2019 00:00:00 +0000</pubDate>
-      <guid>https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/</guid>
-      <description>&lt;p&gt;This is a 3-part blog covering how to build a scalable shot-based serverless video encoder in Azure. In Part 1, I explain what AV1 is and where we are in the video encoding space. In part 2, we create a logic app to upload and index the video. In part 3, we&amp;rsquo;ll need to split the video into its scenes and encode individual scenes. For reference, here are the links to all the parts:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Now Available: Weekly build of libaom AV1 &#43; FFmpeg docker image</title>
-      <link>https://singhkays.com/blog/docker-image-av1-ffmpeg-libaom/</link>
-      <pubDate>Sat, 21 Sep 2019 00:00:00 +0000</pubDate>
-      <guid>https://singhkays.com/blog/docker-image-av1-ffmpeg-libaom/</guid>
-      <description>&lt;p&gt;&lt;img alt=&#34;Docker image with libaom AV1 ffmpeg&#34; loading=&#34;lazy&#34; src=&#34;https://singhkays.com/blog/docker-image-av1-ffmpeg-libaom/media/docker-ffmpeg-av1-libaom.png&#34;&gt;
+&lt;p&gt;&lt;strong&gt;Changes&lt;/strong&gt;&lt;/p&gt;</description></item><item><title>Part 3: Building a scalable 'shot-based' serverless AV1 video encoder in Azure</title><link>https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/</link><pubDate>Thu, 26 Sep 2019 00:00:00 +0000</pubDate><guid>https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-3/</guid><description>&lt;p&gt;This is a 3-part blog covering how to build a scalable shot-based serverless video encoder in Azure. In Part 1, I explain what AV1 is and where we are in the video encoding space. In part 2, we create a logic app to upload and index the video. In part 3, we&amp;rsquo;ll need to split the video into its scenes and encode individual scenes. For reference, here are the links to all the parts:&lt;/p&gt;</description></item><item><title>Now Available: Weekly build of libaom AV1 + FFmpeg docker image</title><link>https://singhkays.com/blog/docker-image-av1-ffmpeg-libaom/</link><pubDate>Sat, 21 Sep 2019 00:00:00 +0000</pubDate><guid>https://singhkays.com/blog/docker-image-av1-ffmpeg-libaom/</guid><description>&lt;p&gt;&lt;img loading="lazy" decoding="async"
+srcset="https://singhkays.com/blog/docker-image-av1-ffmpeg-libaom/media/docker-ffmpeg-av1-libaom_hu_94f6d0868cef7980.png 480w, https://singhkays.com/blog/docker-image-av1-ffmpeg-libaom/media/docker-ffmpeg-av1-libaom_hu_64a211caf757c154.png 800w, https://singhkays.com/blog/docker-image-av1-ffmpeg-libaom/media/docker-ffmpeg-av1-libaom_hu_cf34651c42ffe1c1.png 1200w, https://singhkays.com/blog/docker-image-av1-ffmpeg-libaom/media/docker-ffmpeg-av1-libaom_hu_dfa8d9a645a07234.png 1568w"
+src="https://singhkays.com/blog/docker-image-av1-ffmpeg-libaom/media/docker-ffmpeg-av1-libaom_hu_dfa8d9a645a07234.png"
+sizes="(min-width: 768px) 800px, 100vw"
+width="1568"
+height="760"
+alt="Docker image with libaom AV1 ffmpeg"
+&gt;
  &lt;/p&gt;
-&lt;h2 id=&#34;motivation&#34;&gt;Motivation&lt;/h2&gt;
-&lt;p&gt;While trying to try out the latest features for the libaom AV1 encoder, I&amp;rsquo;ve been trying to figure out how to get a hold of the latest binary. As of writing of this blog, I haven&amp;rsquo;t come across any source on the web that publishes a binary of libaom AV1 encoder. Often while trying to get a hold of the latest changes in libaom, you have to build the source yourself which takes time. Therefore, I took it upon myself to publish a weekly build of FFmpeg with the latest available libaom source @ &lt;a href=&#34;https://aomedia.googlesource.com/aom&#34;&gt;https://aomedia.googlesource.com/aom&lt;/a&gt;.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>AV1 Ecosystem Update: August 2019</title>
-      <link>https://singhkays.com/blog/av1-ecosystem-update-august-2019/</link>
-      <pubDate>Tue, 03 Sep 2019 00:00:00 +0000</pubDate>
-      <guid>https://singhkays.com/blog/av1-ecosystem-update-august-2019/</guid>
-      <description>&lt;p&gt;&lt;img alt=&#34;dav1d logo&#34; loading=&#34;lazy&#34; src=&#34;https://singhkays.com/blog/av1-ecosystem-update-august-2019/media/dav1d-logo-0.4.0-release-cheetah.png&#34;&gt;
+&lt;h2 id="motivation"&gt;Motivation&lt;/h2&gt;
+&lt;p&gt;While trying to try out the latest features for the libaom AV1 encoder, I&amp;rsquo;ve been trying to figure out how to get a hold of the latest binary. As of writing of this blog, I haven&amp;rsquo;t come across any source on the web that publishes a binary of libaom AV1 encoder. Often while trying to get a hold of the latest changes in libaom, you have to build the source yourself which takes time. Therefore, I took it upon myself to publish a weekly build of FFmpeg with the latest available libaom source @ &lt;a href="https://aomedia.googlesource.com/aom"&gt;https://aomedia.googlesource.com/aom&lt;/a&gt;.&lt;/p&gt;</description></item><item><title>AV1 Ecosystem Update: August 2019</title><link>https://singhkays.com/blog/av1-ecosystem-update-august-2019/</link><pubDate>Tue, 03 Sep 2019 00:00:00 +0000</pubDate><guid>https://singhkays.com/blog/av1-ecosystem-update-august-2019/</guid><description>&lt;p&gt;&lt;img loading="lazy" decoding="async"
+srcset="https://singhkays.com/blog/av1-ecosystem-update-august-2019/media/dav1d-logo-0.4.0-release-cheetah_hu_75153521aee720b7.png 480w, https://singhkays.com/blog/av1-ecosystem-update-august-2019/media/dav1d-logo-0.4.0-release-cheetah_hu_511d84f4813036e8.png 800w, https://singhkays.com/blog/av1-ecosystem-update-august-2019/media/dav1d-logo-0.4.0-release-cheetah_hu_cb2a89c2fad310fa.png 974w"
+src="https://singhkays.com/blog/av1-ecosystem-update-august-2019/media/dav1d-logo-0.4.0-release-cheetah_hu_cb2a89c2fad310fa.png"
+sizes="(min-width: 768px) 800px, 100vw"
+width="974"
+height="260"
+alt="dav1d logo"
+&gt;
  &lt;/p&gt;
-&lt;h2 id=&#34;avif-in-spectrum-lib&#34;&gt;AVIF in Spectrum lib&lt;/h2&gt;
+&lt;h2 id="avif-in-spectrum-lib"&gt;AVIF in Spectrum lib&lt;/h2&gt;
 &lt;p&gt;While browsing for AV1/AVIF updates, I noticed this commit to Facebook&amp;rsquo;s open source Spectrum library that adds support for AVIF format.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/facebookincubator/spectrum/commit/89b87bee831d3c7aabd0ad327fb118ce699df55d&#34;&gt;https://github.com/facebookincubator/spectrum/commit/89b87bee831d3c7aabd0ad327fb118ce699df55d&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/facebookincubator/spectrum/commit/89b87bee831d3c7aabd0ad327fb118ce699df55d"&gt;https://github.com/facebookincubator/spectrum/commit/89b87bee831d3c7aabd0ad327fb118ce699df55d&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;p&gt;&lt;a href=&#34;https://libspectrum.io/&#34;&gt;Spectrum is an image transcoding library for iOS and Android&lt;/a&gt; that is meant to be integrated into apps for image operations. Hopefully this means that we&amp;rsquo;ll see apps supporting AVIF format soon!&lt;/p&gt;
-&lt;h2 id=&#34;ffmpeg-42-release&#34;&gt;FFmpeg 4.2 release&lt;/h2&gt;
-&lt;p&gt;FFmpeg 4.2 codenamed &amp;ldquo;Ada&amp;rdquo; was released on August 5th, 2019. It brought with it support for AV1 decoding through libdav1d decoder. This should make it possible for applications which integrate FFmpeg to build in support for decoding AV1 files. For the full release notes visit the below link.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>AV1 Ecosystem Update: July 2019</title>
-      <link>https://singhkays.com/blog/av1-ecosystem-update-july-2019/</link>
-      <pubDate>Tue, 13 Aug 2019 00:00:00 +0000</pubDate>
-      <guid>https://singhkays.com/blog/av1-ecosystem-update-july-2019/</guid>
-      <description>&lt;p&gt;If May and June were F1 race cars in terms of speed of AV1 development, then July would probably be a Honda Civic. After numerous exciting announcements in the previous month, July felt like everyone&amp;rsquo;s on vacation, which is probably true because summer months tend to be slow as the school&amp;rsquo;s out. So, this update will be a short one as I&amp;rsquo;m out on vacation as well :)&lt;/p&gt;
-&lt;h1 id=&#34;mile-high-video-2019&#34;&gt;Mile High Video 2019&lt;/h1&gt;
-&lt;p&gt;Nathan Egge of Mozilla and Brion Vibber of Wikimedia presented a session recapping AV1&amp;rsquo;s progress in the last year. Here&amp;rsquo;s a recap of the most important parts of the presentation&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Part 2: Building a scalable &#39;shot-based&#39; serverless AV1 video encoder in Azure</title>
-      <link>https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-2/</link>
-      <pubDate>Thu, 01 Aug 2019 00:00:00 +0000</pubDate>
-      <guid>https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-2/</guid>
-      <description>&lt;p&gt;This is a 3-part blog covering how to build a scalable shot-based serverless video encoder in Azure. In Part 1, I explain what AV1 is and where we are in the video encoding space. In part 2, we create a logic app to upload and index the video. In part 3, we&amp;rsquo;ll need to split the video into its scenes and encode individual scenes. For reference, here are the links to all the parts:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>AV1 Ecosystem Update: June 2019</title>
-      <link>https://singhkays.com/blog/av1-ecosystem-update-june-2019/</link>
-      <pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate>
-      <guid>https://singhkays.com/blog/av1-ecosystem-update-june-2019/</guid>
-      <description>&lt;p&gt;It&amp;rsquo;s been a pretty busy for me professionally which is why this month&amp;rsquo;s AV1 ecosystem update is coming in pretty late. It&amp;rsquo;s been one of the most exciting months for AV1 development and a lot to catch up on! With so much news this month, it is starting to feel like we&amp;rsquo;re at the cusp of something big! (&lt;em&gt;which we hope AV1 will be&lt;/em&gt; )&lt;/p&gt;
-&lt;h2 id=&#34;youtube-pauses-av1-rollout&#34;&gt;Youtube pauses AV1 rollout&lt;/h2&gt;
-&lt;p&gt;Currently, YouTube is the biggest streaming platform delivering AV1 video and is responsible for the majority of AV1 video consumption on the internet. But a recent message posted to AV1 subreddit announced that YouTube was pausing the rollout of AV1. The reason was not shared but AV1 seems to be performing well at YouTube with the intent to expand its use soon. Here&amp;rsquo;s the full message:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>Part 1: Building a scalable &#39;shot-based&#39; serverless AV1 video encoder in Azure</title>
-      <link>https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-1/</link>
-      <pubDate>Thu, 20 Jun 2019 00:00:00 +0000</pubDate>
-      <guid>https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-1/</guid>
-      <description>&lt;p&gt;This is a 3-part blog covering how to build a scalable shot-based serverless video encoder in Azure. In Part 1, I explain what AV1 is and where we are in the video encoding space. In part 2, we create a logic app to upload and index the video. In part 3, we&amp;rsquo;ll need to split the video into its scenes and encode individual scenes. For reference, here are the links to all the parts:&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>AV1 Ecosystem Update: May 2019</title>
-      <link>https://singhkays.com/blog/av1-ecosystem-update-may-2019/</link>
-      <pubDate>Mon, 10 Jun 2019 00:00:00 +0000</pubDate>
-      <guid>https://singhkays.com/blog/av1-ecosystem-update-may-2019/</guid>
-      <description>&lt;p&gt;May was another amazing month for the AV1 codec! We saw great progress in the SVT-AV1 encoder, Android update news and some  surprising news out of China!&lt;/p&gt;
-&lt;h2 id=&#34;svt-av1-is-making-strides&#34;&gt;SVT-AV1 is making strides!&lt;/h2&gt;
-&lt;p&gt;Let&amp;rsquo;s start with SVT-AV1 encoder, &lt;a href=&#34;https://www.singhkays.com/blog/av1-ecosystem-update-april-2019/#intel-and-netflix-are-joining-forces&#34;&gt;the current encoder of choice for Netflix&lt;/a&gt;, being developed by the folks at Intel. In May, &lt;a href=&#34;https://github.com/OpenVisualCloud/SVT-AV1/releases/tag/v0.5.0&#34;&gt;version 0.5.0 was released&lt;/a&gt; with the following features:&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://libspectrum.io/"&gt;Spectrum is an image transcoding library for iOS and Android&lt;/a&gt; that is meant to be integrated into apps for image operations. Hopefully this means that we&amp;rsquo;ll see apps supporting AVIF format soon!&lt;/p&gt;
+&lt;h2 id="ffmpeg-42-release"&gt;FFmpeg 4.2 release&lt;/h2&gt;
+&lt;p&gt;FFmpeg 4.2 codenamed &amp;ldquo;Ada&amp;rdquo; was released on August 5th, 2019. It brought with it support for AV1 decoding through libdav1d decoder. This should make it possible for applications which integrate FFmpeg to build in support for decoding AV1 files. For the full release notes visit the below link.&lt;/p&gt;</description></item><item><title>AV1 Ecosystem Update: July 2019</title><link>https://singhkays.com/blog/av1-ecosystem-update-july-2019/</link><pubDate>Tue, 13 Aug 2019 00:00:00 +0000</pubDate><guid>https://singhkays.com/blog/av1-ecosystem-update-july-2019/</guid><description>&lt;p&gt;If May and June were F1 race cars in terms of speed of AV1 development, then July would probably be a Honda Civic. After numerous exciting announcements in the previous month, July felt like everyone&amp;rsquo;s on vacation, which is probably true because summer months tend to be slow as the school&amp;rsquo;s out. So, this update will be a short one as I&amp;rsquo;m out on vacation as well :)&lt;/p&gt;
+&lt;h1 id="mile-high-video-2019"&gt;Mile High Video 2019&lt;/h1&gt;
+&lt;p&gt;Nathan Egge of Mozilla and Brion Vibber of Wikimedia presented a session recapping AV1&amp;rsquo;s progress in the last year. Here&amp;rsquo;s a recap of the most important parts of the presentation&lt;/p&gt;</description></item><item><title>Part 2: Building a scalable 'shot-based' serverless AV1 video encoder in Azure</title><link>https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-2/</link><pubDate>Thu, 01 Aug 2019 00:00:00 +0000</pubDate><guid>https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-2/</guid><description>&lt;p&gt;This is a 3-part blog covering how to build a scalable shot-based serverless video encoder in Azure. In Part 1, I explain what AV1 is and where we are in the video encoding space. In part 2, we create a logic app to upload and index the video. In part 3, we&amp;rsquo;ll need to split the video into its scenes and encode individual scenes. For reference, here are the links to all the parts:&lt;/p&gt;</description></item><item><title>AV1 Ecosystem Update: June 2019</title><link>https://singhkays.com/blog/av1-ecosystem-update-june-2019/</link><pubDate>Mon, 22 Jul 2019 00:00:00 +0000</pubDate><guid>https://singhkays.com/blog/av1-ecosystem-update-june-2019/</guid><description>&lt;p&gt;It&amp;rsquo;s been a pretty busy for me professionally which is why this month&amp;rsquo;s AV1 ecosystem update is coming in pretty late. It&amp;rsquo;s been one of the most exciting months for AV1 development and a lot to catch up on! With so much news this month, it is starting to feel like we&amp;rsquo;re at the cusp of something big! (&lt;em&gt;which we hope AV1 will be&lt;/em&gt; )&lt;/p&gt;
+&lt;h2 id="youtube-pauses-av1-rollout"&gt;Youtube pauses AV1 rollout&lt;/h2&gt;
+&lt;p&gt;Currently, YouTube is the biggest streaming platform delivering AV1 video and is responsible for the majority of AV1 video consumption on the internet. But a recent message posted to AV1 subreddit announced that YouTube was pausing the rollout of AV1. The reason was not shared but AV1 seems to be performing well at YouTube with the intent to expand its use soon. Here&amp;rsquo;s the full message:&lt;/p&gt;</description></item><item><title>Part 1: Building a scalable 'shot-based' serverless AV1 video encoder in Azure</title><link>https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-1/</link><pubDate>Thu, 20 Jun 2019 00:00:00 +0000</pubDate><guid>https://singhkays.com/blog/azure-serverless-distributed-video-encoder-av1-part-1/</guid><description>&lt;p&gt;This is a 3-part blog covering how to build a scalable shot-based serverless video encoder in Azure. In Part 1, I explain what AV1 is and where we are in the video encoding space. In part 2, we create a logic app to upload and index the video. In part 3, we&amp;rsquo;ll need to split the video into its scenes and encode individual scenes. For reference, here are the links to all the parts:&lt;/p&gt;</description></item><item><title>AV1 Ecosystem Update: May 2019</title><link>https://singhkays.com/blog/av1-ecosystem-update-may-2019/</link><pubDate>Mon, 10 Jun 2019 00:00:00 +0000</pubDate><guid>https://singhkays.com/blog/av1-ecosystem-update-may-2019/</guid><description>&lt;p&gt;May was another amazing month for the AV1 codec! We saw great progress in the SVT-AV1 encoder, Android update news and some surprising news out of China!&lt;/p&gt;
+&lt;h2 id="svt-av1-is-making-strides"&gt;SVT-AV1 is making strides!&lt;/h2&gt;
+&lt;p&gt;Let&amp;rsquo;s start with SVT-AV1 encoder, &lt;a href="https://www.singhkays.com/blog/av1-ecosystem-update-april-2019/#intel-and-netflix-are-joining-forces"&gt;the current encoder of choice for Netflix&lt;/a&gt;, being developed by the folks at Intel. In May, &lt;a href="https://github.com/OpenVisualCloud/SVT-AV1/releases/tag/v0.5.0"&gt;version 0.5.0 was released&lt;/a&gt; with the following features:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;8 bit / 10 bit 4:2:0 up to 4K60p resolutions&lt;/li&gt;
 &lt;li&gt;Presets 0-8&lt;/li&gt;
@@ -179,109 +86,92 @@
 &lt;li&gt;Chroma search in MD&lt;/li&gt;
 &lt;li&gt;Multi-reference picture support&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h4 id=&#34;other-notable-updates&#34;&gt;Other notable updates&lt;/h4&gt;
+&lt;h4 id="other-notable-updates"&gt;Other notable updates&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;May also saw the most number of commits to the SVT-AV1 Github repo as shown by the graph below. &lt;a href=&#34;https://github.com/OpenVisualCloud/SVT-AV1/pulls?utf8=%E2%9C%93&amp;amp;q=is%3Apr+is%3Amerged+merged%3A2019-05-01..2019-06-01&#34;&gt;There were also 40 PRs merged in the month of May&lt;/a&gt;.
-&lt;img alt=&#34;SVT-AV1 github repo number of commit graph in May 2019&#34; loading=&#34;lazy&#34; src=&#34;https://singhkays.com/blog/av1-ecosystem-update-may-2019/media/svt-av1-commits-may-2019.png&#34;&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>AV1 Resource Central: Videos, Tools, Presentations, Comparisons, Research Papers, Encoders, Decoders</title>
-      <link>https://singhkays.com/blog/av1-wiki-resources-tools/</link>
-      <pubDate>Tue, 14 May 2019 00:00:00 +0000</pubDate>
-      <guid>https://singhkays.com/blog/av1-wiki-resources-tools/</guid>
-      <description>&lt;h1 id=&#34;bitstream-spec&#34;&gt;Bitstream spec&lt;/h1&gt;
+&lt;p&gt;May also saw the most number of commits to the SVT-AV1 Github repo as shown by the graph below. &lt;a href="https://github.com/OpenVisualCloud/SVT-AV1/pulls?utf8=%E2%9C%93&amp;amp;q=is%3Apr+is%3Amerged+merged%3A2019-05-01..2019-06-01"&gt;There were also 40 PRs merged in the month of May&lt;/a&gt;.
+&lt;img loading="lazy" decoding="async"
+srcset="https://singhkays.com/blog/av1-ecosystem-update-may-2019/media/svt-av1-commits-may-2019_hu_f709cc9a0a837eb4.png 480w, https://singhkays.com/blog/av1-ecosystem-update-may-2019/media/svt-av1-commits-may-2019_hu_5e33eec83eef1920.png 800w, https://singhkays.com/blog/av1-ecosystem-update-may-2019/media/svt-av1-commits-may-2019_hu_ff882f4705269be4.png 1200w, https://singhkays.com/blog/av1-ecosystem-update-may-2019/media/svt-av1-commits-may-2019_hu_7c3b727469518de7.png 1551w"
+src="https://singhkays.com/blog/av1-ecosystem-update-may-2019/media/svt-av1-commits-may-2019_hu_7c3b727469518de7.png"
+sizes="(min-width: 768px) 800px, 100vw"
+width="1551"
+height="346"
+alt="SVT-AV1 github repo number of commit graph in May 2019"
+&gt;&lt;/p&gt;</description></item><item><title>AV1 Resource Central: Videos, Tools, Presentations, Comparisons, Research Papers, Encoders, Decoders</title><link>https://singhkays.com/blog/av1-wiki-resources-tools/</link><pubDate>Tue, 14 May 2019 00:00:00 +0000</pubDate><guid>https://singhkays.com/blog/av1-wiki-resources-tools/</guid><description>&lt;h1 id="bitstream-spec"&gt;Bitstream spec&lt;/h1&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://aomediacodec.github.io/av1-spec/&#34;&gt;https://aomediacodec.github.io/av1-spec/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://aomediacodec.github.io/av1-spec/"&gt;https://aomediacodec.github.io/av1-spec/&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;hr&gt; 
-&lt;h1 id=&#34;encoder-implementations&#34;&gt;Encoder Implementations&lt;/h1&gt;
-&lt;h3 id=&#34;svt-av1&#34;&gt;SVT-AV1&lt;/h3&gt;
-&lt;h5 id=&#34;homepage&#34;&gt;Homepage&lt;/h5&gt;
+&lt;hr&gt;
+&lt;h1 id="encoder-implementations"&gt;Encoder Implementations&lt;/h1&gt;
+&lt;h3 id="svt-av1"&gt;SVT-AV1&lt;/h3&gt;
+&lt;h5 id="homepage"&gt;Homepage&lt;/h5&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://01.org/svt&#34;&gt;https://01.org/svt&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://01.org/svt"&gt;https://01.org/svt&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h5 id=&#34;source-repo&#34;&gt;Source repo&lt;/h5&gt;
+&lt;h5 id="source-repo"&gt;Source repo&lt;/h5&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/OpenVisualCloud/SVT-AV1&#34;&gt;https://github.com/OpenVisualCloud/SVT-AV1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/OpenVisualCloud/SVT-AV1"&gt;https://github.com/OpenVisualCloud/SVT-AV1&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h5 id=&#34;user-guide&#34;&gt;User-Guide&lt;/h5&gt;
+&lt;h5 id="user-guide"&gt;User-Guide&lt;/h5&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/OpenVisualCloud/SVT-AV1/blob/master/Docs/svt-av1_encoder_user_guide.md&#34;&gt;https://github.com/OpenVisualCloud/SVT-AV1/blob/master/Docs/svt-av1_encoder_user_guide.md&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/OpenVisualCloud/SVT-AV1/blob/master/Docs/svt-av1_encoder_user_guide.md"&gt;https://github.com/OpenVisualCloud/SVT-AV1/blob/master/Docs/svt-av1_encoder_user_guide.md&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h5 id=&#34;roadmap&#34;&gt;Roadmap&lt;/h5&gt;
-&lt;p&gt;&lt;a href=&#34;https://trello.com/b/g0lD2blK/svt-av1&#34;&gt;Trello page&lt;/a&gt;&lt;/p&gt;
-&lt;h5 id=&#34;microsoft-azure-whitepaper&#34;&gt;Microsoft Azure whitepaper&lt;/h5&gt;
+&lt;h5 id="roadmap"&gt;Roadmap&lt;/h5&gt;
+&lt;p&gt;&lt;a href="https://trello.com/b/g0lD2blK/svt-av1"&gt;Trello page&lt;/a&gt;&lt;/p&gt;
+&lt;h5 id="microsoft-azure-whitepaper"&gt;Microsoft Azure whitepaper&lt;/h5&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://01.org/sites/default/files/documentation/svt_azure_wp.pdf&#34;&gt;https://01.org/sites/default/files/documentation/svt_azure_wp.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://01.org/sites/default/files/documentation/svt_azure_wp.pdf"&gt;https://01.org/sites/default/files/documentation/svt_azure_wp.pdf&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h5 id=&#34;amazon-web-services-aws-whitepaper&#34;&gt;Amazon Web Services (AWS) Whitepaper&lt;/h5&gt;
+&lt;h5 id="amazon-web-services-aws-whitepaper"&gt;Amazon Web Services (AWS) Whitepaper&lt;/h5&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://01.org/sites/default/files/documentation/svt_aws_wp.pdf&#34;&gt;http://01.org/sites/default/files/documentation/svt_aws_wp.pdf&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://01.org/sites/default/files/documentation/svt_aws_wp.pdf"&gt;http://01.org/sites/default/files/documentation/svt_aws_wp.pdf&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;h5 id=&#34;mailing-list&#34;&gt;Mailing List&lt;/h5&gt;
+&lt;h5 id="mailing-list"&gt;Mailing List&lt;/h5&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://lists.01.org/mailman/listinfo/svt-av1&#34;&gt;http://lists.01.org/mailman/listinfo/svt-av1&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="http://lists.01.org/mailman/listinfo/svt-av1"&gt;http://lists.01.org/mailman/listinfo/svt-av1&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;hr &gt; 
-&lt;h3 id=&#34;aomenc&#34;&gt;aomenc&lt;/h3&gt;
-&lt;h5 id=&#34;homepage-and-source-repo&#34;&gt;Homepage and Source repo&lt;/h5&gt;
+&lt;hr &gt;
+&lt;h3 id="aomenc"&gt;aomenc&lt;/h3&gt;
+&lt;h5 id="homepage-and-source-repo"&gt;Homepage and Source repo&lt;/h5&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://aomedia.googlesource.com/aom/&#34;&gt;https://aomedia.googlesource.com/aom/&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://aomedia.googlesource.com/aom/"&gt;https://aomedia.googlesource.com/aom/&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;hr&gt; 
-&lt;h3 id=&#34;rav1e&#34;&gt;rav1e&lt;/h3&gt;
-&lt;h5 id=&#34;homepage-source-repo&#34;&gt;Homepage, Source repo&lt;/h5&gt;
+&lt;hr&gt;
+&lt;h3 id="rav1e"&gt;rav1e&lt;/h3&gt;
+&lt;h5 id="homepage-source-repo"&gt;Homepage, Source repo&lt;/h5&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://github.com/xiph/rav1e&#34;&gt;https://github.com/xiph/rav1e&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://github.com/xiph/rav1e"&gt;https://github.com/xiph/rav1e&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;hr&gt; 
-&lt;h1 id=&#34;decoder-implementations&#34;&gt;Decoder Implementations&lt;/h1&gt;
-&lt;h3 id=&#34;dav1d&#34;&gt;dav1d&lt;/h3&gt;
-&lt;h5 id=&#34;homepage-source-repo-1&#34;&gt;Homepage, Source repo&lt;/h5&gt;
+&lt;hr&gt;
+&lt;h1 id="decoder-implementations"&gt;Decoder Implementations&lt;/h1&gt;
+&lt;h3 id="dav1d"&gt;dav1d&lt;/h3&gt;
+&lt;h5 id="homepage-source-repo-1"&gt;Homepage, Source repo&lt;/h5&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;https://code.videolan.org/videolan/dav1d&#34;&gt;https://code.videolan.org/videolan/dav1d&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href="https://code.videolan.org/videolan/dav1d"&gt;https://code.videolan.org/videolan/dav1d&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-&lt;hr&gt; 
-&lt;h1 id=&#34;presentations&#34;&gt;Presentations&lt;/h1&gt;
+&lt;hr&gt;
+&lt;h1 id="presentations"&gt;Presentations&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.slideshare.net/KaranKaySingh/nab-2019-latest-technical-and-business-progress-with-av1&#34;&gt;Mozilla @ NAB 2019&lt;/a&gt; [April 2019 by Nathan Egge]&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.slideshare.net/KaranKaySingh/nab-2019-latest-technical-and-business-progress-with-av1"&gt;Mozilla @ NAB 2019&lt;/a&gt; [April 2019 by Nathan Egge]&lt;/p&gt;
 &lt;/li&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.slideshare.net/secret/3aEhhmE38djgoo&#34;&gt;AOM - AV1How does it work?&lt;/a&gt; [July 2017 by Pascal Massimino]&lt;/p&gt;
+&lt;p&gt;&lt;a href="https://www.slideshare.net/secret/3aEhhmE38djgoo"&gt;AOM - AV1How does it work?&lt;/a&gt; [July 2017 by Pascal Massimino]&lt;/p&gt;
 &lt;/li&gt;
 &lt;/ul&gt;
-&lt;hr&gt; 
-&lt;h1 id=&#34;videos&#34;&gt;Videos&lt;/h1&gt;
+&lt;hr&gt;
+&lt;h1 id="videos"&gt;Videos&lt;/h1&gt;
 &lt;ul&gt;
 &lt;li&gt;
-&lt;p&gt;&lt;a href=&#34;https://www.youtube.com/watch?v=04lXWMcwdXA&#34;&gt;Video @Scale 2018 - Yue Chen, Google Yue Chen, Senior AV1 Engineer at Google, gives a technical overview of the AV1 video codec.&lt;/a&gt;&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>AV1 Ecosystem Update: April 2019</title>
-      <link>https://singhkays.com/blog/av1-ecosystem-update-april-2019/</link>
-      <pubDate>Mon, 06 May 2019 00:00:00 +0000</pubDate>
-      <guid>https://singhkays.com/blog/av1-ecosystem-update-april-2019/</guid>
-      <description>&lt;p&gt;It&amp;rsquo;s been an exciting time following the progress of the royalty free video codec AV1 over the past year and April might just be the most exciting active month in the amount of news we got about AV1! It&amp;rsquo;s not every day that media industry giants such as Netflix, Google, Mozilla, Microsoft, Apple, Amazon, ARM, Facebook, Nvidia, Intel, Cisco and many others agree on the same technology stack!&lt;/p&gt;
-&lt;h2 id=&#34;samsung-joins-the-party&#34;&gt;Samsung joins the party&lt;/h2&gt;
-&lt;p&gt;The month started with Samsung announcing they were joining the Alliance of Open Media Board at the highest level.&lt;/p&gt;</description>
-    </item>
-    <item>
-      <title>It&#39;s time to replace GIFs with AV1 video!</title>
-      <link>https://singhkays.com/blog/its-time-replace-gifs-with-av1-video/</link>
-      <pubDate>Sun, 28 Apr 2019 00:00:00 +0000</pubDate>
-      <guid>https://singhkays.com/blog/its-time-replace-gifs-with-av1-video/</guid>
-      <description>&lt;p&gt;It is 2019 and we need to make a decision about GIFs (&lt;a href=&#34;https://bits.blogs.nytimes.com/2013/05/23/battle-over-gif-pronunciation-erupts/&#34;&gt;no, not that
+&lt;p&gt;&lt;a href="https://www.youtube.com/watch?v=04lXWMcwdXA"&gt;Video @Scale 2018 - Yue Chen, Google Yue Chen, Senior AV1 Engineer at Google, gives a technical overview of the AV1 video codec.&lt;/a&gt;&lt;/p&gt;</description></item><item><title>AV1 Ecosystem Update: April 2019</title><link>https://singhkays.com/blog/av1-ecosystem-update-april-2019/</link><pubDate>Mon, 06 May 2019 00:00:00 +0000</pubDate><guid>https://singhkays.com/blog/av1-ecosystem-update-april-2019/</guid><description>&lt;p&gt;It&amp;rsquo;s been an exciting time following the progress of the royalty free video codec AV1 over the past year and April might just be the most exciting active month in the amount of news we got about AV1! It&amp;rsquo;s not every day that media industry giants such as Netflix, Google, Mozilla, Microsoft, Apple, Amazon, ARM, Facebook, Nvidia, Intel, Cisco and many others agree on the same technology stack!&lt;/p&gt;
+&lt;h2 id="samsung-joins-the-party"&gt;Samsung joins the party&lt;/h2&gt;
+&lt;p&gt;The month started with Samsung announcing they were joining the Alliance of Open Media Board at the highest level.&lt;/p&gt;</description></item><item><title>It's time to replace GIFs with AV1 video!</title><link>https://singhkays.com/blog/its-time-replace-gifs-with-av1-video/</link><pubDate>Sun, 28 Apr 2019 00:00:00 +0000</pubDate><guid>https://singhkays.com/blog/its-time-replace-gifs-with-av1-video/</guid><description>&lt;p&gt;It is 2019 and we need to make a decision about GIFs (&lt;a href="https://bits.blogs.nytimes.com/2013/05/23/battle-over-gif-pronunciation-erupts/"&gt;no, not that
 one! We’re never going to be able to decide that
 one!&lt;/a&gt;).
 GIFs take up a massive amount of space &lt;em&gt;(often multiple megabytes!)&lt;/em&gt; and
 if you’re a web developer, then that’s completely against your ethos! As a
 web developer, you want to minimize the bits your users need to download
 so that your website loads fast. That’s why you minify javascript,
-optimize PNGs, JPEGs and sometimes turn &lt;a href=&#34;https://developers.google.com/speed/webp/&#34;&gt;JPEGs to WebPs as
+optimize PNGs, JPEGs and sometimes turn &lt;a href="https://developers.google.com/speed/webp/"&gt;JPEGs to WebPs as
 well&lt;/a&gt;. But then what about
-the venerable GIF?&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+the venerable GIF?&lt;/p&gt;</description></item></channel></rss>
