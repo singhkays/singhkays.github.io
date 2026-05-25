@@ -3,7 +3,7 @@
 &lt;p&gt;&lt;img loading="lazy" src="https://imgs.xkcd.com/comics/standards.png" alt="XKCD on Standards" &gt;&lt;/p&gt;
 &lt;p&gt;But when the AV1 1.0.0 spec was finalized in 2018, with the backing of so many giants, the world knew AV1 would be a serious piece of tech. With the spec finalized, the race was on to get AV1 integrated into your favorite software &amp;amp; hardware for encoding, decoding, and viewing media. By the end of 2018, AV1 adoption was moving at a healthy pace and completed significant milestones necessary to mainstream adoption. Some of these were:&lt;/p&gt;</description></item><item><title>AV1 Ecosystem Update: August 2019</title><link>https://singhkays.com/blog/av1-ecosystem-update-august-2019/</link><pubDate>Tue, 03 Sep 2019 00:00:00 +0000</pubDate><guid>https://singhkays.com/blog/av1-ecosystem-update-august-2019/</guid><description>&lt;p&gt;&lt;img loading="lazy" decoding="async"
 srcset="https://singhkays.com/blog/av1-ecosystem-update-august-2019/media/dav1d-logo-0.4.0-release-cheetah_hu_75153521aee720b7.png 480w, https://singhkays.com/blog/av1-ecosystem-update-august-2019/media/dav1d-logo-0.4.0-release-cheetah_hu_511d84f4813036e8.png 800w, https://singhkays.com/blog/av1-ecosystem-update-august-2019/media/dav1d-logo-0.4.0-release-cheetah_hu_cb2a89c2fad310fa.png 974w"
-src="https://singhkays.com/blog/av1-ecosystem-update-august-2019/media/dav1d-logo-0.4.0-release-cheetah_hu_cb2a89c2fad310fa.png"
+src="https://singhkays.com/blog/av1-ecosystem-update-august-2019/media/dav1d-logo-0.4.0-release-cheetah_hu_511d84f4813036e8.png"
 sizes="(min-width: 768px) 800px, 100vw"
 width="974"
 height="260"
@@ -47,7 +47,7 @@ alt="dav1d logo"
 &lt;p&gt;May also saw the most number of commits to the SVT-AV1 Github repo as shown by the graph below. &lt;a href="https://github.com/OpenVisualCloud/SVT-AV1/pulls?utf8=%E2%9C%93&amp;amp;q=is%3Apr+is%3Amerged+merged%3A2019-05-01..2019-06-01"&gt;There were also 40 PRs merged in the month of May&lt;/a&gt;.
 &lt;img loading="lazy" decoding="async"
 srcset="https://singhkays.com/blog/av1-ecosystem-update-may-2019/media/svt-av1-commits-may-2019_hu_f709cc9a0a837eb4.png 480w, https://singhkays.com/blog/av1-ecosystem-update-may-2019/media/svt-av1-commits-may-2019_hu_5e33eec83eef1920.png 800w, https://singhkays.com/blog/av1-ecosystem-update-may-2019/media/svt-av1-commits-may-2019_hu_ff882f4705269be4.png 1200w, https://singhkays.com/blog/av1-ecosystem-update-may-2019/media/svt-av1-commits-may-2019_hu_7c3b727469518de7.png 1551w"
-src="https://singhkays.com/blog/av1-ecosystem-update-may-2019/media/svt-av1-commits-may-2019_hu_7c3b727469518de7.png"
+src="https://singhkays.com/blog/av1-ecosystem-update-may-2019/media/svt-av1-commits-may-2019_hu_5e33eec83eef1920.png"
 sizes="(min-width: 768px) 800px, 100vw"
 width="1551"
 height="346"
